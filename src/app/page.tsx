@@ -1,6 +1,4 @@
 'use client';
-// Remove unused imports to fix linting issues
-import { BackgroundBeams } from '@/components/background-beams';
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -13,8 +11,19 @@ import { Sheet, SheetTrigger, SheetContent } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 import { handleSmoothScroll } from '@/lib/smooth-scroll';
 
-const Section = ({ id, children, className = '' }: { id: string; children: React.ReactNode; className?: string }) => (
-  <section id={id} className={`min-h-screen flex items-center justify-center py-20 px-4 relative z-10 ${className}`}>
+const Section = ({ 
+  id, 
+  children, 
+  className = '' 
+}: { 
+  id: string; 
+  children: React.ReactNode; 
+  className?: string 
+}) => (
+  <section 
+    id={id} 
+    className={`min-h-screen flex items-center justify-center py-20 px-4 relative z-10 ${className}`}
+  >
     <div className="max-w-6xl mx-auto w-full">
       {children}
     </div>
@@ -48,10 +57,12 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen relative">
-      <BackgroundBeams />
-      <header className="fixed top-0 left-0 right-0 z-20 p-4">
-        <nav className="max-w-7xl mx-auto backdrop-blur-sm bg-white/5 border border-white/10 shadow-lg shadow-emerald-500/5 rounded-full px-6 py-3 flex items-center justify-between transition-all duration-300 hover:bg-white/10">
+    <div className="relative min-h-screen">
+      <main className="relative z-10">
+
+      {/* header */}
+      <header className="sticky top-10 left-0 right-0 z-20">
+        <nav className="max-w-7xl mx-auto backdrop-blur-xs bg-white/5 border border-white/10 shadow-lg shadow-emerald-500/5 rounded-full px-6 py-3 flex items-center justify-between transition-all duration-300 hover:bg-white/10">
           <button 
             onClick={() => scrollToSection('hero')} 
             className="flex items-center font-['Space_Mono'] font-bold hover:opacity-80 transition-opacity"
@@ -116,9 +127,6 @@ export default function Home() {
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 font-['Space_Mono']">
             Hi, I&apos;m <span className="text-emerald-400">MC</span>
           </h1>
-          <p className="text-xl text-neutral-300 mb-8 max-w-2xl mx-auto">
-            Full Stack Developer & Problem Solver
-          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               onClick={() => scrollToSection('projects')}
@@ -139,7 +147,7 @@ export default function Home() {
       </Section>
 
       {/* About Section */}
-      <Section id="about" className="bg-white/5 backdrop-blur-sm">
+      <Section id="about" className="bg-white/5 backdrop-blur-[2px]">
         <div>
           <SectionTitle>About Me</SectionTitle>
           <div className="grid md:grid-cols-2 gap-12 items-start">
@@ -304,7 +312,7 @@ export default function Home() {
       </Section>
 
       {/* Projects Section */}
-      <Section id="projects" className="bg-neutral-900/50">
+      <Section id="projects" className="bg-white/5 backdrop-blur-[2px]">
         <div>
           <SectionTitle>My Projects</SectionTitle>
           <div className="grid md:grid-cols-2 gap-6">
@@ -462,7 +470,7 @@ export default function Home() {
       </Section>
 
       {/* Contact Section */}
-      <Section id="contacts" className="bg-neutral-900/50">
+      <Section id="contacts">
         <div className="text-center">
           <SectionTitle>Get In Touch</SectionTitle>
           <p className="text-xl text-neutral-300 mb-12 max-w-2xl mx-auto">
@@ -618,6 +626,7 @@ export default function Home() {
           </div>
         </div>
       </Section>
-    </main>
+      </main>
+    </div>
   );
 }

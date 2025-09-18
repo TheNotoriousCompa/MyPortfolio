@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
-
+ 
 export const BackgroundBeams = React.memo(
   ({ className }: { className?: string }) => {
     const paths = [
@@ -60,26 +60,12 @@ export const BackgroundBeams = React.memo(
     return (
       <div
         className={cn(
-          "fixed top-0 left-0 right-0 bottom-0 -z-10 pointer-events-none overflow-hidden",
+          "absolute inset-0 w-100% h-100% [mask-repeat:no-repeat] [mask-size:40px]",
           className,
         )}
-        style={{
-          background: 'linear-gradient(to bottom, rgba(10, 10, 10, 0.95), rgba(10, 10, 10, 0.9))',
-          minWidth: '1200px',
-          minHeight: '800px',
-          width: '100%',
-          height: '100%',
-          margin: 'auto'
-        }}
       >
         <svg
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full"
-          style={{
-            opacity: 0.7,
-            background: 'radial-gradient(circle at center, rgba(15, 15, 20, 0.8) 0%, rgba(5, 5, 10, 0.95) 100%)',
-            minWidth: '1200px',
-            minHeight: '800px'
-          }}
+          className="pointer-events-none absolute z-0 h-full w-full"
           width="100%"
           height="100%"
           viewBox="0 0 696 316"
@@ -92,7 +78,7 @@ export const BackgroundBeams = React.memo(
             strokeOpacity="0.05"
             strokeWidth="0.5"
           ></path>
-
+ 
           {paths.map((path, index) => (
             <motion.path
               key={`path-` + index}
@@ -128,11 +114,11 @@ export const BackgroundBeams = React.memo(
               >
                 <stop stopColor="#18CCFC" stopOpacity="0"></stop>
                 <stop stopColor="#18CCFC"></stop>
-                <stop offset="32.5%" stopColor="#10B981"></stop>
+                <stop offset="32.5%" stopColor="#6344F5"></stop>
                 <stop offset="100%" stopColor="#AE48FF" stopOpacity="0"></stop>
               </motion.linearGradient>
             ))}
-
+ 
             <radialGradient
               id="paint0_radial_242_278"
               cx="0"
@@ -143,7 +129,7 @@ export const BackgroundBeams = React.memo(
             >
               <stop offset="0.0666667" stopColor="#d4d4d4"></stop>
               <stop offset="0.243243" stopColor="#d4d4d4"></stop>
-              <stop offset="0.43594" stopColor="white" stopOpacity="0"></stop>
+              <stop offset="0.43594" stopColor="white" stopOpacity="0.5"></stop>
             </radialGradient>
           </defs>
         </svg>
@@ -151,5 +137,5 @@ export const BackgroundBeams = React.memo(
     );
   },
 );
-
+ 
 BackgroundBeams.displayName = "BackgroundBeams";
