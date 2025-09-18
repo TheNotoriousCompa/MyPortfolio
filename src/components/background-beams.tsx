@@ -60,15 +60,20 @@ export const BackgroundBeams = React.memo(
     return (
       <div
         className={cn(
-          "absolute inset-0 w-100% h-100% [mask-repeat:no-repeat] [mask-size:40px]",
+          "fixed inset-0 w-screen h-screen [mask-repeat:no-repeat] [mask-size:40px] overflow-hidden",
+          "mobile:h-screen mobile:w-screen",
           className,
         )}
+        style={{
+          willChange: 'transform',
+          transformStyle: 'preserve-3d',
+          backfaceVisibility: 'hidden',
+        }}
       >
         <svg
-          className="pointer-events-none absolute z-0 h-full w-full"
-          width="100%"
-          height="100%"
+          className="pointer-events-none absolute inset-0 w-full h-full min-w-full min-h-full"
           viewBox="0 0 696 316"
+          preserveAspectRatio="xMidYMid slice"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -81,12 +86,13 @@ export const BackgroundBeams = React.memo(
  
           {paths.map((path, index) => (
             <motion.path
-              key={`path-` + index}
+              key={`path-${index}`}
               d={path}
               stroke={`url(#linearGradient-${index})`}
               strokeOpacity="0.4"
               strokeWidth="0.5"
-            ></motion.path>
+              vectorEffect="non-scaling-stroke"
+            />
           ))}
           <defs>
             {paths.map((path, index) => (
