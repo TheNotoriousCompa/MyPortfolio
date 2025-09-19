@@ -22,7 +22,7 @@ export function Projects() {
     {
       id: 'portfolio',
       title: 'Portfolio Website',
-      description: 'My personal portfolio website built with Next.js, Tailwind CSS, and TypeScript. Features a modern, responsive design with smooth scrolling navigation and interactive elements.',
+      description: 'My personal website built with Next.js, Tailwind CSS, and TypeScript. Features a modern, responsive design with smooth scrolling navigation and interactive elements. Here anyone can post something and you can see some of my reviews on various pieces of media',
       technologies: ['Next.js', 'React', 'TypeScript', 'TailwindCSS', 'Shadcn/UI'],
       links: [
         {

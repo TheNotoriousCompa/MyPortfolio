@@ -1,9 +1,9 @@
 'use client';
 
+import * as React from 'react';
+import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink } from "@/components/ui/navigation-menu"
-import { Button } from "./ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet"
 
 interface Section {
   id: string;
@@ -17,64 +17,156 @@ interface HeaderProps {
 }
 
 export function Header({ sections, scrollToSection, handleSmoothScroll }: HeaderProps) {
+  const [open, setOpen] = React.useState(false);
+
+  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    handleSmoothScroll(e, id);
+    setOpen(false);
+  };
+
+  const toggleMenu = () => {
+    setOpen(prev => !prev);
+  };
+
+  const closeMenu = () => {
+    setOpen(false);
+  };
+
   return (
-    <header className="sticky top-10 left-0 right-0 z-20 px-4 sm:px-6">
-      <nav className="max-w-7xl w-full mx-auto backdrop-blur-xs bg-white/5 border border-white/10 shadow-lg shadow-emerald-500/5 rounded-full px-4 sm:px-6 py-3 flex items-center justify-between transition-all duration-300 hover:bg-white/10">
+    <header className="sticky top-4 left-0 right-0 z-50 px-4 sm:px-6">
+     <nav className="relative max-w-7xl w-full mx-auto bg-white/5 backdrop-blur-[2px] border border-white/10 shadow-lg shadow-emerald-500/5 rounded-full px-4 sm:px-2 py-3 flex items-center justify-between transition-all duration-300 hover:bg-white/10">
+        
+        {/* Logo */}
         <button 
           onClick={() => scrollToSection('hero')} 
-          className="flex items-center font-['Space_Mono'] font-bold hover:opacity-80 transition-opacity"
+          className="flex items-center font-['Space_Mono'] font-bold hover:opacity-80 transition-opacity touch-manipulation"
         >
           <span className="text-emerald-400">{'<'}</span>
           <span className="text-white mx-1">MC</span>
           <span className="text-emerald-400">{'/>'}</span>
         </button>
         
+        {/* Desktop Navigation */}
         <NavigationMenu className="hidden md:block">
           <NavigationMenuList className="gap-2">
-            {sections.slice(1).map((section) => (
-              <NavigationMenuItem key={section.id}>
-                <NavigationMenuLink 
-                  href={`#${section.id}`}
-                  onClick={(e) => handleSmoothScroll(e, section.id)}
-                  className={cn(
-                    'data-[active]:bg-emerald-500/20 data-[active]:text-emerald-400',
-                    'bg-transparent hover:bg-emerald-500/10',
-                    'text-neutral-300 hover:text-white',
-                    'font-["Space_Mono"] font-bold',
-                    'transition-colors duration-200',
-                    'px-4 py-2 rounded-md text-sm font-medium'
-                  )}
-                >
-                  {section.label}
-                </NavigationMenuLink>
+            {sections.map((section) => (
+              <NavigationMenuItem key={section.id} className="relative group">
+                {section.id === 'gallery' ? (
+                  <NavigationMenuLink asChild>
+                    <a
+                      href="/gallery"
+                      className={cn(
+                        'relative px-4 py-2 text-sm font-medium font-["Space_Mono"]',
+                        'text-neutral-300 hover:text-white',
+                        'transition-all duration-200',
+                        'before:absolute before:inset-0 before:border-2 before:border-transparent',
+                        'before:rounded-md before:transition-all before:duration-300',
+                        'hover:before:border-emerald-500/50 hover:before:scale-105',
+                        'after:absolute after:inset-0 after:bg-emerald-500/10',
+                        'after:rounded-md after:opacity-0 after:transition-opacity',
+                        'hover:after:opacity-100',
+                        'z-0 overflow-hidden'
+                      )}
+                    >
+                      <span className="relative z-10">{section.label}</span>
+                    </a>
+                  </NavigationMenuLink>
+                ) : (
+                  <NavigationMenuLink
+                    href={`#${section.id}`}
+                    onClick={(e) => handleSmoothScroll(e, section.id)}
+                    className={cn(
+                      'relative px-4 py-2 text-sm font-medium font-["Space_Mono"]',
+                      'text-neutral-300 hover:text-white',
+                      'transition-all duration-200',
+                      'before:absolute before:inset-0 before:border-2 before:border-transparent',
+                      'before:rounded-md before:transition-all before:duration-300',
+                      'hover:before:border-emerald-500/50 hover:before:scale-105',
+                      'after:absolute after:inset-0 after:bg-emerald-500/10',
+                      'after:rounded-md after:opacity-0 after:transition-opacity',
+                      'hover:after:opacity-100',
+                      'z-0 overflow-hidden'
+                    )}
+                  >
+                    <span className="relative z-10">{section.label}</span>
+                  </NavigationMenuLink>
+                )}
               </NavigationMenuItem>
             ))}
           </NavigationMenuList>
         </NavigationMenu>
         
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="md:hidden text-neutral-300 hover:text-white hover:bg-white/10 font-['Space_Mono'] font-bold">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="top" className="bg-neutral-900/95 backdrop-blur-sm border-0 p-0">
-            <div className="flex flex-col space-y-4 mt-8 p-4">
-              {sections.slice(1).map((section) => (
-                <a 
-                  key={section.id}
-                  href={`#${section.id}`}
-                  onClick={(e) => handleSmoothScroll(e, section.id)}
-                  className="text-neutral-300 hover:text-white text-lg py-2 px-4 rounded-lg hover:bg-white/10 transition-colors font-['Space_Mono'] font-bold"
-                >
-                  {section.label}
-                </a>
-              ))}
+        {/* Mobile Navigation */}
+        <div className="md:hidden">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={toggleMenu}
+            className="text-neutral-300 hover:text-white hover:bg-white/10 font-['Space_Mono'] font-bold transition-all duration-300 touch-manipulation min-h-[44px] min-w-[44px]"
+            aria-label="Toggle navigation menu"
+          >
+            <div className="relative w-6 h-5 flex flex-col justify-center">
+              <span
+                className={cn(
+                  "block h-0.5 w-6 bg-current transition-all duration-300 ease-in-out",
+                  open ? "rotate-45 translate-y-[2px]" : "-translate-y-[6px]"
+                )}
+              />
+              <span
+                className={cn(
+                  "block h-0.5 w-6 bg-current transition-all duration-300 ease-in-out my-1.5",
+                  open ? "opacity-0" : "opacity-100"
+                )}
+              />
+              <span
+                className={cn(
+                  "block h-0.5 w-6 bg-current transition-all duration-300 ease-in-out",
+                  open ? "-rotate-45 -translate-y-[2px]" : "translate-y-[6px]"
+                )}
+              />
             </div>
-          </SheetContent>
-        </Sheet>
+            <span className="sr-only">Open navigation menu</span>
+          </Button>
+        </div>
+
+        {/* Sticky Menu */}
+          <div 
+            className={cn(
+              "md:hidden fixed left-1/2 -translate-x-1/2 top-20 z-50 bg-white/5 backdrop-blur-[2px] border border-white/10 shadow-2xl transition-all duration-300 ease-in-out overflow-hidden w-[calc(100%-2rem)] rounded-2xl",
+              open ? "max-h-[100vh] max-w-[100vw] opacity-100" : "max-h-0 max-w-0 opacity-0"
+            )}
+          >
+          <div className="w-full h-full flex justify-center">
+            <nav className="w-full max-w-xs py-4 space-y-2">
+              {sections.map((section) =>
+                section.id === "gallery" ? (
+                  <a
+                    key={section.id}
+                    href="/gallery"
+                    onClick={closeMenu}
+                    className="relative block w-full text-center px-6 py-3 text-base font-medium text-neutral-300 group transition-all duration-200 font-['Space_Mono'] touch-manipulation"
+                  >
+                    <span className="relative z-10">{section.label}</span>
+                    <span className="absolute inset-0 border-2 border-transparent rounded-lg group-hover:border-emerald-500/50 group-hover:scale-105 transition-all duration-300 -z-10"></span>
+                    <span className="absolute inset-0 bg-emerald-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 -z-20"></span>
+                  </a>
+                ) : (
+                  <a
+                    key={section.id}
+                    href={`#${section.id}`}
+                    onClick={(e) => handleNavigation(e, section.id)}
+                    className="relative block w-full text-center px-6 py-3 text-base font-medium text-neutral-300 group transition-all duration-200 font-['Space_Mono'] touch-manipulation"
+                  >
+                    <span className="relative z-10">{section.label}</span>
+                    <span className="absolute inset-0 border-2 border-transparent rounded-lg group-hover:border-emerald-500/50 group-hover:scale-105 transition-all duration-300 -z-10"></span>
+                    <span className="absolute inset-0 bg-emerald-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 -z-20"></span>
+                  </a>
+                )
+              )}
+            </nav>
+          </div>
+        </div>
       </nav>
     </header>
   );
