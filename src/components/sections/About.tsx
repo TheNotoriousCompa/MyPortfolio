@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { SectionTitle } from "./SectionTitle";
+import { SectionTitle } from "@/components/sections/SectionTitle";
 
 const skills = {
   webDev: ['HTML', 'CSS', 'JavaScript', 'React', 'Next.js', 'TailwindCSS', 'Shadcn'],

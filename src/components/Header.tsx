@@ -12,18 +12,10 @@ interface Section {
 
 interface HeaderProps {
   sections: Section[];
-  scrollToSection: (id: string) => void;
 }
 
-export function Header({ sections, scrollToSection }: HeaderProps) {
+export function Header({ sections }: HeaderProps) {
   const [open, setOpen] = React.useState(false);
-
-  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
-    // Always use the scrollToSection prop which is provided by the parent component
-    scrollToSection(id);
-    setOpen(false);
-  };
 
   const toggleMenu = () => {
     setOpen(prev => !prev);
@@ -47,14 +39,15 @@ export function Header({ sections, scrollToSection }: HeaderProps) {
        <nav className="relative max-w-7xl w-full mx-auto bg-white/5 backdrop-blur-[4px] border border-white/10 shadow-lg shadow-emerald-500/5 rounded-full px-4 sm:px-2 py-3 flex items-center justify-between transition-all duration-300 hover:bg-white/10">
         
         {/* Logo */}
-        <button 
-          onClick={() => scrollToSection('hero')} 
+        <a 
+          href="#hero"
           className="flex items-center font-['Space_Mono'] font-bold hover:opacity-80 transition-opacity touch-manipulation"
+          onClick={closeMenu}
         >
           <span className="text-emerald-400">{'<'}</span>
           <span className="text-white mx-1">MC</span>
           <span className="text-emerald-400">{'/>'}</span>
-        </button>
+        </a>
         
         {/* Desktop Navigation */}
         <NavigationMenu className="hidden md:block">
@@ -84,7 +77,7 @@ export function Header({ sections, scrollToSection }: HeaderProps) {
                 ) : (
                   <NavigationMenuLink
                     href={`#${section.id}`}
-                    onClick={(e) => handleNavigation(e, section.id)}
+                    onClick={closeMenu}
                     className={cn(
                       'relative px-4 py-2 text-sm font-medium font-["Space_Mono"]',
                       'text-neutral-300 hover:text-white',
@@ -166,7 +159,7 @@ export function Header({ sections, scrollToSection }: HeaderProps) {
                   <a
                     key={section.id}
                     href={`#${section.id}`}
-                    onClick={(e) => handleNavigation(e, section.id)}
+                    onClick={closeMenu}
                     className="relative block w-full text-center px-6 py-3 text-base font-medium text-neutral-300 group transition-all duration-200 font-['Space_Mono'] touch-manipulation"
                   >
                     <span className="relative z-10">{section.label}</span>

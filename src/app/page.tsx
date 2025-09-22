@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import { handleSmoothScroll } from '@/lib/smooth-scroll';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { About } from '@/components/sections/About';
@@ -66,8 +65,6 @@ export default function Home() {
 
       <Header 
         sections={sections}
-        scrollToSection={scrollToSection}
-        handleSmoothScroll={handleSmoothScroll}
       />
 
       <Hero scrollToSection={scrollToSection} />
