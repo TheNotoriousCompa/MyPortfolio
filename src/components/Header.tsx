@@ -13,15 +13,15 @@ interface Section {
 interface HeaderProps {
   sections: Section[];
   scrollToSection: (id: string) => void;
-  handleSmoothScroll: (e: React.MouseEvent<HTMLAnchorElement>, id: string) => void;
 }
 
-export function Header({ sections, scrollToSection, handleSmoothScroll }: HeaderProps) {
+export function Header({ sections, scrollToSection }: HeaderProps) {
   const [open, setOpen] = React.useState(false);
 
   const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
-    handleSmoothScroll(e, id);
+    // Always use the scrollToSection prop which is provided by the parent component
+    scrollToSection(id);
     setOpen(false);
   };
 
@@ -34,8 +34,17 @@ export function Header({ sections, scrollToSection, handleSmoothScroll }: Header
   };
 
   return (
-    <header className="sticky top-4 left-0 right-0 z-50 px-4 sm:px-6">
-     <nav className="relative max-w-7xl w-full mx-auto bg-white/5 backdrop-blur-[2px] border border-white/10 shadow-lg shadow-emerald-500/5 rounded-full px-4 sm:px-2 py-3 flex items-center justify-between transition-all duration-300 hover:bg-white/10">
+    <>
+      {/* Mobile Menu Backdrop */}
+      {open && (
+        <div 
+          className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm"
+          onClick={closeMenu}
+        />
+      )}
+      
+      <header className="sticky top-4 left-0 right-0 z-50 px-4 sm:px-6">
+       <nav className="relative max-w-7xl w-full mx-auto bg-white/5 backdrop-blur-[4px] border border-white/10 shadow-lg shadow-emerald-500/5 rounded-full px-4 sm:px-2 py-3 flex items-center justify-between transition-all duration-300 hover:bg-white/10">
         
         {/* Logo */}
         <button 
@@ -75,10 +84,11 @@ export function Header({ sections, scrollToSection, handleSmoothScroll }: Header
                 ) : (
                   <NavigationMenuLink
                     href={`#${section.id}`}
-                    onClick={(e) => handleSmoothScroll(e, section.id)}
+                    onClick={(e) => handleNavigation(e, section.id)}
                     className={cn(
                       'relative px-4 py-2 text-sm font-medium font-["Space_Mono"]',
                       'text-neutral-300 hover:text-white',
+                      'cursor-pointer',
                       'transition-all duration-200',
                       'before:absolute before:inset-0 before:border-2 before:border-transparent',
                       'before:rounded-md before:transition-all before:duration-300',
@@ -106,23 +116,23 @@ export function Header({ sections, scrollToSection, handleSmoothScroll }: Header
             className="text-neutral-300 hover:text-white hover:bg-white/10 font-['Space_Mono'] font-bold transition-all duration-300 touch-manipulation min-h-[44px] min-w-[44px]"
             aria-label="Toggle navigation menu"
           >
-            <div className="relative w-6 h-5 flex flex-col justify-center">
+            <div className="relative w-6 h-6 flex items-center justify-center">
               <span
                 className={cn(
                   "block h-0.5 w-6 bg-current transition-all duration-300 ease-in-out",
-                  open ? "rotate-45 translate-y-[2px]" : "-translate-y-[6px]"
+                  open ? "rotate-45" : "-translate-y-1.5"
                 )}
               />
               <span
                 className={cn(
-                  "block h-0.5 w-6 bg-current transition-all duration-300 ease-in-out my-1.5",
+                  "absolute h-0.5 w-6 bg-current transition-all duration-300 ease-in-out",
                   open ? "opacity-0" : "opacity-100"
                 )}
               />
               <span
                 className={cn(
-                  "block h-0.5 w-6 bg-current transition-all duration-300 ease-in-out",
-                  open ? "-rotate-45 -translate-y-[2px]" : "translate-y-[6px]"
+                  "block h-0.5 w-6 bg-current transition-all duration-300 ease-in-out absolute",
+                  open ? "-rotate-45" : "translate-y-1.5"
                 )}
               />
             </div>
@@ -131,9 +141,10 @@ export function Header({ sections, scrollToSection, handleSmoothScroll }: Header
         </div>
 
         {/* Sticky Menu */}
+        
           <div 
             className={cn(
-              "md:hidden fixed left-1/2 -translate-x-1/2 top-20 z-50 bg-white/5 backdrop-blur-[2px] border border-white/10 shadow-2xl transition-all duration-300 ease-in-out overflow-hidden w-[calc(100%-2rem)] rounded-2xl",
+             "md:hidden fixed left-1/2 -translate-x-1/2 top-20 z-50 backdrop-blur-lg border border-white/10 shadow-2xl transition-all duration-300 ease-in-out overflow-hidden w-[calc(100%-2rem)] rounded-2xl",
               open ? "max-h-[100vh] max-w-[100vw] opacity-100" : "max-h-0 max-w-0 opacity-0"
             )}
           >
@@ -169,5 +180,6 @@ export function Header({ sections, scrollToSection, handleSmoothScroll }: Header
         </div>
       </nav>
     </header>
+    </>
   );
 }

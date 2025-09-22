@@ -1,6 +1,6 @@
 'use client';
 
-import { SectionTitle } from "@/components/SectionTitle";
+import { SectionTitle } from "@/components/sections/SectionTitle";
 
 interface Project {
   id: string;
@@ -20,8 +20,23 @@ interface Project {
 export function Projects() {
   const projects: Project[] = [
     {
-      id: 'portfolio',
+      id: 'portfolio-v2',
       title: 'Portfolio Website',
+      description: 'This very website you are on! A modern, responsive portfolio built with Next.js, TypeScript, and Tailwind CSS. Features a clean design with smooth animations and interactive elements to showcase my work and skills.',
+      technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Shadcn/UI', 'Framer Motion'],
+      links: [
+        {
+          type: 'github',
+          url: 'https://github.com/TheNotoriousCompa/MyPortoflio',
+          label: 'View on GitHub'
+        }
+      ],
+      icon: '✨',
+      gradient: 'from-purple-500/10 to-blue-500/10'
+    },
+    {
+      id: 'portfolio',
+      title: 'My first website',
       description: 'My personal website built with Next.js, Tailwind CSS, and TypeScript. Features a modern, responsive design with smooth scrolling navigation and interactive elements. Here anyone can post something and you can see some of my reviews on various pieces of media',
       technologies: ['Next.js', 'React', 'TypeScript', 'TailwindCSS', 'Shadcn/UI'],
       links: [
@@ -52,14 +67,13 @@ export function Projects() {
     {
       id: 'keyboard-renders',
       title: '3D Keyboards Render',
-      description: 'High-quality 3D renders of custom mechanical keyboards, showcasing different keycap sets, cases, and lighting effects. Created using Blender and Substance Painter.',
+      description: 'High-quality 3D renders of custom mechanical keyboards, showcasing different keycap sets, cases, and lighting effects. Created using Blender.',
       technologies: ['Blender', 'Substance Painter', '3D Modeling', 'Texturing', 'Rendering'],
       links: [
         {
           type: 'gallery',
-          url: '#',
-          label: 'View Gallery',
-          disabled: true
+          url: '/gallery',
+          label: 'View Gallery'
         }
       ],
       icon: '⌨️',
@@ -68,14 +82,13 @@ export function Projects() {
     {
       id: 'pc-building',
       title: 'PC Building Consultant',
-      description: 'Provided personalized PC building consultations, helping friends and clients select optimal components based on their budget and needs, from budget builds to high-end gaming rigs.',
+      description: 'Provided personalized PC building consultations, helping friends, clients and companies select optimal components based on their budget and needs, from budget builds to high-end gaming rigs.',
       technologies: ['PC Building', 'Component Selection', 'Troubleshooting', 'Cable Management', 'Performance Tuning'],
       links: [
         {
           type: 'gallery',
-          url: '#',
-          label: 'View Builds',
-          disabled: true
+          url: 'https://mltech.store',
+          label: 'View Builds'
         }
       ],
       icon: '💻',

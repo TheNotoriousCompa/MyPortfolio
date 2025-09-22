@@ -1,12 +1,13 @@
 'use client';
+import React from 'react';
 import { handleSmoothScroll } from '@/lib/smooth-scroll';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
-import { About } from '@/components/About';
-import { Education } from '@/components/Education';
-import { Experience } from '@/components/Experience';
-import { Projects } from '@/components/Projects';
-import { Contact } from '@/components/Contact';
+import { About } from '@/components/sections/About';
+import { Education } from '@/components/sections/Education';
+import { Experience } from '@/components/sections/Experience';
+import { Projects } from '@/components/sections/Projects';
+import { Contact } from '@/components/sections/Contact';
 
 
 export default function Home() {
@@ -17,6 +18,36 @@ export default function Home() {
     { id: 'projects', label: 'My Projects' },
     { id: 'contacts', label: 'Contacts' },
   ];
+
+  React.useEffect(() => {
+    // Handle hash-based navigation when page loads
+    const scrollToHash = () => {
+      const hash = window.location.hash.substring(1);
+      if (hash) {
+        // Small delay to ensure the page is fully rendered
+        setTimeout(() => {
+          const element = document.getElementById(hash);
+          if (element) {
+            element.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+            });
+          }
+        }, 50);
+      }
+    };
+
+    // Run once on mount
+    scrollToHash();
+
+    // Also handle hash changes
+    const handleHashChange = () => {
+      scrollToHash();
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);

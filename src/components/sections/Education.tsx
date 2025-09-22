@@ -1,6 +1,6 @@
 'use client';
 
-import { SectionTitle } from "@/components/SectionTitle";
+import { SectionTitle } from "@/components/sections/SectionTitle";
 
 interface EducationItem {
   id: string;

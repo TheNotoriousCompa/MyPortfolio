@@ -1,6 +1,6 @@
 'use client';
 
-import { SectionTitle } from './SectionTitle';
+import { SectionTitle } from '@/components/sections/SectionTitle';
 
 export const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
@@ -86,7 +86,7 @@ export const Contact = () => {
                   </svg>
                 </a>
                 <a 
-                  href="#" 
+                  href="https://www.linkedin.com/in/maurizio-compagnone-5a6937222/" 
                   className="text-neutral-400 hover:text-white transition-colors p-2"
                   aria-label="LinkedIn"
                 >
