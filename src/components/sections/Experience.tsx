@@ -44,6 +44,14 @@ export function Experience() {
 
   return (
     <section id="experience" className="min-h-screen flex items-center justify-center py-20 px-4 relative z-10">
+      <div 
+        className="absolute inset-0"
+        style={{
+          transform: 'translateZ(0)',
+          backfaceVisibility: 'hidden',
+          willChange: 'transform, opacity'
+        }}
+      />
       <div className="max-w-6xl mx-auto w-full">
         <div>
           <SectionTitle>Experience</SectionTitle>

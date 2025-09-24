@@ -182,10 +182,54 @@ img, video, canvas, svg {
 }
 
 @layer base {
+  /* stylelint-disable at-rule-no-unknown */
   * {
     @apply border-border outline-ring/50;
+    scroll-behavior: smooth;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
+  /* stylelint-enable at-rule-no-unknown */
+  
+  html {
+    scroll-padding-top: 5rem; /* Height of your header */
+  }
+  
   body {
     @apply bg-background text-foreground;
+  }
+  
+  /* Smooth section transitions */
+  section {
+    scroll-margin-top: 5rem; /* Match header height */
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  }
+  
+  /* Smooth header transitions */
+  header {
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  }
+  
+  /* Custom smooth scrolling */
+  html {
+    scroll-behavior: auto; /* Disable default smooth scrolling */
+  }
+  
+  /* Custom scroll animation */
+  @media (prefers-reduced-motion: no-preference) {
+    html.smooth-scroll {
+      scroll-behavior: smooth;
+    }
+  }
+  
+  /* Smooth scroll target */
+  [id] {
+    scroll-margin-top: 5.5rem; /* Slightly more than header height */
+  }
+  
+  /* Animation timing */
+  :root {
+    --scroll-time: 0.8s;
+    --scroll-easing: cubic-bezier(0.25, 0.1, 0.25, 1);
   }
 }

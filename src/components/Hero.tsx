@@ -11,7 +11,7 @@ export function Hero({ scrollToSection }: HeroProps) {
     <section id="hero" className="min-h-screen flex items-center justify-center py-20 px-4 relative z-10">
       <div className="max-w-6xl mx-auto w-full">
         <div className="text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 font-['Space_Mono']">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 font-space-mono">
             Hi, I&apos;m <span className="text-emerald-400">MC</span>
           </h1>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

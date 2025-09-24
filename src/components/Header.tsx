@@ -36,12 +36,12 @@ export function Header({ sections }: HeaderProps) {
       )}
       
       <header className="sticky top-4 left-0 right-0 z-50 px-4 sm:px-6">
-       <nav className="relative max-w-7xl w-full mx-auto bg-white/5 backdrop-blur-[4px] border border-white/10 shadow-lg shadow-emerald-500/5 rounded-full px-4 sm:px-2 py-3 flex items-center justify-between transition-all duration-300 hover:bg-white/10">
+       <nav className="relative max-w-7xl w-full mx-auto bg-white/5 backdrop-blur-[4px] border border-white/10 shadow-lg shadow-emerald-500/5 rounded-full px-4 sm:px-2 py-3 flex items-center justify-between">
         
         {/* Logo */}
         <a 
           href="#hero"
-          className="flex items-center font-['Space_Mono'] font-bold hover:opacity-80 transition-opacity touch-manipulation"
+          className="flex items-center font-bold hover:opacity-80 transition-opacity touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           onClick={closeMenu}
         >
           <span className="text-emerald-400">{'<'}</span>
@@ -59,19 +59,20 @@ export function Header({ sections }: HeaderProps) {
                     <a
                       href="/gallery"
                       className={cn(
-                        'relative px-4 py-2 text-sm font-medium font-["Space_Mono"]',
+                        'relative px-4 py-2 text-sm font-medium',
                         'text-neutral-300 hover:text-white',
                         'transition-all duration-200',
-                        'before:absolute before:inset-0 before:border-2 before:border-transparent',
-                        'before:rounded-md before:transition-all before:duration-300',
-                        'hover:before:border-emerald-500/50 hover:before:scale-105',
-                        'after:absolute after:inset-0 after:bg-emerald-500/10',
-                        'after:rounded-md after:opacity-0 after:transition-opacity',
-                        'hover:after:opacity-100',
-                        'z-0 overflow-hidden'
+                        'overflow-hidden group/link',
+                        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2'
                       )}
                     >
                       <span className="relative z-10">{section.label}</span>
+                      <span 
+                        className="absolute inset-0 border-2 border-transparent rounded-md transition-transform duration-200 group-hover/link:border-emerald-500/50 -z-10" 
+                      ></span>
+                      <span 
+                        className="absolute inset-0 bg-emerald-500/10 rounded-md opacity-0 transition-opacity duration-150 group-hover/link:opacity-100 -z-20"
+                      ></span>
                     </a>
                   </NavigationMenuLink>
                 ) : (
@@ -79,20 +80,17 @@ export function Header({ sections }: HeaderProps) {
                     href={`#${section.id}`}
                     onClick={closeMenu}
                     className={cn(
-                      'relative px-4 py-2 text-sm font-medium font-["Space_Mono"]',
+                      'relative px-4 py-2 text-sm font-medium',
                       'text-neutral-300 hover:text-white',
                       'cursor-pointer',
                       'transition-all duration-200',
-                      'before:absolute before:inset-0 before:border-2 before:border-transparent',
-                      'before:rounded-md before:transition-all before:duration-300',
-                      'hover:before:border-emerald-500/50 hover:before:scale-105',
-                      'after:absolute after:inset-0 after:bg-emerald-500/10',
-                      'after:rounded-md after:opacity-0 after:transition-opacity',
-                      'hover:after:opacity-100',
-                      'z-0 overflow-hidden'
+                      'overflow-hidden group/link',
+                      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2'
                     )}
                   >
                     <span className="relative z-10">{section.label}</span>
+                    <span className="absolute inset-0 border-2 border-transparent rounded-md transition-transform duration-200 group-hover/link:border-emerald-500/50 -z-10"></span>
+                    <span className="absolute inset-0 bg-emerald-500/10 rounded-md opacity-0 transition-opacity duration-150 group-hover/link:opacity-100 -z-20"></span>
                   </NavigationMenuLink>
                 )}
               </NavigationMenuItem>
@@ -106,7 +104,7 @@ export function Header({ sections }: HeaderProps) {
             variant="ghost" 
             size="icon" 
             onClick={toggleMenu}
-            className="text-neutral-300 hover:text-white hover:bg-white/10 font-['Space_Mono'] font-bold transition-all duration-300 touch-manipulation min-h-[44px] min-w-[44px]"
+            className="text-neutral-300 hover:text-white hover:bg-white/10 font-bold transition-all duration-300 touch-manipulation min-h-[44px] min-w-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             aria-label="Toggle navigation menu"
           >
             <div className="relative w-6 h-6 flex items-center justify-center">
@@ -137,8 +135,8 @@ export function Header({ sections }: HeaderProps) {
         
           <div 
             className={cn(
-             "md:hidden fixed left-1/2 -translate-x-1/2 top-20 z-50 backdrop-blur-lg border border-white/10 shadow-2xl transition-all duration-300 ease-in-out overflow-hidden w-[calc(100%-2rem)] rounded-2xl",
-              open ? "max-h-[100vh] max-w-[100vw] opacity-100" : "max-h-0 max-w-0 opacity-0"
+              "md:hidden fixed left-1/2 -translate-x-1/2 top-20 z-50 backdrop-blur-lg border border-white/10 shadow-2xl transition-all duration-200 ease-out overflow-hidden w-[calc(100%-2rem)] rounded-2xl",
+              open ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0"
             )}
           >
           <div className="w-full h-full flex justify-center">
@@ -149,22 +147,18 @@ export function Header({ sections }: HeaderProps) {
                     key={section.id}
                     href="/gallery"
                     onClick={closeMenu}
-                    className="relative block w-full text-center px-6 py-3 text-base font-medium text-neutral-300 group transition-all duration-200 font-['Space_Mono'] touch-manipulation"
+                    className="relative block w-full text-center px-6 py-3 text-base font-medium text-neutral-300 touch-manipulation"
                   >
-                    <span className="relative z-10">{section.label}</span>
-                    <span className="absolute inset-0 border-2 border-transparent rounded-lg group-hover:border-emerald-500/50 group-hover:scale-105 transition-all duration-300 -z-10"></span>
-                    <span className="absolute inset-0 bg-emerald-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 -z-20"></span>
+                    <span className="relative">{section.label}</span>
                   </a>
                 ) : (
                   <a
                     key={section.id}
                     href={`#${section.id}`}
                     onClick={closeMenu}
-                    className="relative block w-full text-center px-6 py-3 text-base font-medium text-neutral-300 group transition-all duration-200 font-['Space_Mono'] touch-manipulation"
+                    className="relative block w-full text-center px-6 py-3 text-base font-medium text-neutral-300 touch-manipulation"
                   >
-                    <span className="relative z-10">{section.label}</span>
-                    <span className="absolute inset-0 border-2 border-transparent rounded-lg group-hover:border-emerald-500/50 group-hover:scale-105 transition-all duration-300 -z-10"></span>
-                    <span className="absolute inset-0 bg-emerald-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 -z-20"></span>
+                    <span className="relative">{section.label}</span>
                   </a>
                 )
               )}

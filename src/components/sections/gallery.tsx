@@ -3,8 +3,7 @@
 import Image from 'next/image';
 import { useEffect, useRef, useMemo } from 'react';
 
-const images = Array.from({ length: 41 }, (_, i) => `/gallery/image${i + 1}.jpg`);
-
+// Keep the shuffle function for randomizing image order
 function shuffleArray<T>(arr: T[]) {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
@@ -36,9 +35,13 @@ export function ScrollingRow({
   const lastRef = useRef<number | null>(null);
   const pausedRef = useRef(false);
 
-  // stable shuffle per mount
-  const shuffled = useMemo(() => shuffleArray(images), [images]);
-  const loopList = useMemo(() => [...shuffled, ...shuffled], [shuffled]);
+  // Create a shuffled and duplicated list of images for seamless scrolling
+  const loopList = useMemo(() => {
+    // Use the provided images prop and shuffle them
+    const shuffled = shuffleArray([...images]);
+    // Duplicate the array to create seamless loop
+    return [...shuffled, ...shuffled];
+  }, [images]);
 
   // initialize offset (can be used to desync rows)
   useEffect(() => {
@@ -126,8 +129,8 @@ export function ScrollingRow({
             key={i}
             className="relative overflow-hidden rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
             style={{
-              minWidth: '400px',
-              height: '300px',
+              minWidth: '300px',
+              height: '200px',
               flexShrink: 0,
             }}
           >
@@ -146,26 +149,35 @@ export function ScrollingRow({
   );
 }
 
-export default function Gallery() {
-  return (
-    <section id="projects" className="py-16 overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="space-y-8">
-          <ScrollingRow images={images} />
-          <ScrollingRow images={images} reverse />
-          <ScrollingRow images={images} speed={40} />
-          <ScrollingRow images={images} reverse speed={80} />
-        </div>
-      </div>
+// Main Gallery component that renders multiple ScrollingRows
+function Gallery() {
+  // Generate image paths
+  const imagePaths = useMemo(() => {
+    return Array.from({ length: 41 }, (_, i) => `/gallery/image${i + 1}.jpg`);
+  }, []);
 
-      <style jsx global>{`
-        @media (prefers-reduced-motion: reduce) {
-          .animate-scroll,
-          .animate-scroll-reverse {
-            animation: none;
-          }
-        }
-      `}</style>
-    </section>
+  return (
+    <div className="space-y-8">
+      <h2 className="text-3xl font-bold text-center mb-8">Gallery</h2>
+      <ScrollingRow 
+        images={imagePaths} 
+        speed={40} 
+        initialOffset={0}
+      />
+      <ScrollingRow 
+        images={imagePaths} 
+        speed={60} 
+        reverse 
+        initialOffset={100}
+      />
+      <ScrollingRow 
+        images={imagePaths} 
+        speed={50} 
+        initialOffset={50}
+      />
+    </div>
   );
 }
+
+export { Gallery };
+export default Gallery;

@@ -97,7 +97,15 @@ export function Projects() {
   ];
 
   return (
-    <section id="projects" className="min-h-screen flex items-center justify-center py-20 px-4 relative z-10 bg-white/5 backdrop-blur-[2px]">
+    <section id="projects" className="min-h-screen flex items-center justify-center py-20 px-4 relative z-10">
+      <div 
+        className="absolute inset-0"
+        style={{
+          transform: 'translateZ(0)',
+          backfaceVisibility: 'hidden',
+          willChange: 'transform, opacity'
+        }}
+      />
       <div className="max-w-6xl mx-auto w-full">
         <div>
           <SectionTitle>My Projects</SectionTitle>
@@ -105,7 +113,7 @@ export function Projects() {
             {projects.map((project) => (
               <div 
                 key={project.id}
-                className="bg-neutral-800/30 rounded-xl overflow-hidden border border-white/5 hover:border-emerald-500/30 transition-all duration-300 hover:-translate-y-1"
+                className="bg-neutral-900/50 rounded-xl overflow-hidden border border-white/5 hover:border-emerald-500/30 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className={`h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
                   <span className="text-emerald-400 text-4xl">{project.icon}</span>
