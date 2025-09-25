@@ -50,7 +50,7 @@ export function Experience() {
           {experienceItems.map((item) => (
             <div 
               key={item.id}
-              className="p-6 rounded-xl border border-white/10 bg-neutral-900/50 hover:border-emerald-500/30 transition-all"
+              className="p-6 rounded-xl  bg-neutral-900/50 hover:border-emerald-500/30 transition-all"
             >
               <h3 className="text-2xl font-bold text-white mb-1">{item.title}</h3>
               <div className="flex items-center text-emerald-400 mb-4">

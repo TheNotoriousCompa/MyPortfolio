@@ -1,6 +1,6 @@
 
-import React, { forwardRef, useMemo, useRef, useLayoutEffect } from 'react';
-import { Canvas, useFrame, useThree, RootState } from '@react-three/fiber';
+import React, { forwardRef, useMemo, useRef } from 'react';
+import { Canvas, useFrame, RootState } from '@react-three/fiber';
 import { Color, Mesh, ShaderMaterial } from 'three';
 import { IUniform } from 'three';
 
@@ -90,15 +90,6 @@ interface SilkPlaneProps {
 }
 
 const SilkPlane = forwardRef<Mesh, SilkPlaneProps>(function SilkPlane({ uniforms }, ref) {
-  const { viewport } = useThree();
-
-  useLayoutEffect(() => {
-    const mesh = ref as React.MutableRefObject<Mesh | null>;
-    if (mesh.current) {
-      mesh.current.scale.set(viewport.width, viewport.height, 1);
-    }
-  }, [ref, viewport]);
-
   useFrame((_state: RootState, delta: number) => {
     const mesh = ref as React.MutableRefObject<Mesh | null>;
     if (mesh.current) {
@@ -111,8 +102,13 @@ const SilkPlane = forwardRef<Mesh, SilkPlaneProps>(function SilkPlane({ uniforms
 
   return (
     <mesh ref={ref}>
-      <planeGeometry args={[1, 1, 1, 1]} />
-      <shaderMaterial uniforms={uniforms} vertexShader={vertexShader} fragmentShader={fragmentShader} />
+      {/* Fisso, ad esempio 16:9 */}
+      <planeGeometry args={[16, 9, 1, 1]} />
+      <shaderMaterial
+        uniforms={uniforms}
+        vertexShader={vertexShader}
+        fragmentShader={fragmentShader}
+      />
     </mesh>
   );
 });
@@ -142,9 +138,11 @@ const Silk: React.FC<SilkProps> = ({ speed = 5, scale = 1, color = '#7B7481', no
   );
 
   return (
-    <Canvas dpr={[1, 2]} frameloop="always">
-      <SilkPlane ref={meshRef} uniforms={uniforms} />
-    </Canvas>
+    <div className="absolute w-full h-full flex items-center justify-center overflow-hidden bg-black">
+      <Canvas dpr={[1, 2]} frameloop="always" camera={{ position: [0, 0, 10], fov: 45 }}>
+        <SilkPlane ref={meshRef} uniforms={uniforms} />
+      </Canvas>
+    </div>
   );
 };
 

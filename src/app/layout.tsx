@@ -42,13 +42,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-black" suppressHydrationWarning>
-      <head>
-      </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased text-white min-h-screen`}>
+    <html lang="en" className="h-full w-full" suppressHydrationWarning>
+      <head />
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased text-white bg-transparent min-h-screen`}
+      >
+        {/* Background fisso (dietro) */}
         <Background />
-
-        {children}
+  
+        {/* Contenuto - metti il children dentro un layer in primo piano */}
+        <main className="relative z-10">
+          {children}
+        </main>
       </body>
     </html>
   );

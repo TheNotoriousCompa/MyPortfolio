@@ -13,8 +13,6 @@ interface Project {
     label: string;
     disabled?: boolean;
   }[];
-  icon: string;
-  gradient: string;
 }
 
 export function Projects() {
@@ -31,8 +29,6 @@ export function Projects() {
           label: 'View on GitHub'
         }
       ],
-      icon: '✨',
-      gradient: 'from-purple-500/10 to-blue-500/10'
     },
     {
       id: 'portfolio',
@@ -46,8 +42,6 @@ export function Projects() {
           label: 'Live Demo'
         }
       ],
-      icon: 'MC',
-      gradient: 'from-emerald-500/10 to-purple-500/10'
     },
     {
       id: 'mp3-downloader',
@@ -61,8 +55,6 @@ export function Projects() {
           label: 'View on GitHub'
         }
       ],
-      icon: '🎵',
-      gradient: 'from-blue-500/10 to-emerald-500/10'
     },
     {
       id: 'keyboard-renders',
@@ -76,8 +68,6 @@ export function Projects() {
           label: 'View Gallery'
         }
       ],
-      icon: '⌨️',
-      gradient: 'from-purple-500/10 to-pink-500/10'
     },
     {
       id: 'pc-building',
@@ -91,8 +81,6 @@ export function Projects() {
           label: 'View Builds'
         }
       ],
-      icon: '💻',
-      gradient: 'from-amber-500/10 to-red-500/10'
     }
   ];
 
@@ -107,9 +95,6 @@ export function Projects() {
                 key={project.id}
                 className="bg-neutral-900/50 rounded-xl overflow-hidden border border-white/5 hover:border-emerald-500/30 transition-all duration-300 hover:-translate-y-1"
               >
-                <div className={`h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
-                  <span className="text-emerald-400 text-4xl">{project.icon}</span>
-                </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
                   <p className="text-neutral-400 mb-4">
