@@ -3,22 +3,21 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   
+  // Disable production source maps
+  productionBrowserSourceMaps: false,
+  
   // Image optimization
   images: {
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 60,
   },
   
-  // Disable source maps in production
-  productionBrowserSourceMaps: false,
+  // Disable Next.js telemetry
+  telemetry: false,
   
+  // Disable webpack build traces
   experimental: {
-    // Server Actions configuration
-    serverActions: {
-      bodySizeLimit: '2mb',
-    },
-    
-    // Optimize package imports
+    webpackBuildWorker: false,
     optimizePackageImports: [
       'framer-motion',
       'lucide-react'
@@ -27,6 +26,8 @@ const nextConfig: NextConfig = {
   
   // Webpack configuration
   webpack: (config) => {
+    // Disable webpack build traces
+    config.infrastructureLogging = { debug: false, level: 'error' };
     return config;
   },
 };

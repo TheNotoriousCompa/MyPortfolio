@@ -61,18 +61,17 @@ export function Header({ sections }: HeaderProps) {
                       className={cn(
                         'relative px-4 py-2 text-sm font-medium',
                         'text-neutral-300 hover:text-white',
-                        'transition-all duration-200',
-                        'overflow-hidden group/link',
-                        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2'
+                        'transition-colors duration-200',
+                        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
+                        'after:absolute after:inset-0 after:border-2 after:border-transparent after:rounded-md',
+                        'after:transition-colors after:duration-200',
+                        'hover:after:border-emerald-500/50',
+                        'before:absolute before:inset-0 before:bg-emerald-500/10 before:rounded-md',
+                        'before:opacity-0 before:transition-opacity before:duration-200',
+                        'hover:before:opacity-100'
                       )}
                     >
-                      <span className="relative z-10">{section.label}</span>
-                      <span 
-                        className="absolute inset-0 border-2 border-transparent rounded-md transition-transform duration-200 group-hover/link:border-emerald-500/50 -z-10" 
-                      ></span>
-                      <span 
-                        className="absolute inset-0 bg-emerald-500/10 rounded-md opacity-0 transition-opacity duration-150 group-hover/link:opacity-100 -z-20"
-                      ></span>
+                      {section.label}
                     </a>
                   </NavigationMenuLink>
                 ) : (
@@ -83,14 +82,17 @@ export function Header({ sections }: HeaderProps) {
                       'relative px-4 py-2 text-sm font-medium',
                       'text-neutral-300 hover:text-white',
                       'cursor-pointer',
-                      'transition-all duration-200',
-                      'overflow-hidden group/link',
-                      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2'
+                      'transition-colors duration-200',
+                      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
+                      'after:absolute after:inset-0 after:border-2 after:border-transparent after:rounded-md',
+                      'after:transition-colors after:duration-200',
+                      'hover:after:border-emerald-500/50',
+                      'before:absolute before:inset-0 before:bg-emerald-500/10 before:rounded-md',
+                      'before:opacity-0 before:transition-opacity before:duration-200',
+                      'hover:before:opacity-100'
                     )}
                   >
-                    <span className="relative z-10">{section.label}</span>
-                    <span className="absolute inset-0 border-2 border-transparent rounded-md transition-transform duration-200 group-hover/link:border-emerald-500/50 -z-10"></span>
-                    <span className="absolute inset-0 bg-emerald-500/10 rounded-md opacity-0 transition-opacity duration-150 group-hover/link:opacity-100 -z-20"></span>
+                    {section.label}
                   </NavigationMenuLink>
                 )}
               </NavigationMenuItem>

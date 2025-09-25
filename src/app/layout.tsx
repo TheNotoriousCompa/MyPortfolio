@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
 };
 
-import { BackgroundBeams } from "@/components/background-beams";
+import Background from '@/components/Background';
 
 export default function RootLayout({
   children,
@@ -42,18 +42,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-black/95" suppressHydrationWarning>
+    <html lang="en" className="bg-black" suppressHydrationWarning>
       <head>
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black/70 text-white min-h-screen`}
-      >
-        <div className="sticky inset-0 -z-10">
-          <BackgroundBeams />
-        </div>
-        <div className="relative z-0">
-          {children}
-        </div>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased text-white min-h-screen`}>
+        <Background />
+
+        {children}
       </body>
     </html>
   );

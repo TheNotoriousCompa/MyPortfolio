@@ -16,141 +16,75 @@ const languages = [
 
 export function About() {
   return (
-    <section 
-      id="about" 
-      className="min-h-screen flex items-center justify-center py-20 px-4 relative z-10"
-      style={{
-        transform: 'translate3d(0, 0, 0)',
-        backfaceVisibility: 'hidden',
-        perspective: '1000px',
-        willChange: 'transform, opacity'
-      }}
-    >
-      <div 
-        className="absolute inset-0"
-        style={{
-          transform: 'translateZ(0)',
-          backfaceVisibility: 'hidden',
-          willChange: 'transform, opacity'
-        }}
-      />
-      <div 
-        className="max-w-6xl mx-auto w-full relative z-10"
-        style={{
-          transform: 'translateZ(0)',
-          backfaceVisibility: 'hidden',
-          willChange: 'transform, opacity'
-        }}
-      >
-        <div>
-          <SectionTitle>About Me</SectionTitle>
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div>
-              <p className="text-neutral-300 mb-6 text-lg">
-                I am a computer science student passionate about books, cinema, and videogames. My true passion is anything that combines creativity and technology at all its levels.
-              </p>
-              <p className="text-neutral-300 mb-6 text-lg">
-                I enjoy assembling fully customised PCs and mechanical keyboards since there is something deeply satisfying about seeing separate components becoming something functional and unique, with its own character.
-              </p>
-              <p className="text-neutral-300 text-lg">
-                I am curious by nature and I like to understand how various things work, not just superficially. Whether it&apos;s taking apart a device, reading technical documentation, or programming a website, I always try to seek the balance between practicality and aesthetics.
-              </p>
-            </div>
-            <div className="space-y-6">
-              <div 
-                className="p-6 rounded-xl border border-white/10"
-                style={{
-                  background: 'rgba(38, 38, 38, 0.5)',
-                  backdropFilter: 'blur(8px)',
-                  WebkitBackdropFilter: 'blur(8px)',
-                  transform: 'translateZ(0)',
-                  backfaceVisibility: 'hidden',
-                  willChange: 'transform, opacity'
-                }}
-              >
-                <h3 className="text-2xl font-bold text-white mb-4">Technical Skills</h3>
-                <div className="space-y-3">
-                  <div>
-                    <h4 className="text-emerald-400 mb-2">Web Development</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {skills.webDev.map((skill) => (
-                        <span 
-                          key={skill} 
-                          className="px-3 py-1.5 text-emerald-300 rounded-full text-sm font-medium"
-                          style={{
-                            background: 'rgba(16, 185, 129, 0.1)',
-                            transform: 'translateZ(0)',
-                            backfaceVisibility: 'hidden',
-                            willChange: 'transform, opacity'
-                          }}
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
+    <section id="about" className="py-20 px-4">
+      <div className="max-w-6xl mx-auto">
+        <SectionTitle>About Me</SectionTitle>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="space-y-6">
+            <p className="text-neutral-300 text-lg">
+              I am a computer science student passionate about books, cinema, and videogames. My true passion is anything that combines creativity and technology at all its levels.
+            </p>
+            <p className="text-neutral-300 text-lg">
+              I enjoy assembling fully customised PCs and mechanical keyboards since there is something deeply satisfying about seeing separate components becoming something functional and unique, with its own character.
+            </p>
+            <p className="text-neutral-300 text-lg">
+              I am curious by nature and I like to understand how various things work, not just superficially. Whether it&apos;s taking apart a device, reading technical documentation, or programming a website, I always try to seek the balance between practicality and aesthetics.
+            </p>
+          </div>
+          <div className="space-y-6">
+            <div className="p-6 rounded-xl border border-white/10 bg-neutral-900/50">
+              <h3 className="text-2xl font-bold text-white mb-4">Technical Skills</h3>
+              <div className="space-y-4">
+                <div>
+                  <h4 className="text-emerald-400 mb-2">Web Development</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {skills.webDev.map((skill) => (
+                      <span 
+                        key={skill} 
+                        className="px-3 py-1 text-sm font-medium text-emerald-300 bg-emerald-500/10 rounded-full"
+                      >
+                        {skill}
+                      </span>
+                    ))}
                   </div>
-                  <div>
-                    <h4 className="text-emerald-400 mb-2">Programming</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {skills.programming.map((skill) => (
-                        <span 
-                          key={skill} 
-                          className="px-3 py-1.5 text-emerald-300 rounded-full text-sm font-medium"
-                          style={{
-                            background: 'rgba(16, 185, 129, 0.1)',
-                            transform: 'translateZ(0)',
-                            backfaceVisibility: 'hidden',
-                            willChange: 'transform, opacity'
-                          }}
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
+                </div>
+                <div className="mt-4">
+                  <h4 className="text-emerald-400 mb-2">Programming</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {skills.programming.map((skill) => (
+                      <span 
+                        key={skill} 
+                        className="px-3 py-1 text-sm font-medium text-emerald-300 bg-emerald-500/10 rounded-full"
+                      >
+                        {skill}
+                      </span>
+                    ))}
                   </div>
-                  <div>
-                    <h4 className="text-emerald-400 mb-2">Design & 3D</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {skills.design.map((skill) => (
-                        <span 
-                          key={skill} 
-                          className="px-3 py-1.5 text-emerald-300 rounded-full text-sm font-medium"
-                          style={{
-                            background: 'rgba(16, 185, 129, 0.1)',
-                            transform: 'translateZ(0)',
-                            backfaceVisibility: 'hidden',
-                            willChange: 'transform, opacity'
-                          }}
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
+                </div>
+                <div className="mt-4">
+                  <h4 className="text-emerald-400 mb-2">Design & 3D</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {skills.design.map((skill) => (
+                      <span 
+                        key={skill} 
+                        className="px-3 py-1 text-sm font-medium text-emerald-300 bg-emerald-500/10 rounded-full"
+                      >
+                        {skill}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>
-              <div 
-                className="p-6 rounded-xl border border-white/10"
-                style={{
-                  background: 'rgba(38, 38, 38, 0.5)',
-                  backdropFilter: 'blur(8px)',
-                  WebkitBackdropFilter: 'blur(8px)',
-                  transform: 'translateZ(0)',
-                  backfaceVisibility: 'hidden',
-                  willChange: 'transform, opacity'
-                }}
-              >
-                <h3 className="text-2xl font-bold text-white mb-4">Languages</h3>
-                <div className="space-y-3">
-                  {languages.map((lang) => (
-                    <div key={lang.name}>
-                      <div className="flex justify-between items-center mb-1">
-                        <span className="text-neutral-300">{lang.name}</span>
-                        <span className="text-sm text-neutral-400">{lang.level}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+            </div>
+            <div className="p-6 rounded-xl border border-white/10 bg-neutral-900/50">
+              <h3 className="text-2xl font-bold text-white mb-4">Languages</h3>
+              <div className="space-y-3">
+                {languages.map((lang) => (
+                  <div key={lang.name} className="flex justify-between items-center">
+                    <span className="text-neutral-300">{lang.name}</span>
+                    <span className="text-sm text-neutral-400">{lang.level}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

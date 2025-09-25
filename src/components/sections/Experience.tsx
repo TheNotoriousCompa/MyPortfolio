@@ -43,36 +43,26 @@ export function Experience() {
   ];
 
   return (
-    <section id="experience" className="min-h-screen flex items-center justify-center py-20 px-4 relative z-10">
-      <div 
-        className="absolute inset-0"
-        style={{
-          transform: 'translateZ(0)',
-          backfaceVisibility: 'hidden',
-          willChange: 'transform, opacity'
-        }}
-      />
-      <div className="max-w-6xl mx-auto w-full">
-        <div>
-          <SectionTitle>Experience</SectionTitle>
-          <div className="space-y-6">
-            {experienceItems.map((item) => (
-              <div 
-                key={item.id}
-                className="bg-neutral-900/50 p-6 rounded-xl border border-white/5 hover:border-emerald-500/30 transition-colors duration-300"
-              >
-                <h3 className="text-2xl font-bold text-white mb-1">{item.title}</h3>
-                <div className="flex items-center text-emerald-400 mb-4">
-                  <span>{item.company}</span>
-                  <span className="mx-2">•</span>
-                  <span className="text-neutral-400">{item.period}</span>
-                </div>
-                <p className="text-neutral-300">
-                  {item.description}
-                </p>
+    <section id="experience" className="py-20 px-4">
+      <div className="max-w-6xl mx-auto">
+        <SectionTitle>Experience</SectionTitle>
+        <div className="space-y-6">
+          {experienceItems.map((item) => (
+            <div 
+              key={item.id}
+              className="p-6 rounded-xl border border-white/10 bg-neutral-900/50 hover:border-emerald-500/30 transition-all"
+            >
+              <h3 className="text-2xl font-bold text-white mb-1">{item.title}</h3>
+              <div className="flex items-center text-emerald-400 mb-4">
+                <span>{item.company}</span>
+                <span className="mx-2">•</span>
+                <span className="text-neutral-400">{item.period}</span>
               </div>
-            ))}
-          </div>
+              <p className="text-neutral-300">
+                {item.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
