@@ -21,11 +21,11 @@ export function Projects() {
       id: 'portfolio-v2',
       title: 'Portfolio Website',
       description: 'This very website you are on! A modern, responsive portfolio built with Next.js, TypeScript, and Tailwind CSS. Features a clean design with smooth animations and interactive elements to showcase my work and skills.',
-      technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Shadcn/UI', 'Framer Motion'],
+      technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Shadcn/UI', 'Framer Motion','Netlify'],
       links: [
         {
           type: 'github',
-          url: 'https://github.com/TheNotoriousCompa/MyPortoflio',
+          url: 'https://github.com/TheNotoriousCompa/MyPortfolio',
           label: 'View on GitHub'
         }
       ],
@@ -34,7 +34,7 @@ export function Projects() {
       id: 'portfolio',
       title: 'My first website',
       description: 'My personal website built with Next.js, Tailwind CSS, and TypeScript. Features a modern, responsive design with smooth scrolling navigation and interactive elements. Here anyone can post something and you can see some of my reviews on various pieces of media',
-      technologies: ['Next.js', 'React', 'TypeScript', 'TailwindCSS', 'Shadcn/UI'],
+      technologies: ['Next.js', 'React', 'TypeScript', 'TailwindCSS', 'Shadcn/UI','Firebase','Netlify'],
       links: [
         {
           type: 'demo',

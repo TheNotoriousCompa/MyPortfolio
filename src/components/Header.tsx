@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import Link from 'next/link';
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink } from "@/components/ui/navigation-menu"
@@ -12,9 +13,10 @@ interface Section {
 
 interface HeaderProps {
   sections: Section[];
+  isGalleryPage?: boolean;
 }
 
-export function Header({ sections }: HeaderProps) {
+export function Header({ sections, isGalleryPage = false }: HeaderProps) {
   const [open, setOpen] = React.useState(false);
 
   const toggleMenu = () => {
@@ -36,18 +38,18 @@ export function Header({ sections }: HeaderProps) {
       )}
       
       <header className="sticky top-4 left-0 right-0 z-50 px-4 sm:px-6">
-       <nav className="relative max-w-7xl w-full mx-auto bg-white/5 backdrop-blur-[4px] border border-white/10 shadow-lg shadow-emerald-500/5 rounded-full px-4 sm:px-2 py-3 flex items-center justify-between">
+       <nav className="relative max-w-7xl w-full mx-auto bg-white/5 backdrop-blur-[4px] border border-white/10 shadow-lg shadow-emerald-500/5 rounded-full px-6 sm:px-4 py-4 flex items-center justify-between">
         
         {/* Logo */}
-        <a 
-          href="#hero"
+        <Link 
+          href={isGalleryPage ? '/' : '#hero'}
           className="flex items-center font-bold hover:opacity-80 transition-opacity touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           onClick={closeMenu}
         >
           <span className="text-emerald-400">{'<'}</span>
           <span className="text-white mx-1">MC</span>
           <span className="text-emerald-400">{'/>'}</span>
-        </a>
+        </Link>
         
         {/* Desktop Navigation */}
         <NavigationMenu className="hidden md:block">
@@ -57,43 +59,29 @@ export function Header({ sections }: HeaderProps) {
                 {section.id === 'gallery' ? (
                   <NavigationMenuLink asChild>
                     <a
-                      href="/gallery"
-                      className={cn(
-                        'relative px-4 py-2 text-sm font-medium',
-                        'text-neutral-300 hover:text-white',
-                        'transition-colors duration-200',
-                        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
-                        'after:absolute after:inset-0 after:border-2 after:border-transparent after:rounded-md',
-                        'after:transition-colors after:duration-200',
-                        'hover:after:border-emerald-500/50',
-                        'before:absolute before:inset-0 before:bg-emerald-500/10 before:rounded-md',
-                        'before:opacity-0 before:transition-opacity before:duration-200',
-                        'hover:before:opacity-100'
-                      )}
+                      key={section.id}
+                      href={section.id}
+                      className="block px-5 py-2.5 text-base hover:bg-emerald-500/10 rounded-md transition-colors"
+                      onClick={closeMenu}
                     >
                       {section.label}
                     </a>
                   </NavigationMenuLink>
-                ) : (
-                  <NavigationMenuLink
-                    href={`#${section.id}`}
-                    onClick={closeMenu}
-                    className={cn(
-                      'relative px-4 py-2 text-sm font-medium',
-                      'text-neutral-300 hover:text-white',
-                      'cursor-pointer',
-                      'transition-colors duration-200',
-                      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
-                      'after:absolute after:inset-0 after:border-2 after:border-transparent after:rounded-md',
-                      'after:transition-colors after:duration-200',
-                      'hover:after:border-emerald-500/50',
-                      'before:absolute before:inset-0 before:bg-emerald-500/10 before:rounded-md',
-                      'before:opacity-0 before:transition-opacity before:duration-200',
-                      'hover:before:opacity-100'
-                    )}
-                  >
-                    {section.label}
-                  </NavigationMenuLink>
+                  ) : (
+                    <NavigationMenuLink
+                      href={`#${section.id}`}
+                      onClick={closeMenu}
+                      className={cn(
+                        'relative px-5 py-2.5 text-base font-medium',
+                        'text-neutral-300 hover:text-white',
+                        'transition-colors duration-200 ease-out',
+                        'hover:bg-emerald-500/10 rounded-md',
+                        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+                        'active:scale-95 transition-transform'
+                      )}
+                    >
+                      {section.label}
+                    </NavigationMenuLink>
                 )}
               </NavigationMenuItem>
             ))}
@@ -143,27 +131,16 @@ export function Header({ sections }: HeaderProps) {
           >
           <div className="w-full h-full flex justify-center">
             <nav className="w-full max-w-xs py-4 space-y-2">
-              {sections.map((section) =>
-                section.id === "gallery" ? (
-                  <a
-                    key={section.id}
-                    href="/gallery"
-                    onClick={closeMenu}
-                    className="relative block w-full text-center px-6 py-3 text-base font-medium text-neutral-300 touch-manipulation"
-                  >
-                    <span className="relative">{section.label}</span>
-                  </a>
-                ) : (
-                  <a
-                    key={section.id}
-                    href={`#${section.id}`}
-                    onClick={closeMenu}
-                    className="relative block w-full text-center px-6 py-3 text-base font-medium text-neutral-300 touch-manipulation"
-                  >
-                    <span className="relative">{section.label}</span>
-                  </a>
-                )
-              )}
+              {sections.map((section) => (
+                <a
+                  key={section.id}
+                  href={section.id}
+                  onClick={closeMenu}
+                  className="relative block w-full text-center px-6 py-3 text-base font-medium text-neutral-300 hover:text-white hover:bg-white/5 transition-colors touch-manipulation"
+                >
+                  <span className="relative">{section.label}</span>
+                </a>
+              ))}
             </nav>
           </div>
         </div>

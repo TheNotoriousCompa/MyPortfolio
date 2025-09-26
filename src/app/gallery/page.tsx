@@ -13,11 +13,13 @@ export default function GalleryPage() {
   ];
 
 
+
   return (
     <div className="relative min-h-screen">
       <main className="relative z-10 flex flex-col min-h-[calc(100vh-4rem)]">
         <Header 
           sections={sections}
+          isGalleryPage={true}
         />
         <div className="flex-grow flex flex-col justify-center items-center px-4 pt-16">
           <p className="font-mono font-bold text-lg text-gray-300 text-center max-w-2xl mb-12">
