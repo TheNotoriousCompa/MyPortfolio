@@ -38,7 +38,7 @@ export function Header({ sections, isGalleryPage = false }: HeaderProps) {
       )}
       
       <header className="sticky top-4 left-0 right-0 z-50 px-4 sm:px-6">
-       <nav className="relative max-w-7xl w-full mx-auto bg-white/5 backdrop-blur-[4px] border border-white/10 shadow-lg shadow-emerald-500/5 rounded-full px-6 sm:px-4 py-4 flex items-center justify-between">
+       <nav className="relative max-w-7xl w-full mx-auto bg-white/5 backdrop-blur-[4px] border border-white/3 shadow-lg shadow-emerald-500/5 rounded-full px-6 sm:px-4 py-4 flex items-center justify-between">
         
         {/* Logo */}
         <Link 
