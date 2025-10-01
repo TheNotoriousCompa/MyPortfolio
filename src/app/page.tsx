@@ -3,7 +3,6 @@ import React from 'react';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { About } from '@/components/sections/About';
-import { Education } from '@/components/sections/Education';
 import { Experience } from '@/components/sections/Experience';
 import { Projects } from '@/components/sections/Projects';
 import { Contact } from '@/components/sections/Contact';
@@ -60,19 +59,24 @@ export default function Home() {
   };
 
   return (
-    <div className="relative min-h-screen">
-      <main className="relative z-10">
-
-      <Header 
-        sections={sections}
-      />
-
-      <Hero scrollToSection={scrollToSection} />
-      <About />
-      <Education />
-      <Experience />
-      <Projects />
-      <Contact />
+    <div className="flex flex-col min-w-screen">
+      <Header sections={sections} />
+      <main className="flex-1 pt-20">
+        <div id="hero">
+          <Hero scrollToSection={scrollToSection} />
+        </div>
+        <div id="about">
+          <About />
+        </div>
+        <div id="experience">
+          <Experience />
+        </div>
+        <div id="projects">
+          <Projects />
+        </div>
+        <div id="contacts">
+          <Contact />
+        </div>
       </main>
     </div>
   );

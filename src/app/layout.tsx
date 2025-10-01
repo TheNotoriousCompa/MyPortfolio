@@ -49,11 +49,11 @@ export default function RootLayout({
       >
         {/* Background fisso (dietro) */}
         <Background />
-  
-        {/* Contenuto - metti il children dentro un layer in primo piano */}
-        <main className="relative z-10">
+        
+        {/* Main content wrapper */}
+        <div className="relative z-10 min-h-screen flex flex-col">
           {children}
-        </main>
+        </div>
       </body>
     </html>
   );

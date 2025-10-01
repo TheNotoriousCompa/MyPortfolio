@@ -9,12 +9,12 @@ const Silk = dynamic(() => import('@/components/background-silk'), {
 
 export default function Background() {
   return (
-    <div className="fixed inset-0 w-full h-full [mask-size:40px] overflow-hidden z-0">
+    <div className="fixed inset-0 -z-10">
       <Silk
-        speed={1.5}
-        scale={3.5}
+        speed={2} 
+        scale={1.5}
         color="#1a1b1c"
-        noiseIntensity={1}
+        noiseIntensity={0.5} 
         rotation={20}
       />
     </div>

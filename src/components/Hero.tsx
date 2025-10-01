@@ -8,7 +8,7 @@ interface HeroProps {
 
 export function Hero({ scrollToSection }: HeroProps) {
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center py-20 px-4 relative z-10">
+    <section id="hero" className="min-h-screen flex items-center justify-center pt-16 pb-20 px-4 relative z-10">
       <div className="max-w-6xl mx-auto w-full">
         <div className="text-center">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 font-space-mono">

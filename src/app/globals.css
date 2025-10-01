@@ -2,60 +2,20 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Enhanced Smooth Scrolling */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+/* ===== Smooth Scrolling & Base Styles ===== */
+/* Smooth scrolling optimizations */
+body {
+  min-height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none;
+  text-rendering: optimizeSpeed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* Optimized Scrolling */
-html, body {
-  scrollbar-gutter: stable;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-y: contain;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-  background: rgba(0, 0, 0, 0.1);
-}
-
-::-webkit-scrollbar-track {
-  background: #1e1e1e;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #3f3f46;
-  border-radius: 4px;
-  transition: background 0.2s ease-in-out;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #52525b;
-}
-
-/* Optimize for performance */
-* {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  -webkit-text-size-adjust: 100%;
-  -webkit-overflow-scrolling: touch;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
 }
 
 /* Optimize fixed/absolute positioned elements */
-.fixed, .absolute, .sticky {
+.fixed, .absolute {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   -webkit-transform: translateZ(0);
@@ -63,17 +23,47 @@ html, body {
   will-change: transform;
 }
 
-/* Optimize images and media */
-img, video, canvas, svg {
+
+/* ===== Custom Scrollbar ===== */
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html, body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  overflow: -moz-scrollbars-none;  /* Old Firefox */
+}
+
+/* Ensure no horizontal scroll */
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+/* ===== Images & Media ===== */
+img,
+video,
+canvas,
+svg {
   max-width: 100%;
   height: auto;
   vertical-align: middle;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
 }
 
+/* ===== GPU / Layer Optimizations (scoped) ===== */
+/* Use only on elements that animate or are fixed */
+.gpu-optimized {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
+}
+/* ===== Theme Variables ===== */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -183,53 +173,13 @@ img, video, canvas, svg {
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* ===== Layered Utilities ===== */
 @layer base {
-  /* stylelint-disable at-rule-no-unknown */
   * {
     @apply border-border outline-ring/50;
     scroll-behavior: smooth;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
   }
-  /* stylelint-enable at-rule-no-unknown */
-  
-  html {
-    scroll-padding-top: 5rem; /* Height of your header */
-  }
-  
-  body {
-    @apply bg-background text-foreground;
-  }
-  
-  /* Smooth section transitions */
-  section {
-    scroll-margin-top: 5rem; /* Match header height */
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-  }
-  
-  /* Smooth header transitions */
-  header {
-    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
-  }
-  
-  /* Custom smooth scrolling */
-  html {
-    scroll-behavior: auto; /* Disable default smooth scrolling */
-  }
-  
-  /* Custom scroll animation */
-  @media (prefers-reduced-motion: no-preference) {
-    html.smooth-scroll {
-      scroll-behavior: smooth;
-    }
-  }
-  
-  /* Smooth scroll target */
-  [id] {
-    scroll-margin-top: 5.5rem; /* Slightly more than header height */
-  }
-  
-  /* Animation timing */
+
   :root {
     --scroll-time: 0.8s;
     --scroll-easing: cubic-bezier(0.25, 0.1, 0.25, 1);

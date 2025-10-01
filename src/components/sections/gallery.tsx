@@ -3,11 +3,16 @@
 import Image from 'next/image';
 import { useEffect, useRef, useMemo } from 'react';
 
-// Keep the shuffle function for randomizing image order
-function shuffleArray<T>(arr: T[]) {
+// Deterministic shuffle function that produces consistent results between server and client
+function deterministicShuffle<T>(arr: T[], seed: number = 0): T[] {
   const a = [...arr];
+  const random = (max: number) => {
+    const x = Math.sin(seed++) * 10000;
+    return Math.floor((x - Math.floor(x)) * max);
+  };
+  
   for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
+    const j = random(i + 1);
     [a[i], a[j]] = [a[j], a[i]];
   }
   return a;
@@ -37,8 +42,8 @@ export function ScrollingRow({
 
   // Create a shuffled and duplicated list of images for seamless scrolling
   const loopList = useMemo(() => {
-    // Use the provided images prop and shuffle them
-    const shuffled = shuffleArray([...images]);
+    // Use a fixed seed (42) to ensure consistent shuffling between server and client
+    const shuffled = deterministicShuffle([...images], 42);
     // Duplicate the array to create seamless loop
     return [...shuffled, ...shuffled];
   }, [images]);
