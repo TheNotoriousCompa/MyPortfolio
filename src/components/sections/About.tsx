@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { SectionTitle } from "@/components/sections/SectionTitle";
+import { CardSpotlight } from "@/components/ui/card-spotlight";
 
 const skills = {
   webDev: [
@@ -34,7 +35,7 @@ const languages = [
 
 export function About() {
   return (
-    <section id="about" className="py-20 px-4">
+    <section id="about" className="pt-4 pb-20 px-4">
       <div className="max-w-6xl mx-auto">
         <SectionTitle>About Me</SectionTitle>
         <div className="grid md:grid-cols-2 gap-8">
@@ -50,9 +51,9 @@ export function About() {
             </p>
           </div>
           <div className="space-y-6">
-            <div className="p-6 rounded-xl border border-white/10 bg-neutral-900/50">
-              <h3 className="text-2xl font-bold text-white mb-4">Technical Skills</h3>
-              <div className="space-y-4">
+            <CardSpotlight className="p-6 rounded-xl border border-white/10 bg-neutral-900/50">
+              <h3 className="text-2xl font-bold text-white mb-4 relative z-20">Technical Skills</h3>
+              <div className="relative z-20 space-y-4">
                 <div>
                   <h4 className="text-emerald-400 font-bold mb-2">Web Development</h4>
                   <div className="flex flex-wrap gap-2">
@@ -62,7 +63,7 @@ export function About() {
                         href={skill.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-3 py-1 text-sm text-emerald-300 bg-emerald-500/10 rounded-full hover:bg-emerald-500/20 transition-colors"
+                        className="px-3 py-1 text-sm text-emerald-300 bg-emerald-500/10 rounded-full hover:bg-emerald-500/20 transition-colors relative z-20"
                       >
                         {skill.name}
                       </a>
@@ -102,10 +103,10 @@ export function About() {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="p-6 rounded-xl border border-white/10 bg-neutral-900/50">
-              <h3 className="text-2xl font-bold text-white mb-4">Languages</h3>
-              <div className="space-y-3">
+            </CardSpotlight>
+            <CardSpotlight className="p-6 rounded-xl border border-white/10 bg-neutral-900/50">
+              <h3 className="text-2xl font-bold text-white mb-4 relative z-20">Languages</h3>
+              <div className="space-y-3 relative z-20">
                 {languages.map((lang) => (
                   <div key={lang.name} className="flex justify-between items-center">
                     <span className="font-bold text-emerald-400">{lang.name}</span>
@@ -113,7 +114,7 @@ export function About() {
                   </div>
                 ))}
               </div>
-            </div>
+            </CardSpotlight>
           </div>
         </div>
       </div>

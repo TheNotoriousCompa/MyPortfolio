@@ -9,19 +9,19 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contacts" className="py-20">
-      <div className="text-center">
+    <section id="contacts" className="py-12 md:py-16 px-4 sm:px-5">
+      <div className="max-w-3xl mx-auto text-center">
         <SectionTitle>Get In Touch</SectionTitle>
-        <p className="text-xl text-neutral-300 mb-12 max-w-2xl mx-auto">
+        <p className="text-base md:text-lg text-neutral-300 mb-10 max-w-md mx-auto">
           I&apos;m currently looking for new opportunities. Whether you have a question or just want to say hi, I&apos;ll get back to you as soon as possible!
         </p>
         
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+        <div className="w-full grid md:grid-cols-2 gap-5 md:gap-6">
           {/* Contact Information */}
-          <div className="bg-neutral-900/50 p-8 rounded-xl border border-white/5 text-left">
-            <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
+          <div className="bg-neutral-900/50 p-5 md:p-6 rounded-xl border border-white/5 text-left h-full">
+            <h3 className="text-lg md:text-xl font-bold text-white mb-4">Contact Information</h3>
             
-            <div className="space-y-6">
+            <div className="space-y-5">
               <div className="flex items-start">
                 <div className="bg-emerald-500/10 p-3 rounded-lg mr-4">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400">
@@ -101,16 +101,16 @@ export const Contact = () => {
           </div>
           
           {/* Contact Form */}
-          <div className="bg-neutral-900/50 p-8 rounded-xl border border-white/5">
-            <h3 className="text-2xl font-bold text-white mb-6 text-left">Send me a message</h3>
-            <form className="space-y-6" onSubmit={handleSubmit}>
+          <div className="bg-neutral-900/50 p-5 md:p-6 rounded-xl border border-white/5 h-full">
+            <h3 className="text-lg md:text-xl font-bold text-white mb-4 text-left">Send me a message</h3>
+            <form className="space-y-5" onSubmit={handleSubmit}>
               <div className="space-y-2">
                 <label htmlFor="name" className="block text-left text-neutral-300">Name</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
-                  className="w-full bg-neutral-800/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                  className="w-full bg-neutral-800/50 border border-white/10 rounded-lg px-3 py-2 text-sm md:text-base text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
                   placeholder="Your name"
                   required
                 />
@@ -122,7 +122,7 @@ export const Contact = () => {
                   type="email"
                   id="email"
                   name="email"
-                  className="w-full bg-neutral-800/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                  className="w-full bg-neutral-800/50 border border-white/10 rounded-lg px-3 py-2 text-sm md:text-base text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
                   placeholder="your.email@example.com"
                   required
                 />
@@ -134,7 +134,7 @@ export const Contact = () => {
                   type="text"
                   id="subject"
                   name="subject"
-                  className="w-full bg-neutral-800/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                  className="w-full bg-neutral-800/50 border border-white/10 rounded-lg px-3 py-2 text-sm md:text-base text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
                   placeholder="What's this about?"
                   required
                 />
@@ -146,7 +146,7 @@ export const Contact = () => {
                   id="message"
                   name="message"
                   rows={5}
-                  className="w-full bg-neutral-800/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                  className="w-full bg-neutral-800/50 border border-white/10 rounded-lg px-3 py-2 text-sm md:text-base text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
                   placeholder="Your message here..."
                   required
                 ></textarea>
