@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
 
+/**
+ * @type {import('next').NextConfig}
+ */
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   
@@ -8,6 +11,9 @@ const nextConfig: NextConfig = {
   
   // Image optimization
   images: {
+    domains: [
+      'api.microlink.io', // Microlink Image Preview
+    ],
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 60,
   },

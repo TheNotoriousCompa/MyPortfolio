@@ -12,7 +12,7 @@ export function Hero({ scrollToSection }: HeroProps) {
     <section id="hero" className="min-h-screen flex items-center justify-center pt-16 pb-20 px-4 relative z-10">
       <div className="max-w-6xl mx-auto w-full">
         <div className="text-center">
-              <div className="justify-center scale-40 -mt-100">
+              <div className="justify-center scale-55 -mt-100">
                   <TextHoverEffect text="I'm MC" duration={1}/>
               </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

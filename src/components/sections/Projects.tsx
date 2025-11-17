@@ -1,6 +1,7 @@
 'use client';
 
 import { SectionTitle } from "@/components/sections/SectionTitle";
+import { DottedGlowBackground } from "@/components/ui/dotted-glow-background";
 
 interface Project {
   id: string;
@@ -92,10 +93,20 @@ export function Projects() {
           <div className="grid md:grid-cols-2 gap-6">
             {projects.map((project) => (
               <div 
+              
                 key={project.id}
-                className="bg-neutral-900/50 rounded-xl overflow-hidden border border-white/5 hover:border-emerald-500/30 transition-all duration-300 hover:-translate-y-1"
+                className="relative rounded-xl overflow-hidden border border-white/5 hover:border-emerald-500/30 transition-all duration-300 hover:-translate-y-1 h-full"
               >
-                <div className="p-6">
+                <DottedGlowBackground 
+                  className="absolute inset-0 -z-10"
+                  color="#10f0a0"
+                  glowColor="#10f0a0"
+                  gap={32}
+                  radius={2}
+                  opacity={0.3}
+                  glowColorLightVar="--emerald-300"
+                />
+                <div className="relative p-6 h-full bg-gradient-to-b from-neutral-900/50">
                   <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
                   <p className="text-neutral-400 mb-4">
                     {project.description}
