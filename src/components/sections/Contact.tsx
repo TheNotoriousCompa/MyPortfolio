@@ -15,12 +15,12 @@ export const Contact = () => {
         <p className="text-base md:text-lg text-neutral-300 mb-10 max-w-md mx-auto">
           I&apos;m currently looking for new opportunities. Whether you have a question or just want to say hi, I&apos;ll get back to you as soon as possible!
         </p>
-        
+
         <div className="w-full grid md:grid-cols-2 gap-5 md:gap-6">
           {/* Contact Information */}
           <div className="bg-neutral-900/50 p-5 md:p-6 rounded-xl border border-white/5 text-left h-full">
             <h3 className="text-lg md:text-xl font-bold text-white mb-4">Contact Information</h3>
-            
+
             <div className="space-y-5">
               <div className="flex items-start">
                 <div className="bg-emerald-500/10 p-3 rounded-lg mr-4">
@@ -31,15 +31,15 @@ export const Contact = () => {
                 </div>
                 <div>
                   <h4 className="text-white font-medium">Email</h4>
-                  <a 
-                    href="mailto:compagnone.maurizio290@gmail.com" 
+                  <a
+                    href="mailto:compagnone.maurizio290@gmail.com"
                     className="text-emerald-400 hover:text-emerald-300 transition-colors"
                   >
                     compagnone.maurizio290@gmail.com
                   </a>
                 </div>
               </div>
-              
+
               <div className="flex items-start">
                 <div className="bg-emerald-500/10 p-3 rounded-lg mr-4">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400">
@@ -48,15 +48,15 @@ export const Contact = () => {
                 </div>
                 <div>
                   <h4 className="text-white font-medium">Phone</h4>
-                  <a 
-                    href="tel:+393290147907" 
+                  <a
+                    href="tel:+393290147907"
                     className="text-emerald-400 hover:text-emerald-300 transition-colors"
                   >
                     +39 329 014 7907
                   </a>
                 </div>
               </div>
-              
+
               <div className="flex items-start">
                 <div className="bg-emerald-500/10 p-3 rounded-lg mr-4">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400">
@@ -70,13 +70,13 @@ export const Contact = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="mt-8 pt-6 border-t border-white/10">
               <h4 className="text-white font-medium mb-4">Connect with me</h4>
               <div className="flex justify-center space-x-4">
-                <a 
-                  href="https://github.com/TheNotoriousCompa" 
-                  target="_blank" 
+                <a
+                  href="https://github.com/TheNotoriousCompa"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-neutral-400 hover:text-white transition-colors p-2"
                   aria-label="GitHub"
@@ -85,8 +85,8 @@ export const Contact = () => {
                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                   </svg>
                 </a>
-                <a 
-                  href="https://www.linkedin.com/in/maurizio-compagnone-5a6937222/" 
+                <a
+                  href="https://www.linkedin.com/in/maurizio-compagnone-5a6937222/"
                   className="text-neutral-400 hover:text-white transition-colors p-2"
                   aria-label="LinkedIn"
                 >
@@ -99,7 +99,7 @@ export const Contact = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Contact Form */}
           <div className="bg-neutral-900/50 p-5 md:p-6 rounded-xl border border-white/5 h-full">
             <h3 className="text-lg md:text-xl font-bold text-white mb-4 text-left">Send me a message</h3>
@@ -115,7 +115,7 @@ export const Contact = () => {
                   required
                 />
               </div>
-              
+
               <div className="space-y-2">
                 <label htmlFor="email" className="block text-left text-neutral-300">Email</label>
                 <input
@@ -127,7 +127,7 @@ export const Contact = () => {
                   required
                 />
               </div>
-              
+
               <div className="space-y-2">
                 <label htmlFor="subject" className="block text-left text-neutral-300">Subject</label>
                 <input
@@ -139,7 +139,7 @@ export const Contact = () => {
                   required
                 />
               </div>
-              
+
               <div className="space-y-2">
                 <label htmlFor="message" className="block text-left text-neutral-300">Message</label>
                 <textarea
@@ -151,7 +151,7 @@ export const Contact = () => {
                   required
                 ></textarea>
               </div>
-              
+
               <div className="pt-2">
                 <button
                   type="submit"

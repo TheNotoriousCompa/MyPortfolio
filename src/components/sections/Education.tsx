@@ -34,7 +34,7 @@ export function Education() {
         <SectionTitle>Education</SectionTitle>
         <div className="space-y-6">
           {educationItems.map((item) => (
-            <div 
+            <div
               key={item.id}
               className="p-6 rounded-xl border border-white/10 bg-neutral-900/50 transition-all hover:border-emerald-500/30 hover:-translate-y-0.5"
             >

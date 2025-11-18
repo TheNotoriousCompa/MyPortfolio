@@ -52,16 +52,16 @@ export function Experience() {
         <SectionTitle>Experience</SectionTitle>
         <div className="space-y-6">
           {experienceItems.map((item) => (
-            <div 
+            <div
               key={item.id}
               className="p-6 rounded-xl border border-white/5 bg-neutral-900/50 hover:border-emerald-500/30 transition-all"
             >
               <h3 className="text-2xl font-bold text-white mb-1">{item.title}</h3>
               <div className="flex items-center text-emerald-400 mb-4">
                 {item.companyUrl ? (
-                  <a 
-                    href={item.companyUrl} 
-                    target="_blank" 
+                  <a
+                    href={item.companyUrl}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="hover:underline hover:text-emerald-300 transition-colors"
                   >

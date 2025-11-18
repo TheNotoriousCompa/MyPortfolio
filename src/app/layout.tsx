@@ -48,7 +48,7 @@ export default function RootLayout({
       >
         {/* Background fisso (dietro) */}
         <Background />
-        
+
         {/* Main content wrapper */}
         <div className="relative z-10 min-h-screen flex flex-col">
           {children}

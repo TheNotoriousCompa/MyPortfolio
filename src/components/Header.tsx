@@ -37,7 +37,7 @@ export function Header({ sections, isGalleryPage = false }: HeaderProps) {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 w-full">
-      <motion.div 
+      <motion.div
         className={cn(
           "mx-auto w-full px-4 pt-4 transition-all duration-300",
           isScrolled ? "max-w-3xl" : "max-w-4xl"
@@ -53,8 +53,8 @@ export function Header({ sections, isGalleryPage = false }: HeaderProps) {
           )}
           animate={{
             padding: isScrolled ? "0.5rem 1.5rem" : "0.5rem 1.5rem",
-            boxShadow: isScrolled 
-              ? "0 4px 30px rgba(16, 185, 129, 0.2)" 
+            boxShadow: isScrolled
+              ? "0 4px 30px rgba(16, 185, 129, 0.2)"
               : "0 2px 15px rgba(16, 185, 129, 0.1)",
             backdropFilter: "blur(8px)"
           }}
@@ -64,8 +64,8 @@ export function Header({ sections, isGalleryPage = false }: HeaderProps) {
           }}
         >
           {/* Logo */}
-          <a 
-            href={isGalleryPage ? '/' : '#'} 
+          <a
+            href={isGalleryPage ? '/' : '#'}
             className="flex items-center space-x-2 px-2 py-1 text-sm font-normal text-white hover:text-emerald-400 transition-colors"
             onClick={closeMobileMenu}
           >
@@ -87,11 +87,11 @@ export function Header({ sections, isGalleryPage = false }: HeaderProps) {
                 <span className="absolute inset-0 w-full h-full bg-emerald-500/10 -translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out rounded-md" />
               </a>
             ))}
-            
+
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
+          <button
             className="lg:hidden p-2 text-white hover:text-emerald-400 transition-colors rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/50"
             onClick={toggleMobileMenu}
             aria-label="Toggle menu"
