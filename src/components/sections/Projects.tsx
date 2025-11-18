@@ -2,6 +2,7 @@
 
 import { SectionTitle } from "@/components/sections/SectionTitle";
 import { DottedGlowBackground } from "@/components/ui/dotted-glow-background";
+import LogoDisplay from "@/components/logodisplay";
 
 interface Project {
   id: string;
@@ -90,6 +91,13 @@ export function Projects() {
       <div className="max-w-6xl mx-auto w-full">
         <div>
           <SectionTitle>My Projects</SectionTitle>
+          <div>
+          
+          <h1 className="text-3xl font-bold mb-6 text-center">Created using this tools</h1>
+
+          <LogoDisplay/>
+
+          </div>
           <div className="grid md:grid-cols-2 gap-6">
             {projects.map((project) => (
               <div 
