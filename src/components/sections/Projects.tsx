@@ -38,7 +38,7 @@ export function Projects() {
       id: 'portfolio',
       title: 'My first website',
       description: 'My personal website built with Next.js, Tailwind CSS, and TypeScript. Features a modern, responsive design with smooth scrolling navigation and interactive elements. Here anyone can post something and you can see some of my reviews on various pieces of media',
-      image: '/audit-preview.png',
+      image: '/first-portfolio-preview.png',
       technologies: ['Next.js', 'React', 'TypeScript', 'TailwindCSS', 'Shadcn/UI', 'Firebase', 'Netlify'],
       links: [
         {
