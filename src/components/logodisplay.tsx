@@ -1,4 +1,4 @@
-import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiShadcnui, SiPython } from 'react-icons/si';
+import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiShadcnui, SiPython, SiElectron, SiFirebase, SiNetlify } from 'react-icons/si';
 
 interface LogoItem {
   icon: React.ReactNode;
@@ -31,6 +31,9 @@ const defaultLogos: LogoItem[] = [
   { icon: <SiTailwindcss size={32} />, name: 'Tailwind CSS' },
   { icon: <SiShadcnui size={32} />, name: 'Shadcn' },
   { icon: <SiPython size={32} />, name: 'Python' },
+  { icon: <SiElectron size={32} />, name: 'Electron' },
+  { icon: <SiFirebase size={32} />, name: 'Firebase' },
+  { icon: <SiNetlify size={32} />, name: 'Netlify' },
 ];
 
 function LogoDisplay() {

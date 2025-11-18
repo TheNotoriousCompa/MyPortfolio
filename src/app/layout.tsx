@@ -25,34 +25,11 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: "MC - Portfolio",
-  description: "Personal portfolio of MC - Developer and Designer",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+  description: "Personal portfolio",
   icons: {
     icon: '/logo.png',
     shortcut: '/logo.png',
     apple: '/logo.png',
-  },
-  openGraph: {
-    title: "MC - Portfolio",
-    description: "Personal portfolio of MC - Developer and Designer",
-    url: "/",
-    siteName: "MC Portfolio",
-    locale: "en_US",
-    type: "website",
-    images: [
-      {
-        url: '/logo.png',
-        width: 512,
-        height: 512,
-        alt: 'Portfolio Logo',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'MC - Portfolio',
-    description: 'Personal portfolio of MC - Developer and Designer',
-    images: ['/logo.png'],
   },
 };
 
@@ -60,9 +37,9 @@ import Background from '@/components/Background';
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en" className="h-full w-full" suppressHydrationWarning>
       <head />

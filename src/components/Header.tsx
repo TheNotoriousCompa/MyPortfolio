@@ -87,6 +87,7 @@ export function Header({ sections, isGalleryPage = false }: HeaderProps) {
                 <span className="absolute inset-0 w-full h-full bg-emerald-500/10 -translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out rounded-md" />
               </a>
             ))}
+            
           </div>
 
           {/* Mobile Menu Button */}

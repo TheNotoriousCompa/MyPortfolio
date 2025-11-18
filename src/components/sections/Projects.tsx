@@ -8,6 +8,7 @@ interface Project {
   id: string;
   title: string;
   description: string;
+  image?: string;
   technologies: string[];
   links: {
     type: 'demo' | 'github' | 'gallery';
@@ -23,7 +24,8 @@ export function Projects() {
       id: 'portfolio-v2',
       title: 'Portfolio Website',
       description: 'This very website you are on! A modern, responsive portfolio built with Next.js, TypeScript, and Tailwind CSS. Features a clean design with smooth animations and interactive elements to showcase my work and skills.',
-      technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Shadcn/UI', 'Framer Motion','Netlify'],
+      image: '/portfolio-preview.png',
+      technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Shadcn/UI', 'Framer Motion', 'Netlify'],
       links: [
         {
           type: 'github',
@@ -36,7 +38,8 @@ export function Projects() {
       id: 'portfolio',
       title: 'My first website',
       description: 'My personal website built with Next.js, Tailwind CSS, and TypeScript. Features a modern, responsive design with smooth scrolling navigation and interactive elements. Here anyone can post something and you can see some of my reviews on various pieces of media',
-      technologies: ['Next.js', 'React', 'TypeScript', 'TailwindCSS', 'Shadcn/UI','Firebase','Netlify'],
+      image: '/audit-preview.png',
+      technologies: ['Next.js', 'React', 'TypeScript', 'TailwindCSS', 'Shadcn/UI', 'Firebase', 'Netlify'],
       links: [
         {
           type: 'demo',
@@ -45,15 +48,17 @@ export function Projects() {
         }
       ],
     },
+
     {
-      id: 'mp3-downloader',
-      title: 'YouTube MP3 Downloader',
-      description: 'A Python application that downloads audio from YouTube videos using yt-dlp. Supports batch downloading from playlists and custom formatting options.',
-      technologies: ['Python', 'yt-dlp', 'FFmpeg', 'CLI Tool'],
+      id: 'audit',
+      title: 'Audit',
+      description: 'A modern wrapper for yt-dlp that simplifies downloading videos from YouTube in various formats. Features an intuitive interface with support for multiple output formats including CSV and TXT, with real-time download progress tracking.',
+      image: '/audit-preview.png',
+      technologies: ['Python', 'yt-dlp', 'Electron', 'Next.js', 'TypeScript'],
       links: [
         {
           type: 'github',
-          url: 'https://github.com/TheNotoriousCompa/Playlist-Downloader',
+          url: 'https://github.com/TheNotoriousCompa/Audit',
           label: 'View on GitHub'
         }
       ],
@@ -62,6 +67,7 @@ export function Projects() {
       id: 'keyboard-renders',
       title: '3D Keyboards Render',
       description: 'High-quality 3D renders of custom mechanical keyboards, showcasing different keycap sets, cases, and lighting effects. Created using Blender.',
+      image: '/gallery/Image15.jpg',
       technologies: ['Blender', 'Substance Painter', '3D Modeling', 'Texturing', 'Rendering'],
       links: [
         {
@@ -75,6 +81,7 @@ export function Projects() {
       id: 'pc-building',
       title: 'PC Building Consultant',
       description: 'Provided personalized PC building consultations, helping friends, clients and companies select optimal components based on their budget and needs, from budget builds to high-end gaming rigs.',
+      image: '/pc-building-preview.png',
       technologies: ['PC Building', 'Component Selection', 'Troubleshooting', 'Cable Management', 'Performance Tuning'],
       links: [
         {
@@ -92,20 +99,20 @@ export function Projects() {
         <div>
           <SectionTitle>My Projects</SectionTitle>
           <div>
-          
-          <h1 className="text-3xl font-bold mb-6 text-center">Created using this tools</h1>
 
-          <LogoDisplay/>
+            <h1 className="text-3xl font-bold mb-6 text-center">Created using this tools</h1>
+
+            <LogoDisplay />
 
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             {projects.map((project) => (
-              <div 
-              
+              <div
+
                 key={project.id}
-                className="relative rounded-xl overflow-hidden border border-white/5 hover:border-emerald-500/30 transition-all duration-300 hover:-translate-y-1 h-full"
+                className="relative rounded-xl overflow-hidden border border-white/5 hover:border-emerald-500/30 transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
               >
-                <DottedGlowBackground 
+                <DottedGlowBackground
                   className="absolute inset-0 -z-10"
                   color="#10f0a0"
                   glowColor="#10f0a0"
@@ -114,14 +121,23 @@ export function Projects() {
                   opacity={0.3}
                   glowColorLightVar="--emerald-300"
                 />
-                <div className="relative p-6 h-full bg-gradient-to-b from-neutral-900/50">
+                {project.image && (
+                  <div className="relative w-full h-48 overflow-hidden bg-neutral-900/50">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
+                <div className="relative p-6 flex-1 bg-gradient-to-b from-neutral-900/50">
                   <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
                   <p className="text-neutral-400 mb-4">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech) => (
-                      <span 
+                      <span
                         key={tech}
                         className="px-2 py-1 bg-emerald-500/10 text-emerald-300 rounded text-xs"
                       >
@@ -131,10 +147,10 @@ export function Projects() {
                   </div>
                   <div className="flex gap-3">
                     {project.links.map((link, index) => (
-                      <a 
+                      <a
                         key={index}
                         href={link.url}
-                        target="_blank" 
+                        target="_blank"
                         rel="noopener noreferrer"
                         className={`px-4 py-2 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 rounded-lg text-sm font-medium flex items-center gap-1 transition-colors ${link.disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
                         {...(link.disabled ? { 'aria-disabled': true, 'title': 'Coming soon' } : {})}
