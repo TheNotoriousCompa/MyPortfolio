@@ -3,6 +3,7 @@
 import { SectionTitle } from "@/components/sections/SectionTitle";
 import { DottedGlowBackground } from "@/components/ui/dotted-glow-background";
 import LogoDisplay from "@/components/logodisplay";
+import { EncryptedTexts } from "../textencrypted";
 
 interface Project {
   id: string;
@@ -100,7 +101,7 @@ export function Projects() {
           <SectionTitle>My Projects</SectionTitle>
           <div>
 
-            <h1 className="text-3xl font-bold mb-6 text-center">Created using this tools</h1>
+            <EncryptedTexts />
 
             <LogoDisplay />
 
