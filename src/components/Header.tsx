@@ -79,7 +79,7 @@ export function Header({ sections, isGalleryPage = false }: HeaderProps) {
             {sections.map((section) => (
               <a
                 key={section.id}
-                href={`#${section.id}`}
+                href={isGalleryPage ? `/#${section.id}` : `#${section.id}`}
                 onClick={closeMobileMenu}
                 className="group relative px-4 py-2 text-sm font-medium text-neutral-300 transition-all duration-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/50 rounded-md overflow-hidden"
               >
@@ -123,7 +123,7 @@ export function Header({ sections, isGalleryPage = false }: HeaderProps) {
                 {sections.map((section) => (
                   <a
                     key={section.id}
-                    href={`#${section.id}`}
+                    href={isGalleryPage ? `/#${section.id}` : `#${section.id}`}
                     onClick={closeMobileMenu}
                     className="block rounded-lg px-4 py-3 text-sm font-medium text-neutral-300 transition-colors hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/50"
                   >
