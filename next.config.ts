@@ -5,10 +5,21 @@ import type { NextConfig } from "next";
  */
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  
+
+  // Enable SWC minification
+  swcMinify: true,
+
+  // Disable powered by header
+  poweredByHeader: false,
+
+  // Compiler options
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+
   // Disable production source maps
   productionBrowserSourceMaps: false,
-  
+
   // Image optimization
   images: {
     domains: [
@@ -17,19 +28,22 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 60,
   },
-  
+
   // Disable Next.js telemetry
   telemetry: false,
-  
-  // Disable webpack build traces
+
+  // Experimental features
   experimental: {
     webpackBuildWorker: false,
     optimizePackageImports: [
       'framer-motion',
-      'lucide-react'
+      'lucide-react',
+      'three',
+      '@react-three/fiber',
+      '@react-three/drei'
     ]
   },
-  
+
   // Webpack configuration
   webpack: (config) => {
     // Disable webpack build traces
