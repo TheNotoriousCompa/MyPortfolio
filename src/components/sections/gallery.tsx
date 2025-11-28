@@ -14,20 +14,7 @@ interface ImageData {
   alt: string;
 }
 
-// Deterministic shuffle function
-function deterministicShuffle<T>(arr: T[], seed: number = 0): T[] {
-  const a = [...arr];
-  const random = (max: number) => {
-    const x = Math.sin(seed++) * 10000;
-    return Math.floor((x - Math.floor(x)) * max);
-  };
 
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = random(i + 1);
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
 
 interface ScrollingRowProps {
   reverse?: boolean;
@@ -168,7 +155,7 @@ function ScrollingRow({
               alt={image.alt}
               fill
               className="object-cover transition-all duration-300 group-hover:blur-sm group-hover:scale-110"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              sizes="300px"
               loading="lazy"
             />
 
@@ -206,12 +193,7 @@ function Gallery() {
   // Custom keyboard names and descriptions
   const allImages: ImageData[] = useMemo(() => {
     return [
-      {
-        src: '/gallery/image1.jpg',
-        title: 'Tofuwood',
-        description: '3D render of a Tofu60 with unique wooden aesthetic and warm tones',
-        alt: '3D rendered Tofuwood mechanical keyboard',
-      },
+
       {
         src: '/gallery/image2.jpg',
         title: 'Tofuwood White',

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from "next/image";
 import { SectionTitle } from "@/components/sections/SectionTitle";
 import { DottedGlowBackground } from "@/components/ui/dotted-glow-background";
 import LogoDisplay from "@/components/logodisplay";
@@ -102,7 +103,6 @@ export function Projects() {
           <div>
 
             <EncryptedTexts />
-
             <LogoDisplay />
 
           </div>
@@ -124,10 +124,12 @@ export function Projects() {
                 />
                 {project.image && (
                   <div className="relative w-full h-48 overflow-hidden bg-neutral-900/50">
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                     />
                   </div>
                 )}
