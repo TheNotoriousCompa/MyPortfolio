@@ -1,4 +1,4 @@
-'use client';
+
 
 import React from 'react';
 import { SectionTitle } from "@/components/sections/SectionTitle";
@@ -38,20 +38,21 @@ export function About() {
     <section id="about" className="pt-4 pb-20 px-4">
       <div className="max-w-6xl mx-auto">
         <SectionTitle>About Me</SectionTitle>
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-6">
-            <p className="text-neutral-300 text-lg">
+        <div className="flex flex-col gap-8">
+          <div className="space-y-6 text-lg text-neutral-300">
+            <p>
               I am a computer science student passionate about books, cinema, and videogames. My true passion is anything that combines creativity and technology at all its levels.
             </p>
-            <p className="text-neutral-300 text-lg">
+            <p>
               I enjoy assembling fully customised PCs and mechanical keyboards since there is something deeply satisfying about seeing separate components becoming something functional and unique, with its own character.
             </p>
-            <p className="text-neutral-300 text-lg">
+            <p>
               I am curious by nature and I like to understand how various things work, not just superficially. Whether it&apos;s taking apart a device, reading technical documentation, or programming a website, I always try to seek the balance between practicality and aesthetics.
             </p>
           </div>
-          <div className="space-y-6">
-            <CardSpotlight className="p-6 rounded-xl border border-white/10 bg-neutral-900/50">
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <CardSpotlight className="p-6 rounded-xl border border-white/5 bg-neutral-900/50 h-full">
               <h3 className="text-2xl font-bold text-white mb-4 relative z-20">Technical Skills</h3>
               <div className="relative z-20 space-y-4">
                 <div>
@@ -79,7 +80,7 @@ export function About() {
                         href={skill.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-3 py-1 text-sm font-medium text-emerald-300 bg-emerald-500/10 rounded-full hover:bg-emergent-500/20 transition-colors"
+                        className="px-3 py-1 text-sm font-medium text-emerald-300 bg-emerald-500/10 rounded-full hover:bg-emerald-500/20 transition-colors"
                       >
                         {skill.name}
                       </a>
@@ -104,13 +105,14 @@ export function About() {
                 </div>
               </div>
             </CardSpotlight>
-            <CardSpotlight className="p-6 rounded-xl border border-white/10 bg-neutral-900/50">
+
+            <CardSpotlight className="p-6 rounded-xl border border-white/5 bg-neutral-900/50">
               <h3 className="text-2xl font-bold text-white mb-4 relative z-20">Languages</h3>
-              <div className="space-y-3 relative z-20">
+              <div className="relative z-20 space-y-4">
                 {languages.map((lang) => (
                   <div key={lang.name} className="flex justify-between items-center">
-                    <span className="font-bold text-emerald-400">{lang.name}</span>
-                    <span className="text-emerald-400">{lang.level}</span>
+                    <span className="font-bold text-emerald-400 text-lg">{lang.name}</span>
+                    <span className="text-emerald-300 font-medium">{lang.level}</span>
                   </div>
                 ))}
               </div>

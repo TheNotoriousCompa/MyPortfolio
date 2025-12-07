@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Background from '@/components/Background';
 import "./globals.css";
 
 // Optimize font loading
@@ -33,8 +34,6 @@ export const metadata: Metadata = {
   },
 };
 
-import Background from '@/components/Background';
-
 export default function RootLayout({
   children,
 }: {
@@ -44,7 +43,7 @@ export default function RootLayout({
     <html lang="en" className="h-full w-full" suppressHydrationWarning>
       <head />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased text-white bg-transparent min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased text-white bg-transparent min-h-screen scroll-smooth`}
       >
         {/* Background fisso (dietro) */}
         <Background />

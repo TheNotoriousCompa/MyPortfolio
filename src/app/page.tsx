@@ -29,10 +29,10 @@ export default function Home() {
           <About />
         </div>
         <div id="experience">
-          <Experience />
+          <Projects />
         </div>
         <div id="projects">
-          <Projects />
+          <Experience />
         </div>
         <div id="contacts">
           <Contact />

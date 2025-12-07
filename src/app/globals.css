@@ -15,7 +15,8 @@ body {
 }
 
 /* Optimize fixed/absolute positioned elements */
-.fixed, .absolute {
+.fixed,
+.absolute {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   -webkit-transform: translateZ(0);
@@ -33,10 +34,14 @@ body {
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
-html, body {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-  overflow: -moz-scrollbars-none;  /* Old Firefox */
+html,
+body {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  overflow: -moz-scrollbars-none;
+  /* Old Firefox */
 }
 
 /* Ensure no horizontal scroll */
@@ -44,6 +49,7 @@ body {
   overflow-x: hidden;
   width: 100%;
 }
+
 /* ===== Images & Media ===== */
 img,
 video,
@@ -63,6 +69,7 @@ svg {
   -webkit-transform: translateZ(0);
   will-change: transform;
 }
+
 /* ===== Theme Variables ===== */
 @theme inline {
   --color-background: var(--background);

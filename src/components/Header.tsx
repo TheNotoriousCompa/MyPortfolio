@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 interface Section {
@@ -36,7 +37,7 @@ export function Header({ sections, isGalleryPage = false }: HeaderProps) {
   };
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 w-full">
+    <nav className="fixed inset-x-0 top-0 z-50 w-full">
       <motion.div
         className={cn(
           "mx-auto w-full px-4 pt-4 transition-all duration-300",
@@ -64,7 +65,7 @@ export function Header({ sections, isGalleryPage = false }: HeaderProps) {
           }}
         >
           {/* Logo */}
-          <a
+          <Link
             href={isGalleryPage ? '/' : '#'}
             className="flex items-center space-x-2 px-2 py-1 text-sm font-normal text-white hover:text-emerald-400 transition-colors"
             onClick={closeMobileMenu}
@@ -72,12 +73,12 @@ export function Header({ sections, isGalleryPage = false }: HeaderProps) {
             <span className="text-emerald-400">{'<'}</span>
             <span className="mx-1">MC</span>
             <span className="text-emerald-400">{'/>'}</span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
             {sections.map((section) => (
-              <a
+              <Link
                 key={section.id}
                 href={isGalleryPage ? `/#${section.id}` : `#${section.id}`}
                 onClick={closeMobileMenu}
@@ -85,7 +86,7 @@ export function Header({ sections, isGalleryPage = false }: HeaderProps) {
               >
                 <span className="relative z-10">{section.label}</span>
                 <span className="absolute inset-0 w-full h-full bg-emerald-500/10 -translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out rounded-md" />
-              </a>
+              </Link>
             ))}
 
           </div>
@@ -121,21 +122,21 @@ export function Header({ sections, isGalleryPage = false }: HeaderProps) {
             >
               <div className="flex flex-col space-y-2">
                 {sections.map((section) => (
-                  <a
+                  <Link
                     key={section.id}
                     href={isGalleryPage ? `/#${section.id}` : `#${section.id}`}
                     onClick={closeMobileMenu}
                     className="block rounded-lg px-4 py-3 text-sm font-medium text-neutral-300 transition-colors hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/50"
                   >
                     {section.label}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </motion.div>
-    </header>
+    </nav>
   );
 }
 
