@@ -23,6 +23,20 @@ interface Project {
 export function Projects() {
   const projects: Project[] = [
     {
+      id: 'spotter',
+      title: 'Spotter',
+      description: 'I developed Spotter, a management platform for personal trainers. A complete ecosystem for the professional management of physical and clinical well-being.',
+      image: '/spotter-preview.png',
+      technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Fitness Tech'],
+      links: [
+        {
+          type: 'demo',
+          url: 'https://fitdoc.netlify.app/',
+          label: 'Live Demo'
+        }
+      ],
+    },
+    {
       id: 'portfolio-v2',
       title: 'Portfolio Website',
       description: 'This very website you are on! A modern, responsive portfolio built with Next.js, TypeScript, and Tailwind CSS. Features a clean design with smooth animations and interactive elements to showcase my work and skills.',

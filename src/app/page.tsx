@@ -3,6 +3,7 @@ import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { About } from '@/components/sections/About';
 import { Experience } from '@/components/sections/Experience';
+import { Education } from '@/components/sections/Education';
 import { Projects } from '@/components/sections/Projects';
 import { Contact } from '@/components/sections/Contact';
 import { ScrollManager } from '@/components/ScrollManager';
@@ -11,9 +12,10 @@ import { ScrollManager } from '@/components/ScrollManager';
 export default function Home() {
   const sections = [
     { id: 'hero', label: 'Home' },
+    { id: 'projects', label: 'My Projects' },
+    { id: 'education', label: 'Education' },
     { id: 'about', label: 'About Me' },
     { id: 'experience', label: 'Experience' },
-    { id: 'projects', label: 'My Projects' },
     { id: 'contacts', label: 'Contacts' },
   ];
 
@@ -25,18 +27,11 @@ export default function Home() {
         <div id="hero">
           <Hero />
         </div>
-        <div id="about">
-          <About />
-        </div>
-        <div id="experience">
-          <Projects />
-        </div>
-        <div id="projects">
-          <Experience />
-        </div>
-        <div id="contacts">
-          <Contact />
-        </div>
+        <Projects />
+        <Education />
+        <About />
+        <Experience />
+        <Contact />
       </main>
     </div>
   );
