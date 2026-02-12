@@ -22,6 +22,7 @@ export function Hero() {
         <div className="text-center">
           <div className="flex justify-center mb-8 overflow-visible px-4">
             <div className="w-full max-w-5xl overflow-visible">
+              <h1 className="sr-only">MC - Portfolio | Computer Science Student & Web Developer</h1>
               <TextHoverEffect text="Hi, I am MC" duration={1} />
             </div>
           </div>
