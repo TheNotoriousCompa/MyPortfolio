@@ -111,7 +111,7 @@ export const Contact = () => {
                   id="name"
                   name="name"
                   className="w-full bg-neutral-800/50 border border-white/10 rounded-lg px-3 py-2 text-sm md:text-base text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
-                  placeholder="Your name"
+                  placeholder="Maurizio Compagnone"
                   required
                 />
               </div>

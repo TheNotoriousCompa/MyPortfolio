@@ -1,3 +1,5 @@
+'use client';
+
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiShadcnui, SiPython, SiElectron, SiFirebase, SiNetlify } from 'react-icons/si';
 
 interface LogoItem {

@@ -1,7 +1,17 @@
-
-
 import { Header } from '@/components/Header';
 import Gallery from '@/components/sections/gallery';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Gallery | MC - Portfolio',
+  description: '3D renders and designs gallery. Explore my custom keyboard designs and 3D artwork created with Blender.',
+  openGraph: {
+    title: 'Gallery | MC - Portfolio',
+    description: '3D renders and designs gallery. Explore my custom keyboard designs and 3D artwork created with Blender.',
+    type: 'website',
+    url: 'https://mcompagnone.netlify.app/gallery',
+  },
+};
 
 export default function GalleryPage() {
   const sections = [

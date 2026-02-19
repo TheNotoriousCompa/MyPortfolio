@@ -27,7 +27,7 @@ export const viewport: Viewport = {
 const siteConfig = {
   name: "MC - Portfolio",
   description: "Personal portfolio of MC - Computer Science Student & Tech Enthusiast. Discover my projects in Web Development, 3D Design, and PC Building.",
-  url: "https://your-domain.com", // Replace with your actual domain
+  url: "https://mcompagnone.netlify.app",
   ogImage: "/portfolio-preview.png",
   links: {
     github: "https://github.com/TheNotoriousCompa",
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
-    creator: "@your_twitter", // Update if you have one
+    creator: "@TheNotoriousCompa",
   },
   icons: {
     icon: "/logo.png",

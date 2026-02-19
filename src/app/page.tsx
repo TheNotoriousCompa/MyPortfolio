@@ -1,4 +1,5 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { About } from '@/components/sections/About';
@@ -8,6 +9,16 @@ import { Projects } from '@/components/sections/Projects';
 import { Contact } from '@/components/sections/Contact';
 import { ScrollManager } from '@/components/ScrollManager';
 
+export const metadata: Metadata = {
+  title: 'MC - Portfolio | Web Developer & Computer Science Student',
+  description: 'Personal portfolio of MC - Computer Science Student & Tech Enthusiast. Discover my projects in Web Development, 3D Design, and PC Building.',
+  openGraph: {
+    title: 'MC - Portfolio | Web Developer & Computer Science Student',
+    description: 'Personal portfolio of MC - Computer Science Student & Tech Enthusiast. Discover my projects in Web Development, 3D Design, and PC Building.',
+    type: 'website',
+    url: 'https://mcompagnone.netlify.app',
+  },
+};
 
 export default function Home() {
   const sections = [

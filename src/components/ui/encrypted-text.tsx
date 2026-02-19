@@ -58,22 +58,25 @@ export const EncryptedText: React.FC<EncryptedTextProps> = ({
   const isInView = useInView(ref, { once: true });
 
   const [revealCount, setRevealCount] = useState<number>(0);
+  const [initialScramble, setInitialScramble] = useState<string>("");
   const animationFrameRef = useRef<number | null>(null);
   const startTimeRef = useRef<number>(0);
   const lastFlipTimeRef = useRef<number>(0);
-  const scrambleCharsRef = useRef<string[]>(
-    text ? generateGibberishPreservingSpaces(text, charset).split("") : [],
-  );
+  const scrambleCharsRef = useRef<string[]>([]);
+
+  useEffect(() => {
+    // Initialize scramble characters only on client to avoid hydration mismatch
+    if (!text) {
+      setInitialScramble("");
+      return;
+    }
+    const initial = generateGibberishPreservingSpaces(text, charset);
+    setInitialScramble(initial);
+    scrambleCharsRef.current = initial.split("");
+  }, [text, charset]);
 
   useEffect(() => {
     if (!isInView) return;
-
-    // Reset state for a fresh animation whenever dependencies change
-    const initial = text
-      ? generateGibberishPreservingSpaces(text, charset)
-      : "";
-    scrambleCharsRef.current = initial.split("");
-    startTimeRef.current = performance.now();
     lastFlipTimeRef.current = startTimeRef.current;
     setRevealCount(0);
 
@@ -139,8 +142,7 @@ export const EncryptedText: React.FC<EncryptedTextProps> = ({
           ? char
           : char === " "
             ? " "
-            : (scrambleCharsRef.current[index] ??
-              generateRandomCharacter(charset));
+            : (scrambleCharsRef.current[index] ?? char);
 
         return (
           <span

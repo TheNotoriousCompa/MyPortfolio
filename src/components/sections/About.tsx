@@ -1,4 +1,4 @@
-
+'use client';
 
 import React from 'react';
 import { SectionTitle } from "@/components/sections/SectionTitle";
