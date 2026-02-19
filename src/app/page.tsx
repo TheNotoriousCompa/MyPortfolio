@@ -10,11 +10,14 @@ import { Contact } from '@/components/sections/Contact';
 import { ScrollManager } from '@/components/ScrollManager';
 
 export const metadata: Metadata = {
-  title: 'MC - Portfolio | Web Developer & Computer Science Student',
-  description: 'Personal portfolio of MC - Computer Science Student & Tech Enthusiast. Discover my projects in Web Development, 3D Design, and PC Building.',
+  title: 'Maurizio Compagnone — Portfolio | Web Developer & Computer Science Student',
+  description: 'Personal portfolio of Maurizio Compagnone — Computer Science Student & Tech Enthusiast. Discover my projects in Web Development, 3D Design, and PC Building.',
+  alternates: {
+    canonical: 'https://mcompagnone.netlify.app',
+  },
   openGraph: {
-    title: 'MC - Portfolio | Web Developer & Computer Science Student',
-    description: 'Personal portfolio of MC - Computer Science Student & Tech Enthusiast. Discover my projects in Web Development, 3D Design, and PC Building.',
+    title: 'Maurizio Compagnone — Portfolio | Web Developer & Computer Science Student',
+    description: 'Personal portfolio of Maurizio Compagnone — Computer Science Student & Tech Enthusiast. Discover my projects in Web Development, 3D Design, and PC Building.',
     type: 'website',
     url: 'https://mcompagnone.netlify.app',
   },
@@ -42,8 +45,13 @@ export default function Home() {
         <Education />
         <About />
         <Experience />
-        <Contact />
       </main>
+      <footer>
+        <Contact />
+        <div className="text-center py-6 text-neutral-500 text-sm border-t border-white/5">
+          <p>© {new Date().getFullYear()} Maurizio Compagnone. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 }

@@ -21,16 +21,16 @@ const geistMono = Geist_Mono({
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
 };
 
 const siteConfig = {
-  name: "MC - Portfolio",
-  description: "Personal portfolio of MC - Computer Science Student & Tech Enthusiast. Discover my projects in Web Development, 3D Design, and PC Building.",
+  name: "Maurizio Compagnone — Portfolio",
+  description: "Personal portfolio of Maurizio Compagnone — Computer Science Student & Tech Enthusiast. Discover my projects in Web Development, 3D Design, and PC Building.",
   url: "https://mcompagnone.netlify.app",
-  ogImage: "/portfolio-preview.png",
+  ogImage: "https://mcompagnone.netlify.app/portfolio-preview.png",
   links: {
     github: "https://github.com/TheNotoriousCompa",
+    linkedin: "https://www.linkedin.com/in/maurizio-compagnone-5a6937222/",
   },
 };
 
@@ -42,6 +42,7 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: [
+    "Maurizio Compagnone",
     "MC",
     "Portfolio",
     "Web Developer",
@@ -54,11 +55,14 @@ export const metadata: Metadata = {
   ],
   authors: [
     {
-      name: "MC",
+      name: "Maurizio Compagnone",
       url: "https://mcompagnone.netlify.app",
     },
   ],
-  creator: "MC",
+  creator: "Maurizio Compagnone",
+  alternates: {
+    canonical: "https://mcompagnone.netlify.app",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -115,14 +119,16 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              "name": "MC",
+              "name": "Maurizio Compagnone",
+              "alternateName": "MC",
               "url": siteConfig.url,
               "image": `${siteConfig.url}/logo.png`,
               "jobTitle": "Computer Science Student & Web Developer",
               "sameAs": [
                 siteConfig.links.github,
-                // Add your other social links here
+                siteConfig.links.linkedin,
               ],
+              "knowsAbout": ["Web Development", "React", "Next.js", "TypeScript", "3D Modeling", "Blender", "PC Building"],
               "description": siteConfig.description
             })
           }}

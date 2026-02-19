@@ -47,7 +47,7 @@ export function Header({ sections, isGalleryPage = false }: HeaderProps) {
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <motion.nav
+        <motion.div
           className={cn(
             "flex items-center justify-between p-6 rounded-full border border-white/5 bg-neutral-900/50 hover:border-emerald-500/30 transition-all",
             isScrolled && "shadow-lg"
@@ -108,7 +108,7 @@ export function Header({ sections, isGalleryPage = false }: HeaderProps) {
               </svg>
             )}
           </button>
-        </motion.nav>
+        </motion.div>
 
         {/* Mobile Menu */}
         <AnimatePresence>
