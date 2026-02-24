@@ -41,7 +41,7 @@ export function About() {
         <div className="flex flex-col gap-8">
           <div className="space-y-6 text-lg text-neutral-300">
             <p>
-              I am a computer science student passionate about books, cinema, and videogames. My true passion is anything that combines creativity and technology at all its levels.
+              Hi, I&apos;m <strong className="text-white">Maurizio Compagnone</strong>, a computer science student passionate about books, cinema, and videogames. My true passion is anything that combines creativity and technology at all its levels.
             </p>
             <p>
               I enjoy assembling fully customised PCs and mechanical keyboards since there is something deeply satisfying about seeing separate components becoming something functional and unique, with its own character.
