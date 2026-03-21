@@ -2,7 +2,7 @@
 
 import { SectionTitle } from '@/components/sections/SectionTitle';
 
-export const Contact = () => {
+export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript-eslint/no-explicit-any */ }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // TODO: Implement form submission logic
@@ -11,15 +11,15 @@ export const Contact = () => {
   return (
     <section id="contacts" className="py-12 md:py-16 px-4 sm:px-5">
       <div className="max-w-3xl mx-auto text-center">
-        <SectionTitle>Get In Touch</SectionTitle>
+        <SectionTitle>{dict.title}</SectionTitle>
         <p className="text-base md:text-lg text-neutral-300 mb-10 max-w-md mx-auto">
-          I&apos;m currently looking for new opportunities. Whether you have a question or just want to say hi, I&apos;ll get back to you as soon as possible!
+          {dict.subtitle}
         </p>
 
         <div className="w-full grid md:grid-cols-2 gap-5 md:gap-6">
           {/* Contact Information */}
           <div className="bg-neutral-900/50 p-5 md:p-6 rounded-xl border border-white/5 text-left h-full">
-            <h3 className="text-lg md:text-xl font-bold text-white mb-4">Contact Information</h3>
+            <h3 className="text-lg md:text-xl font-bold text-white mb-4">{dict.infoTitle}</h3>
 
             <div className="space-y-5">
               <div className="flex items-start">
@@ -104,52 +104,52 @@ export const Contact = () => {
 
           {/* Contact Form */}
           <div className="bg-neutral-900/50 p-5 md:p-6 rounded-xl border border-white/5 h-full">
-            <h3 className="text-lg md:text-xl font-bold text-white mb-4 text-left">Send me a message</h3>
+            <h3 className="text-lg md:text-xl font-bold text-white mb-4 text-left">{dict.formTitle}</h3>
             <form className="space-y-5" onSubmit={handleSubmit}>
               <div className="space-y-2">
-                <label htmlFor="name" className="block text-left text-neutral-300">Name</label>
+                <label htmlFor="name" className="block text-left text-neutral-300">{dict.labels.name}</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
                   className="w-full bg-neutral-800/50 border border-white/10 rounded-lg px-3 py-2 text-sm md:text-base text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
-                  placeholder="Maurizio Compagnone"
+                  placeholder={dict.placeholders.name}
                   required
                 />
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="email" className="block text-left text-neutral-300">Email</label>
+                <label htmlFor="email" className="block text-left text-neutral-300">{dict.labels.email}</label>
                 <input
                   type="email"
                   id="email"
                   name="email"
                   className="w-full bg-neutral-800/50 border border-white/10 rounded-lg px-3 py-2 text-sm md:text-base text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
-                  placeholder="your.email@example.com"
+                  placeholder={dict.placeholders.email}
                   required
                 />
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="subject" className="block text-left text-neutral-300">Subject</label>
+                <label htmlFor="subject" className="block text-left text-neutral-300">{dict.labels.subject}</label>
                 <input
                   type="text"
                   id="subject"
                   name="subject"
                   className="w-full bg-neutral-800/50 border border-white/10 rounded-lg px-3 py-2 text-sm md:text-base text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
-                  placeholder="What's this about?"
+                  placeholder={dict.placeholders.subject}
                   required
                 />
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="message" className="block text-left text-neutral-300">Message</label>
+                <label htmlFor="message" className="block text-left text-neutral-300">{dict.labels.message}</label>
                 <textarea
                   id="message"
                   name="message"
                   rows={5}
                   className="w-full bg-neutral-800/50 border border-white/10 rounded-lg px-3 py-2 text-sm md:text-base text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
-                  placeholder="Your message here..."
+                  placeholder={dict.placeholders.message}
                   required
                 ></textarea>
               </div>
@@ -159,7 +159,7 @@ export const Contact = () => {
                   type="submit"
                   className="w-full px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-medium rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
                 >
-                  <span>Send Message</span>
+                  <span>{dict.labels.send}</span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <line x1="22" y1="2" x2="11" y2="13"></line>
                     <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>

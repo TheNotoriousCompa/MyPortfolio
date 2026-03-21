@@ -21,12 +21,12 @@ interface Project {
   }[];
 }
 
-export function Projects() {
+export function Projects({ dict }: { dict: any /* eslint-disable-line @typescript-eslint/no-explicit-any */ }) {
   const projects: Project[] = [
     {
       id: 'spotter',
       title: 'Spotter',
-      description: 'I developed Spotter, a management platform for personal trainers. A complete ecosystem for the professional management of physical and clinical well-being.',
+      description: dict.items.spotter.description,
       image: '/spotter-preview.png',
       imageAlt: 'Screenshot of Spotter, a management platform for personal trainers built with Next.js and Supabase',
       technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Fitness Tech'],
@@ -34,14 +34,14 @@ export function Projects() {
         {
           type: 'demo',
           url: 'https://fitdoc.netlify.app/',
-          label: 'Live Demo'
+          label: dict.links.demo
         }
       ],
     },
     {
       id: 'portfolio-v2',
-      title: 'Portfolio Website',
-      description: 'This very website you are on! A modern, responsive portfolio built with Next.js, TypeScript, and Tailwind CSS. Features a clean design with smooth animations and interactive elements to showcase my work and skills.',
+      title: dict.items.portfolioV2.title,
+      description: dict.items.portfolioV2.description,
       image: '/portfolio-preview.png',
       imageAlt: 'Screenshot of portfolio website built with Next.js, TypeScript, Tailwind CSS, and Framer Motion',
       technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Shadcn/UI', 'Framer Motion', 'Netlify'],
@@ -49,14 +49,14 @@ export function Projects() {
         {
           type: 'github',
           url: 'https://github.com/TheNotoriousCompa/MyPortfolio',
-          label: 'View on GitHub'
+          label: dict.links.github
         }
       ],
     },
     {
       id: 'portfolio',
-      title: 'My first website',
-      description: 'My personal website built with Next.js, Tailwind CSS, and TypeScript. Features a modern, responsive design with smooth scrolling navigation and interactive elements. Here anyone can post something and you can see some of my reviews on various pieces of media',
+      title: dict.items.portfolioV1.title,
+      description: dict.items.portfolioV1.description,
       image: '/first-portfolio-preview.png',
       imageAlt: 'Screenshot of first personal website with content management features, built with Next.js and Firebase',
       technologies: ['Next.js', 'React', 'TypeScript', 'TailwindCSS', 'Shadcn/UI', 'Firebase', 'Netlify'],
@@ -64,15 +64,14 @@ export function Projects() {
         {
           type: 'demo',
           url: 'https://mysito.netlify.app/',
-          label: 'Live Demo'
+          label: dict.links.demo
         }
       ],
     },
-
     {
       id: 'audit',
       title: 'Audit',
-      description: 'A modern wrapper for yt-dlp that simplifies downloading videos from YouTube in various formats. Features an intuitive interface with support for multiple output formats including CSV and TXT, with real-time download progress tracking.',
+      description: dict.items.audit.description,
       image: '/audit-preview.png',
       imageAlt: 'Screenshot of Audit, a modern yt-dlp wrapper built with Electron and Next.js for downloading videos',
       technologies: ['Python', 'yt-dlp', 'Electron', 'Next.js', 'TypeScript'],
@@ -80,14 +79,14 @@ export function Projects() {
         {
           type: 'github',
           url: 'https://github.com/TheNotoriousCompa/Audit',
-          label: 'View on GitHub'
+          label: dict.links.github
         }
       ],
     },
     {
       id: 'keyboard-renders',
-      title: '3D Keyboards Render',
-      description: 'High-quality 3D renders of custom mechanical keyboards, showcasing different keycap sets, cases, and lighting effects. Created using Blender.',
+      title: dict.items.keyboardRenders.title,
+      description: dict.items.keyboardRenders.description,
       image: '/gallery/Image15.jpg',
       imageAlt: '3D render of a custom mechanical keyboard created with Blender, Substance Painter and advanced texturing',
       technologies: ['Blender', 'Substance Painter', '3D Modeling', 'Texturing', 'Rendering'],
@@ -95,14 +94,14 @@ export function Projects() {
         {
           type: 'gallery',
           url: '/gallery',
-          label: 'View Gallery'
+          label: dict.links.gallery
         }
       ],
     },
     {
       id: 'pc-building',
-      title: 'PC Building Consultant',
-      description: 'Provided personalized PC building consultations, helping friends, clients and companies select optimal components based on their budget and needs, from budget builds to high-end gaming rigs.',
+      title: dict.items.pcBuilding.title,
+      description: dict.items.pcBuilding.description,
       image: '/pc-building-preview.png',
       imageAlt: 'Custom-built PC showcasing component selection, cable management and performance tuning',
       technologies: ['PC Building', 'Component Selection', 'Troubleshooting', 'Cable Management', 'Performance Tuning'],
@@ -110,7 +109,7 @@ export function Projects() {
         {
           type: 'gallery',
           url: 'https://mltech.store',
-          label: 'View Builds'
+          label: dict.links.builds
         }
       ],
     }
@@ -120,7 +119,7 @@ export function Projects() {
     <section id="projects" className="min-h-screen flex items-center justify-center py-20 px-4 relative z-10">
       <div className="max-w-6xl mx-auto w-full">
         <div>
-          <SectionTitle>My Projects</SectionTitle>
+          <SectionTitle>{dict.title}</SectionTitle>
           <div>
 
             <EncryptedTexts />

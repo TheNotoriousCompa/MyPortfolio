@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 import { TextHoverEffect } from "./ui/text-hover-effect";
 import { FileDown } from 'lucide-react';
 
-export function Hero() {
+export function Hero({ dict }: { dict: any /* eslint-disable-line @typescript-eslint/no-explicit-any */ }) {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -22,9 +22,9 @@ export function Hero() {
         <div className="text-center">
           <div className="flex justify-center mb-8 overflow-visible px-4">
             <div className="w-full max-w-5xl overflow-visible">
-              <TextHoverEffect text="Hi, I am MC" duration={1} />
+              <TextHoverEffect text={dict.greeting} duration={1} />
               <h1 className="text-xl md:text-2xl font-medium text-neutral-300 mt-2 text-center tracking-wide">
-                Maurizio Compagnone <span className="text-emerald-400 mx-2">|</span> Web Developer
+                {dict.fullName} <span className="text-emerald-400 mx-2">|</span> {dict.role}
               </h1>
             </div>
           </div>
@@ -34,14 +34,14 @@ export function Hero() {
               className="px-8 py-4 rounded-full bg-emerald-500/30 hover:bg-emerald-500/40 text-white transition-all duration-300 border border-emerald-400/50 hover:border-emerald-400/80 text-lg font-bold font-mono"
               variant="outline"
             >
-              View My Work
+              {dict.viewWork}
             </Button>
             <Button
               onClick={() => scrollToSection('contacts')}
               className="px-8 py-4 rounded-full bg-transparent hover:bg-white/10 text-white transition-all duration-300 border border-white/10 hover:border-white/20 text-lg font-bold font-mono"
               variant="outline"
             >
-              Contact Me
+              {dict.contactMe}
             </Button>
           </div>
           <div className="flex justify-center">

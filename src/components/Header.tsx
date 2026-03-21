@@ -13,9 +13,10 @@ interface Section {
 interface HeaderProps {
   sections: Section[];
   isGalleryPage?: boolean;
+  locale: string;
 }
 
-export function Header({ sections, isGalleryPage = false }: HeaderProps) {
+export function Header({ sections, isGalleryPage = false, locale }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -41,7 +42,7 @@ export function Header({ sections, isGalleryPage = false }: HeaderProps) {
       <motion.div
         className={cn(
           "mx-auto w-full px-4 pt-4 transition-all duration-300",
-          isScrolled ? "max-w-3xl" : "max-w-4xl"
+          isScrolled ? "max-w-4xl" : "max-w-5xl"
         )}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -88,7 +89,27 @@ export function Header({ sections, isGalleryPage = false }: HeaderProps) {
                 <span className="absolute inset-0 w-full h-full bg-emerald-500/10 -translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out rounded-md" />
               </Link>
             ))}
-
+            {/* Language Switcher */}
+            <div className="flex items-center ml-4 pl-4 border-l border-white/10 space-x-2">
+              <Link
+                href="/en"
+                className={cn(
+                  "px-2 py-1 text-xs font-bold rounded-md transition-all duration-300",
+                  locale === 'en' ? "text-emerald-400 bg-emerald-500/10" : "text-neutral-500 hover:text-white"
+                )}
+              >
+                EN
+              </Link>
+              <Link
+                href="/it"
+                className={cn(
+                  "px-2 py-1 text-xs font-bold rounded-md transition-all duration-300",
+                  locale === 'it' ? "text-emerald-400 bg-emerald-500/10" : "text-neutral-500 hover:text-white"
+                )}
+              >
+                IT
+              </Link>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -131,6 +152,33 @@ export function Header({ sections, isGalleryPage = false }: HeaderProps) {
                     {section.label}
                   </Link>
                 ))}
+
+                {/* Mobile Language Switcher */}
+                <div className="flex items-center justify-between pt-4 mt-2 border-t border-white/10">
+                  <span className="text-xs font-medium text-neutral-500 uppercase tracking-wider">Language</span>
+                  <div className="flex space-x-2">
+                    <Link
+                      href="/it"
+                      onClick={closeMobileMenu}
+                      className={cn(
+                        "px-3 py-1.5 text-xs font-bold rounded-lg transition-colors",
+                        locale === 'it' ? "text-emerald-400 bg-emerald-500/10" : "text-neutral-300 hover:bg-white/5"
+                      )}
+                    >
+                      ITALIANO
+                    </Link>
+                    <Link
+                      href="/en"
+                      onClick={closeMobileMenu}
+                      className={cn(
+                        "px-3 py-1.5 text-xs font-bold rounded-lg transition-colors",
+                        locale === 'en' ? "text-emerald-400 bg-emerald-500/10" : "text-neutral-300 hover:bg-white/5"
+                      )}
+                    >
+                      ENGLISH
+                    </Link>
+                  </div>
+                </div>
               </div>
             </motion.div>
           )}

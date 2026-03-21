@@ -5,6 +5,7 @@ import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiShadcnui, SiPython
 interface LogoItem {
   icon: React.ReactNode;
   name: string;
+  url: string;
 }
 
 interface LogoRowProps {
@@ -16,10 +17,16 @@ function LogoRow({ logos, className = '' }: LogoRowProps) {
   return (
     <div className={`flex items-center gap-8 flex-wrap justify-center ${className}`}>
       {logos.map((logo, index) => (
-        <div key={index} className="flex flex-col items-center p-4 hover:bg-white/5 rounded-lg transition-colors">
-          <div className="text-4xl text-white">{logo.icon}</div>
-          <span className="mt-2 text-sm font-medium text-white/80">{logo.name}</span>
-        </div>
+        <a
+          key={index}
+          href={logo.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex flex-col items-center p-4 hover:bg-white/5 rounded-lg transition-colors group"
+        >
+          <div className="text-4xl text-white group-hover:scale-110 transition-transform">{logo.icon}</div>
+          <span className="mt-2 text-sm font-medium text-white/80 group-hover:text-white transition-colors">{logo.name}</span>
+        </a>
       ))}
     </div>
   );
@@ -27,15 +34,15 @@ function LogoRow({ logos, className = '' }: LogoRowProps) {
 
 // Example usage with some default logos
 const defaultLogos: LogoItem[] = [
-  { icon: <SiReact size={32} />, name: 'React' },
-  { icon: <SiNextdotjs size={32} />, name: 'Next.js' },
-  { icon: <SiTypescript size={32} />, name: 'TypeScript' },
-  { icon: <SiTailwindcss size={32} />, name: 'Tailwind CSS' },
-  { icon: <SiShadcnui size={32} />, name: 'Shadcn' },
-  { icon: <SiPython size={32} />, name: 'Python' },
-  { icon: <SiElectron size={32} />, name: 'Electron' },
-  { icon: <SiFirebase size={32} />, name: 'Firebase' },
-  { icon: <SiNetlify size={32} />, name: 'Netlify' },
+  { icon: <SiReact size={32} />, name: 'React', url: 'https://react.dev/' },
+  { icon: <SiNextdotjs size={32} />, name: 'Next.js', url: 'https://nextjs.org/' },
+  { icon: <SiTypescript size={32} />, name: 'TypeScript', url: 'https://www.typescriptlang.org/' },
+  { icon: <SiTailwindcss size={32} />, name: 'Tailwind CSS', url: 'https://tailwindcss.com/' },
+  { icon: <SiShadcnui size={32} />, name: 'Shadcn', url: 'https://ui.shadcn.com/' },
+  { icon: <SiPython size={32} />, name: 'Python', url: 'https://www.python.org/' },
+  { icon: <SiElectron size={32} />, name: 'Electron', url: 'https://www.electronjs.org/' },
+  { icon: <SiFirebase size={32} />, name: 'Firebase', url: 'https://firebase.google.com/' },
+  { icon: <SiNetlify size={32} />, name: 'Netlify', url: 'https://www.netlify.com/' },
 ];
 
 function LogoDisplay() {

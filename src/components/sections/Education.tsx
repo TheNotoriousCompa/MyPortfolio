@@ -4,44 +4,44 @@ import { SectionTitle } from "@/components/sections/SectionTitle";
 
 interface EducationItem {
   id: string;
-  title: string;
+  degree: string;
   institution: string;
   period: string;
-  description: string;
+  description?: string;
   certificateLink?: string;
 }
 
-export function Education() {
+export const Education = ({ dict }: { dict: any /* eslint-disable-line @typescript-eslint/no-explicit-any */ }) => {
   const educationItems: EducationItem[] = [
-
     {
-      id: 'vercel-course',
-      title: "Next.js Dashboard Analysis & Optimization",
-      institution: "Vercel - Next.js Learn Course",
-      period: "2026",
-      description: "Completed the official Next.js Learn course, focusing on the fundamentals of modern routing, layouts, and navigation in Next.js.",
-      certificateLink: "/dashboard-app-certificate.pdf"
+      id: 'salerno-uni',
+      degree: dict.items.university.degree,
+      institution: dict.items.university.institution,
+      period: '2023 - Present',
+      description: dict.items.university.description
     },
     {
-      id: 'highschool',
-      title: "Scientific High School Diploma",
-      institution: "Liceo Scientifico Enriques",
-      period: "2016 - 2021",
-      description: "Graduated with a focus on scientific studies, including advanced mathematics, physics, and computer science fundamentals. Developed strong analytical and problem-solving skills through the scientific curriculum."
-    }
+      id: 'hs-diploma',
+      degree: dict.items.hs.degree,
+      institution: dict.items.hs.institution,
+      period: '2015 - 2020',
+    },
   ];
 
   return (
     <section id="education" className="py-20 px-4">
-      <div className="max-w-6xl mx-auto">
-        <SectionTitle>Education</SectionTitle>
+      <div className="max-w-4xl mx-auto">
+        <SectionTitle>{dict.title}</SectionTitle>
         <div className="space-y-6">
           {educationItems.map((item) => (
             <div
               key={item.id}
               className="p-6 rounded-xl border border-white/10 bg-neutral-900/50 transition-all hover:border-emerald-500/30 hover:-translate-y-0.5"
             >
-              <h3 className="text-2xl font-bold text-white mb-1">{item.title}</h3>
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-1 mb-2">
+                <h3 className="text-xl font-bold text-white uppercase tracking-wider">{item.degree}</h3>
+                <span className="text-emerald-400 font-mono text-sm whitespace-nowrap">{item.period}</span>
+              </div>
               <div className="flex items-center text-emerald-400 mb-4">
                 <span>{item.institution}</span>
                 <span className="mx-2">•</span>

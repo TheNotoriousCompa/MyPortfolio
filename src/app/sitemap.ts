@@ -2,19 +2,22 @@ import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://mcompagnone.netlify.app';
+    const locales = ['en', 'it'];
 
-    return [
+    const routes = locales.flatMap((locale) => [
         {
-            url: baseUrl,
+            url: `${baseUrl}/${locale}`,
             lastModified: new Date(),
-            changeFrequency: 'monthly',
+            changeFrequency: 'monthly' as const,
             priority: 1,
         },
         {
-            url: `${baseUrl}/gallery`,
+            url: `${baseUrl}/${locale}/gallery`,
             lastModified: new Date(),
-            changeFrequency: 'monthly',
+            changeFrequency: 'monthly' as const,
             priority: 0.8,
         },
-    ];
+    ]);
+
+    return routes;
 }

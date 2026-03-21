@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Background from '@/components/Background';
-import "./globals.css";
+import "../globals.css";
 
 // Optimize font loading
 const geistSans = Geist({
@@ -60,9 +60,6 @@ export const metadata: Metadata = {
     },
   ],
   creator: "Maurizio Compagnone",
-  alternates: {
-    canonical: "https://mcompagnone.netlify.app",
-  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -105,13 +102,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
+export async function generateStaticParams() {
+  return [{ locale: 'en' }, { locale: 'it' }];
+}
+
+export default async function RootLayout(props: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
+  const params = await props.params;
+  const locale = params.locale;
+  const { children } = props;
+
   return (
-    <html lang="en" className="h-full w-full" suppressHydrationWarning>
+    <html lang={locale} className="h-full w-full" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"

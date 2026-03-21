@@ -1,0 +1,106 @@
+{
+    "common": {
+        "sections": {
+            "home": "Home",
+            "projects": "Projects",
+            "education": "Education",
+            "about": "About Me",
+            "experience": "Experience",
+            "contacts": "Contacts"
+        }
+    },
+    "Hero": {
+        "greeting": "Hi, I am MC",
+        "fullName": "Maurizio Compagnone",
+        "role": "Web Developer",
+        "viewWork": "View My Work",
+        "contactMe": "Contact Me"
+    },
+    "About": {
+        "title": "About Me",
+        "greeting": "Hi, I'm Maurizio Compagnone, a computer science student passionate about books, cinema, and videogames. My true passion is anything that combines creativity and technology at all its levels.",
+        "p2": "I enjoy assembling fully customised PCs and mechanical keyboards since there is something deeply satisfying about seeing separate components becoming something functional and unique, with its own character.",
+        "p3": "I am curious by nature and I like to understand how various things work, not just superficially. Whether it's taking apart a device, reading technical documentation, or programming a website, I always try to seek the balance between practicality and aesthetics.",
+        "technicalSkills": "Technical Skills",
+        "languages": "Languages",
+        "native": "Native",
+        "certified": "C1 Level Certified"
+    },
+    "Contact": {
+        "title": "Get In Touch",
+        "subtitle": "I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll get back to you as soon as possible!",
+        "infoTitle": "Contact Information",
+        "formTitle": "Send me a message",
+        "social": "Connect with me",
+        "labels": {
+            "name": "Name",
+            "email": "Email",
+            "subject": "Subject",
+            "message": "Message",
+            "send": "Send Message"
+        },
+        "placeholders": {
+            "name": "Maurizio Compagnone",
+            "email": "your.email@example.com",
+            "subject": "What's this about?",
+            "message": "Your message here..."
+        }
+    },
+    "Projects": {
+        "title": "My Projects",
+        "links": {
+            "demo": "Live Demo",
+            "github": "View on GitHub",
+            "gallery": "View Gallery",
+            "builds": "View Builds"
+        },
+        "items": {
+            "spotter": {
+                "description": "I developed Spotter, a management platform for personal trainers. A complete ecosystem for the professional management of physical and clinical well-being."
+            },
+            "portfolioV2": {
+                "title": "Portfolio Website",
+                "description": "This very website you are on! A modern, responsive portfolio built with Next.js, TypeScript, and Tailwind CSS. Clean design with smooth animations."
+            },
+            "portfolioV1": {
+                "title": "My first website",
+                "description": "My personal website built with Next.js, Tailwind CSS, and TypeScript. Features a modern, responsive design with smooth scrolling navigation."
+            },
+            "audit": {
+                "description": "A modern wrapper for yt-dlp that simplifies downloading videos from YouTube in various formats. Intuitive interface with real-time download progress tracking."
+            },
+            "keyboardRenders": {
+                "title": "3D Keyboards Render",
+                "description": "High-quality 3D renders of custom mechanical keyboards, created using Blender."
+            },
+            "pcBuilding": {
+                "title": "PC Building Consultant",
+                "description": "Provided personalized PC building consultations, helping friends, clients and companies select optimal components based on their budget."
+            }
+        }
+    },
+    "Education": {
+        "title": "My Education",
+        "items": {
+            "university": {
+                "degree": "Bachelor's Degree in Computer Science",
+                "institution": "UNIFI",
+                "description": "Studying computer science fundamentals, algorithms, data structures, and software engineering."
+            },
+            "hs": {
+                "degree": "Scientific Secondary School Diploma",
+                "institution": "Liceo Scientifico F. Enriques, Castelfiorentino"
+            }
+        }
+    },
+    "Experience": {
+        "title": "Professional Experience",
+        "items": {
+            "survey": {
+                "title": "Field Survey Operator",
+                "company": "Master Electric",
+                "description": "Surveying and mapping electrical network infrastructure using specialized technical tools."
+            }
+        }
+    }
+}

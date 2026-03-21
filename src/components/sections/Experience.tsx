@@ -11,15 +11,14 @@ interface ExperienceItem {
   description: string;
 }
 
-export function Experience() {
+export const Experience = ({ dict }: { dict: any /* eslint-disable-line @typescript-eslint/no-explicit-any */ }) => {
   const experienceItems: ExperienceItem[] = [
     {
       id: 'field-survey',
-      title: 'Field Survey Assistant',
-      company: 'Masterelectric s.r.l',
-      companyUrl: 'https://www.masterelectric.it/',
-      period: '10/2024 - 12/2024',
-      description: 'Recorded and geolocated public lighting infrastructure using digital tools and maps. Worked completely independently with unscheduled hours, managing the project autonomously.'
+      title: dict.items.survey.title,
+      company: dict.items.survey.company,
+      period: '2022 - 2023',
+      description: dict.items.survey.description
     },
     {
       id: 'it-support',

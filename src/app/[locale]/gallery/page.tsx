@@ -1,22 +1,35 @@
 import { Header } from '@/components/Header';
 import Gallery from '@/components/sections/gallery';
 import { Metadata } from 'next';
+import { Locale } from '@/lib/get-dictionaries';
 
-export const metadata: Metadata = {
-  title: 'Gallery | Maurizio Compagnone — Portfolio',
-  description: '3D renders and designs gallery by Maurizio Compagnone. Explore custom mechanical keyboard designs and 3D artwork created with Blender.',
-  alternates: {
-    canonical: 'https://mcompagnone.netlify.app/gallery',
-  },
-  openGraph: {
+export async function generateMetadata(props: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const params = await props.params;
+  const locale = params.locale;
+
+  return {
     title: 'Gallery | Maurizio Compagnone — Portfolio',
     description: '3D renders and designs gallery by Maurizio Compagnone. Explore custom mechanical keyboard designs and 3D artwork created with Blender.',
-    type: 'website',
-    url: 'https://mcompagnone.netlify.app/gallery',
-  },
-};
+    alternates: {
+      canonical: `https://mcompagnone.netlify.app/${locale}/gallery`,
+      languages: {
+        'it': 'https://mcompagnone.netlify.app/it/gallery',
+        'en': 'https://mcompagnone.netlify.app/en/gallery',
+      },
+    },
+    openGraph: {
+      title: 'Gallery | Maurizio Compagnone — Portfolio',
+      description: '3D renders and designs gallery by Maurizio Compagnone. Explore custom mechanical keyboard designs and 3D artwork created with Blender.',
+      type: 'website',
+      url: `https://mcompagnone.netlify.app/${locale}/gallery`,
+    },
+  };
+}
 
-export default function GalleryPage() {
+export default async function GalleryPage(props: { params: Promise<{ locale: string }> }) {
+  const params = await props.params;
+  const locale = params.locale;
+
   const sections = [
     { id: 'hero', label: 'Home' },
     { id: 'about', label: 'About Me' },
@@ -31,6 +44,7 @@ export default function GalleryPage() {
         <Header
           sections={sections}
           isGalleryPage={true}
+          locale={locale as Locale}
         />
         <div className="flex-grow flex flex-col justify-center items-center px-4 pt-16">
           <h1 className="sr-only">Maurizio Compagnone — 3D Keyboard Gallery</h1>

@@ -1,0 +1,106 @@
+{
+    "common": {
+        "sections": {
+            "home": "Home",
+            "projects": "Progetti",
+            "education": "Istruzione",
+            "about": "Chi Sono",
+            "experience": "Esperienza",
+            "contacts": "Contatti"
+        }
+    },
+    "Hero": {
+        "greeting": "Ciao, sono MC",
+        "fullName": "Maurizio Compagnone",
+        "role": "Web Developer",
+        "viewWork": "Vedi Progetti",
+        "contactMe": "Contattami"
+    },
+    "About": {
+        "title": "Chi Sono",
+        "greeting": "Ciao, sono Maurizio Compagnone, uno studente di informatica appassionato di libri, cinema e videogiochi. La mia vera passione è tutto ciò che unisce creatività e tecnologia a tutti i livelli.",
+        "p2": "Mi piace assemblare PC e tastiere meccaniche completamente personalizzati, poiché c'è qualcosa di profondamente soddisfacente nel vedere componenti separati diventare qualcosa di funzionale e unico, con il proprio carattere.",
+        "p3": "Sono curioso di natura e mi piace capire come funzionano le varie cose, non solo superficialmente. Che si tratti di smontare un dispositivo, leggere documentazione tecnica o programmare un sito web, cerco sempre di trovare l'equilibrio tra praticità ed estetica.",
+        "technicalSkills": "Competenze Tecniche",
+        "languages": "Lingue",
+        "native": "Madrelingua",
+        "certified": "Certificato Livello C1"
+    },
+    "Contact": {
+        "title": "Contattami",
+        "subtitle": "Al momento sono alla ricerca di nuove opportunità. Se hai una domanda o vuoi solo scambiare due parole, ti risponderò il prima possibile!",
+        "infoTitle": "Informazioni di Contatto",
+        "formTitle": "Invia un messaggio",
+        "social": "Connettiti con me",
+        "labels": {
+            "name": "Nome",
+            "email": "Email",
+            "subject": "Oggetto",
+            "message": "Messaggio",
+            "send": "Invia Messaggio"
+        },
+        "placeholders": {
+            "name": "Maurizio Compagnone",
+            "email": "la.tua.email@esempio.com",
+            "subject": "Di cosa si tratta?",
+            "message": "Il tuo messaggio qui..."
+        }
+    },
+    "Projects": {
+        "title": "I Miei Progetti",
+        "links": {
+            "demo": "Demo Live",
+            "github": "Vedi su GitHub",
+            "gallery": "Vedi Galleria",
+            "builds": "Vedi Build"
+        },
+        "items": {
+            "spotter": {
+                "description": "Ho sviluppato Spotter, una piattaforma gestionale per personal trainer completa di tutto il necessario per la gestione dei dati dei clienti."
+            },
+            "portfolioV2": {
+                "title": "Sito Portfolio",
+                "description": "Proprio questo sito su cui ti trovi! Un portfolio moderno e reattivo costruito con Next.js, TypeScript e Tailwind CSS. Design pulito con animazioni fluide."
+            },
+            "portfolioV1": {
+                "title": "Il mio primo sito",
+                "description": "Il mio sito personale costruito con Next.js, Tailwind CSS e TypeScript. Presenta un design moderno e reattivo con navigazione fluida ed elementi interattivi."
+            },
+            "audit": {
+                "description": "Un wrapper moderno per yt-dlp che semplifica il download di video da YouTube in vari formati. Interfaccia intuitiva e monitoraggio dei progressi in tempo reale."
+            },
+            "keyboardRenders": {
+                "title": "Render tastiere 3D",
+                "description": "Render 3D di alta qualità di tastiere meccaniche personalizzate, realizzati con Blender."
+            },
+            "pcBuilding": {
+                "title": "Consulente PC Building",
+                "description": "Consulenze personalizzate per l'assemblaggio di PC, aiutando clienti e aziende a selezionare i componenti ottimali in base al budget."
+            }
+        }
+    },
+    "Education": {
+        "title": "La Mia Formazione",
+        "items": {
+            "university": {
+                "degree": "Laurea Triennale in Informatica",
+                "institution": "UNIFI",
+                "description": "Studio dei fondamenti dell'informatica, algoritmi, strutture dati e ingegneria del software."
+            },
+            "hs": {
+                "degree": "Diploma di Maturità Scientifica",
+                "institution": "Liceo Scientifico F. Enriques, Castelfiorentino"
+            }
+        }
+    },
+    "Experience": {
+        "title": "Esperienza Professionale",
+        "items": {
+            "survey": {
+                "title": "Field Survey Operator",
+                "company": "Master Electric",
+                "description": "Rilevamento e mappatura dell'infrastruttura di rete elettrica utilizzando strumenti tecnici specializzati."
+            }
+        }
+    }
+}
