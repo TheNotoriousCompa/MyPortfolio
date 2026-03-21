@@ -14,6 +14,13 @@ interface ExperienceItem {
 export const Experience = ({ dict }: { dict: any /* eslint-disable-line @typescript-eslint/no-explicit-any */ }) => {
   const experienceItems: ExperienceItem[] = [
     {
+      id: 'ibi',
+      title: dict.items.ibi?.title || 'Web Development Intern',
+      company: dict.items.ibi?.company || 'IBI',
+      period: dict.items.ibi?.period || 'March 16, 2026 - ongoing',
+      description: dict.items.ibi?.description || 'Web development training program.'
+    },
+    {
       id: 'field-survey',
       title: dict.items.survey.title,
       company: dict.items.survey.company,

@@ -155,7 +155,7 @@ export function Header({ sections, isGalleryPage = false, locale }: HeaderProps)
 
                 {/* Mobile Language Switcher */}
                 <div className="flex items-center justify-between pt-4 mt-2 border-t border-white/10">
-                  <span className="text-xs font-medium text-neutral-500 uppercase tracking-wider">Language</span>
+                  <span className="text-xs font-medium text-neutral-500 tracking-wider">Language</span>
                   <div className="flex space-x-2">
                     <Link
                       href="/it"

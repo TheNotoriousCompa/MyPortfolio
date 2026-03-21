@@ -82,25 +82,39 @@
     "Education": {
         "title": "My Education",
         "items": {
-            "university": {
-                "degree": "Bachelor's Degree in Computer Science",
-                "institution": "UNIFI",
-                "description": "Studying computer science fundamentals, algorithms, data structures, and software engineering."
-            },
             "hs": {
                 "degree": "Scientific Secondary School Diploma",
-                "institution": "Liceo Scientifico F. Enriques, Castelfiorentino"
+                "institution": "Liceo Scientifico F. Enriques, Castelfiorentino",
+                "period": "2016 - 2021"
+            },
+            "certNextjs": {
+                "degree": "Next.js App Router Fundamentals",
+                "institution": "",
+                "period": "January 2026"
             }
         }
     },
     "Experience": {
         "title": "Professional Experience",
         "items": {
+            "ibi": {
+                "title": "Web Development Intern",
+                "company": "IBI – Internet Business Innovation (part of Gruppo Editoriale Domus)",
+                "period": "March 16, 2026 - ongoing",
+                "description": "Web development training program focused on .NET technologies (C#), React advanced usage, and database management."
+            },
             "survey": {
                 "title": "Field Survey Operator",
                 "company": "Master Electric",
                 "description": "Surveying and mapping electrical network infrastructure using specialized technical tools."
             }
         }
+    },
+    "gallery": {
+        "title": "3D Keyboard Gallery",
+        "description": "Here there are some of my 3D renders made with Blender of custom keyboards of various designs!",
+        "metaTitle": "Gallery | Maurizio Compagnone — Portfolio",
+        "metaDescription": "3D renders and designs gallery by Maurizio Compagnone. Explore custom mechanical keyboard designs.",
+        "back": "Back to Home"
     }
 }

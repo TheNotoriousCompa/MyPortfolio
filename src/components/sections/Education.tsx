@@ -14,17 +14,17 @@ interface EducationItem {
 export const Education = ({ dict }: { dict: any /* eslint-disable-line @typescript-eslint/no-explicit-any */ }) => {
   const educationItems: EducationItem[] = [
     {
-      id: 'salerno-uni',
-      degree: dict.items.university.degree,
-      institution: dict.items.university.institution,
-      period: '2023 - Present',
-      description: dict.items.university.description
-    },
-    {
       id: 'hs-diploma',
       degree: dict.items.hs.degree,
       institution: dict.items.hs.institution,
-      period: '2015 - 2020',
+      period: dict.items.hs.period || '2016 - 2021',
+    },
+    {
+      id: 'cert-nextjs',
+      degree: dict.items.certNextjs?.degree || 'Next.js Certificate',
+      institution: dict.items.certNextjs?.institution,
+      period: dict.items.certNextjs?.period,
+      certificateLink: '/dashboard-app-certificate.pdf'
     },
   ];
 
@@ -39,13 +39,12 @@ export const Education = ({ dict }: { dict: any /* eslint-disable-line @typescri
               className="p-6 rounded-xl border border-white/10 bg-neutral-900/50 transition-all hover:border-emerald-500/30 hover:-translate-y-0.5"
             >
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-1 mb-2">
-                <h3 className="text-xl font-bold text-white uppercase tracking-wider">{item.degree}</h3>
+                <h3 className="text-xl font-bold text-white tracking-wider">{item.degree}</h3>
                 <span className="text-emerald-400 font-mono text-sm whitespace-nowrap">{item.period}</span>
               </div>
-              <div className="flex items-center text-emerald-400 mb-4">
-                <span>{item.institution}</span>
-                <span className="mx-2">•</span>
-                <span className="text-neutral-400">{item.period}</span>
+              <div className="mb-4">
+                {item.institution && <p className="text-emerald-500 font-medium">{item.institution}</p>}
+                {item.period && <p className="text-neutral-400 text-sm mt-1">{item.period}</p>}
               </div>
               <p className="text-neutral-300 mb-4">
                 {item.description}

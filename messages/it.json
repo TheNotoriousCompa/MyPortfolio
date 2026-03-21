@@ -82,25 +82,39 @@
     "Education": {
         "title": "La Mia Formazione",
         "items": {
-            "university": {
-                "degree": "Laurea Triennale in Informatica",
-                "institution": "UNIFI",
-                "description": "Studio dei fondamenti dell'informatica, algoritmi, strutture dati e ingegneria del software."
-            },
             "hs": {
                 "degree": "Diploma di Maturità Scientifica",
-                "institution": "Liceo Scientifico F. Enriques, Castelfiorentino"
+                "institution": "Liceo Scientifico F. Enriques, Castelfiorentino",
+                "period": "2016 - 2021"
+            },
+            "certNextjs": {
+                "degree": "Next.js App Router Fundamentals",
+                "institution": "",
+                "period": "Gennaio 2026"
             }
         }
     },
     "Experience": {
         "title": "Esperienza Professionale",
         "items": {
+            "ibi": {
+                "title": "Stagista / Sviluppatore Web Junior",
+                "company": "IBI – Internet Business Innovation (Gruppo Editoriale Domus)",
+                "period": "16 marzo 2026 - in corso",
+                "description": "Percorso di formazione nello sviluppo web con focus su tecnologie .NET (C#), approfondimento di React e gestione di database."
+            },
             "survey": {
                 "title": "Field Survey Operator",
                 "company": "Master Electric",
                 "description": "Rilevamento e mappatura dell'infrastruttura di rete elettrica utilizzando strumenti tecnici specializzati."
             }
         }
+    },
+    "gallery": {
+        "title": "Keyboard 3D Gallery",
+        "description": "Ecco alcuni dei miei render 3D di tastiere meccaniche realizzati con Blender!",
+        "metaTitle": "Gallery 3D | Maurizio Compagnone — Portfolio",
+        "metaDescription": "Esplora i mockup 3D e i design di tastiere custom by Maurizio Compagnone.",
+        "back": "Torna alla Home"
     }
 }

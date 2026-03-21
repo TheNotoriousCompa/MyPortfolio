@@ -4,6 +4,7 @@ import Image from "next/image";
 import { SectionTitle } from "@/components/sections/SectionTitle";
 import { DottedGlowBackground } from "@/components/ui/dotted-glow-background";
 import LogoDisplay from "@/components/logodisplay";
+import { useParams } from "next/navigation";
 import { EncryptedTexts } from "../textencrypted";
 
 interface Project {
@@ -22,6 +23,9 @@ interface Project {
 }
 
 export function Projects({ dict }: { dict: any /* eslint-disable-line @typescript-eslint/no-explicit-any */ }) {
+  const params = useParams();
+  const locale = params?.locale || 'en';
+
   const projects: Project[] = [
     {
       id: 'spotter',
@@ -93,7 +97,7 @@ export function Projects({ dict }: { dict: any /* eslint-disable-line @typescrip
       links: [
         {
           type: 'gallery',
-          url: '/gallery',
+          url: `/${locale}/gallery`,
           label: dict.links.gallery
         }
       ],
@@ -173,7 +177,7 @@ export function Projects({ dict }: { dict: any /* eslint-disable-line @typescrip
                       <a
                         key={index}
                         href={link.url}
-                        target="_blank"
+                        target={link.url.startsWith('/') ? undefined : "_blank"}
                         rel="noopener noreferrer"
                         className={`px-4 py-2 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 rounded-lg text-sm font-medium flex items-center gap-1 transition-colors ${link.disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
                         {...(link.disabled ? { 'aria-disabled': true, 'title': 'Coming soon' } : {})}

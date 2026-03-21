@@ -6,9 +6,6 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
 
-  // Enable SWC minification
-  swcMinify: true,
-
   // Disable powered by header
   poweredByHeader: false,
 
@@ -22,15 +19,15 @@ const nextConfig: NextConfig = {
 
   // Image optimization
   images: {
-    domains: [
-      'api.microlink.io', // Microlink Image Preview
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'api.microlink.io',
+      },
     ],
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 60,
   },
-
-  // Disable Next.js telemetry
-  telemetry: false,
 
   // Experimental features
   experimental: {

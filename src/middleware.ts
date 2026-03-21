@@ -10,8 +10,14 @@ function getLocale(request: NextRequest): string | undefined {
     const negotiatorHeaders: Record<string, string> = {};
     request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
 
-    const languages = new Negotiator({ headers: negotiatorHeaders }).languages();
-    const locale = matchLocale(languages, locales, defaultLocale);
+    let locale = defaultLocale;
+    try {
+        const languages = new Negotiator({ headers: negotiatorHeaders }).languages();
+        locale = matchLocale(languages, locales, defaultLocale);
+    } catch (e) {
+        // Fallback to default if header contains invalid locale tags (like '*')
+        locale = defaultLocale;
+    }
 
     return locale;
 }
@@ -41,5 +47,5 @@ export function middleware(request: NextRequest) {
 
 export const config = {
     // Matcher ignoring `/_next/` and `/api/`
-    matcher: ['/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|.*\\.png$|.*\\.pdf$|.*\\.webmanifest$).*)'],
+    matcher: ['/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|.*\\.png$|.*\\.jpg$|.*\\.jpeg$|.*\\.svg$|.*\\.webp$|.*\\.pdf$|.*\\.webmanifest$).*)'],
 };

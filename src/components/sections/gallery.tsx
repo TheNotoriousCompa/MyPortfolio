@@ -128,8 +128,8 @@ function ScrollingRow({
             key={i}
             className="group relative overflow-hidden rounded-lg cursor-pointer"
             style={{
-              minWidth: '300px',
-              height: '200px',
+              minWidth: '500px',
+              height: '330px',
               flexShrink: 0,
             }}
             whileHover={{ scale: 1.05, y: -5 }}
@@ -155,7 +155,7 @@ function ScrollingRow({
               alt={image.alt}
               fill
               className="object-cover transition-all duration-300 group-hover:blur-sm group-hover:scale-110"
-              sizes="300px"
+              sizes="500px"
               loading="lazy"
             />
 
@@ -184,7 +184,7 @@ function ScrollingRow({
 }
 
 // Main Gallery component
-function Gallery() {
+function Gallery({ dict }: { dict?: any /* eslint-disable-line @typescript-eslint/no-explicit-any */ }) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -195,241 +195,241 @@ function Gallery() {
     return [
 
       {
-        src: '/gallery/image2.jpg',
+        src: '/gallery/Image2.jpg',
         title: 'Tofuwood White',
         description: '3D render of a Tofu60 with wooden keycaps on pristine white background',
         alt: '3D rendered Tofuwood White mechanical keyboard',
       },
       {
-        src: '/gallery/image3.jpg',
+        src: '/gallery/Image3.jpg',
         title: 'GMMK Pro Roman',
         description: '3D render of a GMMK Pro featuring elegant Roman-style keycaps',
         alt: '3D rendered GMMK Pro with Roman keycaps',
       },
       {
-        src: '/gallery/image4.jpg',
+        src: '/gallery/Image4.jpg',
         title: 'GMMK Monochrome',
         description: '3D render of a GMMK with classic black and white color scheme',
         alt: '3D rendered GMMK Monochrome keyboard',
       },
       {
-        src: '/gallery/image5.jpg',
+        src: '/gallery/Image5.jpg',
         title: 'GMMK Pro Rainbow',
         description: '3D render of a GMMK Pro with vibrant rainbow RGB lighting',
         alt: '3D rendered GMMK Pro Rainbow keyboard',
       },
       {
-        src: '/gallery/image6.jpg',
+        src: '/gallery/Image6.jpg',
         title: 'GMMK 60% Lilac',
         description: '3D render of a compact GMMK 60% in elegant white and lilac purple',
         alt: '3D rendered GMMK 60% Lilac keyboard',
       },
       {
-        src: '/gallery/image7.jpg',
+        src: '/gallery/Image7.jpg',
         title: 'GMMK Pro Galaxy',
         description: '3D render of a GMMK Pro with stunning galaxy-inspired color scheme',
         alt: '3D rendered GMMK Pro Galaxy keyboard',
       },
       {
-        src: '/gallery/image8.jpg',
+        src: '/gallery/Image8.jpg',
         title: 'GMMK Pro Lime',
         description: '3D render of a GMMK Pro with fresh white and lime green accents',
         alt: '3D rendered GMMK Pro Lime keyboard',
       },
       {
-        src: '/gallery/image9.jpg',
+        src: '/gallery/Image9.jpg',
         title: 'BM60 Blue Ocean',
         description: '3D render of a BM60 with deep blue ocean-inspired colorway',
         alt: '3D rendered BM60 Blue Ocean keyboard',
       },
       {
-        src: '/gallery/image10.jpg',
+        src: '/gallery/Image10.jpg',
         title: 'Tofu Blue Ocean',
         description: '3D render of a Tofu60 with serene blue ocean aesthetic',
         alt: '3D rendered Tofu Blue Ocean keyboard',
       },
       {
-        src: '/gallery/image11.jpg',
+        src: '/gallery/Image11.jpg',
         title: 'GMMK Sky',
         description: '3D render of a GMMK with beautiful sky-inspired gradient colors',
         alt: '3D rendered GMMK Sky keyboard',
       },
       {
-        src: '/gallery/image12.jpg',
+        src: '/gallery/Image12.jpg',
         title: 'GMMK Strawberry',
         description: '3D render of a GMMK with sweet strawberry pink colorway',
         alt: '3D rendered GMMK Strawberry keyboard',
       },
       {
-        src: '/gallery/image13.jpg',
+        src: '/gallery/Image13.jpg',
         title: 'Tofu60 RGB Lilac',
         description: '3D render of a Tofu60 RGB with elegant lilac purple theme',
         alt: '3D rendered Tofu60 RGB Lilac keyboard',
       },
       {
-        src: '/gallery/image14.jpg',
+        src: '/gallery/Image14.jpg',
         title: 'Tofu Korean',
         description: '3D render of a Tofu60 featuring Korean hangul keycaps',
         alt: '3D rendered Tofu Korean keyboard',
       },
       {
-        src: '/gallery/image15.jpg',
+        src: '/gallery/Image15.jpg',
         title: 'Tofu Pharaoh Black',
         description: '3D render of a Tofu60 with mysterious black pharaoh theme',
         alt: '3D rendered Tofu Pharaoh Black keyboard',
       },
       {
-        src: '/gallery/image16.jpg',
+        src: '/gallery/Image16.jpg',
         title: 'GMMK Pro Rainbow Top',
         description: '3D render of a GMMK Pro rainbow edition from top-down view',
         alt: '3D rendered GMMK Pro Rainbow top view',
       },
       {
-        src: '/gallery/image17.jpg',
+        src: '/gallery/Image17.jpg',
         title: 'GMMK Pro Rainbow Exposed',
         description: '3D render of a GMMK Pro rainbow with visible keycap stems',
         alt: '3D rendered GMMK Pro Rainbow with exposed keycaps',
       },
       {
-        src: '/gallery/image18.jpg',
+        src: '/gallery/Image18.jpg',
         title: 'GMMK Pro Roman Exposed',
         description: '3D render of a GMMK Pro with exposed Roman keycaps',
         alt: '3D rendered GMMK Pro Roman with exposed keycaps',
       },
       {
-        src: '/gallery/image19.jpg',
+        src: '/gallery/Image19.jpg',
         title: 'Glass Tofu RGB',
         description: '3D render of a Tofu60 RGB with transparent glass-like case',
         alt: '3D rendered Glass Tofu RGB keyboard',
       },
       {
-        src: '/gallery/image20.jpg',
+        src: '/gallery/Image20.jpg',
         title: 'Split Japanese',
         description: '3D render of a split ergonomic keyboard with Japanese keycaps',
         alt: '3D rendered split keyboard with Japanese keycaps',
       },
       {
-        src: '/gallery/image21.jpg',
+        src: '/gallery/Image21.jpg',
         title: 'GMMK Pro Roman Exposed Alt',
         description: '3D render of a GMMK Pro with exposed Roman keycaps, alternative view',
         alt: '3D rendered GMMK Pro Roman exposed alternative',
       },
       {
-        src: '/gallery/image22.jpg',
+        src: '/gallery/Image22.jpg',
         title: 'Blood Tofu60 Black',
         description: '3D render of a Tofu60 with dark blood-red theme on black case',
         alt: '3D rendered Blood Tofu60 Black keyboard',
       },
       {
-        src: '/gallery/image23.jpg',
+        src: '/gallery/Image23.jpg',
         title: 'Blood Tofu60 White',
         description: '3D render of a Tofu60 with blood-red theme on white case',
         alt: '3D rendered Blood Tofu60 White keyboard',
       },
       {
-        src: '/gallery/image24.jpg',
+        src: '/gallery/Image24.jpg',
         title: 'Tofu Sakura',
         description: '3D render of a Tofu60 with soft white, gray, and light pink sakura theme',
         alt: '3D rendered Tofu Sakura keyboard',
       },
       {
-        src: '/gallery/image25.jpg',
+        src: '/gallery/Image25.jpg',
         title: 'Tofu Panda',
         description: '3D render of a Tofu60 with white, gray, and black panda colorway',
         alt: '3D rendered Tofu Panda keyboard',
       },
       {
-        src: '/gallery/image26.jpg',
+        src: '/gallery/Image26.jpg',
         title: 'Tofu Sakura Alt',
         description: '3D render of a Tofu60 with white, gray, and light pink sakura theme, alternative view',
         alt: '3D rendered Tofu Sakura alternative keyboard',
       },
       {
-        src: '/gallery/image27.jpg',
+        src: '/gallery/Image27.jpg',
         title: 'Tofu Arboreal',
         description: '3D render of a Tofu60 with nature-inspired very light green forest theme',
         alt: '3D rendered Tofu Arboreal keyboard',
       },
       {
-        src: '/gallery/image28.jpg',
+        src: '/gallery/Image28.jpg',
         title: 'Tofu Chocolate60',
         description: '3D render of a Tofu60 with rich chocolate brown colorway',
         alt: '3D rendered Tofu Chocolate60 keyboard',
       },
       {
-        src: '/gallery/image29.jpg',
+        src: '/gallery/Image29.jpg',
         title: 'Tofu60 Galaxy Light',
         description: '3D render of a Tofu60 with light galaxy-inspired theme',
         alt: '3D rendered Tofu60 Galaxy Light keyboard',
       },
       {
-        src: '/gallery/image30.jpg',
+        src: '/gallery/Image30.jpg',
         title: 'Tofu Mint60',
         description: '3D render of a Tofu60 with refreshing mint green colorway',
         alt: '3D rendered Tofu Mint60 keyboard',
       },
       {
-        src: '/gallery/image31.jpg',
+        src: '/gallery/Image31.jpg',
         title: 'Tofu Purple RGB',
         description: '3D render of a Tofu60 RGB with vibrant purple theme',
         alt: '3D rendered Tofu Purple RGB keyboard',
       },
       {
-        src: '/gallery/image32.jpg',
+        src: '/gallery/Image32.jpg',
         title: 'Tofu Purple',
         description: '3D render of a Tofu60 with elegant purple theme, non-RGB',
         alt: '3D rendered Tofu Purple keyboard',
       },
       {
-        src: '/gallery/image33.jpg',
+        src: '/gallery/Image33.jpg',
         title: 'Tofu Purple White Case',
         description: '3D render of a Tofu60 with purple keycaps on white case',
         alt: '3D rendered Tofu Purple White Case keyboard',
       },
       {
-        src: '/gallery/image34.jpg',
+        src: '/gallery/Image34.jpg',
         title: 'Tofu Pharaoh Glass',
         description: '3D render of a Tofu60 pharaoh theme with transparent glass case',
         alt: '3D rendered Tofu Pharaoh Glass keyboard',
       },
       {
-        src: '/gallery/image35.jpg',
+        src: '/gallery/Image35.jpg',
         title: 'Tofu Remax Sponsor',
         description: '3D render of a Tofu60 with Remax sponsor branding',
         alt: '3D rendered Tofu Remax Sponsor keyboard',
       },
       {
-        src: '/gallery/image36.jpg',
+        src: '/gallery/Image36.jpg',
         title: 'Arial Tofu60',
         description: '3D render of a Tofu60 with clean Arial font keycaps',
         alt: '3D rendered Arial Tofu60 keyboard',
       },
       {
-        src: '/gallery/image37.jpg',
+        src: '/gallery/Image37.jpg',
         title: 'Arial Tofu60 RGB',
         description: '3D render of a Tofu60 RGB with Arial font keycaps',
         alt: '3D rendered Arial Tofu60 RGB keyboard',
       },
       {
-        src: '/gallery/image38.jpg',
+        src: '/gallery/Image38.jpg',
         title: 'Tofu Arboreal RGB',
         description: '3D render of a Tofu60 RGB with forest green arboreal theme',
         alt: '3D rendered Tofu Arboreal RGB keyboard',
       },
       {
-        src: '/gallery/image39.jpg',
+        src: '/gallery/Image39.jpg',
         title: 'Tofu Pine',
         description: '3D render of a Tofu60 with pine green and black colorway',
         alt: '3D rendered Tofu Pine keyboard',
       },
       {
-        src: '/gallery/image40.jpg',
+        src: '/gallery/Image40.jpg',
         title: 'Keyboard 40',
         description: '3D render of a custom mechanical keyboard with unique design',
         alt: '3D rendered mechanical keyboard 40',
       },
       {
-        src: '/gallery/image41.jpg',
+        src: '/gallery/Image41.jpg',
         title: 'GMMK Pro Rainbow Black',
         description: '3D render of a GMMK Pro rainbow edition with black case',
         alt: '3D rendered GMMK Pro Rainbow Black keyboard',
@@ -462,28 +462,13 @@ function Gallery() {
 
   return (
     <div ref={sectionRef} className="space-y-8 py-12">
-      <SectionTitle>3D Keyboard Gallery</SectionTitle>
+      <SectionTitle>{dict?.gallery?.title || '3D Keyboard Gallery'}</SectionTitle>
 
       {/* Scrolling rows with parallax effect */}
       <ScrollingRow
         images={allImages}
         speed={40}
         initialOffset={0}
-        onImageClick={handleImageClick}
-        isVisible={isVisible}
-      />
-      <ScrollingRow
-        images={allImages}
-        speed={60}
-        reverse
-        initialOffset={100}
-        onImageClick={handleImageClick}
-        isVisible={isVisible}
-      />
-      <ScrollingRow
-        images={allImages}
-        speed={50}
-        initialOffset={50}
         onImageClick={handleImageClick}
         isVisible={isVisible}
       />
