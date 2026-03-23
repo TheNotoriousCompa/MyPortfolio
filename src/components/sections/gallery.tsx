@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useEffect, useRef, useMemo, useState } from 'react';
-import { SectionTitle } from '@/components/sections/SectionTitle';
+
 import { ImageLightbox } from '@/components/ui/ImageLightbox';
 import { motion } from 'framer-motion';
 
@@ -27,159 +27,107 @@ interface ScrollingRowProps {
 }
 
 function ScrollingRow({
-  reverse = false,
   images,
-  speed = 60,
   pauseOnHover = true,
-  initialOffset = 0,
   onImageClick,
   isVisible = true,
 }: ScrollingRowProps) {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const offsetRef = useRef(0);
-  const singleWidthRef = useRef(0);
-  const rafRef = useRef<number | null>(null);
-  const lastRef = useRef<number | null>(null);
-  const pausedRef = useRef(false);
-
   // Create duplicated list without shuffling to maintain order
   const loopList = useMemo(() => {
     return [...images, ...images];
   }, [images]);
 
-  useEffect(() => {
-    offsetRef.current = initialOffset;
-  }, [initialOffset]);
-
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-
-    const updateWidth = () => {
-      const total = el.scrollWidth;
-      if (total > 0) {
-        singleWidthRef.current = total / 2;
-        const s = singleWidthRef.current;
-        if (s > 0) {
-          offsetRef.current = ((offsetRef.current % s) + s) % s;
-        }
-      }
-    };
-
-    updateWidth();
-    const ro = new ResizeObserver(updateWidth);
-    ro.observe(el);
-
-    const step = (now: number) => {
-      if (!lastRef.current) lastRef.current = now;
-      const dt = now - lastRef.current;
-      lastRef.current = now;
-
-      const s = singleWidthRef.current;
-      if (s > 0 && !pausedRef.current) {
-        const delta = (speed * dt) / 1000;
-        if (!reverse) {
-          offsetRef.current = (offsetRef.current + delta) % s;
-        } else {
-          offsetRef.current = (offsetRef.current - delta) % s;
-          if (offsetRef.current < 0) offsetRef.current += s;
-        }
-        el.style.transform = `translateX(${-offsetRef.current}px)`;
-      }
-
-      rafRef.current = requestAnimationFrame(step);
-    };
-
-    rafRef.current = requestAnimationFrame(step);
-
-    return () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      ro.disconnect();
-      lastRef.current = null;
-    };
-  }, [reverse, speed]);
-
-  const onEnter = () => {
-    if (pauseOnHover) pausedRef.current = true;
-  };
-  const onLeave = () => {
-    if (pauseOnHover) pausedRef.current = false;
-  };
+  // Adjust animation duration depending on amount of images
+  const duration = useMemo(() => {
+    // Arbitrary formula: 3 seconds per image for standard speed
+    return Math.max(30, images.length * 3);
+  }, [images.length]);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="overflow-hidden w-full mb-6 px-4 py-4"
-      onMouseEnter={onEnter}
-      onMouseLeave={onLeave}
-    >
-      <div
-        ref={containerRef}
-        className="flex gap-6"
-        style={{
-          width: 'max-content',
-          willChange: 'transform',
-        }}
+    <>
+      <style>{`
+        @keyframes scroll-marquee {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        .animate-scroll-row {
+          animation: scroll-marquee ${duration}s linear infinite;
+        }
+        ${pauseOnHover ? `
+        .animate-scroll-row:hover {
+          animation-play-state: paused;
+        }
+        ` : ''}
+      `}</style>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        className="overflow-hidden w-full mb-6 px-4 py-4"
       >
-        {loopList.map((image, i) => (
-          <motion.div
-            key={i}
-            className="group relative overflow-hidden rounded-lg cursor-pointer"
-            style={{
-              minWidth: '500px',
-              height: '330px',
-              flexShrink: 0,
-            }}
-            whileHover={{ scale: 1.05, y: -5 }}
-            transition={{ duration: 0.3 }}
-            onClick={() => {
-              const originalIndex = images.findIndex(img => img.src === image.src);
-              onImageClick(originalIndex);
-            }}
-            role="button"
-            tabIndex={0}
-            aria-label={`View ${image.title}`}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
+        <div
+          className={`flex gap-6 animate-scroll-row w-max hover:cursor-grab active:cursor-grabbing`}
+          style={{ willChange: 'transform' }}
+        >
+          {loopList.map((image, i) => (
+            <motion.div
+              key={i}
+              className="group relative overflow-hidden rounded-lg cursor-pointer"
+              style={{
+                width: '400px',
+                height: '260px',
+                flexShrink: 0,
+              }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              transition={{ duration: 0.3 }}
+              onClick={() => {
                 const originalIndex = images.findIndex(img => img.src === image.src);
                 onImageClick(originalIndex);
-              }
-            }}
-          >
-            {/* Image */}
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              className="object-cover transition-all duration-300 group-hover:blur-sm group-hover:scale-110"
-              sizes="500px"
-              loading="lazy"
-            />
+              }}
+              role="button"
+              tabIndex={0}
+              aria-label={`View ${image.title}`}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  const originalIndex = images.findIndex((img) => img.src === image.src);
+                  onImageClick(originalIndex);
+                }
+              }}
+            >
+              {/* Image */}
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                className="object-cover transition-all duration-300 group-hover:blur-sm group-hover:scale-110"
+                sizes="(max-width: 768px) 100vw, 400px"
+                loading="lazy"
+              />
 
-            {/* Emerald glow border */}
-            <div className="absolute inset-0 border-2 border-transparent group-hover:border-emerald-500 transition-all duration-300 rounded-lg shadow-lg group-hover:shadow-emerald-500/50" />
+              {/* Emerald glow border */}
+              <div className="absolute inset-0 border-2 border-transparent group-hover:border-emerald-500 transition-all duration-300 rounded-lg shadow-lg group-hover:shadow-emerald-500/50" />
 
-            {/* Overlay with info */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-              <h3 className="text-white font-bold text-lg mb-1">{image.title}</h3>
-              <p className="text-neutral-300 text-sm line-clamp-2">{image.description}</p>
-            </div>
-
-            {/* Click indicator */}
-            <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="bg-black/50 backdrop-blur-sm rounded-full p-2">
-                <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                </svg>
+              {/* Overlay with info */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                <h3 className="text-white font-bold text-lg mb-1">{image.title}</h3>
+                <p className="text-neutral-300 text-sm line-clamp-2">{image.description}</p>
               </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </motion.div>
+
+              {/* Click indicator */}
+              <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="bg-black/50 backdrop-blur-sm rounded-full p-2">
+                  <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                  </svg>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    </>
   );
 }
 
@@ -462,7 +410,7 @@ function Gallery({ dict }: { dict?: any /* eslint-disable-line @typescript-eslin
 
   return (
     <div ref={sectionRef} className="space-y-8 py-12">
-      <SectionTitle>{dict?.gallery?.title || '3D Keyboard Gallery'}</SectionTitle>
+      <h2 className="text-4xl md:text-5xl font-bold text-white mb-12"><span className="text-emerald-400">#</span> {dict?.gallery?.title || '3D Keyboard Gallery'}</h2>
 
       {/* Scrolling rows with parallax effect */}
       <ScrollingRow

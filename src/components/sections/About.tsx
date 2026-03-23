@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { SectionTitle } from "@/components/sections/SectionTitle";
+
 import { CardSpotlight } from "@/components/ui/card-spotlight";
 
 const skills = {
@@ -37,7 +37,7 @@ export function About({ dict }: { dict: any /* eslint-disable-line @typescript-e
   return (
     <section id="about" className="pt-4 pb-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <SectionTitle>{dict.title}</SectionTitle>
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-12"><span className="text-emerald-400">#</span> {dict.title}</h2>
         <div className="flex flex-col gap-8">
           <div className="space-y-6 text-lg text-neutral-300">
             <p>

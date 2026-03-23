@@ -1,7 +1,7 @@
 'use client';
 
-import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiShadcnui, SiPython, SiElectron, SiFirebase, SiNetlify } from 'react-icons/si';
-
+import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiShadcnui, SiPython, SiElectron, SiFirebase, SiNetlify, SiBlender } from 'react-icons/si';
+import Link from 'next/link';
 interface LogoItem {
   icon: React.ReactNode;
   name: string;
@@ -17,7 +17,7 @@ function LogoRow({ logos, className = '' }: LogoRowProps) {
   return (
     <div className={`flex items-center gap-8 flex-wrap justify-center ${className}`}>
       {logos.map((logo, index) => (
-        <a
+        <Link
           key={index}
           href={logo.url}
           target="_blank"
@@ -26,7 +26,7 @@ function LogoRow({ logos, className = '' }: LogoRowProps) {
         >
           <div className="text-4xl text-white group-hover:scale-110 transition-transform">{logo.icon}</div>
           <span className="mt-2 text-sm font-medium text-white/80 group-hover:text-white transition-colors">{logo.name}</span>
-        </a>
+        </Link>
       ))}
     </div>
   );
@@ -43,6 +43,7 @@ const defaultLogos: LogoItem[] = [
   { icon: <SiElectron size={32} />, name: 'Electron', url: 'https://www.electronjs.org/' },
   { icon: <SiFirebase size={32} />, name: 'Firebase', url: 'https://firebase.google.com/' },
   { icon: <SiNetlify size={32} />, name: 'Netlify', url: 'https://www.netlify.com/' },
+  { icon: <SiBlender size={32} />, name: 'Blender', url: 'https://www.blender.org/' },
 ];
 
 function LogoDisplay() {

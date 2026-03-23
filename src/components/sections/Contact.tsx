@@ -1,6 +1,6 @@
 'use client';
 
-import { SectionTitle } from '@/components/sections/SectionTitle';
+
 
 export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript-eslint/no-explicit-any */ }) => {
   const handleSubmit = (e: React.FormEvent) => {
@@ -11,7 +11,7 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
   return (
     <section id="contacts" className="py-12 md:py-16 px-4 sm:px-5">
       <div className="max-w-3xl mx-auto text-center">
-        <SectionTitle>{dict.title}</SectionTitle>
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-12"><span className="text-emerald-400">#</span> {dict.title}</h2>
         <p className="text-base md:text-lg text-neutral-300 mb-10 max-w-md mx-auto">
           {dict.subtitle}
         </p>

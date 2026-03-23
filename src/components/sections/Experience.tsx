@@ -1,6 +1,6 @@
 'use client';
 
-import { SectionTitle } from "@/components/sections/SectionTitle";
+
 
 interface ExperienceItem {
   id: string;
@@ -55,7 +55,7 @@ export const Experience = ({ dict }: { dict: any /* eslint-disable-line @typescr
   return (
     <section id="experience" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <SectionTitle>Experience</SectionTitle>
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-12"><span className="text-emerald-400">#</span> Experience</h2>
         <div className="space-y-6">
           {experienceItems.map((item) => (
             <div

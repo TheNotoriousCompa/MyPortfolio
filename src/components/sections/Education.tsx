@@ -1,6 +1,5 @@
 'use client';
 
-import { SectionTitle } from "@/components/sections/SectionTitle";
 
 interface EducationItem {
   id: string;
@@ -31,7 +30,7 @@ export const Education = ({ dict }: { dict: any /* eslint-disable-line @typescri
   return (
     <section id="education" className="py-20 px-4">
       <div className="max-w-4xl mx-auto">
-        <SectionTitle>{dict.title}</SectionTitle>
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-12"><span className="text-emerald-400">#</span> {dict.title}</h2>
         <div className="space-y-6">
           {educationItems.map((item) => (
             <div

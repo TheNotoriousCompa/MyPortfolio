@@ -144,7 +144,7 @@ const Silk: React.FC<SilkProps> = ({ speed = 5, scale = 1, color = '#7B7481', no
 
   return (
     <Canvas
-      dpr={[1, 1.5]}
+      dpr={1}
       frameloop="always"
       performance={{ min: 0.5 }}
       flat
