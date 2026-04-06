@@ -180,6 +180,12 @@ svg {
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* ===== Logo Scroll Animation ===== */
+@keyframes scroll-x {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 /* ===== Layered Utilities ===== */
 @layer base {
   * {

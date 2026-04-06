@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { DottedGlowBackground } from "@/components/ui/dotted-glow-background";
 
 export interface Project {
     id: string;
@@ -22,14 +21,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
     return (
-        <div className="group relative rounded-xl overflow-hidden border border-white/5 hover:border-emerald-500/40 transition-[transform,border-color,box-shadow] duration-500 ease-out hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(16,185,129,0.15)] transform-gpu will-change-transform h-full flex flex-col">
-            <DottedGlowBackground
-                className="absolute inset-0 -z-10"
-                color="#10f0a0"
-                gap={32}
-                radius={2}
-                opacity={0.3}
-            />
+        <div className="group relative rounded-xl overflow-hidden border border-white/10 hover:border-emerald-500/40 transition-[transform,border-color,box-shadow] duration-500 ease-out hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(16,185,129,0.15)] transform-gpu will-change-transform h-full flex flex-col backdrop-blur-sm bg-white/[0.02]">
             {project.image && (
                 <div className="relative w-full h-48 overflow-hidden bg-neutral-900/50">
                     <Image

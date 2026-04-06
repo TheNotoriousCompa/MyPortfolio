@@ -1,6 +1,6 @@
 'use client';
 
-
+import { Github, Linkedin, Instagram, Facebook } from "lucide-react";
 
 export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript-eslint/no-explicit-any */ }) => {
   const handleSubmit = (e: React.FormEvent) => {
@@ -81,9 +81,7 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
                   className="text-neutral-400 hover:text-white transition-colors p-2"
                   aria-label="GitHub"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                  </svg>
+                  <Github size={24} />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/maurizio-compagnone-5a6937222/"
@@ -92,10 +90,40 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
                   className="text-neutral-400 hover:text-white transition-colors p-2"
                   aria-label="LinkedIn"
                 >
+                  <Linkedin size={24} />
+                </a>
+                <a
+                  href="https://www.instagram.com/thenotorious_compa02/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-neutral-400 hover:text-white transition-colors p-2"
+                  aria-label="Instagram"
+                >
+                  <Instagram size={24} />
+                </a>
+                <a
+                  href="https://www.facebook.com/maurizio.compagnone"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-neutral-400 hover:text-white transition-colors p-2"
+                  aria-label="Facebook"
+                >
+                  <Facebook size={24} />
+                </a>
+                <a
+                  href="https://discord.com/users/compagnone"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-neutral-400 hover:text-white transition-colors p-2"
+                  aria-label="Discord"
+                >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                    <rect x="2" y="9" width="4" height="12"></rect>
-                    <circle cx="4" cy="4" r="2"></circle>
+                    <circle cx="9" cy="12" r="1"></circle>
+                    <circle cx="15" cy="12" r="1"></circle>
+                    <path d="M7.5 7.5c3.5-1 5.5-1 9 0"></path>
+                    <path d="M7 16.5c3.5 1 6.5 1 10 0"></path>
+                    <path d="M15.5 17c0 1 1.5 3 2 3 1.5 0 2.833-1.667 3.5-3 .667-1.667.5-5.833-1.5-11.5-1.457-1.015-3-1.34-4.5-1.5l-1 2.5"></path>
+                    <path d="M8.5 17c0 1-1.356 3-1.832 3-1.429 0-2.698-1.667-3.333-3-.635-1.667-.476-5.833 1.428-11.5H13l.5 2"></path>
                   </svg>
                 </a>
               </div>
