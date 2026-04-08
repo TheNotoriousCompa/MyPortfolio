@@ -3,15 +3,20 @@
 import { EncryptedText } from "@/components/ui/encrypted-text";
 import React from "react";
 
-export function EncryptedTexts() {
+type EncryptedTextsProps = {
+    text: string;
+};
+
+export function EncryptedTexts({ text }: EncryptedTextsProps) {
     return (
-        <p className="mx-auto max-w-lg py-10 text-center text-3xl">
+        <h3 className="mx-auto max-w-2xl py-6 text-center text-2xl font-medium tracking-tight md:py-8 md:text-3xl">
             <EncryptedText
-                text="Built with these tools"
+                text={text}
                 encryptedClassName="text-emerald-500"
                 revealedClassName="text-white"
-                revealDelayMs={100}
+                revealDelayMs={180}
+                flipDelayMs={90}
             />
-        </p>
+        </h3>
     );
 }

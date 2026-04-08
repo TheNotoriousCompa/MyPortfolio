@@ -58,7 +58,6 @@ export const EncryptedText: React.FC<EncryptedTextProps> = ({
   const isInView = useInView(ref, { once: true });
 
   const [revealCount, setRevealCount] = useState<number>(0);
-  const [initialScramble, setInitialScramble] = useState<string>("");
   const animationFrameRef = useRef<number | null>(null);
   const startTimeRef = useRef<number>(0);
   const lastFlipTimeRef = useRef<number>(0);
@@ -67,16 +66,16 @@ export const EncryptedText: React.FC<EncryptedTextProps> = ({
   useEffect(() => {
     // Initialize scramble characters only on client to avoid hydration mismatch
     if (!text) {
-      setInitialScramble("");
+      scrambleCharsRef.current = [];
       return;
     }
     const initial = generateGibberishPreservingSpaces(text, charset);
-    setInitialScramble(initial);
     scrambleCharsRef.current = initial.split("");
   }, [text, charset]);
 
   useEffect(() => {
     if (!isInView) return;
+    startTimeRef.current = performance.now();
     lastFlipTimeRef.current = startTimeRef.current;
     setRevealCount(0);
 
@@ -135,6 +134,9 @@ export const EncryptedText: React.FC<EncryptedTextProps> = ({
       className={cn(className)}
       aria-label={text}
       role="text"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: isInView ? 1 : 0 }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
     >
       {text.split("").map((char, index) => {
         const isRevealed = index < revealCount;

@@ -60,7 +60,7 @@ export const Experience = ({ dict }: { dict: any /* eslint-disable-line @typescr
           {experienceItems.map((item) => (
             <div
               key={item.id}
-              className="p-6 rounded-xl border border-white/5 bg-neutral-900/50 hover:border-emerald-500/30 transition-all"
+              className="p-6 rounded-xl border border-white/10 bg-neutral-900/50 backdrop-blur-sm transition-[transform,border-color,box-shadow] duration-500 ease-out hover:border-emerald-500/40 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(16,185,129,0.15)] transform-gpu will-change-transform"
             >
               <h3 className="text-2xl font-bold text-white mb-1">{item.title}</h3>
               <div className="flex items-center text-emerald-400 mb-4">

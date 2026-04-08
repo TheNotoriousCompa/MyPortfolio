@@ -48,6 +48,7 @@
     },
     "Projects": {
         "title": "My Projects",
+        "toolsTitle": "Built with these tools",
         "links": {
             "demo": "Live Demo",
             "github": "View on GitHub",

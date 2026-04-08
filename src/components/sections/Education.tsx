@@ -35,7 +35,7 @@ export const Education = ({ dict }: { dict: any /* eslint-disable-line @typescri
           {educationItems.map((item) => (
             <div
               key={item.id}
-              className="p-6 rounded-xl border border-white/10 bg-neutral-900/50 transition-all hover:border-emerald-500/30 hover:-translate-y-0.5"
+              className="p-6 rounded-xl border border-white/10 bg-neutral-900/50 backdrop-blur-sm transition-[transform,border-color,box-shadow] duration-500 ease-out hover:border-emerald-500/40 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(16,185,129,0.15)] transform-gpu will-change-transform"
             >
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-1 mb-2">
                 <h3 className="text-xl font-bold text-white tracking-wider">{item.degree}</h3>

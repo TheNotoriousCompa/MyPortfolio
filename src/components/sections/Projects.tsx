@@ -110,7 +110,7 @@ export function Projects({ dict }: { dict: any /* eslint-disable-line @typescrip
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-12"><span className="text-emerald-400">#</span> {dict.title}</h2>
           <div>
 
-            <EncryptedTexts />
+            <EncryptedTexts text={dict.toolsTitle} />
             <LogoDisplay />
 
           </div>
