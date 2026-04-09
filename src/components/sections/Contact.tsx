@@ -1,6 +1,7 @@
 'use client';
 
 import { Github, Linkedin, Instagram, Facebook } from "lucide-react";
+import { CardSpotlight } from "@/components/ui/card-spotlight";
 
 export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript-eslint/no-explicit-any */ }) => {
   const handleSubmit = (e: React.FormEvent) => {
@@ -18,10 +19,10 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
 
         <div className="w-full grid md:grid-cols-2 gap-5 md:gap-6">
           {/* Contact Information */}
-          <div className="bg-neutral-900/50 p-5 md:p-6 rounded-xl border border-white/5 text-left h-full">
-            <h3 className="text-lg md:text-xl font-bold text-white mb-4">{dict.infoTitle}</h3>
+          <CardSpotlight className="bg-neutral-900/50 p-5 md:p-6 rounded-xl border border-white/5 text-left h-full">
+            <h3 className="text-lg md:text-xl font-bold text-white mb-4 relative z-20">{dict.infoTitle}</h3>
 
-            <div className="space-y-5">
+            <div className="space-y-5 relative z-20">
               <div className="flex items-start">
                 <div className="bg-emerald-500/10 p-3 rounded-lg mr-4">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400" aria-hidden="true">
@@ -71,14 +72,14 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-white/10">
+            <div className="mt-8 pt-6 border-t border-white/10 relative z-20">
               <h4 className="text-white font-medium mb-4">Connect with me</h4>
               <div className="flex justify-center space-x-4">
                 <a
                   href="https://github.com/TheNotoriousCompa"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-neutral-400 hover:text-white transition-colors p-2"
+                  className="text-emerald-400 hover:text-white transition-colors p-2"
                   aria-label="GitHub"
                 >
                   <Github size={24} />
@@ -87,7 +88,7 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
                   href="https://www.linkedin.com/in/maurizio-compagnone-5a6937222/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-neutral-400 hover:text-white transition-colors p-2"
+                  className="text-emerald-400 hover:text-white transition-colors p-2"
                   aria-label="LinkedIn"
                 >
                   <Linkedin size={24} />
@@ -96,7 +97,7 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
                   href="https://www.instagram.com/thenotorious_compa02/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-neutral-400 hover:text-white transition-colors p-2"
+                  className="text-emerald-400 hover:text-white transition-colors p-2"
                   aria-label="Instagram"
                 >
                   <Instagram size={24} />
@@ -105,7 +106,7 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
                   href="https://www.facebook.com/maurizio.compagnone"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-neutral-400 hover:text-white transition-colors p-2"
+                  className="text-emerald-400 hover:text-white transition-colors p-2"
                   aria-label="Facebook"
                 >
                   <Facebook size={24} />
@@ -114,7 +115,7 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
                   href="https://discord.com/users/compagnone"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-neutral-400 hover:text-white transition-colors p-2"
+                  className="text-emerald-400 hover:text-white transition-colors p-2"
                   aria-label="Discord"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -128,12 +129,12 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
                 </a>
               </div>
             </div>
-          </div>
+          </CardSpotlight>
 
           {/* Contact Form */}
-          <div className="bg-neutral-900/50 p-5 md:p-6 rounded-xl border border-white/5 h-full">
-            <h3 className="text-lg md:text-xl font-bold text-white mb-4 text-left">{dict.formTitle}</h3>
-            <form className="space-y-5" onSubmit={handleSubmit}>
+          <CardSpotlight className="bg-neutral-900/50 p-5 md:p-6 rounded-xl border border-white/5 h-full">
+            <h3 className="text-lg md:text-xl font-bold text-white mb-4 text-left relative z-20">{dict.formTitle}</h3>
+            <form className="space-y-5 relative z-20" onSubmit={handleSubmit}>
               <div className="space-y-2">
                 <label htmlFor="name" className="block text-left text-neutral-300">{dict.labels.name}</label>
                 <input
@@ -195,7 +196,7 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
                 </button>
               </div>
             </form>
-          </div>
+          </CardSpotlight>
         </div>
       </div>
     </section>
