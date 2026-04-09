@@ -5,15 +5,17 @@ import React from 'react';
 import { CardSpotlight } from "@/components/ui/card-spotlight";
 
 const skills = {
-  webDev: [
+  frontend: [
     { name: 'HTML', url: 'https://developer.mozilla.org/en-US/docs/Web/HTML' },
     { name: 'CSS', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS' },
     { name: 'JavaScript', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
-    { name: '.NET', url: 'https://dotnet.microsoft.com/' },
     { name: 'React', url: 'https://react.dev/' },
     { name: 'Next.js', url: 'https://nextjs.org/' },
     { name: 'TailwindCSS', url: 'https://tailwindcss.com/' },
-    { name: 'Shadcn', url: 'https://ui.shadcn.com/' },
+    { name: 'Shadcn/UI', url: 'https://ui.shadcn.com/' },
+  ],
+  backendApi: [
+    { name: '.NET', url: 'https://dotnet.microsoft.com/' },
     { name: 'API', url: 'https://developer.mozilla.org/en-US/docs/Web/API' },
     { name: 'Firebase', url: 'https://firebase.google.com/' }
   ],
@@ -36,13 +38,16 @@ const languages = [
 ];
 
 export function About({ dict }: { dict: any /* eslint-disable-line @typescript-eslint/no-explicit-any */ }) {
+  const pillClassName =
+    "px-3 py-1 text-sm text-emerald-300 bg-emerald-500/10 rounded-full hover:bg-emerald-500/20 transition-colors";
+
   return (
     <section id="about" className="pt-4 pb-20 px-4">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-12"><span className="text-emerald-400">#</span> {dict.title}</h2>
         <div className="flex flex-col gap-8">
-          <div className="space-y-6 text-lg text-neutral-300">
-            <p>
+          <div className="space-y-5 text-base md:text-lg text-neutral-300 leading-relaxed max-w-5xl">
+            <p className="text-neutral-200">
               {dict.greeting}
             </p>
             <p>
@@ -53,21 +58,37 @@ export function About({ dict }: { dict: any /* eslint-disable-line @typescript-e
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 items-stretch">
             <CardSpotlight className="p-6 rounded-xl border border-white/5 bg-black/40 h-full">
               <h3 className="text-2xl font-bold text-white mb-4 relative z-20">{dict.technicalSkills}</h3>
 
               <div className="relative z-20 space-y-4">
                 <div>
-                  <h4 className="text-emerald-400 font-bold mb-2">Web Development</h4>
+                  <h4 className="text-emerald-400 font-bold mb-2">Frontend</h4>
                   <div className="flex flex-wrap gap-2">
-                    {skills.webDev.map((skill) => (
+                    {skills.frontend.map((skill) => (
                       <a
                         key={skill.name}
                         href={skill.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-3 py-1 text-sm text-emerald-300 bg-emerald-500/10 rounded-full hover:bg-emerald-500/20 transition-colors relative z-20"
+                        className={`${pillClassName} relative z-20`}
+                      >
+                        {skill.name}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <h4 className="text-emerald-400 font-bold mb-2">Backend & APIs</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {skills.backendApi.map((skill) => (
+                      <a
+                        key={skill.name}
+                        href={skill.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={pillClassName}
                       >
                         {skill.name}
                       </a>
@@ -83,7 +104,7 @@ export function About({ dict }: { dict: any /* eslint-disable-line @typescript-e
                         href={skill.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-3 py-1 text-sm font-medium text-emerald-300 bg-emerald-500/10 rounded-full hover:bg-emerald-500/20 transition-colors"
+                        className={pillClassName}
                       >
                         {skill.name}
                       </a>
@@ -99,7 +120,7 @@ export function About({ dict }: { dict: any /* eslint-disable-line @typescript-e
                         href={skill.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-3 py-1 text-sm text-emerald-300 bg-emerald-500/10 rounded-full hover:bg-emerald-500/20 transition-colors"
+                        className={pillClassName}
                       >
                         {skill.name}
                       </a>
