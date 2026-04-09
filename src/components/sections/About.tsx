@@ -9,6 +9,7 @@ const skills = {
     { name: 'HTML', url: 'https://developer.mozilla.org/en-US/docs/Web/HTML' },
     { name: 'CSS', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS' },
     { name: 'JavaScript', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
+    { name: '.NET', url: 'https://dotnet.microsoft.com/' },
     { name: 'React', url: 'https://react.dev/' },
     { name: 'Next.js', url: 'https://nextjs.org/' },
     { name: 'TailwindCSS', url: 'https://tailwindcss.com/' },
@@ -17,6 +18,7 @@ const skills = {
     { name: 'Firebase', url: 'https://firebase.google.com/' }
   ],
   programming: [
+    { name: 'C#', url: 'https://learn.microsoft.com/en-us/dotnet/csharp/' },
     { name: 'Python', url: 'https://www.python.org/' },
     { name: 'Java', url: 'https://www.java.com/' }
   ],
@@ -52,7 +54,7 @@ export function About({ dict }: { dict: any /* eslint-disable-line @typescript-e
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <CardSpotlight className="p-6 rounded-xl border border-white/5 bg-neutral-900/50 h-full">
+            <CardSpotlight className="p-6 rounded-xl border border-white/5 bg-black/40 h-full">
               <h3 className="text-2xl font-bold text-white mb-4 relative z-20">{dict.technicalSkills}</h3>
 
               <div className="relative z-20 space-y-4">
@@ -107,7 +109,7 @@ export function About({ dict }: { dict: any /* eslint-disable-line @typescript-e
               </div>
             </CardSpotlight>
 
-            <CardSpotlight className="p-6 rounded-xl border border-white/5 bg-neutral-900/50">
+            <CardSpotlight className="p-6 rounded-xl border border-white/5 bg-black/40">
               <h3 className="text-2xl font-bold text-white mb-4 relative z-20">{dict.languages}</h3>
               <div className="relative z-20 space-y-4">
                 {languages.map((lang) => (

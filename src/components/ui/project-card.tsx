@@ -21,7 +21,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
     return (
-        <div className="group relative rounded-xl overflow-hidden border border-white/10 hover:border-emerald-500/40 transition-[transform,border-color,box-shadow] duration-500 ease-out hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(16,185,129,0.15)] transform-gpu will-change-transform h-full flex flex-col backdrop-blur-sm bg-white/[0.02]">
+        <div className="group relative rounded-xl overflow-hidden border border-white/10 hover:border-emerald-500/40 transition-[transform,border-color,box-shadow] duration-500 ease-out hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(16,185,129,0.15)] transform-gpu will-change-transform h-full flex flex-col backdrop-blur-sm bg-black/40">
             {project.image && (
                 <div className="relative w-full h-48 overflow-hidden bg-neutral-900/50">
                     <Image

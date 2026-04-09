@@ -19,7 +19,7 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
 
         <div className="w-full grid md:grid-cols-2 gap-5 md:gap-6">
           {/* Contact Information */}
-          <CardSpotlight className="bg-neutral-900/50 p-5 md:p-6 rounded-xl border border-white/5 text-left h-full">
+          <CardSpotlight className="bg-black/40 p-5 md:p-6 rounded-xl border border-white/5 text-left h-full">
             <h3 className="text-lg md:text-xl font-bold text-white mb-4 relative z-20">{dict.infoTitle}</h3>
 
             <div className="space-y-5 relative z-20">
@@ -132,7 +132,7 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
           </CardSpotlight>
 
           {/* Contact Form */}
-          <CardSpotlight className="bg-neutral-900/50 p-5 md:p-6 rounded-xl border border-white/5 h-full">
+          <CardSpotlight className="bg-black/40 p-5 md:p-6 rounded-xl border border-white/5 h-full">
             <h3 className="text-lg md:text-xl font-bold text-white mb-4 text-left relative z-20">{dict.formTitle}</h3>
             <form className="space-y-5 relative z-20" onSubmit={handleSubmit}>
               <div className="space-y-2">
@@ -141,7 +141,7 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
                   type="text"
                   id="name"
                   name="name"
-                  className="w-full bg-neutral-800/50 border border-white/10 rounded-lg px-3 py-2 text-sm md:text-base text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                  className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm md:text-base text-white placeholder:text-neutral-500 backdrop-blur-sm transition-[border-color,background-color,box-shadow] duration-300 hover:border-emerald-500/30 focus:outline-none focus:border-emerald-500/40 focus:ring-2 focus:ring-emerald-500/40"
                   placeholder={dict.placeholders.name}
                   required
                 />
@@ -153,7 +153,7 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
                   type="email"
                   id="email"
                   name="email"
-                  className="w-full bg-neutral-800/50 border border-white/10 rounded-lg px-3 py-2 text-sm md:text-base text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                  className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm md:text-base text-white placeholder:text-neutral-500 backdrop-blur-sm transition-[border-color,background-color,box-shadow] duration-300 hover:border-emerald-500/30 focus:outline-none focus:border-emerald-500/40 focus:ring-2 focus:ring-emerald-500/40"
                   placeholder={dict.placeholders.email}
                   required
                 />
@@ -165,7 +165,7 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
                   type="text"
                   id="subject"
                   name="subject"
-                  className="w-full bg-neutral-800/50 border border-white/10 rounded-lg px-3 py-2 text-sm md:text-base text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                  className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm md:text-base text-white placeholder:text-neutral-500 backdrop-blur-sm transition-[border-color,background-color,box-shadow] duration-300 hover:border-emerald-500/30 focus:outline-none focus:border-emerald-500/40 focus:ring-2 focus:ring-emerald-500/40"
                   placeholder={dict.placeholders.subject}
                   required
                 />
@@ -177,7 +177,7 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
                   id="message"
                   name="message"
                   rows={5}
-                  className="w-full bg-neutral-800/50 border border-white/10 rounded-lg px-3 py-2 text-sm md:text-base text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                  className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm md:text-base text-white placeholder:text-neutral-500 backdrop-blur-sm transition-[border-color,background-color,box-shadow] duration-300 hover:border-emerald-500/30 focus:outline-none focus:border-emerald-500/40 focus:ring-2 focus:ring-emerald-500/40"
                   placeholder={dict.placeholders.message}
                   required
                 ></textarea>

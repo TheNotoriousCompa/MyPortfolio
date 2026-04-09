@@ -96,7 +96,7 @@ export function ImageLightbox({ images, initialIndex, isOpen, onClose }: ImageLi
                     </button>
 
                     {/* Image counter */}
-                    <div className="absolute top-4 left-4 z-50 px-4 py-2 bg-black/50 backdrop-blur-md rounded-full text-white font-medium">
+                    <div className="absolute top-4 left-4 z-50 px-4 py-2 bg-black/40 backdrop-blur-md rounded-full text-white font-medium">
                         {currentIndex + 1} / {images.length}
                     </div>
 

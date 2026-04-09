@@ -1,6 +1,5 @@
 'use client';
 
-import { DottedGlowBackground } from "@/components/ui/dotted-glow-background";
 import LogoDisplay from "@/components/logodisplay";
 import { EncryptedTexts } from "../textencrypted";
 
@@ -109,17 +108,8 @@ export function Projects({ dict }: { dict: any /* eslint-disable-line @typescrip
               <div
 
                 key={project.id}
-                className="relative rounded-xl overflow-hidden border border-white/5 hover:border-emerald-500/30 transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
+                className="relative rounded-xl overflow-hidden border border-white/10 bg-black/40 backdrop-blur-md transition-[transform,border-color,box-shadow] duration-500 ease-out hover:border-emerald-500/40 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(16,185,129,0.15)] transform-gpu will-change-transform h-full flex flex-col"
               >
-                <DottedGlowBackground
-                  className="absolute inset-0 -z-10"
-                  color="#10f0a0"
-                  glowColor="#10f0a0"
-                  gap={32}
-                  radius={2}
-                  opacity={0.3}
-                  glowColorLightVar="--emerald-300"
-                />
                 {project.image && (
                   <div className="relative w-full h-48 overflow-hidden bg-neutral-900/50">
                     <img
@@ -129,7 +119,7 @@ export function Projects({ dict }: { dict: any /* eslint-disable-line @typescrip
                     />
                   </div>
                 )}
-                <div className="relative p-6 flex-1 bg-gradient-to-b from-neutral-900/50">
+                <div className="relative p-6 flex-1">
                   <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
                   <p className="text-neutral-400 mb-4">
                     {project.description}

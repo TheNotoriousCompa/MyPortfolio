@@ -50,7 +50,7 @@ export function Header({ sections, isGalleryPage = false, locale }: HeaderProps)
       >
         <motion.div
           className={cn(
-            "flex items-center justify-between p-6 rounded-full border border-white/5 bg-neutral-900/50 hover:border-emerald-500/30 transition-all",
+            "flex items-center justify-between p-6 rounded-full border border-white/5 bg-black/40 hover:border-emerald-500/30 transition-all",
             isScrolled && "shadow-lg"
           )}
           animate={{
@@ -139,7 +139,7 @@ export function Header({ sections, isGalleryPage = false, locale }: HeaderProps)
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.2 }}
-              className="lg:hidden mt-2 rounded-xl bg-black/90 p-4 backdrop-blur-md border border-white/10 shadow-xl"
+              className="lg:hidden mt-2 rounded-xl bg-black/40 p-4 backdrop-blur-md border border-white/10 shadow-xl"
             >
               <div className="flex flex-col space-y-2">
                 {sections.map((section) => (
