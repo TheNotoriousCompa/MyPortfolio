@@ -126,62 +126,88 @@
     },
     "localWeb": {
         "metaTitle": "Web Developer Valdelsa | Castelfiorentino & Gambassi Terme",
-        "metaDescription": "Local web development in Valdelsa: brochure sites, landing pages and web apps for businesses in Castelfiorentino, Gambassi Terme and nearby towns. Quotes and consulting with Maurizio Compagnone.",
+        "metaDescription": "Web development services in Valdelsa: showcase sites, landing pages, and web apps for businesses in Castelfiorentino, Gambassi Terme, and surrounding areas. Quote and consulting with Maurizio Compagnone.",
         "back": "Back to Home",
         "h1": "Web development in Valdelsa",
-        "intro": "I work with local businesses and professionals who want a fast, clear, easy-to-maintain website — focused on Castelfiorentino, Gambassi Terme and Valdelsa.",
-        "servicesTitle": "What I can help with",
+        "intro": "I work with local businesses and professionals who want a fast, clear, and easy-to-manage website — with a focus on Castelfiorentino, Gambassi Terme, and Valdelsa.",
+        "servicesTitle": "What I can do for you",
         "services": [
-            "Professional brochure and portfolio websites",
+            "Professional showcase sites and portfolios",
             "Landing pages for campaigns and services",
             "Modern front-end development (React / Next.js)",
             "Basic SEO optimization and meta tags",
-            "Support and iterations after launch"
+            "Support and iterations after go-live"
         ],
-        "localTitle": "Areas served",
-        "localBody": "I mainly serve Castelfiorentino, Gambassi Terme and municipalities in Valdelsa; for the right project I also consider work across Tuscany.",
-        "projectsLocalTitle": "Projects I've worked on",
-        "ctaTitle": "Tell me about your project",
-        "ctaBody": "Email or call me — I will reply with clear timelines and next steps.",
+        "localTitle": "Presence & Range of Action",
+        "localBody": "I develop websites and applications throughout Italy, with the possibility of managing everything remotely. I maintain a strong presence in the Valdelsa territory, collaborating with businesses in Castelfiorentino, Gambassi Terme, and surrounding areas.",
+        "projectsLocalTitle": "Sites I've worked on",
+        "ctaTitle": "Let's talk about your project",
+        "ctaBody": "Email or call me: I'll get back to you with clear timing and methods.",
         "ctaPrimary": "Contact",
         "ctaSecondary": "View projects",
         "pricing": {
-            "title": "Plans & Investment",
-            "subtitle": "Transparent solutions to grow your business in Valdelsa.",
+            "title": "Transparency & Simplicity",
+            "subtitle": "Ideal for professionals and small businesses in Valdelsa looking for a direct point of contact.",
             "plans": {
                 "essential": {
-                    "name": "Essential",
+                    "name": "Landing Page",
                     "price": "499",
-                    "target": "Landing Page / One Page",
+                    "target": "High-impact One-Page site",
                     "features": [
-                        "Responsive & Modern Design",
-                        "Basic SEO Optimization",
+                        "Modern & Responsive Design",
+                        "Local SEO Optimization",
                         "Contact Form Integration",
-                        "SSL Certificate Included"
+                        "Delivery in 7-10 days",
+                        "Direct WhatsApp Support"
                     ]
                 },
                 "professional": {
-                    "name": "Professional",
-                    "price": "1199",
-                    "target": "Full Showcase Website",
+                    "name": "Full Website",
+                    "price": "899",
+                    "target": "Professional multi-page showcase",
                     "features": [
-                        "Up to 5 Custom Pages",
-                        "Content Management (CMS)",
-                        "Google Search Console Setup",
-                        "Post-Launch Support (30 days)"
+                        "Up to 5 custom pages",
+                        "Simplified content management",
+                        "Google MyBusiness setup",
+                        "Speed optimization (Core Web Vitals)",
+                        "Direct WhatsApp Support"
                     ]
                 },
                 "enterprise": {
-                    "name": "Custom",
-                    "price": "Quotes",
-                    "target": "Web App & E-commerce",
+                    "name": "Full Care (Subscription)",
+                    "price": "29",
+                    "target": "Zero worries, all included",
                     "features": [
-                        "Custom Module Development",
-                        "Database & Backend Management",
-                        "E-commerce or Private Area",
-                        "Priority Support"
+                        "Variable domain cost excluded",
+                        "Unlimited content updates",
+                        "SSL Certificate & Daily Backup",
+                        "Constant security updates",
+                        "Direct WhatsApp Support"
                     ]
                 }
+            },
+            "maintenance": {
+                "title": "Why a subscription?",
+                "label": "Forget technical complexity. With a small monthly fee, I handle everything: from domain renewal to text changes you request via chat. You focus on your work, I focus on your site."
+            }
+        },
+        "quote": {
+            "title": "Request a Quote",
+            "subtitle": "Tell me about your project. The more details you provide, the more precise my initial feedback will be.",
+            "form": {
+                "name": "Name",
+                "email": "Your Email",
+                "projectType": "Project Type",
+                "projectTypes": {
+                    "landing": "Landing Page",
+                    "showcase": "Full Showcase Site",
+                    "ecommerce": "E-commerce",
+                    "custom": "Web App / Custom"
+                },
+                "budget": "Estimated Budget",
+                "description": "Project Description",
+                "submit": "Send Request",
+                "success": "Request sent successfully! I will get back to you within 24-48 hours."
             }
         }
     }

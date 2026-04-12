@@ -5,6 +5,8 @@ import { gsap } from 'gsap';
 import { GoArrowUpRight } from 'react-icons/go';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import Image from 'next/image';
+
 
 export type CardNavLink = {
   label: string;
@@ -179,7 +181,12 @@ const CardNav: React.FC<CardNavProps> = ({
           "card-nav block h-[60px] p-0 rounded-2xl shadow-2xl relative overflow-hidden will-change-[height] border border-white/5",
           isExpanded ? 'open' : ''
         )}
-        style={{ backgroundColor: baseColor, backdropFilter: 'blur(20px)' }}
+        style={{ 
+          backgroundColor: isExpanded ? '#000' : baseColor, 
+          backdropFilter: isExpanded ? 'none' : 'blur(20px)' 
+        }}
+
+
       >
         <div className="card-nav-top absolute inset-x-0 top-0 h-[60px] flex items-center justify-between p-2 pl-[1.1rem] z-[10] bg-inherit">
           <div
@@ -209,8 +216,16 @@ const CardNav: React.FC<CardNavProps> = ({
 
           <div className="logo-container flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none">
             {typeof logo === 'string' ? (
-               <img src={logo} alt={logoAlt} className="logo h-[28px]" />
+               <Image 
+                 src={logo} 
+                 alt={logoAlt} 
+                 width={112} 
+                 height={28} 
+                 className="logo h-[28px] w-auto object-contain" 
+                 priority
+               />
             ) : (
+
                logo
             )}
           </div>
@@ -248,11 +263,13 @@ const CardNav: React.FC<CardNavProps> = ({
           {(items || []).map((item, idx) => (
             <div
               key={`${item.label}-${idx}`}
-              className="nav-card select-none relative flex flex-col gap-5 p-6 rounded-xl min-w-0 flex-1 shadow-inner border border-white/5 backdrop-blur-md"
+              className="nav-card select-none relative flex flex-col gap-5 p-6 rounded-xl min-w-0 flex-1 shadow-inner border border-emerald-500/20"
+
+
               ref={setCardRef(idx)}
               style={{ backgroundColor: item.bgColor, color: item.textColor }}
             >
-              <div className="nav-card-label font-bold tracking-tight text-[18px] md:text-[22px] border-b border-white/10 pb-3 flex-shrink-0">
+              <div className="nav-card-label font-bold tracking-tight text-[18px] md:text-[22px] border-b border-emerald-500/30 pb-3 flex-shrink-0">
                 {item.label}
               </div>
               <div className="nav-card-links mt-auto flex flex-col gap-2.5 flex-grow">

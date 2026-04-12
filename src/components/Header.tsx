@@ -34,26 +34,33 @@ export function Header({
   const hrefForUiLocale = (target: "en" | "it") =>
     pathname.replace(/^\/(en|it)(?=\/|$)/, `/${target}`);
 
-  // Transforming flat sections into 3-card structure for CardNav
+  // Transforming sections into 3 specific categories for CardNav
   const cardItems: CardNavItem[] = [
     {
-      label: locale === 'it' ? "CHI SONO" : "ABOUT",
-      bgColor: "rgba(2, 44, 34, 0.7)", // Verde Abete Scuro con più trasparenza
+      label: locale === 'it' ? "SVILUPPO WEB" : "WEB DEV",
+      bgColor: "#000",
+
       textColor: "#fff",
-      links: sections
-        .filter(s => ["about", "experience", "education"].includes(s.id))
-        .map(s => ({
-          label: s.label,
-          href: linkForSection(s),
-          ariaLabel: s.label
-        }))
+      links: [
+        {
+          label: locale === 'it' ? "Cosa faccio" : "What I do",
+          href: `/${locale}/sviluppo-web-valdelsa`,
+          ariaLabel: "Servizi Sviluppo Web"
+        },
+        {
+          label: locale === 'it' ? "Prezzi" : "Pricing",
+          href: `/${locale}/sviluppo-web-valdelsa#pricing`,
+          ariaLabel: "Piani e Prezzi"
+        }
+      ]
     },
     {
-      label: locale === 'it' ? "LAVORO" : "WORK",
-      bgColor: "rgba(5, 77, 59, 0.7)", // Verde Foresta
+      label: "PORTFOLIO",
+      bgColor: "#000",
+
       textColor: "#fff",
       links: sections
-        .filter(s => ["projects", "local-web"].includes(s.id))
+        .filter(s => ["about", "projects", "experience", "education"].includes(s.id))
         .map(s => ({
           label: s.label,
           href: linkForSection(s),
@@ -62,16 +69,15 @@ export function Header({
     },
     {
       label: locale === 'it' ? "CONTATTI" : "CONTACT",
-      bgColor: "rgba(16, 120, 90, 0.7)", // Verde Smeraldo Soft
+      bgColor: "#000",
+
       textColor: "#fff",
       links: [
-        ...sections
-          .filter(s => s.id === "contacts")
-          .map(s => ({
-            label: s.label,
-            href: linkForSection(s),
-            ariaLabel: s.label
-          })),
+        {
+          label: locale === 'it' ? "Scrivimi" : "Email Me",
+          href: `/${locale}#contacts`,
+          ariaLabel: "Modulo Contatti"
+        },
         {
           label: "LinkedIn",
           href: "https://linkedin.com/in/m-compagnone",
@@ -102,6 +108,8 @@ export function Header({
       locale={locale}
       onLocaleChange={hrefForUiLocale}
       baseColor="rgba(0, 0, 0, 0.4)"
+
+
       menuColor="#fff"
     />
   );

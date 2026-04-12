@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { siteConfig } from "@/lib/site-config";
 import { getDictionary, type Locale } from "@/lib/get-dictionaries";
-import { cn } from "@/lib/utils";
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -104,7 +103,7 @@ export default async function SviluppoWebValdelsaPage(props: {
 
             <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10">
               {/* Column 1: Services */}
-              <div className="p-8 md:p-10 flex flex-col group hover:bg-emerald-500/[0.05] transition-all duration-500 border-b md:border-b-0 md:hover:border-emerald-500/30">
+              <div className="p-8 md:p-10 flex flex-col group transition-all duration-500 border-b md:border-b-0 hover:border-emerald-500/30">
                 <div className="flex justify-between items-start mb-10">
                   <div className="bg-emerald-500/10 p-3 rounded-xl border border-emerald-500/20 group-hover:bg-emerald-500/20 transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
@@ -131,7 +130,7 @@ export default async function SviluppoWebValdelsaPage(props: {
               </div>
 
               {/* Column 2: Local Focus */}
-              <div className="p-8 md:p-10 flex flex-col group hover:bg-emerald-500/[0.05] transition-all duration-500 md:hover:border-emerald-500/30">
+              <div className="p-8 md:p-10 flex flex-col group transition-all duration-500 hover:border-emerald-500/30">
                 <div className="flex justify-between items-start mb-10">
                   <div className="bg-emerald-500/10 p-3 rounded-xl border border-emerald-500/20 group-hover:bg-emerald-500/20 transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400"><path d="m2 2 20 20"></path><path d="M7 8V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"></path><path d="M3 21h7"></path><path d="M3 10h1"></path><path d="M15 21h1"></path><path d="M21 3h1"></path><path d="M3 7h1"></path><path d="M7 21h1"></path></svg>
@@ -153,7 +152,7 @@ export default async function SviluppoWebValdelsaPage(props: {
               </div>
 
               {/* Column 3: Collaborations */}
-              <div className="p-8 md:p-10 flex flex-col group hover:bg-emerald-500/[0.05] transition-all duration-500 md:hover:border-emerald-500/30">
+              <div className="p-8 md:p-10 flex flex-col group transition-all duration-500 hover:border-emerald-500/30">
                 <div className="flex justify-between items-start mb-10">
                   <div className="bg-emerald-500/10 p-3 rounded-xl border border-emerald-500/20 group-hover:bg-emerald-500/20 transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
@@ -187,7 +186,7 @@ export default async function SviluppoWebValdelsaPage(props: {
 
                 <div className="mt-8 pt-4 border-t border-white/5">
                   <p className="text-xs text-neutral-500 italic leading-snug">
-                    Collaborazioni consolidate con realtà leader nel settore Automotive e Medicale.
+                    Collaborazioni consolidate con realtà leader nel proprio settore.
                   </p>
                 </div>
 
@@ -199,7 +198,7 @@ export default async function SviluppoWebValdelsaPage(props: {
           </div>
 
           {/* Pricing Section */}
-          <section className="mt-24">
+          <section className="mt-24" id="pricing">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 {lw?.pricing?.title}
@@ -224,62 +223,59 @@ export default async function SviluppoWebValdelsaPage(props: {
                 { 
                    plan: lw?.pricing?.plans?.enterprise, 
                    highlight: false,
-                   id: "custom"
+                   id: "enterprise"
                 }
               ].map((item, idx) => (
                 <div 
                   key={idx}
-                  className={cn(
-                    "relative flex flex-col p-8 rounded-3xl border transition-all duration-500",
-                    item.highlight 
-                      ? "bg-emerald-500/10 border-emerald-500/30 scale-105 shadow-[0_0_40px_-10px_rgba(16,185,129,0.3)] z-10" 
-                      : "bg-black/40 border-white/5 hover:border-emerald-500/20"
-                  )}
+                  className="relative flex flex-col p-8 rounded-3xl border border-white/5 bg-black/40 transition-all duration-500 hover:border-emerald-500/20"
                 >
-                  {item.highlight && (
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-emerald-500 text-white text-[10px] font-bold uppercase tracking-widest rounded-full">
-                      Most Popular
-                    </div>
-                  )}
                   
                   <div className="mb-8">
                     <h3 className="text-xl font-bold text-white mb-2">{item.plan?.name}</h3>
-                    <p className="text-sm text-neutral-400 mb-6">{item.plan?.target}</p>
+                    <p className="text-sm text-neutral-400 mb-6 font-medium">{item.plan?.target}</p>
                     <div className="flex items-baseline gap-1">
                       <span className="text-4xl font-bold text-white tracking-tight">
-                        {item.plan?.price === "Quotes" || item.plan?.price === "Su Prev." ? item.plan?.price : `€${item.plan?.price}`}
+                        €{item.plan?.price}
                       </span>
-                      {!(item.plan?.price === "Quotes" || item.plan?.price === "Su Prev.") && (
-                        <span className="text-neutral-500 text-sm font-medium">+iva</span>
-                      )}
+                      <span className="text-neutral-500 text-sm font-medium">
+                        {item.id === 'enterprise' 
+                          ? (locale === 'it' ? '/mese' : '/month') 
+                          : (locale === 'it' ? '/progetto' : '/project')}
+                      </span>
                     </div>
                   </div>
 
-                  <ul className="space-y-4 mb-10 flex-grow">
+                  <ul className="space-y-4 flex-grow">
                     {item.plan?.features?.map((feature: string, fIdx: number) => (
                       <li key={fIdx} className="flex items-start gap-3 text-sm text-neutral-300">
-                        <Check className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                        <Check className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" aria-hidden />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
-
-                  <Link
-                    href={`/${locale}#contacts`}
-                    className={cn(
-                      "w-full py-4 rounded-xl text-center text-sm font-bold transition-all",
-                      item.highlight
-                        ? "bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-500/20"
-                        : "bg-white/5 hover:bg-white/10 text-white border border-white/10"
-                    )}
-                  >
-                    {item.id === "custom" 
-                      ? (locale === 'it' ? 'Richiedi Preventivo' : 'Request Quote')
-                      : (locale === 'it' ? 'Inizia Progetto' : 'Start Project')}
-                  </Link>
                 </div>
               ))}
             </div>
+
+            <div className="mt-12 flex justify-center">
+              <Link
+                href={`/${locale}/richiedi-preventivo`}
+                className="inline-flex items-center justify-center rounded-xl bg-emerald-500 px-10 py-5 text-center text-lg font-bold text-white shadow-[0_0_30px_rgba(16,185,129,0.3)] transition-all hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
+              >
+                {dict.localWeb.quote.title}
+              </Link>
+            </div>
+
+            {/* Maintenance & Evolution Note */}
+            {lw?.pricing?.maintenance && (
+              <div className="mt-12 max-w-4xl mx-auto p-6 rounded-2xl bg-white/[0.02] border border-white/5 text-center">
+                <h4 className="text-white font-bold mb-2">{lw.pricing.maintenance.title}</h4>
+                <p className="text-sm text-neutral-400 leading-relaxed">
+                  {lw.pricing.maintenance.label}
+                </p>
+              </div>
+            )}
           </section>
 
           <section

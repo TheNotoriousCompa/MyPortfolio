@@ -138,50 +138,76 @@
             "Ottimizzazione SEO di base e meta tag",
             "Supporto e iterazioni dopo il go-live"
         ],
-        "localTitle": "Zone servite",
-        "localBody": "Opero in particolare su Castelfiorentino, Gambassi Terme e i comuni della Valdelsa; per progetti compatibili valuto anche collaborazioni in Toscana.",
+        "localTitle": "Presenza e Raggio d'azione",
+        "localBody": "Sviluppo siti web e applicazioni in tutta Italia, con la possibilità di gestire tutto da remoto. Mantengo una forte presenza sul territorio della Valdelsa, collaborando con attività di Castelfiorentino, Gambassi Terme e dintorni.",
         "projectsLocalTitle": "Siti a cui ho lavorato",
         "ctaTitle": "Parliamo del tuo progetto",
         "ctaBody": "Scrivimi o chiamami: ti rispondo con tempi e modalità chiare.",
         "ctaPrimary": "Vai ai contatti",
         "ctaSecondary": "Vedi i progetti",
         "pricing": {
-            "title": "Piani e Investimento",
-            "subtitle": "Soluzioni trasparenti per far crescere il tuo business in Valdelsa.",
+            "title": "Trasparenza e Semplificazione",
+            "subtitle": "Ideale per professionisti e piccole attività in Valdelsa che vogliono un unico referente diretto.",
             "plans": {
                 "essential": {
-                    "name": "Essential",
+                    "name": "Landing Page",
                     "price": "499",
-                    "target": "Landing Page / One Page",
+                    "target": "Sito One-Page ad alto impatto",
                     "features": [
-                        "Design Responsivo e Moderno",
-                        "Ottimizzazione SEO Base",
+                        "Design Moderno e Responsivo",
+                        "Ottimizzazione SEO Locale",
                         "Integrazione Form Contatti",
-                        "Certificato SSL Incluso"
+                        "Consegna in 7-10 giorni",
+                        "Supporto diretto su WhatsApp"
                     ]
                 },
                 "professional": {
-                    "name": "Professional",
-                    "price": "1199",
-                    "target": "Sito Vetrina Completo",
+                    "name": "Sito Completo",
+                    "price": "899",
+                    "target": "Vetrina multipagina professionale",
                     "features": [
-                        "Fino a 5 Pagine Personalizzate",
-                        "Gestione Contenuti (CMS)",
-                        "Analisi Google Search Console",
-                        "Supporto Post-Live (30 giorni)"
+                        "Fino a 5 pagine personalizzate",
+                        "Gestione contenuti semplificata",
+                        "Configurazione Google MyBusiness",
+                        "Ottimizzazione velocità (Core Web Vitals)",
+                        "Supporto diretto su WhatsApp"
                     ]
                 },
                 "enterprise": {
-                    "name": "Custom",
-                    "price": "Su Prev.",
-                    "target": "Web App & E-commerce",
+                    "name": "Full Care (Abbonamento)",
+                    "price": "29",
+                    "target": "Zero pensieri, tutto incluso",
                     "features": [
-                        "Sviluppo Moduli Personalizzati",
-                        "Gestione Database e Backend",
-                        "E-commerce o Area Riservata",
-                        "Supporto Prioritario"
+                        "Costo dominio variabile escluso",
+                        "Modifiche illimitate ai contenuti",
+                        "Certificato SSL e Backup quotidiano",
+                        "Update sicurezza costanti",
+                        "Supporto diretto su WhatsApp"
                     ]
                 }
+            },
+            "maintenance": {
+                "title": "Perché l'abbonamento?",
+                "label": "Dimentica la complessità tecnica. Con una piccola quota mensile gestisco io tutto: dal rinnovo del dominio alle modifiche dei testi che mi chiedi via chat. Tu pensi al tuo lavoro, io al tuo sito."
+            }
+        },
+        "quote": {
+            "title": "Richiedi un Preventivo",
+            "subtitle": "Parlami del tuo progetto. Più dettagli fornirai, più preciso sarà il mio feedback iniziale.",
+            "form": {
+                "name": "Nome",
+                "email": "La tua Email",
+                "projectType": "Tipo di Progetto",
+                "projectTypes": {
+                    "landing": "Landing Page",
+                    "showcase": "Sito Vetrina Completo",
+                    "ecommerce": "E-commerce",
+                    "custom": "Web App / Custom"
+                },
+                "budget": "Budget Stimato",
+                "description": "Descrizione del Progetto",
+                "submit": "Invia Richiesta",
+                "success": "Richiesta inviata con successo! Ti risponderò entro 24-48 ore."
             }
         }
     }
