@@ -6,13 +6,19 @@
             "education": "Education",
             "about": "About Me",
             "experience": "Experience",
-            "contacts": "Contacts"
+            "contacts": "Contacts",
+            "localWeb": "Web development"
         }
+    },
+    "seo": {
+        "homeTitle": "Web Developer Castelfiorentino & Gambassi Terme | Maurizio Compagnone",
+        "homeDescription": "Professional websites in Castelfiorentino, Gambassi Terme and Valdelsa: brochure sites, landing pages and apps with Next.js and React. Get in touch for a quote."
     },
     "Hero": {
         "greeting": "Hi, I am MC",
+        "h1Headline": "Professional websites in Castelfiorentino, Gambassi Terme and across Valdelsa",
         "fullName": "Maurizio Compagnone",
-        "role": "Web Developer",
+        "role": "Senior Web Developer / Full-Stack Engineer",
         "viewWork": "View My Work",
         "contactMe": "Contact Me"
     },
@@ -117,5 +123,66 @@
         "metaTitle": "Gallery | Maurizio Compagnone — Portfolio",
         "metaDescription": "3D renders and designs gallery by Maurizio Compagnone. Explore custom mechanical keyboard designs.",
         "back": "Back to Home"
+    },
+    "localWeb": {
+        "metaTitle": "Web Developer Valdelsa | Castelfiorentino & Gambassi Terme",
+        "metaDescription": "Local web development in Valdelsa: brochure sites, landing pages and web apps for businesses in Castelfiorentino, Gambassi Terme and nearby towns. Quotes and consulting with Maurizio Compagnone.",
+        "back": "Back to Home",
+        "h1": "Web development in Valdelsa",
+        "intro": "I work with local businesses and professionals who want a fast, clear, easy-to-maintain website — focused on Castelfiorentino, Gambassi Terme and Valdelsa.",
+        "servicesTitle": "What I can help with",
+        "services": [
+            "Professional brochure and portfolio websites",
+            "Landing pages for campaigns and services",
+            "Modern front-end development (React / Next.js)",
+            "Basic SEO optimization and meta tags",
+            "Support and iterations after launch"
+        ],
+        "localTitle": "Areas served",
+        "localBody": "I mainly serve Castelfiorentino, Gambassi Terme and municipalities in Valdelsa; for the right project I also consider work across Tuscany.",
+        "projectsLocalTitle": "Projects I've worked on",
+        "ctaTitle": "Tell me about your project",
+        "ctaBody": "Email or call me — I will reply with clear timelines and next steps.",
+        "ctaPrimary": "Contact",
+        "ctaSecondary": "View projects",
+        "pricing": {
+            "title": "Plans & Investment",
+            "subtitle": "Transparent solutions to grow your business in Valdelsa.",
+            "plans": {
+                "essential": {
+                    "name": "Essential",
+                    "price": "499",
+                    "target": "Landing Page / One Page",
+                    "features": [
+                        "Responsive & Modern Design",
+                        "Basic SEO Optimization",
+                        "Contact Form Integration",
+                        "SSL Certificate Included"
+                    ]
+                },
+                "professional": {
+                    "name": "Professional",
+                    "price": "1199",
+                    "target": "Full Showcase Website",
+                    "features": [
+                        "Up to 5 Custom Pages",
+                        "Content Management (CMS)",
+                        "Google Search Console Setup",
+                        "Post-Launch Support (30 days)"
+                    ]
+                },
+                "enterprise": {
+                    "name": "Custom",
+                    "price": "Quotes",
+                    "target": "Web App & E-commerce",
+                    "features": [
+                        "Custom Module Development",
+                        "Database & Backend Management",
+                        "E-commerce or Private Area",
+                        "Priority Support"
+                    ]
+                }
+            }
+        }
     }
 }

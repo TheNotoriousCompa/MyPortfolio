@@ -23,7 +23,7 @@ export function Hero({ dict }: { dict: any /* eslint-disable-line @typescript-es
           <div className="flex justify-center mb-8 overflow-visible px-4">
             <div className="w-full max-w-5xl overflow-visible">
               <TextHoverEffect text={dict.greeting} duration={1} />
-              <h1 className="text-xl md:text-2xl font-medium text-neutral-300 mt-2 text-center tracking-wide">
+              <h1 className="text-xl md:text-2xl lg:text-3xl font-medium text-neutral-300 mt-8 text-center tracking-wide">
                 {dict.fullName} <span className="text-emerald-400 mx-2">|</span> {dict.role}
               </h1>
             </div>
@@ -38,7 +38,7 @@ export function Hero({ dict }: { dict: any /* eslint-disable-line @typescript-es
             </Button>
             <Button
               onClick={() => scrollToSection('contacts')}
-              className="px-8 py-4 rounded-full bg-transparent hover:bg-white/10 text-white transition-all duration-300 border border-white/10 hover:border-white/20 text-lg font-bold font-mono"
+              className="px-8 py-4 rounded-full bg-black/40 backdrop-blur-md hover:bg-white/10 text-white transition-all duration-300 border border-white/10 hover:border-white/20 text-lg font-bold font-mono"
               variant="outline"
             >
               {dict.contactMe}
@@ -52,7 +52,7 @@ export function Hero({ dict }: { dict: any /* eslint-disable-line @typescript-es
                 link.download = 'MC_CV.pdf';
                 link.click();
               }}
-              className="px-6 py-3 rounded-full bg-transparent hover:bg-white/10 text-white transition-all duration-300 border border-white/10 hover:border-white/20 group flex items-center gap-2"
+              className="px-6 py-3 rounded-full bg-black/40 backdrop-blur-md hover:bg-white/10 text-white transition-all duration-300 border border-white/10 hover:border-white/20 group flex items-center gap-2"
               variant="outline"
             >
               <FileDown className="w-6 h-6 text-emerald-400 group-hover:text-white group-hover:translate-y-0.5 transition-all duration-300" />

@@ -1,190 +1,109 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import React from "react";
+import CardNav, { CardNavItem } from "./ui/CardNav";
 
 interface Section {
   id: string;
   label: string;
+  /** Full path for routes that are not in-page anchors (e.g. landing locale). */
+  href?: string;
 }
 
 interface HeaderProps {
   sections: Section[];
+  /** When set (e.g. `/${locale}`), section links point to home hashes: `/it#projects`. */
+  anchorBase?: string;
   isGalleryPage?: boolean;
   locale: string;
 }
 
-export function Header({ sections, isGalleryPage = false, locale }: HeaderProps) {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+export function Header({
+  sections,
+  anchorBase,
+  isGalleryPage = false,
+  locale,
+}: HeaderProps) {
+  const pathname = usePathname();
+  const hashPrefix = anchorBase ?? (isGalleryPage ? `/${locale}` : "");
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+  const linkForSection = (section: Section) =>
+    section.href ?? `${hashPrefix}#${section.id}`;
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const hrefForUiLocale = (target: "en" | "it") =>
+    pathname.replace(/^\/(en|it)(?=\/|$)/, `/${target}`);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  // Transforming flat sections into 3-card structure for CardNav
+  const cardItems: CardNavItem[] = [
+    {
+      label: locale === 'it' ? "CHI SONO" : "ABOUT",
+      bgColor: "rgba(2, 44, 34, 0.7)", // Verde Abete Scuro con più trasparenza
+      textColor: "#fff",
+      links: sections
+        .filter(s => ["about", "experience", "education"].includes(s.id))
+        .map(s => ({
+          label: s.label,
+          href: linkForSection(s),
+          ariaLabel: s.label
+        }))
+    },
+    {
+      label: locale === 'it' ? "LAVORO" : "WORK",
+      bgColor: "rgba(5, 77, 59, 0.7)", // Verde Foresta
+      textColor: "#fff",
+      links: sections
+        .filter(s => ["projects", "local-web"].includes(s.id))
+        .map(s => ({
+          label: s.label,
+          href: linkForSection(s),
+          ariaLabel: s.label
+        }))
+    },
+    {
+      label: locale === 'it' ? "CONTATTI" : "CONTACT",
+      bgColor: "rgba(16, 120, 90, 0.7)", // Verde Smeraldo Soft
+      textColor: "#fff",
+      links: [
+        ...sections
+          .filter(s => s.id === "contacts")
+          .map(s => ({
+            label: s.label,
+            href: linkForSection(s),
+            ariaLabel: s.label
+          })),
+        {
+          label: "LinkedIn",
+          href: "https://linkedin.com/in/m-compagnone",
+          ariaLabel: "LinkedIn"
+        },
+        {
+          label: "GitHub",
+          href: "https://github.com/m-compagnone",
+          ariaLabel: "GitHub"
+        }
+      ]
+    }
+  ];
 
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-  };
+  const TextLogo = (
+    <div className="flex items-center space-x-2 text-sm font-normal text-white">
+      <span className="text-emerald-400">{'<'}</span>
+      <span className="mx-1 font-bold tracking-tighter">MC</span>
+      <span className="text-emerald-400">{'/>'}</span>
+    </div>
+  );
 
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 w-full">
-      <motion.div
-        className={cn(
-          "mx-auto w-full px-4 pt-4 transition-all duration-300",
-          isScrolled ? "max-w-4xl" : "max-w-5xl"
-        )}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <motion.div
-          className={cn(
-            "flex items-center justify-between p-6 rounded-full border border-white/5 bg-black/40 hover:border-emerald-500/30 transition-all",
-            isScrolled && "shadow-lg"
-          )}
-          animate={{
-            padding: isScrolled ? "0.5rem 1.5rem" : "0.5rem 1.5rem",
-            boxShadow: isScrolled
-              ? "0 4px 30px rgba(16, 185, 129, 0.2)"
-              : "0 2px 15px rgba(16, 185, 129, 0.1)",
-            backdropFilter: "blur(8px)"
-          }}
-          transition={{
-            duration: 0.3,
-            ease: [0.16, 1, 0.3, 1],
-          }}
-        >
-          {/* Logo */}
-          <Link
-            href={isGalleryPage ? '/' : '#'}
-            className="flex items-center space-x-2 px-2 py-1 text-sm font-normal text-white hover:text-emerald-400 transition-colors"
-            onClick={closeMobileMenu}
-          >
-            <span className="text-emerald-400">{'<'}</span>
-            <span className="mx-1">MC</span>
-            <span className="text-emerald-400">{'/>'}</span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1">
-            {sections.map((section) => (
-              <Link
-                key={section.id}
-                href={isGalleryPage ? `/#${section.id}` : `#${section.id}`}
-                onClick={closeMobileMenu}
-                className="group relative px-4 py-2 text-sm font-medium text-neutral-300 transition-all duration-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/50 rounded-md overflow-hidden"
-              >
-                <span className="relative z-10">{section.label}</span>
-                <span className="absolute inset-0 w-full h-full bg-emerald-500/10 -translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out rounded-md" />
-              </Link>
-            ))}
-            {/* Language Switcher */}
-            <div className="flex items-center ml-4 pl-4 border-l border-white/10 space-x-2">
-              <Link
-                href="/en"
-                className={cn(
-                  "px-2 py-1 text-xs font-bold rounded-md transition-all duration-300",
-                  locale === 'en' ? "text-emerald-400 bg-emerald-500/10" : "text-neutral-500 hover:text-white"
-                )}
-              >
-                EN
-              </Link>
-              <Link
-                href="/it"
-                className={cn(
-                  "px-2 py-1 text-xs font-bold rounded-md transition-all duration-300",
-                  locale === 'it' ? "text-emerald-400 bg-emerald-500/10" : "text-neutral-500 hover:text-white"
-                )}
-              >
-                IT
-              </Link>
-            </div>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2 text-white hover:text-emerald-400 transition-colors rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/50"
-            onClick={toggleMobileMenu}
-            aria-label="Toggle menu"
-            aria-expanded={isMobileMenuOpen}
-          >
-            {isMobileMenuOpen ? (
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-              </svg>
-            )}
-          </button>
-        </motion.div>
-
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.2 }}
-              className="lg:hidden mt-2 rounded-xl bg-black/40 p-4 backdrop-blur-md border border-white/10 shadow-xl"
-            >
-              <div className="flex flex-col space-y-2">
-                {sections.map((section) => (
-                  <Link
-                    key={section.id}
-                    href={isGalleryPage ? `/#${section.id}` : `#${section.id}`}
-                    onClick={closeMobileMenu}
-                    className="block rounded-lg px-4 py-3 text-sm font-medium text-neutral-300 transition-colors hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/50"
-                  >
-                    {section.label}
-                  </Link>
-                ))}
-
-                {/* Mobile Language Switcher */}
-                <div className="flex items-center justify-between pt-4 mt-2 border-t border-white/10">
-                  <span className="text-xs font-medium text-neutral-500 tracking-wider">Language</span>
-                  <div className="flex space-x-2">
-                    <Link
-                      href="/it"
-                      onClick={closeMobileMenu}
-                      className={cn(
-                        "px-3 py-1.5 text-xs font-bold rounded-lg transition-colors",
-                        locale === 'it' ? "text-emerald-400 bg-emerald-500/10" : "text-neutral-300 hover:bg-white/5"
-                      )}
-                    >
-                      ITALIANO
-                    </Link>
-                    <Link
-                      href="/en"
-                      onClick={closeMobileMenu}
-                      className={cn(
-                        "px-3 py-1.5 text-xs font-bold rounded-lg transition-colors",
-                        locale === 'en' ? "text-emerald-400 bg-emerald-500/10" : "text-neutral-300 hover:bg-white/5"
-                      )}
-                    >
-                      ENGLISH
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.div>
-    </nav>
+    <CardNav
+      logo={TextLogo}
+      logoAlt="MC Logo"
+      items={cardItems}
+      locale={locale}
+      onLocaleChange={hrefForUiLocale}
+      baseColor="rgba(0, 0, 0, 0.4)"
+      menuColor="#fff"
+    />
   );
 }
 

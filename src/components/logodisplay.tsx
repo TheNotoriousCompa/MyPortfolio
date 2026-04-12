@@ -14,10 +14,10 @@ import {
 } from 'react-icons/si';
 import Link from 'next/link';
 
-interface LogoItem {
+export interface LogoItem {
   icon: React.ReactNode;
   name: string;
-  url: string;
+  url?: string;
 }
 
 const defaultLogos: LogoItem[] = [
@@ -33,12 +33,24 @@ const defaultLogos: LogoItem[] = [
   { icon: <SiBlender size={32} />, name: 'Blender', url: 'https://www.blender.org/' },
 ];
 
-// Duplicate the logos array to create a seamless infinite loop.
-// The inner track is twice as wide; we animate it by -50% so the
-// second copy lines up perfectly with where the first started.
-const scrollingLogos = [...defaultLogos, ...defaultLogos];
+interface LogoDisplayProps {
+  customLogos?: LogoItem[];
+  duration?: number;
+}
 
-function LogoDisplay() {
+function LogoDisplay({ customLogos, duration = 30 }: LogoDisplayProps) {
+  let baseLogos = customLogos || defaultLogos;
+  
+  // If we have very few logos, repeat the base set so the track 
+  // is wide enough to fill the screen before doubling.
+  while (baseLogos.length > 0 && baseLogos.length < 10) {
+    baseLogos = [...baseLogos, ...baseLogos];
+  }
+
+  // Doubling ensures that when we scroll -50%, the second half
+  // perfectly matches the starting position of the first half.
+  const scrollingLogos = [...baseLogos, ...baseLogos];
+
   return (
     <div
       className="py-8 w-full overflow-hidden"
@@ -54,7 +66,7 @@ function LogoDisplay() {
       <div
         className="flex items-center gap-6 md:gap-10 w-max will-change-transform"
         style={{
-          animation: 'scroll-x 30s linear infinite',
+          animation: `scroll-x ${duration}s linear infinite`,
         }}
         onMouseEnter={(e) => {
           (e.currentTarget as HTMLDivElement).style.animationPlayState = 'paused';
@@ -66,10 +78,10 @@ function LogoDisplay() {
         {scrollingLogos.map((logo, index) => (
           <Link
             key={index}
-            href={logo.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col items-center p-4 rounded-xl border border-transparent hover:border-emerald-500/40 hover:bg-white/5 transition-[border-color,background-color,transform] duration-300 ease-out hover:-translate-y-0.5 group"
+            href={logo.url || "#"}
+            target={logo.url ? "_blank" : undefined}
+            rel={logo.url ? "noopener noreferrer" : undefined}
+            className="flex flex-col items-center p-4 rounded-xl border border-transparent hover:border-emerald-500/40 hover:bg-black/40 transition-[border-color,background-color,transform] duration-300 ease-out group"
           >
             <div className="text-white group-hover:scale-110 transition-transform duration-300 ease-out">
               {logo.icon}

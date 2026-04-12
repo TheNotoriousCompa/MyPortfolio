@@ -191,6 +191,7 @@ svg {
   * {
     @apply border-border outline-ring/50;
     scroll-behavior: smooth;
+    scroll-margin-top: 100px;
   }
 
   :root {

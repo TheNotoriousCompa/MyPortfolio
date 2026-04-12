@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#0a0a0a"/>
+  <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-weight="900" font-size="12">
+    <tspan fill="#10b981">&lt;</tspan>
+    <tspan fill="white">MC</tspan>
+    <tspan fill="#10b981">/&gt;</tspan>
+  </text>
+</svg>

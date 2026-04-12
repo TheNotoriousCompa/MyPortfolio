@@ -17,6 +17,7 @@ export const Experience = ({ dict }: { dict: any /* eslint-disable-line @typescr
       id: 'ibi',
       title: dict.items.ibi?.title || 'Web Development Intern',
       company: dict.items.ibi?.company || 'IBI',
+      companyUrl: dict.items.ibi?.companyUrl || 'https://www.ibi.it/',
       period: dict.items.ibi?.period || 'March 16, 2026 - ongoing',
       description: dict.items.ibi?.description || 'Web development training program.'
     },
@@ -24,6 +25,7 @@ export const Experience = ({ dict }: { dict: any /* eslint-disable-line @typescr
       id: 'field-survey',
       title: dict.items.survey.title,
       company: dict.items.survey.company,
+      companyUrl: dict.items.survey.companyUrl || 'https://www.masterelectric.it/',
       period: '2022 - 2023',
       description: dict.items.survey.description
     },
@@ -60,7 +62,7 @@ export const Experience = ({ dict }: { dict: any /* eslint-disable-line @typescr
           {experienceItems.map((item) => (
             <div
               key={item.id}
-              className="p-6 rounded-xl border border-white/10 bg-black/40 backdrop-blur-sm transition-[transform,border-color,box-shadow] duration-500 ease-out hover:border-emerald-500/40 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(16,185,129,0.15)] transform-gpu will-change-transform"
+              className="p-6 rounded-xl border border-white/10 bg-black/40 backdrop-blur-sm transition-[transform,border-color,box-shadow] duration-500 ease-out hover:border-emerald-500/40 hover:shadow-[0_8px_30px_rgb(16,185,129,0.15)] transform-gpu will-change-transform"
             >
               <h3 className="text-2xl font-bold text-white mb-1">{item.title}</h3>
               <div className="flex items-center text-emerald-400 mb-4">

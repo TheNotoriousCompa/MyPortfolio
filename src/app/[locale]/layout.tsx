@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Background from '@/components/Background';
+import { ProfessionalServiceJsonLd } from "@/components/seo/ProfessionalServiceJsonLd";
+import { siteConfig } from "@/lib/site-config";
 import "../globals.css";
 
 // Optimize font loading
@@ -23,36 +25,37 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-const siteConfig = {
-  name: "Maurizio Compagnone — Portfolio",
-  description: "Personal portfolio of Maurizio Compagnone — Computer Science Student & Tech Enthusiast. Discover my projects in Web Development, 3D Design, and PC Building.",
-  url: "https://mcompagnone.netlify.app",
-  ogImage: "https://mcompagnone.netlify.app/portfolio-preview.png",
-  links: {
-    github: "https://github.com/TheNotoriousCompa",
-    linkedin: "https://www.linkedin.com/in/maurizio-compagnone-5a6937222/",
-  },
-};
+const defaultDescription =
+  "Sviluppatore web a Castelfiorentino e Gambassi Terme — siti professionali, Next.js e React in Valdelsa. Portfolio di Maurizio Compagnone.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: siteConfig.name,
+    default: `${siteConfig.name} | Sviluppatore Web Castelfiorentino & Gambassi Terme`,
     template: `%s | ${siteConfig.name}`,
   },
-  description: siteConfig.description,
+  description: defaultDescription,
   keywords: [
     "Maurizio Compagnone",
-    "MC",
-    "Portfolio",
-    "Web Developer",
-    "Computer Science Student",
+    "Sviluppatore Web Castelfiorentino",
+    "Sviluppatore Web Gambassi Terme",
+    "Siti web Valdelsa",
+    "Web developer Valdelsa",
     "Next.js",
     "React",
-    "Tailwind CSS",
+    "Portfolio",
+    "MC",
+    "Toscana",
+    "ProfessionalService",
     "3D Artist",
     "PC Building",
   ],
+  other: {
+    "geo.region": siteConfig.location.regionIso,
+    "geo.placename": siteConfig.location.locality,
+    "geo.position": siteConfig.location.geoPosition,
+    ICBM: siteConfig.location.geoPosition.replace(";", ", "),
+  },
   authors: [
     {
       name: "Maurizio Compagnone",
@@ -62,10 +65,11 @@ export const metadata: Metadata = {
   creator: "Maurizio Compagnone",
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "it_IT",
+    alternateLocale: ["en_US"],
     url: siteConfig.url,
     title: siteConfig.name,
-    description: siteConfig.description,
+    description: defaultDescription,
     siteName: siteConfig.name,
     images: [
       {
@@ -79,7 +83,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: siteConfig.name,
-    description: siteConfig.description,
+    description: defaultDescription,
     images: [siteConfig.ogImage],
     creator: "@TheNotoriousCompa",
   },
@@ -117,24 +121,33 @@ export default async function RootLayout(props: {
   return (
     <html lang={locale} className="h-full w-full" suppressHydrationWarning>
       <head>
+        <ProfessionalServiceJsonLd />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              "name": "Maurizio Compagnone",
-              "alternateName": "MC",
-              "url": siteConfig.url,
-              "image": `${siteConfig.url}/logo.png`,
-              "jobTitle": "Computer Science Student & Web Developer",
-              "sameAs": [
-                siteConfig.links.github,
-                siteConfig.links.linkedin,
+              name: "Maurizio Compagnone",
+              alternateName: "MC",
+              url: siteConfig.url,
+              image: `${siteConfig.url}/logo.png`,
+              jobTitle: "Sviluppatore Web — Castelfiorentino, Gambassi Terme, Valdelsa",
+              sameAs: [siteConfig.links.github, siteConfig.links.linkedin],
+              email: siteConfig.contact.email,
+              telephone: siteConfig.contact.phoneE164,
+              knowsAbout: [
+                "Web Development",
+                "React",
+                "Next.js",
+                "TypeScript",
+                "Sviluppo web locale Valdelsa",
+                "3D Modeling",
+                "Blender",
+                "PC Building",
               ],
-              "knowsAbout": ["Web Development", "React", "Next.js", "TypeScript", "3D Modeling", "Blender", "PC Building"],
-              "description": siteConfig.description
-            })
+              description: defaultDescription,
+            }),
           }}
         />
       </head>

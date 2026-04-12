@@ -17,6 +17,7 @@ const skills = {
   backendApi: [
     { name: '.NET', url: 'https://dotnet.microsoft.com/' },
     { name: 'API', url: 'https://developer.mozilla.org/en-US/docs/Web/API' },
+    { name: 'SQL', url: 'https://en.wikipedia.org/wiki/SQL' },
     { name: 'Firebase', url: 'https://firebase.google.com/' }
   ],
   programming: [
@@ -37,9 +38,12 @@ const languages = [
   { name: 'English', level: 'C1 Level Certified' }
 ];
 
-export function About({ dict }: { dict: any /* eslint-disable-line @typescript-eslint/no-explicit-any */ }) {
-  const pillClassName =
-    "px-3 py-1 text-sm text-emerald-300 bg-emerald-500/10 rounded-full hover:bg-emerald-500/20 transition-colors";
+export function About({ dict, locale }: { 
+  dict: any; /* eslint-disable-line @typescript-eslint/no-explicit-any */
+  locale: string;
+}) {
+  const badgeClassName =
+    "px-3 py-1.5 text-sm font-medium text-neutral-400 bg-white/[0.03] border border-white/5 rounded-md backdrop-blur-sm transition-all duration-300 hover:border-emerald-500/50 hover:bg-emerald-500/10 hover:text-white hover:shadow-[0_0_15px_rgba(16,185,129,0.1)]";
 
   return (
     <section id="about" className="pt-4 pb-20 px-4">
@@ -58,93 +62,115 @@ export function About({ dict }: { dict: any /* eslint-disable-line @typescript-e
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 items-stretch">
-            <CardSpotlight className="p-6 rounded-xl border border-white/5 bg-black/40 h-full">
-              <h3 className="text-2xl font-bold text-white mb-4 relative z-20">{dict.technicalSkills}</h3>
+          <CardSpotlight className="p-6 md:p-8 rounded-xl border border-white/5 bg-black/40 w-full overflow-hidden">
+            <div className="grid lg:grid-cols-3 gap-10 relative z-20">
+              {/* Technical Skills - 2/3 width on desktop */}
+              <div className="lg:col-span-2 space-y-6">
+                <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                  <span className="w-8 h-px bg-emerald-500/50 hidden md:block"></span>
+                  {dict.technicalSkills}
+                </h3>
 
-              <div className="relative z-20 space-y-4">
-                <div>
-                  <h4 className="text-emerald-400 font-bold mb-2">Frontend</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {skills.frontend.map((skill) => (
-                      <a
-                        key={skill.name}
-                        href={skill.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`${pillClassName} relative z-20`}
-                      >
-                        {skill.name}
-                      </a>
-                    ))}
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="text-emerald-400 font-bold mb-3 text-sm uppercase tracking-wider">Frontend</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {skills.frontend.map((skill) => (
+                        <a
+                          key={skill.name}
+                          href={skill.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={badgeClassName}
+                        >
+                          {skill.name}
+                        </a>
+                      ))}
+                    </div>
                   </div>
-                </div>
-                <div className="mt-4">
-                  <h4 className="text-emerald-400 font-bold mb-2">Backend & APIs</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {skills.backendApi.map((skill) => (
-                      <a
-                        key={skill.name}
-                        href={skill.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={pillClassName}
-                      >
-                        {skill.name}
-                      </a>
-                    ))}
+
+                  <div>
+                    <h4 className="text-emerald-400 font-bold mb-3 text-sm uppercase tracking-wider">Programming</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {skills.programming.map((skill) => (
+                        <a
+                          key={skill.name}
+                          href={skill.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={badgeClassName}
+                        >
+                          {skill.name}
+                        </a>
+                      ))}
+                    </div>
                   </div>
-                </div>
-                <div className="mt-4">
-                  <h4 className="text-emerald-400 font-bold mb-2">Programming</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {skills.programming.map((skill) => (
-                      <a
-                        key={skill.name}
-                        href={skill.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={pillClassName}
-                      >
-                        {skill.name}
-                      </a>
-                    ))}
+
+                  <div>
+                    <h4 className="text-emerald-400 font-bold mb-3 text-sm uppercase tracking-wider">Backend & APIs</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {skills.backendApi.map((skill) => (
+                        <a
+                          key={skill.name}
+                          href={skill.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={badgeClassName}
+                        >
+                          {skill.name}
+                        </a>
+                      ))}
+                    </div>
                   </div>
-                </div>
-                <div className="mt-4">
-                  <h4 className="text-emerald-400 font-bold mb-2">Design & 3D</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {skills.design.map((skill) => (
-                      <a
-                        key={skill.name}
-                        href={skill.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={pillClassName}
-                      >
-                        {skill.name}
-                      </a>
-                    ))}
+
+                  <div>
+                    <h4 className="text-emerald-400 font-bold mb-3 text-sm uppercase tracking-wider">Design & 3D</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {skills.design.map((skill) => (
+                        <a
+                          key={skill.name}
+                          href={skill.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={badgeClassName}
+                        >
+                          {skill.name}
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
-            </CardSpotlight>
 
-            <CardSpotlight className="p-6 rounded-xl border border-white/5 bg-black/40">
-              <h3 className="text-2xl font-bold text-white mb-4 relative z-20">{dict.languages}</h3>
-              <div className="relative z-20 space-y-4">
-                {languages.map((lang) => (
-                  <div key={lang.name} className="flex justify-between items-center">
-                    <span className="font-bold text-emerald-400 text-lg">{lang.name}</span>
-                    <span className="text-emerald-300 font-medium">
-                      {lang.level === 'Native' ? dict.native :
-                        lang.level === 'C1 Level Certified' ? dict.certified : lang.level}
-                    </span>
+              {/* Languages - 1/3 width on desktop */}
+              <div className="lg:border-l lg:border-white/10 lg:pl-10 space-y-6 flex flex-col justify-center">
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  {dict.languages}
+                </h3>
+                <div className="space-y-6">
+                  {languages.map((lang) => (
+                    <div key={lang.name} className="flex flex-col gap-1">
+                      <span className="font-bold text-emerald-400 text-lg uppercase tracking-tight">{lang.name}</span>
+                      <span className="text-neutral-400 font-medium text-sm">
+                        {lang.level === 'Native' ? dict.native :
+                          lang.level === 'C1 Level Certified' ? dict.certified : lang.level}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="pt-6 hidden lg:block">
+                  <div className="p-4 rounded-lg bg-emerald-500/5 border border-emerald-500/10">
+                    <p className="text-xs text-neutral-400 italic">
+                      {locale === 'it' 
+                        ? "Sempre pronto ad imparare nuove tecnologie e linguaggi per risolvere problemi complessi."
+                        : "Always ready to learn new technologies and languages to solve complex problems."}
+                    </p>
                   </div>
-                ))}
+                </div>
               </div>
-            </CardSpotlight>
-          </div>
+            </div>
+          </CardSpotlight>
         </div>
       </div>
     </section>

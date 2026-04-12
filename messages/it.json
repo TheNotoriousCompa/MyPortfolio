@@ -6,13 +6,19 @@
             "education": "Istruzione",
             "about": "Chi Sono",
             "experience": "Esperienza",
-            "contacts": "Contatti"
+            "contacts": "Contatti",
+            "localWeb": "Sviluppo web"
         }
+    },
+    "seo": {
+        "homeTitle": "Sviluppatore Web Castelfiorentino & Gambassi Terme | Maurizio Compagnone",
+        "homeDescription": "Sviluppo siti web professionali a Castelfiorentino, Gambassi Terme e in Valdelsa: siti vetrina, landing page e applicazioni con Next.js e React. Contattami per un preventivo."
     },
     "Hero": {
         "greeting": "Ciao, sono MC",
+        "h1Headline": "Siti web professionali a Castelfiorentino, Gambassi Terme e in tutta la Valdelsa",
         "fullName": "Maurizio Compagnone",
-        "role": "Web Developer",
+        "role": "Senior Web Developer / Full-Stack Engineer",
         "viewWork": "Vedi Progetti",
         "contactMe": "Contattami"
     },
@@ -117,5 +123,66 @@
         "metaTitle": "Gallery 3D | Maurizio Compagnone — Portfolio",
         "metaDescription": "Esplora i mockup 3D e i design di tastiere custom by Maurizio Compagnone.",
         "back": "Torna alla Home"
+    },
+    "localWeb": {
+        "metaTitle": "Sviluppatore Web Valdelsa | Castelfiorentino & Gambassi Terme",
+        "metaDescription": "Servizi di sviluppo web in Valdelsa: siti vetrina, landing page e web app per attività a Castelfiorentino, Gambassi Terme e comuni limitrofi. Preventivo e consulenza con Maurizio Compagnone.",
+        "back": "Torna alla Home",
+        "h1": "Sviluppo web in Valdelsa",
+        "intro": "Lavoro con attività locali e professionisti che vogliono un sito veloce, chiaro e facile da gestire — con focus su Castelfiorentino, Gambassi Terme e la Valdelsa.",
+        "servicesTitle": "Cosa posso fare per te",
+        "services": [
+            "Siti vetrina e portfolio professionali",
+            "Landing page per campagne e servizi",
+            "Sviluppo front-end moderno (React / Next.js)",
+            "Ottimizzazione SEO di base e meta tag",
+            "Supporto e iterazioni dopo il go-live"
+        ],
+        "localTitle": "Zone servite",
+        "localBody": "Opero in particolare su Castelfiorentino, Gambassi Terme e i comuni della Valdelsa; per progetti compatibili valuto anche collaborazioni in Toscana.",
+        "projectsLocalTitle": "Siti a cui ho lavorato",
+        "ctaTitle": "Parliamo del tuo progetto",
+        "ctaBody": "Scrivimi o chiamami: ti rispondo con tempi e modalità chiare.",
+        "ctaPrimary": "Vai ai contatti",
+        "ctaSecondary": "Vedi i progetti",
+        "pricing": {
+            "title": "Piani e Investimento",
+            "subtitle": "Soluzioni trasparenti per far crescere il tuo business in Valdelsa.",
+            "plans": {
+                "essential": {
+                    "name": "Essential",
+                    "price": "499",
+                    "target": "Landing Page / One Page",
+                    "features": [
+                        "Design Responsivo e Moderno",
+                        "Ottimizzazione SEO Base",
+                        "Integrazione Form Contatti",
+                        "Certificato SSL Incluso"
+                    ]
+                },
+                "professional": {
+                    "name": "Professional",
+                    "price": "1199",
+                    "target": "Sito Vetrina Completo",
+                    "features": [
+                        "Fino a 5 Pagine Personalizzate",
+                        "Gestione Contenuti (CMS)",
+                        "Analisi Google Search Console",
+                        "Supporto Post-Live (30 giorni)"
+                    ]
+                },
+                "enterprise": {
+                    "name": "Custom",
+                    "price": "Su Prev.",
+                    "target": "Web App & E-commerce",
+                    "features": [
+                        "Sviluppo Moduli Personalizzati",
+                        "Gestione Database e Backend",
+                        "E-commerce o Area Riservata",
+                        "Supporto Prioritario"
+                    ]
+                }
+            }
+        }
     }
 }

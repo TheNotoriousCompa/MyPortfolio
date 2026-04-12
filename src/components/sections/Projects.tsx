@@ -2,6 +2,7 @@
 
 import LogoDisplay from "@/components/logodisplay";
 import { EncryptedTexts } from "../textencrypted";
+import Image from "next/image";
 
 interface Project {
   id: string;
@@ -21,8 +22,8 @@ export function Projects({ dict }: { dict: any /* eslint-disable-line @typescrip
   const projects: Project[] = [
     {
       id: 'portfolio-v2',
-      title: 'Portfolio Website',
-      description: 'This very website you are on! A modern, responsive portfolio built with Next.js, TypeScript, and Tailwind CSS. Features a clean design with smooth animations and interactive elements to showcase my work and skills.',
+      title: dict.items.portfolioV2.title,
+      description: dict.items.portfolioV2.description,
       image: '/portfolio-preview.png',
       technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Shadcn/UI', 'Framer Motion', 'Netlify'],
       links: [
@@ -35,8 +36,8 @@ export function Projects({ dict }: { dict: any /* eslint-disable-line @typescrip
     },
     {
       id: 'portfolio',
-      title: 'My first website',
-      description: 'My personal website built with Next.js, Tailwind CSS, and TypeScript. Features a modern, responsive design with smooth scrolling navigation and interactive elements. Here anyone can post something and you can see some of my reviews on various pieces of media',
+      title: dict.items.portfolioV1.title,
+      description: dict.items.portfolioV1.description,
       image: '/first-portfolio-preview.png',
       technologies: ['Next.js', 'React', 'TypeScript', 'TailwindCSS', 'Shadcn/UI', 'Firebase', 'Netlify'],
       links: [
@@ -51,7 +52,7 @@ export function Projects({ dict }: { dict: any /* eslint-disable-line @typescrip
     {
       id: 'audit',
       title: 'Audit',
-      description: 'A modern wrapper for yt-dlp that simplifies downloading videos from YouTube in various formats. Features an intuitive interface with support for multiple output formats including CSV and TXT, with real-time download progress tracking.',
+      description: dict.items.audit.description,
       image: '/audit-preview.png',
       technologies: ['Python', 'yt-dlp', 'Electron', 'Next.js', 'TypeScript'],
       links: [
@@ -64,8 +65,8 @@ export function Projects({ dict }: { dict: any /* eslint-disable-line @typescrip
     },
     {
       id: 'keyboard-renders',
-      title: '3D Keyboards Render',
-      description: 'High-quality 3D renders of custom mechanical keyboards, showcasing different keycap sets, cases, and lighting effects. Created using Blender.',
+      title: dict.items.keyboardRenders.title,
+      description: dict.items.keyboardRenders.description,
       image: '/gallery/Image15.jpg',
       technologies: ['Blender', 'Substance Painter', '3D Modeling', 'Texturing', 'Rendering'],
       links: [
@@ -78,8 +79,8 @@ export function Projects({ dict }: { dict: any /* eslint-disable-line @typescrip
     },
     {
       id: 'pc-building',
-      title: 'PC Building Consultant',
-      description: 'Provided personalized PC building consultations, helping friends, clients and companies select optimal components based on their budget and needs, from budget builds to high-end gaming rigs.',
+      title: dict.items.pcBuilding.title,
+      description: dict.items.pcBuilding.description,
       image: '/pc-building-preview.png',
       technologies: ['PC Building', 'Component Selection', 'Troubleshooting', 'Cable Management', 'Performance Tuning'],
       links: [
@@ -108,14 +109,15 @@ export function Projects({ dict }: { dict: any /* eslint-disable-line @typescrip
               <div
 
                 key={project.id}
-                className="relative rounded-xl overflow-hidden border border-white/10 bg-black/40 backdrop-blur-md transition-[transform,border-color,box-shadow] duration-500 ease-out hover:border-emerald-500/40 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(16,185,129,0.15)] transform-gpu will-change-transform h-full flex flex-col"
+                className="relative rounded-xl overflow-hidden border border-white/10 bg-black/40 backdrop-blur-md transition-[transform,border-color,box-shadow] duration-500 ease-out hover:border-emerald-500/40 hover:shadow-[0_8px_30px_rgb(16,185,129,0.15)] transform-gpu will-change-transform h-full flex flex-col"
               >
                 {project.image && (
                   <div className="relative w-full h-48 overflow-hidden bg-neutral-900/50">
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                   </div>
                 )}

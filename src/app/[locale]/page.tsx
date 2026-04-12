@@ -14,20 +14,34 @@ export async function generateMetadata(props: { params: Promise<{ locale: Locale
   const locale = params.locale;
   const dict = await getDictionary(locale);
 
+  const title =
+    dict.seo?.homeTitle ?? `Maurizio Compagnone — Portfolio | ${dict.Hero.role}`;
+  const description =
+    dict.seo?.homeDescription ?? dict.About.greeting;
+
   return {
-    title: `Maurizio Compagnone — Portfolio | ${dict.Hero.role}`,
-    description: dict.About.greeting,
+    title,
+    description,
+    keywords: [
+      locale === 'it' ? 'Sviluppatore Web Castelfiorentino' : 'Web Developer Castelfiorentino',
+      locale === 'it' ? 'Sviluppatore Web Gambassi Terme' : 'Web Developer Gambassi Terme',
+      'Valdelsa',
+      'Next.js',
+      'React',
+      'Maurizio Compagnone',
+    ],
     alternates: {
       canonical: `https://mcompagnone.netlify.app/${locale}`,
       languages: {
-        'it': 'https://mcompagnone.netlify.app/it',
-        'en': 'https://mcompagnone.netlify.app/en',
+        it: 'https://mcompagnone.netlify.app/it',
+        en: 'https://mcompagnone.netlify.app/en',
       },
     },
     openGraph: {
-      title: `Maurizio Compagnone — Portfolio | ${dict.Hero.role}`,
-      description: dict.About.greeting,
+      title,
+      description,
       type: 'website',
+      locale: locale === 'it' ? 'it_IT' : 'en_US',
       url: `https://mcompagnone.netlify.app/${locale}`,
     },
   };
@@ -44,6 +58,11 @@ export default async function Home(props: {
 
   const sections = [
     { id: 'hero', label: dict.common.sections.home },
+    {
+      id: 'local-web',
+      label: dict.common.sections.localWeb,
+      href: `/${locale}/sviluppo-web-valdelsa`,
+    },
     { id: 'projects', label: dict.common.sections.projects },
     { id: 'education', label: dict.common.sections.education },
     { id: 'about', label: dict.common.sections.about },
@@ -61,7 +80,7 @@ export default async function Home(props: {
         </div>
         <Projects dict={dict.Projects} />
         <Education dict={dict.Education} />
-        <About dict={dict.About} />
+        <About dict={dict.About} locale={locale} />
         <Experience dict={dict.Experience} />
       </main>
       <footer>
