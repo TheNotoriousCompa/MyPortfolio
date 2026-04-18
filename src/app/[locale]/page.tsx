@@ -80,7 +80,7 @@ export default async function Home(props: {
         </div>
         <Projects dict={dict.Projects} />
         <Education dict={dict.Education} />
-        <About dict={dict.About} locale={locale} />
+        <About dict={dict.About} />
         <Experience dict={dict.Experience} />
       </main>
       <footer>

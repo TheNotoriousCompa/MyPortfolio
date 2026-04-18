@@ -44,12 +44,12 @@ export function Header({
       links: [
         {
           label: locale === 'it' ? "Cosa faccio" : "What I do",
-          href: `/${locale}/sviluppo-web-valdelsa`,
+          href: `/${locale}/sviluppo-web`,
           ariaLabel: "Servizi Sviluppo Web"
         },
         {
           label: locale === 'it' ? "Prezzi" : "Pricing",
-          href: `/${locale}/sviluppo-web-valdelsa#pricing`,
+          href: `/${locale}/sviluppo-web#pricing`,
           ariaLabel: "Piani e Prezzi"
         }
       ]
