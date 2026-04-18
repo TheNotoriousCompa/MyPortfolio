@@ -30,10 +30,10 @@ export async function generateMetadata(props: {
       "Maurizio Compagnone",
     ],
     alternates: {
-      canonical: `https://mcompagnone.netlify.app/${locale}/sviluppo-web-valdelsa`,
+      canonical: `https://mcompagnone.netlify.app/${locale}/sviluppo-web`,
       languages: {
-        it: "https://mcompagnone.netlify.app/it/sviluppo-web-valdelsa",
-        en: "https://mcompagnone.netlify.app/en/sviluppo-web-valdelsa",
+        it: "https://mcompagnone.netlify.app/it/sviluppo-web",
+        en: "https://mcompagnone.netlify.app/en/sviluppo-web",
       },
     },
     openGraph: {
@@ -41,12 +41,12 @@ export async function generateMetadata(props: {
       description,
       type: "website",
       locale: locale === "it" ? "it_IT" : "en_US",
-      url: `https://mcompagnone.netlify.app/${locale}/sviluppo-web-valdelsa`,
+      url: `https://mcompagnone.netlify.app/${locale}/sviluppo-web`,
     },
   };
 }
 
-export default async function SviluppoWebValdelsaPage(props: {
+export default async function SviluppoWebPage(props: {
   params: Promise<{ locale: Locale }>;
 }) {
   const params = await props.params;
@@ -59,7 +59,7 @@ export default async function SviluppoWebValdelsaPage(props: {
     {
       id: "local-web",
       label: dict.common.sections.localWeb,
-      href: `/${locale}/sviluppo-web-valdelsa`,
+      href: `/${locale}/sviluppo-web`,
     },
     { id: "projects", label: dict.common.sections.projects },
     { id: "education", label: dict.common.sections.education },
@@ -182,6 +182,14 @@ export default async function SviluppoWebValdelsaPage(props: {
                       <ArrowUpRight className="w-4 h-4 text-neutral-600 group-hover/item:text-emerald-400 transition-all opacity-0 group-hover/item:opacity-100" />
                     </a>
                   ))}
+                  
+                  <Link
+                    href={`/${locale}#projects`}
+                    className="flex items-center justify-center gap-2 mt-4 p-3 rounded-lg border border-emerald-500/20 bg-emerald-500/5 text-emerald-400 font-mono text-sm hover:bg-emerald-500/10 hover:border-emerald-500/40 transition-all group/projects"
+                  >
+                    <span>{locale === 'it' ? 'Vedi tutti i miei progetti' : 'See all my projects'}</span>
+                    <ArrowUpRight className="w-4 h-4 group-hover/projects:translate-x-0.5 group-hover/projects:-translate-y-0.5 transition-transform" />
+                  </Link>
                 </div>
 
                 <div className="mt-8 pt-4 border-t border-white/5">
@@ -221,11 +229,12 @@ export default async function SviluppoWebValdelsaPage(props: {
                    id: "professional"
                 },
                 { 
-                   plan: lw?.pricing?.plans?.enterprise, 
+                   plan: lw?.pricing?.plans?.custom, 
                    highlight: false,
-                   id: "enterprise"
+                   id: "custom"
                 }
-              ].map((item, idx) => (
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              ].map((item: any, idx) => (
                 <div 
                   key={idx}
                   className="relative flex flex-col p-8 rounded-3xl border border-white/5 bg-black/40 transition-all duration-500 hover:border-emerald-500/20"
@@ -234,26 +243,37 @@ export default async function SviluppoWebValdelsaPage(props: {
                   <div className="mb-8">
                     <h3 className="text-xl font-bold text-white mb-2">{item.plan?.name}</h3>
                     <p className="text-sm text-neutral-400 mb-6 font-medium">{item.plan?.target}</p>
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-4xl font-bold text-white tracking-tight">
-                        €{item.plan?.price}
-                      </span>
-                      <span className="text-neutral-500 text-sm font-medium">
-                        {item.id === 'enterprise' 
-                          ? (locale === 'it' ? '/mese' : '/month') 
-                          : (locale === 'it' ? '/progetto' : '/project')}
-                      </span>
-                    </div>
+                    
+                    {!item.plan?.ctaOnly && (
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-4xl font-bold text-white tracking-tight">
+                          €{item.plan?.price}
+                        </span>
+                      </div>
+                    )}
                   </div>
 
-                  <ul className="space-y-4 flex-grow">
-                    {item.plan?.features?.map((feature: string, fIdx: number) => (
-                      <li key={fIdx} className="flex items-start gap-3 text-sm text-neutral-300">
-                        <Check className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" aria-hidden />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {item.plan?.ctaOnly ? (
+                    <div className="flex flex-col h-full">
+                      <div className="mt-auto">
+                        <Link
+                          href={`/${locale}/richiedi-preventivo`}
+                          className="inline-flex w-full items-center justify-center rounded-xl bg-emerald-500/10 px-6 py-4 text-center font-bold text-emerald-400 border border-emerald-500/20 transition-all hover:bg-emerald-500/20 hover:border-emerald-500/40"
+                        >
+                          {locale === 'it' ? 'Richiedi Informazioni' : 'Request Info'}
+                        </Link>
+                      </div>
+                    </div>
+                  ) : (
+                    <ul className="space-y-4 flex-grow">
+                      {item.plan?.features?.map((feature: string, fIdx: number) => (
+                        <li key={fIdx} className="flex items-start gap-3 text-sm text-neutral-300">
+                          <Check className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" aria-hidden />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               ))}
             </div>

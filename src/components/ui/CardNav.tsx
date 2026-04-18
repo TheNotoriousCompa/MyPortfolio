@@ -80,7 +80,7 @@ const CardNav: React.FC<CardNavProps> = ({
 
       return topBar + contentHeight + padding;
     }
-    
+
     return 340; // Increased base height
   }, []);
 
@@ -99,12 +99,12 @@ const CardNav: React.FC<CardNavProps> = ({
       ease
     });
 
-    tl.to(cardsRef.current, { 
-      y: 0, 
-      opacity: 1, 
-      duration: 0.4, 
-      ease, 
-      stagger: 0.08 
+    tl.to(cardsRef.current, {
+      y: 0,
+      opacity: 1,
+      duration: 0.4,
+      ease,
+      stagger: 0.08
     }, '-=0.1');
 
     return tl;
@@ -181,9 +181,9 @@ const CardNav: React.FC<CardNavProps> = ({
           "card-nav block h-[60px] p-0 rounded-2xl shadow-2xl relative overflow-hidden will-change-[height] border border-white/5",
           isExpanded ? 'open' : ''
         )}
-        style={{ 
-          backgroundColor: isExpanded ? '#000' : baseColor, 
-          backdropFilter: isExpanded ? 'none' : 'blur(20px)' 
+        style={{
+          backgroundColor: isExpanded ? '#000' : baseColor,
+          backdropFilter: isExpanded ? 'none' : 'blur(20px)'
         }}
 
 
@@ -191,8 +191,8 @@ const CardNav: React.FC<CardNavProps> = ({
         <div className="card-nav-top absolute inset-x-0 top-0 h-[60px] flex items-center justify-between p-2 pl-[1.1rem] z-[10] bg-inherit">
           <div
             className={cn(
-               "hamburger-menu group h-full flex flex-col items-center justify-center cursor-pointer gap-[6px] order-2 md:order-none",
-               isHamburgerOpen ? 'open' : ''
+              "hamburger-menu group h-full flex flex-col items-center justify-center cursor-pointer gap-[6px] order-2 md:order-none",
+              isHamburgerOpen ? 'open' : ''
             )}
             onClick={toggleMenu}
             role="button"
@@ -216,38 +216,38 @@ const CardNav: React.FC<CardNavProps> = ({
 
           <div className="logo-container flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none">
             {typeof logo === 'string' ? (
-               <Image 
-                 src={logo} 
-                 alt={logoAlt} 
-                 width={112} 
-                 height={28} 
-                 className="logo h-[28px] w-auto object-contain" 
-                 priority
-               />
+              <Image
+                src={logo}
+                alt={logoAlt}
+                width={112}
+                height={28}
+                className="logo h-[28px] w-auto object-contain"
+                priority
+              />
             ) : (
 
-               logo
+              logo
             )}
           </div>
 
           <div className="hidden md:flex items-center gap-1 order-3 pr-2 border-l border-white/10 ml-2 pl-2">
             <Link
-               href={onLocaleChange?.("en") || "#"}
-               className={cn(
-                  "px-2 py-1 text-xs font-bold rounded-md transition-all",
-                  locale === 'en' ? "text-emerald-400 bg-emerald-500/10" : "text-neutral-500 hover:text-white"
-               )}
+              href={onLocaleChange?.("en") || "#"}
+              className={cn(
+                "px-2 py-1 text-xs font-bold rounded-md transition-all",
+                locale === 'en' ? "text-emerald-400 bg-emerald-500/10" : "text-neutral-500 hover:text-white"
+              )}
             >
-               EN
+              EN
             </Link>
             <Link
-               href={onLocaleChange?.("it") || "#"}
-               className={cn(
-                  "px-2 py-1 text-xs font-bold rounded-md transition-all",
-                  locale === 'it' ? "text-emerald-400 bg-emerald-500/10" : "text-neutral-500 hover:text-white"
-               )}
+              href={onLocaleChange?.("it") || "#"}
+              className={cn(
+                "px-2 py-1 text-xs font-bold rounded-md transition-all",
+                locale === 'it' ? "text-emerald-400 bg-emerald-500/10" : "text-neutral-500 hover:text-white"
+              )}
             >
-               IT
+              IT
             </Link>
           </div>
         </div>
@@ -280,7 +280,7 @@ const CardNav: React.FC<CardNavProps> = ({
                     href={lnk.href}
                     aria-label={lnk.ariaLabel}
                     onClick={() => {
-                        if (isExpanded) toggleMenu();
+                      if (isExpanded) toggleMenu();
                     }}
                   >
                     <GoArrowUpRight className="nav-card-link-icon shrink-0 w-4 h-4" aria-hidden="true" />

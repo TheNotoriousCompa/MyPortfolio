@@ -38,9 +38,8 @@ const languages = [
   { name: 'English', level: 'C1 Level Certified' }
 ];
 
-export function About({ dict, locale }: { 
+export function About({ dict }: { 
   dict: any; /* eslint-disable-line @typescript-eslint/no-explicit-any */
-  locale: string;
 }) {
   const badgeClassName =
     "px-3 py-1.5 text-sm font-medium text-neutral-400 bg-white/[0.03] border border-white/5 rounded-md backdrop-blur-sm transition-all duration-300 hover:border-emerald-500/50 hover:bg-emerald-500/10 hover:text-white hover:shadow-[0_0_15px_rgba(16,185,129,0.1)]";
@@ -159,15 +158,7 @@ export function About({ dict, locale }: {
                   ))}
                 </div>
 
-                <div className="pt-6 hidden lg:block">
-                  <div className="p-4 rounded-lg bg-emerald-500/5 border border-emerald-500/10">
-                    <p className="text-xs text-neutral-400 italic">
-                      {locale === 'it' 
-                        ? "Sempre pronto ad imparare nuove tecnologie e linguaggi per risolvere problemi complessi."
-                        : "Always ready to learn new technologies and languages to solve complex problems."}
-                    </p>
-                  </div>
-                </div>
+
               </div>
             </div>
           </CardSpotlight>

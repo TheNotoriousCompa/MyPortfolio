@@ -61,7 +61,7 @@ export default async function Home(props: {
     {
       id: 'local-web',
       label: dict.common.sections.localWeb,
-      href: `/${locale}/sviluppo-web-valdelsa`,
+      href: `/${locale}/sviluppo-web`,
     },
     { id: 'projects', label: dict.common.sections.projects },
     { id: 'education', label: dict.common.sections.education },

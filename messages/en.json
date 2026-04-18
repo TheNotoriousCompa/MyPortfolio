@@ -34,7 +34,7 @@
     },
     "Contact": {
         "title": "Get In Touch",
-        "subtitle": "I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll get back to you as soon as possible!",
+        "subtitle": "Don't hesitate to write to me, you can find me on all social platforms!",
         "infoTitle": "Contact Information",
         "formTitle": "Send me a message",
         "social": "Connect with me",
@@ -105,7 +105,7 @@
         "title": "Professional Experience",
         "items": {
             "ibi": {
-                "title": "Web Development Intern",
+                "title": "Full Stack Web Developer",
                 "company": "IBI – Internet Business Innovation (part of Gruppo Editoriale Domus)",
                 "period": "March 16, 2026 - ongoing",
                 "description": "Web development training program focused on .NET technologies (C#), React advanced usage, and database management."
@@ -147,48 +147,46 @@
         "ctaSecondary": "View projects",
         "pricing": {
             "title": "Transparency & Simplicity",
-            "subtitle": "Ideal for professionals and small businesses in Valdelsa looking for a direct point of contact.",
+            "subtitle": "Ideal for freelancers, local businesses, and companies looking for a single point of contact for their online presence.",
             "plans": {
                 "essential": {
                     "name": "Landing Page",
-                    "price": "499",
+                    "price": "249 + maintenance",
                     "target": "High-impact One-Page site",
                     "features": [
                         "Modern & Responsive Design",
                         "Local SEO Optimization",
+                        "Speed optimization (Core Web Vitals)",
                         "Contact Form Integration",
-                        "Delivery in 7-10 days",
+                        "Multilingual Support",
                         "Direct WhatsApp Support"
                     ]
                 },
                 "professional": {
                     "name": "Full Website",
-                    "price": "899",
+                    "price": "449 + maintenance",
                     "target": "Professional multi-page showcase",
                     "features": [
+                        "Everything included in the Landing Page plan",
                         "Up to 5 custom pages",
                         "Simplified content management",
                         "Google MyBusiness setup",
                         "Speed optimization (Core Web Vitals)",
+                        "Multilingual Support",
                         "Direct WhatsApp Support"
                     ]
                 },
-                "enterprise": {
-                    "name": "Full Care (Subscription)",
-                    "price": "29",
-                    "target": "Zero worries, all included",
-                    "features": [
-                        "Variable domain cost excluded",
-                        "Unlimited content updates",
-                        "SSL Certificate & Daily Backup",
-                        "Constant security updates",
-                        "Direct WhatsApp Support"
-                    ]
+                "custom": {
+                    "name": "Custom Site",
+                    "price": "Contact me",
+                    "target": "Your custom site, exactly how you want it. Unique projects tailored to your specific needs.",
+                    "features": [],
+                    "ctaOnly": true
                 }
             },
             "maintenance": {
-                "title": "Why a subscription?",
-                "label": "Forget technical complexity. With a small monthly fee, I handle everything: from domain renewal to text changes you request via chat. You focus on your work, I focus on your site."
+                "title": "Why maintenance?",
+                "label": "The maintenance fee covers domain costs, technical management, and any type of modification upon request. Forget complexity: I handle everything from renewals to content updates. You focus on your work, I focus on your site."
             }
         },
         "quote": {
@@ -202,7 +200,8 @@
                     "landing": "Landing Page",
                     "showcase": "Full Showcase Site",
                     "ecommerce": "E-commerce",
-                    "custom": "Web App / Custom"
+                    "custom": "Web App / Custom",
+                    "fullCustom": "Full Custom"
                 },
                 "budget": "Estimated Budget",
                 "description": "Project Description",

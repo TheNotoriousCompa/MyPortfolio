@@ -1,7 +1,8 @@
 'use client';
 
-import { Github, Linkedin, Instagram, Facebook } from "lucide-react";
+import { Github, Linkedin, Instagram, Facebook, MessageSquare } from "lucide-react";
 import { CardSpotlight } from "@/components/ui/card-spotlight";
+import { siteConfig } from "@/lib/site-config";
 
 export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript-eslint/no-explicit-any */ }) => {
   const handleSubmit = (e: React.FormEvent) => {
@@ -33,10 +34,10 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
                 <div>
                   <h4 className="text-white font-medium">Email</h4>
                   <a
-                    href="mailto:compagnone.maurizio290@gmail.com"
+                    href={`mailto:${siteConfig.contact.email}`}
                     className="text-emerald-400 hover:text-emerald-300 transition-colors"
                   >
-                    compagnone.maurizio290@gmail.com
+                    {siteConfig.contact.email}
                   </a>
                 </div>
               </div>
@@ -50,10 +51,10 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
                 <div>
                   <h4 className="text-white font-medium">Phone</h4>
                   <a
-                    href="tel:+393290147907"
+                    href={`tel:${siteConfig.contact.phoneE164}`}
                     className="text-emerald-400 hover:text-emerald-300 transition-colors"
                   >
-                    +39 329 014 7907
+                    {siteConfig.contact.phoneDisplay}
                   </a>
                 </div>
               </div>
@@ -67,16 +68,16 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
                 </div>
                 <div>
                   <h4 className="text-white font-medium">Location</h4>
-                  <p className="text-neutral-300">Gambassi Terme, Tuscany, Italy</p>
+                  <p className="text-neutral-300">{siteConfig.location.locality}, {siteConfig.location.region}, {siteConfig.location.country === 'IT' ? 'Italia' : 'Italy'}</p>
                 </div>
               </div>
             </div>
 
             <div className="mt-8 pt-6 border-t border-white/10 relative z-20">
-              <h4 className="text-white font-medium mb-4">Connect with me</h4>
-              <div className="flex justify-center space-x-4">
+              <h4 className="text-white font-medium mb-4">{dict.social}</h4>
+              <div className="flex flex-wrap justify-center gap-4">
                 <a
-                  href="https://github.com/TheNotoriousCompa"
+                  href={siteConfig.links.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-emerald-400 hover:text-white transition-colors p-2"
@@ -85,7 +86,7 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
                   <Github size={24} />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/maurizio-compagnone-5a6937222/"
+                  href={siteConfig.links.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-emerald-400 hover:text-white transition-colors p-2"
@@ -94,7 +95,7 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
                   <Linkedin size={24} />
                 </a>
                 <a
-                  href="https://www.instagram.com/thenotorious_compa02/"
+                  href={siteConfig.links.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-emerald-400 hover:text-white transition-colors p-2"
@@ -103,7 +104,7 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
                   <Instagram size={24} />
                 </a>
                 <a
-                  href="https://www.facebook.com/maurizio.compagnone"
+                  href={siteConfig.links.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-emerald-400 hover:text-white transition-colors p-2"
@@ -112,7 +113,16 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
                   <Facebook size={24} />
                 </a>
                 <a
-                  href="https://discord.com/users/compagnone"
+                  href={siteConfig.links.messenger}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-emerald-400 hover:text-white transition-colors p-2"
+                  aria-label="Messenger"
+                >
+                  <MessageSquare size={24} />
+                </a>
+                <a
+                  href={siteConfig.links.discord}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-emerald-400 hover:text-white transition-colors p-2"

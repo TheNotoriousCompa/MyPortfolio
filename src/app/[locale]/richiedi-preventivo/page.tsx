@@ -16,7 +16,7 @@ export default async function RichiediPreventivoPage(props: {
     {
       id: "local-web",
       label: dict.common.sections.localWeb,
-      href: `/${locale}/sviluppo-web-valdelsa`,
+      href: `/${locale}/sviluppo-web`,
     },
     { id: "projects", label: dict.common.sections.projects },
     { id: "education", label: dict.common.sections.education },
@@ -41,7 +41,7 @@ export default async function RichiediPreventivoPage(props: {
 
         <div className="mx-auto max-w-4xl relative z-10">
           <Link
-            href={`/${locale}/sviluppo-web-valdelsa`}
+            href={`/${locale}/sviluppo-web`}
             className="mb-10 inline-flex items-center gap-2 rounded-lg border border-white/10 bg-black/40 px-3 py-2 font-mono text-sm text-emerald-400 backdrop-blur-md transition-colors hover:border-emerald-500/30 hover:text-emerald-300"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -106,6 +106,7 @@ export default async function RichiediPreventivoPage(props: {
                     <option value="showcase">{q.form.projectTypes.showcase}</option>
                     <option value="ecommerce">{q.form.projectTypes.ecommerce}</option>
                     <option value="custom">{q.form.projectTypes.custom}</option>
+                    <option value="full-custom">{q.form.projectTypes.fullCustom}</option>
                   </select>
                 </div>
                 <div className="space-y-2">

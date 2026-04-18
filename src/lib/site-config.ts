@@ -23,5 +23,9 @@ export const siteConfig = {
   links: {
     github: "https://github.com/TheNotoriousCompa",
     linkedin: "https://www.linkedin.com/in/maurizio-compagnone-5a6937222/",
+    instagram: "https://www.instagram.com/thenotorious_compa02/",
+    facebook: "https://www.facebook.com/luca.fray",
+    messenger: "https://m.me/luca.fray",
+    discord: "https://discord.com/users/compagnone",
   },
 } as const;

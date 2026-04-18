@@ -34,7 +34,7 @@
     },
     "Contact": {
         "title": "Contattami",
-        "subtitle": "Al momento sono alla ricerca di nuove opportunità. Se hai una domanda o vuoi solo scambiare due parole, ti risponderò il prima possibile!",
+        "subtitle": "Non esitare a scrivermi, mi trovi su tutte le piattaforme social!",
         "infoTitle": "Informazioni di Contatto",
         "formTitle": "Invia un messaggio",
         "social": "Connettiti con me",
@@ -105,7 +105,7 @@
         "title": "Esperienza Professionale",
         "items": {
             "ibi": {
-                "title": "Stagista / Sviluppatore Web Junior",
+                "title": "Sviluppatore Web Full stack",
                 "company": "IBI – Internet Business Innovation (Gruppo Editoriale Domus)",
                 "period": "16 marzo 2026 - in corso",
                 "description": "Percorso di formazione nello sviluppo web con focus su tecnologie .NET (C#), approfondimento di React e gestione di database."
@@ -147,48 +147,46 @@
         "ctaSecondary": "Vedi i progetti",
         "pricing": {
             "title": "Trasparenza e Semplificazione",
-            "subtitle": "Ideale per professionisti e piccole attività in Valdelsa che vogliono un unico referente diretto.",
+            "subtitle": "Ideale per liberi professionisti, locali e aziende che vogliono un unico referente diretto per la propria presenza online.",
             "plans": {
                 "essential": {
                     "name": "Landing Page",
-                    "price": "499",
+                    "price": "249 + mantenimento",
                     "target": "Sito One-Page ad alto impatto",
                     "features": [
                         "Design Moderno e Responsivo",
                         "Ottimizzazione SEO Locale",
+                        "Ottimizzazione velocità (Core Web Vitals)",
                         "Integrazione Form Contatti",
-                        "Consegna in 7-10 giorni",
+                        "Supporto multilingua",
                         "Supporto diretto su WhatsApp"
                     ]
                 },
                 "professional": {
                     "name": "Sito Completo",
-                    "price": "899",
+                    "price": "449 + mantenimento",
                     "target": "Vetrina multipagina professionale",
                     "features": [
+                        "Incluso tutto il piano Landing Page",
                         "Fino a 5 pagine personalizzate",
                         "Gestione contenuti semplificata",
                         "Configurazione Google MyBusiness",
                         "Ottimizzazione velocità (Core Web Vitals)",
+                        "Supporto multilingua",
                         "Supporto diretto su WhatsApp"
                     ]
                 },
-                "enterprise": {
-                    "name": "Full Care (Abbonamento)",
-                    "price": "29",
-                    "target": "Zero pensieri, tutto incluso",
-                    "features": [
-                        "Costo dominio variabile escluso",
-                        "Modifiche illimitate ai contenuti",
-                        "Certificato SSL e Backup quotidiano",
-                        "Update sicurezza costanti",
-                        "Supporto diretto su WhatsApp"
-                    ]
+                "custom": {
+                    "name": "Sito Custom",
+                    "price": "Contattami",
+                    "target": "Il tuo sito su misura come lo vuoi tu. Progetti unici cuciti sulle tue esigenze specifiche.",
+                    "features": [],
+                    "ctaOnly": true
                 }
             },
             "maintenance": {
-                "title": "Perché l'abbonamento?",
-                "label": "Dimentica la complessità tecnica. Con una piccola quota mensile gestisco io tutto: dal rinnovo del dominio alle modifiche dei testi che mi chiedi via chat. Tu pensi al tuo lavoro, io al tuo sito."
+                "title": "Perché il mantenimento?",
+                "label": "Il mantenimento copre i costi del dominio, la gestione tecnica e ogni tipo di modifica su richiesta. Dimentica la complessità: gestisco io tutto, dai rinnovi agli aggiornamenti dei contenuti. Tu pensi al tuo lavoro, io al tuo sito."
             }
         },
         "quote": {
@@ -202,7 +200,8 @@
                     "landing": "Landing Page",
                     "showcase": "Sito Vetrina Completo",
                     "ecommerce": "E-commerce",
-                    "custom": "Web App / Custom"
+                    "custom": "Web App / Custom",
+                    "fullCustom": "Full Custom"
                 },
                 "budget": "Budget Stimato",
                 "description": "Descrizione del Progetto",
