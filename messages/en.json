@@ -151,7 +151,7 @@
             "plans": {
                 "essential": {
                     "name": "Landing Page",
-                    "price": "249 + maintenance",
+                    "price": "950",
                     "target": "High-impact One-Page site",
                     "features": [
                         "Modern & Responsive Design",
@@ -164,7 +164,7 @@
                 },
                 "professional": {
                     "name": "Full Website",
-                    "price": "449 + maintenance",
+                    "price": "1950",
                     "target": "Professional multi-page showcase",
                     "features": [
                         "Everything included in the Landing Page plan",

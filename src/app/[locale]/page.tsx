@@ -6,7 +6,6 @@ import { About } from '@/components/sections/About';
 import { Experience } from '@/components/sections/Experience';
 import { Education } from '@/components/sections/Education';
 import { Projects } from '@/components/sections/Projects';
-import { Contact } from '@/components/sections/Contact';
 import { ScrollManager } from '@/components/ScrollManager';
 
 export async function generateMetadata(props: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
@@ -83,12 +82,6 @@ export default async function Home(props: {
         <About dict={dict.About} />
         <Experience dict={dict.Experience} />
       </main>
-      <footer>
-        <Contact dict={dict.Contact} />
-        <div className="text-center py-6 text-neutral-500 text-sm border-t border-white/5">
-          <p>© {new Date().getFullYear()} Maurizio Compagnone. {locale === 'it' ? 'Tutti i diritti riservati.' : 'All rights reserved.'}</p>
-        </div>
-      </footer>
     </div>
   );
 }

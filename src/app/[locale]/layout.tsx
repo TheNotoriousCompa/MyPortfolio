@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Background from '@/components/Background';
+import Footer from '@/components/Footer';
 import { ProfessionalServiceJsonLd } from "@/components/seo/ProfessionalServiceJsonLd";
 import { siteConfig } from "@/lib/site-config";
 import "../globals.css";
@@ -160,6 +161,7 @@ export default async function RootLayout(props: {
         {/* Main content wrapper */}
         <div className="relative z-10 min-h-screen flex flex-col">
           {children}
+          <Footer locale={locale as any} />
         </div>
       </body>
     </html>

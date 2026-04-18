@@ -151,7 +151,7 @@
             "plans": {
                 "essential": {
                     "name": "Landing Page",
-                    "price": "249 + mantenimento",
+                    "price": "950",
                     "target": "Sito One-Page ad alto impatto",
                     "features": [
                         "Design Moderno e Responsivo",
@@ -164,7 +164,7 @@
                 },
                 "professional": {
                     "name": "Sito Completo",
-                    "price": "449 + mantenimento",
+                    "price": "1950",
                     "target": "Vetrina multipagina professionale",
                     "features": [
                         "Incluso tutto il piano Landing Page",
