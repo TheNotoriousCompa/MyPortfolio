@@ -151,7 +151,7 @@
             "plans": {
                 "essential": {
                     "name": "Landing Page",
-                    "price": "950",
+                    "price": "250",
                     "target": "High-impact One-Page site",
                     "features": [
                         "Modern & Responsive Design",
@@ -164,16 +164,13 @@
                 },
                 "professional": {
                     "name": "Full Website",
-                    "price": "1950",
+                    "price": "500",
                     "target": "Professional multi-page showcase",
                     "features": [
                         "Everything included in the Landing Page plan",
                         "Up to 5 custom pages",
                         "Simplified content management",
-                        "Google MyBusiness setup",
-                        "Speed optimization (Core Web Vitals)",
-                        "Multilingual Support",
-                        "Direct WhatsApp Support"
+                        "Google MyBusiness setup"
                     ]
                 },
                 "custom": {
@@ -186,7 +183,7 @@
             },
             "maintenance": {
                 "title": "Why maintenance?",
-                "label": "The maintenance fee covers domain costs, technical management, and any type of modification upon request. Forget complexity: I handle everything from renewals to content updates. You focus on your work, I focus on your site."
+                "label": "The maintenance fee (about €50 per month) covers domain costs, technical management, and any type of modification upon request. Forget complexity: I handle everything from renewals to content updates. You focus on your work, I focus on your site."
             }
         },
         "quote": {

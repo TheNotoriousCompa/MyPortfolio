@@ -151,7 +151,7 @@
             "plans": {
                 "essential": {
                     "name": "Landing Page",
-                    "price": "950",
+                    "price": "250",
                     "target": "Sito One-Page ad alto impatto",
                     "features": [
                         "Design Moderno e Responsivo",
@@ -164,16 +164,13 @@
                 },
                 "professional": {
                     "name": "Sito Completo",
-                    "price": "1950",
+                    "price": "500",
                     "target": "Vetrina multipagina professionale",
                     "features": [
                         "Incluso tutto il piano Landing Page",
                         "Fino a 5 pagine personalizzate",
                         "Gestione contenuti semplificata",
-                        "Configurazione Google MyBusiness",
-                        "Ottimizzazione velocità (Core Web Vitals)",
-                        "Supporto multilingua",
-                        "Supporto diretto su WhatsApp"
+                        "Configurazione Google MyBusiness"
                     ]
                 },
                 "custom": {
@@ -186,7 +183,7 @@
             },
             "maintenance": {
                 "title": "Perché il mantenimento?",
-                "label": "Il mantenimento copre i costi del dominio, la gestione tecnica e ogni tipo di modifica su richiesta. Dimentica la complessità: gestisco io tutto, dai rinnovi agli aggiornamenti dei contenuti. Tu pensi al tuo lavoro, io al tuo sito."
+                "label": "Il mantenimento (circa 50€ al mese) copre i costi del dominio, la gestione tecnica e ogni tipo di modifica su richiesta. Dimentica la complessità: gestisco io tutto, dai rinnovi agli aggiornamenti dei contenuti. Tu pensi al tuo lavoro, io al tuo sito."
             }
         },
         "quote": {
