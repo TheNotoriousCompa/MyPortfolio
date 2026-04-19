@@ -161,7 +161,6 @@ export default async function RootLayout(props: {
         {/* Main content wrapper */}
         <div className="relative z-10 min-h-screen flex flex-col">
           {children}
-          <Footer locale={locale as any} />
         </div>
       </body>
     </html>

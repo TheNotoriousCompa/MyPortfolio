@@ -1,29 +1,70 @@
 'use client';
 
-import { Github, Linkedin, Instagram, Facebook, MessageSquare } from "lucide-react";
+import React, { useState } from 'react';
+import { Github, Linkedin, Instagram, Facebook, MessageSquare, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import { CardSpotlight } from "@/components/ui/card-spotlight";
 import { siteConfig } from "@/lib/site-config";
+import emailjs from '@emailjs/browser';
+import { cn } from '@/lib/utils';
 
 export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript-eslint/no-explicit-any */ }) => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
+
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement form submission logic
+    setStatus('loading');
+
+    try {
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        service: formData.subject,
+        message: formData.message,
+        to_email: 'compagnone.maurizio290@gmail.com',
+      };
+
+      await emailjs.send(
+        'service_iaoxq8v',
+        'template_dmth4s8',
+        templateParams,
+        'cuCgMHQQHi0sD17QU'
+      );
+
+      setStatus('success');
+      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+      setTimeout(() => setStatus('idle'), 5000);
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 5000);
+    }
   };
 
+  const cardClassName = "bg-black/40 p-6 md:p-8 rounded-xl border border-white/10 transition-[transform,border-color,box-shadow] duration-500 ease-out hover:border-emerald-500/40 hover:shadow-[0_8px_30px_rgb(16,185,129,0.15)] transform-gpu will-change-transform h-full";
+  const inputClassName = "w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white outline-none transition-all hover:border-emerald-500/40 focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 focus:shadow-[0_0_25px_rgba(16,185,129,0.1)] placeholder:text-neutral-500 backdrop-blur-sm";
+
   return (
-    <section id="contacts" className="py-12 md:py-16 px-4 sm:px-5">
-      <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-12"><span className="text-emerald-400">#</span> {dict.title}</h2>
-        <p className="text-base md:text-lg text-neutral-300 mb-10 max-w-md mx-auto">
-          {dict.subtitle}
-        </p>
-
-        <div className="w-full grid md:grid-cols-2 gap-5 md:gap-6">
+    <section id="contacts" className="py-12 md:py-24 px-4 sm:px-5">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-12 text-center">
+          <span className="text-emerald-400">#</span> {dict.title}
+        </h2>
+        
+        <div className="grid md:grid-cols-2 gap-8">
           {/* Contact Information */}
-          <CardSpotlight className="bg-black/40 p-5 md:p-6 rounded-xl border border-white/5 text-left h-full">
-            <h3 className="text-lg md:text-xl font-bold text-white mb-4 relative z-20">{dict.infoTitle}</h3>
+          <CardSpotlight className={cardClassName}>
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-8 relative z-20">{dict.infoTitle}</h3>
 
-            <div className="space-y-5 relative z-20">
+            <div className="space-y-6 relative z-20">
               <div className="flex items-start">
                 <div className="bg-emerald-500/10 p-3 rounded-lg mr-4">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400" aria-hidden="true">
@@ -32,10 +73,10 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-white font-medium">Email</h4>
+                  <h4 className="text-neutral-400 text-sm font-medium mb-1 uppercase tracking-wider">Email</h4>
                   <a
                     href={`mailto:${siteConfig.contact.email}`}
-                    className="text-emerald-400 hover:text-emerald-300 transition-colors"
+                    className="text-white hover:text-emerald-400 transition-colors text-lg"
                   >
                     {siteConfig.contact.email}
                   </a>
@@ -49,10 +90,10 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-white font-medium">Phone</h4>
+                  <h4 className="text-neutral-400 text-sm font-medium mb-1 uppercase tracking-wider">Telefono</h4>
                   <a
                     href={`tel:${siteConfig.contact.phoneE164}`}
-                    className="text-emerald-400 hover:text-emerald-300 transition-colors"
+                    className="text-white hover:text-emerald-400 transition-colors text-lg"
                   >
                     {siteConfig.contact.phoneDisplay}
                   </a>
@@ -67,127 +108,101 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-white font-medium">Location</h4>
-                  <p className="text-neutral-300">{siteConfig.location.locality}, {siteConfig.location.region}, {siteConfig.location.country === 'IT' ? 'Italia' : 'Italy'}</p>
+                  <h4 className="text-neutral-400 text-sm font-medium mb-1 uppercase tracking-wider">Posizione</h4>
+                  <p className="text-white text-lg">{siteConfig.location.locality}, {siteConfig.location.region}</p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-white/10 relative z-20">
-              <h4 className="text-white font-medium mb-4">{dict.social}</h4>
-              <div className="flex flex-wrap justify-center gap-4">
-                <a
-                  href={siteConfig.links.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-emerald-400 hover:text-white transition-colors p-2"
-                  aria-label="GitHub"
-                >
-                  <Github size={24} />
-                </a>
-                <a
-                  href={siteConfig.links.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-emerald-400 hover:text-white transition-colors p-2"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin size={24} />
-                </a>
-                <a
-                  href={siteConfig.links.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-emerald-400 hover:text-white transition-colors p-2"
-                  aria-label="Instagram"
-                >
-                  <Instagram size={24} />
-                </a>
-                <a
-                  href={siteConfig.links.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-emerald-400 hover:text-white transition-colors p-2"
-                  aria-label="Facebook"
-                >
-                  <Facebook size={24} />
-                </a>
-                <a
-                  href={siteConfig.links.messenger}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-emerald-400 hover:text-white transition-colors p-2"
-                  aria-label="Messenger"
-                >
-                  <MessageSquare size={24} />
-                </a>
-                <a
-                  href={siteConfig.links.discord}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-emerald-400 hover:text-white transition-colors p-2"
-                  aria-label="Discord"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="9" cy="12" r="1"></circle>
-                    <circle cx="15" cy="12" r="1"></circle>
-                    <path d="M7.5 7.5c3.5-1 5.5-1 9 0"></path>
-                    <path d="M7 16.5c3.5 1 6.5 1 10 0"></path>
-                    <path d="M15.5 17c0 1 1.5 3 2 3 1.5 0 2.833-1.667 3.5-3 .667-1.667.5-5.833-1.5-11.5-1.457-1.015-3-1.34-4.5-1.5l-1 2.5"></path>
-                    <path d="M8.5 17c0 1-1.356 3-1.832 3-1.429 0-2.698-1.667-3.333-3-.635-1.667-.476-5.833 1.428-11.5H13l.5 2"></path>
-                  </svg>
-                </a>
+            <div className="mt-12 pt-8 border-t border-white/5 relative z-20">
+              <h4 className="text-neutral-400 text-sm font-medium mb-6 uppercase tracking-wider text-center">{dict.social}</h4>
+              <div className="flex flex-wrap justify-center gap-6">
+                {[
+                  { href: siteConfig.links.github, icon: <Github size={24} />, label: "GitHub" },
+                  { href: siteConfig.links.linkedin, icon: <Linkedin size={24} />, label: "LinkedIn" },
+                  { href: siteConfig.links.instagram, icon: <Instagram size={24} />, label: "Instagram" },
+                  { href: siteConfig.links.facebook, icon: <Facebook size={24} />, label: "Facebook" },
+                  { href: siteConfig.links.messenger, icon: <MessageSquare size={24} />, label: "Messenger" }
+                ].map((social, i) => (
+                  <a
+                    key={i}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white/5 p-3 rounded-xl text-emerald-400 hover:text-white hover:bg-emerald-500/20 transition-all duration-300"
+                    aria-label={social.label}
+                  >
+                    {social.icon}
+                  </a>
+                ))}
               </div>
             </div>
           </CardSpotlight>
 
           {/* Contact Form */}
-          <CardSpotlight className="bg-black/40 p-5 md:p-6 rounded-xl border border-white/5 h-full">
-            <h3 className="text-lg md:text-xl font-bold text-white mb-4 text-left relative z-20">{dict.formTitle}</h3>
+          <CardSpotlight className={cardClassName}>
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-8 text-left relative z-20">{dict.formTitle}</h3>
             <form className="space-y-5 relative z-20" onSubmit={handleSubmit}>
               <div className="space-y-2">
-                <label htmlFor="name" className="block text-left text-neutral-300">{dict.labels.name}</label>
+                <label htmlFor="contact-name" className="block text-left text-sm font-medium text-neutral-400 ml-1">{dict.labels.name}</label>
                 <input
                   type="text"
-                  id="name"
-                  name="name"
-                  className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm md:text-base text-white placeholder:text-neutral-500 backdrop-blur-sm transition-[border-color,background-color,box-shadow] duration-300 hover:border-emerald-500/30 focus:outline-none focus:border-emerald-500/40 focus:ring-2 focus:ring-emerald-500/40"
+                  id="contact-name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  className={inputClassName}
                   placeholder={dict.placeholders.name}
                   required
                 />
               </div>
 
-              <div className="space-y-2">
-                <label htmlFor="email" className="block text-left text-neutral-300">{dict.labels.email}</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm md:text-base text-white placeholder:text-neutral-500 backdrop-blur-sm transition-[border-color,background-color,box-shadow] duration-300 hover:border-emerald-500/30 focus:outline-none focus:border-emerald-500/40 focus:ring-2 focus:ring-emerald-500/40"
-                  placeholder={dict.placeholders.email}
-                  required
-                />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div className="space-y-2">
+                  <label htmlFor="contact-email" className="block text-left text-sm font-medium text-neutral-400 ml-1">{dict.labels.email}</label>
+                  <input
+                    type="email"
+                    id="contact-email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    className={inputClassName}
+                    placeholder={dict.placeholders.email}
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="contact-phone" className="block text-left text-sm font-medium text-neutral-400 ml-1">{dict.labels.phone}</label>
+                  <input
+                    type="tel"
+                    id="contact-phone"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                    className={inputClassName}
+                    placeholder={dict.placeholders.phone}
+                  />
+                </div>
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="subject" className="block text-left text-neutral-300">{dict.labels.subject}</label>
+                <label htmlFor="contact-subject" className="block text-left text-sm font-medium text-neutral-400 ml-1">{dict.labels.subject}</label>
                 <input
                   type="text"
-                  id="subject"
-                  name="subject"
-                  className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm md:text-base text-white placeholder:text-neutral-500 backdrop-blur-sm transition-[border-color,background-color,box-shadow] duration-300 hover:border-emerald-500/30 focus:outline-none focus:border-emerald-500/40 focus:ring-2 focus:ring-emerald-500/40"
+                  id="contact-subject"
+                  value={formData.subject}
+                  onChange={(e) => setFormData({...formData, subject: e.target.value})}
+                  className={inputClassName}
                   placeholder={dict.placeholders.subject}
                   required
                 />
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="message" className="block text-left text-neutral-300">{dict.labels.message}</label>
+                <label htmlFor="contact-message" className="block text-left text-sm font-medium text-neutral-400 ml-1">{dict.labels.message}</label>
                 <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm md:text-base text-white placeholder:text-neutral-500 backdrop-blur-sm transition-[border-color,background-color,box-shadow] duration-300 hover:border-emerald-500/30 focus:outline-none focus:border-emerald-500/40 focus:ring-2 focus:ring-emerald-500/40"
+                  id="contact-message"
+                  rows={4}
+                  value={formData.message}
+                  onChange={(e) => setFormData({...formData, message: e.target.value})}
+                  className={inputClassName + " resize-none"}
                   placeholder={dict.placeholders.message}
                   required
                 ></textarea>
@@ -196,14 +211,33 @@ export const Contact = ({ dict }: { dict: any /* eslint-disable-line @typescript
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-medium rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
+                  disabled={status === 'loading' || status === 'success'}
+                  className={cn(
+                    "w-full px-6 py-4 text-white font-bold rounded-xl transition-all duration-300 flex items-center justify-center gap-2",
+                    status === 'success' ? "bg-emerald-600 cursor-default" : "bg-emerald-500 hover:bg-emerald-600 hover:scale-[1.02] shadow-[0_0_20px_rgba(16,185,129,0.3)]",
+                    status === 'loading' ? "opacity-70" : ""
+                  )}
                 >
-                  <span>{dict.labels.send}</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <line x1="22" y1="2" x2="11" y2="13"></line>
-                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                  </svg>
+                  {status === 'loading' ? (
+                    <Loader2 className="h-5 w-5 animate-spin" />
+                  ) : status === 'success' ? (
+                    <CheckCircle2 className="h-5 w-5" />
+                  ) : (
+                    <Send className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  )}
+                  <span>
+                    {status === 'loading' ? (dict.locale === 'it' ? 'Invio...' : 'Sending...') : 
+                     status === 'success' ? (dict.locale === 'it' ? 'Inviato' : 'Sent') : 
+                     dict.labels.send}
+                  </span>
                 </button>
+
+                {status === 'error' && (
+                  <p className="mt-2 text-center text-red-400 text-sm flex items-center justify-center gap-2">
+                    <AlertCircle size={14} />
+                    {dict.locale === 'it' ? 'Errore nell\'invio. Riprova.' : 'Error sending message. Try again.'}
+                  </p>
+                )}
               </div>
             </form>
           </CardSpotlight>

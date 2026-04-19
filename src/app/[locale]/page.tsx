@@ -7,6 +7,7 @@ import { Experience } from '@/components/sections/Experience';
 import { Education } from '@/components/sections/Education';
 import { Projects } from '@/components/sections/Projects';
 import { ScrollManager } from '@/components/ScrollManager';
+import Footer from '@/components/Footer';
 
 export async function generateMetadata(props: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const params = await props.params;
@@ -82,6 +83,7 @@ export default async function Home(props: {
         <About dict={dict.About} />
         <Experience dict={dict.Experience} />
       </main>
+      <Footer locale={locale} />
     </div>
   );
 }

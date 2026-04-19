@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Check, Mail, Phone } from "lucide-react";
 import type { Metadata } from "next";
 import { Header } from "@/components/Header";
+import Footer from "@/components/Footer";
 import { siteConfig } from "@/lib/site-config";
 import { getDictionary, type Locale } from "@/lib/get-dictionaries";
 
@@ -237,7 +238,7 @@ export default async function SviluppoWebPage(props: {
               ].map((item: any, idx) => (
                 <div 
                   key={idx}
-                  className="relative flex flex-col p-8 rounded-3xl border border-white/5 bg-black/40 transition-all duration-500 hover:border-emerald-500/20"
+                  className="relative flex flex-col p-8 rounded-xl border border-white/10 bg-black/40 backdrop-blur-md transition-[transform,border-color,box-shadow] duration-500 ease-out hover:border-emerald-500/40 hover:shadow-[0_8px_30px_rgb(16,185,129,0.15)] transform-gpu will-change-transform h-full"
                 >
                   
                   <div className="mb-8">
@@ -299,11 +300,11 @@ export default async function SviluppoWebPage(props: {
           </section>
 
           <section
-            className="mt-24 rounded-3xl border border-emerald-500/20 bg-black/60 p-8 md:p-12 backdrop-blur-xl relative overflow-hidden shadow-2xl"
+            className="mt-24 relative rounded-xl overflow-hidden border border-white/10 bg-black/40 backdrop-blur-md transition-[transform,border-color,box-shadow] duration-500 ease-out hover:border-emerald-500/40 hover:shadow-[0_8px_30px_rgb(16,185,129,0.15)] transform-gpu will-change-transform p-8 md:p-12 last:overflow-hidden"
             aria-labelledby="cta-heading"
           >
             {/* Subtle glow effect */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 blur-[100px] -mr-32 -mt-32" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 blur-[100px] -mr-32 -mt-32" />
 
             <div className="relative z-10 max-w-2xl">
               <h2
@@ -317,31 +318,33 @@ export default async function SviluppoWebPage(props: {
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link
                   href={`/${locale}#contacts`}
-                  className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-8 py-4 text-center font-mono text-base font-bold text-white shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-500 px-8 py-4 text-center font-mono text-base font-bold text-white shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   {lw?.ctaPrimary}
+                  <ArrowUpRight className="w-5 h-5" />
                 </Link>
                 <Link
                   href={`/${locale}#projects`}
-                  className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-8 py-4 text-center font-mono text-base font-bold text-white backdrop-blur-sm transition-all hover:bg-white/10"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-8 py-4 text-center font-mono text-base font-bold text-white backdrop-blur-sm transition-all hover:bg-white/10"
                 >
                   {lw?.ctaSecondary}
+                  <ArrowUpRight className="w-5 h-5 text-neutral-500" />
                 </Link>
               </div>
 
-              <div className="flex items-center gap-6 text-sm text-neutral-500">
+              <div className="flex flex-wrap items-center gap-6 text-sm text-neutral-500">
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
                   className="flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                  <Mail className="w-4 h-4" />
                   {siteConfig.contact.email}
                 </a>
                 <a
                   href={`tel:${siteConfig.contact.phoneE164}`}
                   className="flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                  <Phone className="w-4 h-4" />
                   {siteConfig.contact.phoneDisplay}
                 </a>
               </div>
@@ -349,6 +352,7 @@ export default async function SviluppoWebPage(props: {
           </section>
         </div>
       </main>
+      <Footer locale={locale} />
     </div>
   );
 }

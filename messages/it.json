@@ -41,6 +41,7 @@
         "labels": {
             "name": "Nome",
             "email": "Email",
+            "phone": "Telefono",
             "subject": "Oggetto",
             "message": "Messaggio",
             "send": "Invia Messaggio"
@@ -48,6 +49,7 @@
         "placeholders": {
             "name": "Maurizio Compagnone",
             "email": "la.tua.email@esempio.com",
+            "phone": "+39 333 123 4567",
             "subject": "Di cosa si tratta?",
             "message": "Il tuo messaggio qui..."
         }
@@ -192,6 +194,7 @@
             "form": {
                 "name": "Nome",
                 "email": "La tua Email",
+                "phone": "Telefono",
                 "projectType": "Tipo di Progetto",
                 "projectTypes": {
                     "landing": "Landing Page",

@@ -3,6 +3,7 @@ import { ArrowLeft } from 'lucide-react';
 import Gallery from '@/components/sections/gallery';
 import { Metadata } from 'next';
 import { Locale, getDictionary } from '@/lib/get-dictionaries';
+import Footer from '@/components/Footer';
 
 export async function generateMetadata(props: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const params = await props.params;
@@ -34,8 +35,8 @@ export default async function GalleryPage(props: { params: Promise<{ locale: str
   const dict = await getDictionary(locale);
 
   return (
-    <div className="relative min-h-screen">
-      <main className="relative z-10 flex flex-col min-h-[calc(100vh-4rem)]">
+    <div className="relative min-h-screen flex flex-col">
+      <main className="relative z-10 flex flex-col min-h-[calc(100vh-4rem)] flex-1">
 
         {/* Back Button Overlay */}
         <Link
@@ -56,6 +57,7 @@ export default async function GalleryPage(props: { params: Promise<{ locale: str
           </div>
         </div>
       </main>
+      <Footer locale={locale} showContact={false} />
     </div>
   );
 }
