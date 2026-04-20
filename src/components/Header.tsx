@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import React from "react";
 import CardNav, { CardNavItem } from "./ui/CardNav";
+import { siteConfig } from "@/lib/site-config";
 
 interface Section {
   id: string;
@@ -80,12 +81,12 @@ export function Header({
         },
         {
           label: "LinkedIn",
-          href: "https://linkedin.com/in/m-compagnone",
+          href: siteConfig.links.linkedin,
           ariaLabel: "LinkedIn"
         },
         {
           label: "GitHub",
-          href: "https://github.com/m-compagnone",
+          href: siteConfig.links.github,
           ariaLabel: "GitHub"
         }
       ]

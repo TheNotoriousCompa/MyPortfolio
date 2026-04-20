@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight, Check, Mail, Phone } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Check, Mail, Phone, Wrench } from "lucide-react";
 import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -279,22 +279,27 @@ export default async function SviluppoWebPage(props: {
               ))}
             </div>
 
-            <div className="mt-12 flex justify-center">
-              <Link
-                href={`/${locale}/richiedi-preventivo`}
-                className="inline-flex items-center justify-center rounded-xl bg-emerald-500 px-10 py-5 text-center text-lg font-bold text-white shadow-[0_0_30px_rgba(16,185,129,0.3)] transition-all hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
-              >
-                {dict.localWeb.quote.title}
-              </Link>
-            </div>
+
 
             {/* Maintenance & Evolution Note */}
             {lw?.pricing?.maintenance && (
-              <div className="mt-12 max-w-4xl mx-auto p-6 rounded-2xl bg-white/[0.02] border border-white/5 text-center">
-                <h4 className="text-white font-bold mb-2">{lw.pricing.maintenance.title}</h4>
-                <p className="text-sm text-neutral-400 leading-relaxed">
-                  {lw.pricing.maintenance.label}
-                </p>
+              <div className="mt-12 max-w-4xl mx-auto p-8 rounded-2xl bg-emerald-500/[0.03] border border-emerald-500/20 text-center relative overflow-hidden backdrop-blur-sm">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent" />
+                <div className="absolute -top-24 -left-24 w-48 h-48 bg-emerald-500/10 blur-[60px] pointer-events-none" />
+                
+                <div className="relative z-10">
+                  <div className="flex justify-center mb-4">
+                    <div className="bg-emerald-500/10 p-3 rounded-full border border-emerald-500/20">
+                      <Wrench className="w-6 h-6 text-emerald-400" />
+                    </div>
+                  </div>
+                  <h4 className="text-xl font-bold text-white mb-4 tracking-tight">
+                    {lw.pricing.maintenance.title}
+                  </h4>
+                  <p className="text-neutral-400 leading-relaxed max-w-2xl mx-auto">
+                    {lw.pricing.maintenance.label}
+                  </p>
+                </div>
               </div>
             )}
           </section>
@@ -315,9 +320,9 @@ export default async function SviluppoWebPage(props: {
               </h2>
               <p className="text-lg text-neutral-400 mb-8">{lw?.ctaBody}</p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  href={`/${locale}#contacts`}
+                  href={`/${locale}/richiedi-preventivo`}
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-500 px-8 py-4 text-center font-mono text-base font-bold text-white shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   {lw?.ctaPrimary}
@@ -330,23 +335,6 @@ export default async function SviluppoWebPage(props: {
                   {lw?.ctaSecondary}
                   <ArrowUpRight className="w-5 h-5 text-neutral-500" />
                 </Link>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-6 text-sm text-neutral-500">
-                <a
-                  href={`mailto:${siteConfig.contact.email}`}
-                  className="flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors"
-                >
-                  <Mail className="w-4 h-4" />
-                  {siteConfig.contact.email}
-                </a>
-                <a
-                  href={`tel:${siteConfig.contact.phoneE164}`}
-                  className="flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors"
-                >
-                  <Phone className="w-4 h-4" />
-                  {siteConfig.contact.phoneDisplay}
-                </a>
               </div>
             </div>
           </section>

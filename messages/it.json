@@ -144,8 +144,8 @@
         "localBody": "Sviluppo siti web e applicazioni in tutta Italia, con la possibilità di gestire tutto da remoto. Mantengo una forte presenza sul territorio della Valdelsa, collaborando con attività di Castelfiorentino, Gambassi Terme e dintorni.",
         "projectsLocalTitle": "Siti a cui ho lavorato",
         "ctaTitle": "Parliamo del tuo progetto",
-        "ctaBody": "Scrivimi o chiamami: ti rispondo con tempi e modalità chiare.",
-        "ctaPrimary": "Vai ai contatti",
+        "ctaBody": "Scrivimi, chiamami o richiedi un preventivo: ti rispondo con tempi e modalità chiare.",
+        "ctaPrimary": "Richiedi preventivo",
         "ctaSecondary": "Vedi i progetti",
         "pricing": {
             "title": "Trasparenza e Semplificazione",
@@ -184,7 +184,7 @@
                 }
             },
             "maintenance": {
-                "title": "Perché il mantenimento?",
+                "title": "Perché il mantenimento è fondamentale?",
                 "label": "Il mantenimento (circa 50€ al mese) copre i costi del dominio, la gestione tecnica e ogni tipo di modifica su richiesta. Dimentica la complessità: gestisco io tutto, dai rinnovi agli aggiornamenti dei contenuti. Tu pensi al tuo lavoro, io al tuo sito."
             }
         },

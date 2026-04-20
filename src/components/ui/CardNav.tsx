@@ -147,7 +147,7 @@ const CardNav: React.FC<CardNavProps> = ({
     return () => window.removeEventListener('resize', handleResize);
   }, [isExpanded, items, calculateHeight, createTimeline]);
 
-  const toggleMenu = () => {
+  const toggleMenu = useCallback(() => {
     const tl = tlRef.current;
     if (!tl) return;
     if (!isExpanded) {
@@ -162,7 +162,24 @@ const CardNav: React.FC<CardNavProps> = ({
       });
       tl.reverse();
     }
-  };
+  }, [isExpanded]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isExpanded &&
+        navRef.current &&
+        !navRef.current.contains(event.target as Node)
+      ) {
+        toggleMenu();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isExpanded, toggleMenu]);
 
   const setCardRef = (i: number) => (el: HTMLDivElement | null) => {
     if (el) cardsRef.current[i] = el;

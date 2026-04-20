@@ -144,8 +144,8 @@
         "localBody": "I develop websites and applications throughout Italy, with the possibility of managing everything remotely. I maintain a strong presence in the Valdelsa territory, collaborating with businesses in Castelfiorentino, Gambassi Terme, and surrounding areas.",
         "projectsLocalTitle": "Sites I've worked on",
         "ctaTitle": "Let's talk about your project",
-        "ctaBody": "Email or call me: I'll get back to you with clear timing and methods.",
-        "ctaPrimary": "Contact",
+        "ctaBody": "Email me, call me or request a quote: I'll get back to you with clear timing and methods.",
+        "ctaPrimary": "Request a quote",
         "ctaSecondary": "View projects",
         "pricing": {
             "title": "Transparency & Simplicity",
@@ -184,7 +184,7 @@
                 }
             },
             "maintenance": {
-                "title": "Why maintenance?",
+                "title": "Why is maintenance essential?",
                 "label": "The maintenance fee (about €50 per month) covers domain costs, technical management, and any type of modification upon request. Forget complexity: I handle everything from renewals to content updates. You focus on your work, I focus on your site."
             }
         },
