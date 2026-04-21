@@ -27,19 +27,21 @@ export const viewport: Viewport = {
 };
 
 const defaultDescription =
-  "Sviluppatore web a Castelfiorentino e Gambassi Terme — siti professionali, Next.js e React in Valdelsa. Portfolio di Maurizio Compagnone.";
+  "Sviluppatore web a Castelfiorentino, Montaione, Gambassi Terme ed Empoli — siti professionali, Next.js e React in Valdelsa. Portfolio di Maurizio Compagnone.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | Sviluppatore Web Castelfiorentino & Gambassi Terme`,
+    default: `${siteConfig.name} | Sviluppatore Web Castelfiorentino, Montaione, Gambassi Terme & Empoli`,
     template: `%s | ${siteConfig.name}`,
   },
   description: defaultDescription,
   keywords: [
     "Maurizio Compagnone",
     "Sviluppatore Web Castelfiorentino",
+    "Sviluppatore Web Montaione",
     "Sviluppatore Web Gambassi Terme",
+    "Sviluppatore Web Empoli",
     "Siti web Valdelsa",
     "Web developer Valdelsa",
     "Next.js",
@@ -133,7 +135,7 @@ export default async function RootLayout(props: {
               alternateName: "MC",
               url: siteConfig.url,
               image: `${siteConfig.url}/logo.png`,
-              jobTitle: "Sviluppatore Web — Castelfiorentino, Gambassi Terme, Valdelsa",
+              jobTitle: "Sviluppatore Web — Castelfiorentino, Montaione, Gambassi Terme, Empoli, Valdelsa",
               sameAs: [siteConfig.links.github, siteConfig.links.linkedin],
               email: siteConfig.contact.email,
               telephone: siteConfig.contact.phoneE164,

@@ -11,12 +11,12 @@
         }
     },
     "seo": {
-        "homeTitle": "Sviluppatore Web Castelfiorentino & Gambassi Terme | Maurizio Compagnone",
-        "homeDescription": "Sviluppo siti web professionali a Castelfiorentino, Gambassi Terme e in Valdelsa: siti vetrina, landing page e applicazioni con Next.js e React. Contattami per un preventivo."
+        "homeTitle": "Sviluppatore Web Castelfiorentino, Montaione, Gambassi Terme & Empoli | Maurizio Compagnone",
+        "homeDescription": "Sviluppo siti web professionali a Castelfiorentino, Montaione, Gambassi Terme, Empoli e in Valdelsa: siti vetrina, landing page e applicazioni con Next.js e React. Contattami per un preventivo."
     },
     "Hero": {
         "greeting": "Ciao, sono MC",
-        "h1Headline": "Siti web professionali a Castelfiorentino, Gambassi Terme e in tutta la Valdelsa",
+        "h1Headline": "Siti web professionali a Castelfiorentino, Montaione, Gambassi Terme, Empoli e in tutta la Valdelsa",
         "fullName": "Maurizio Compagnone",
         "role": "Senior Web Developer / Full-Stack Engineer",
         "viewWork": "Vedi Progetti",
@@ -127,11 +127,11 @@
         "back": "Torna alla Home"
     },
     "localWeb": {
-        "metaTitle": "Sviluppatore Web Valdelsa | Castelfiorentino & Gambassi Terme",
-        "metaDescription": "Servizi di sviluppo web in Valdelsa: siti vetrina, landing page e web app per attività a Castelfiorentino, Gambassi Terme e comuni limitrofi. Preventivo e consulenza con Maurizio Compagnone.",
+        "metaTitle": "Sviluppatore Web Valdelsa | Castelfiorentino, Montaione, Gambassi Terme & Empoli",
+        "metaDescription": "Servizi di sviluppo web in Valdelsa: siti vetrina, landing page e web app per attività a Castelfiorentino, Montaione, Gambassi Terme, Empoli e comuni limitrofi. Preventivo e consulenza con Maurizio Compagnone.",
         "back": "Torna alla Home",
         "h1": "Sviluppo web in Valdelsa",
-        "intro": "Lavoro con attività locali e professionisti che vogliono un sito veloce, chiaro e facile da gestire — con focus su Castelfiorentino, Gambassi Terme e la Valdelsa.",
+        "intro": "Lavoro con attività locali e professionisti che vogliono un sito veloce, chiaro e facile da gestire — con focus su Castelfiorentino, Montaione, Gambassi Terme, Empoli e la Valdelsa.",
         "servicesTitle": "Cosa posso fare per te",
         "services": [
             "Siti vetrina e portfolio professionali",
@@ -141,7 +141,7 @@
             "Supporto e iterazioni dopo il go-live"
         ],
         "localTitle": "Presenza e Raggio d'azione",
-        "localBody": "Sviluppo siti web e applicazioni in tutta Italia, con la possibilità di gestire tutto da remoto. Mantengo una forte presenza sul territorio della Valdelsa, collaborando con attività di Castelfiorentino, Gambassi Terme e dintorni.",
+        "localBody": "Sviluppo siti web e applicazioni in tutta Italia, con la possibilità di gestire tutto da remoto. Mantengo una forte presenza sul territorio della Valdelsa, collaborando con attività di Castelfiorentino, Montaione, Gambassi Terme, Empoli e dintorni.",
         "projectsLocalTitle": "Siti a cui ho lavorato",
         "ctaTitle": "Parliamo del tuo progetto",
         "ctaBody": "Scrivimi, chiamami o richiedi un preventivo: ti rispondo con tempi e modalità chiare.",
@@ -153,7 +153,7 @@
             "plans": {
                 "essential": {
                     "name": "Landing Page",
-                    "price": "250",
+                    "price": "375",
                     "target": "Sito One-Page ad alto impatto",
                     "features": [
                         "Design Moderno e Responsivo",
@@ -166,7 +166,7 @@
                 },
                 "professional": {
                     "name": "Sito Completo",
-                    "price": "500",
+                    "price": "750",
                     "target": "Vetrina multipagina professionale",
                     "features": [
                         "Incluso tutto il piano Landing Page",
@@ -184,8 +184,8 @@
                 }
             },
             "maintenance": {
-                "title": "Perché il mantenimento è fondamentale?",
-                "label": "Il mantenimento (circa 50€ al mese) copre i costi del dominio, la gestione tecnica e ogni tipo di modifica su richiesta. Dimentica la complessità: gestisco io tutto, dai rinnovi agli aggiornamenti dei contenuti. Tu pensi al tuo lavoro, io al tuo sito."
+                "title": "Cosa comprende il mantenimento?",
+                "label": "Ad un costo fisso di 50 euro al mese, che possono variare in base al progetto. Modifiche illimitate a pagine già esistenti + hosting e costi di gestione. Integrazioni addizionali (es. Blog, CMS) sono calcolate separatamente."
             }
         },
         "quote": {

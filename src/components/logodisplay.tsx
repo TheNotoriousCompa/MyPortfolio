@@ -11,6 +11,7 @@ import {
   SiFirebase,
   SiNetlify,
   SiBlender,
+  SiMysql,
 } from 'react-icons/si';
 import Link from 'next/link';
 
@@ -31,6 +32,7 @@ const defaultLogos: LogoItem[] = [
   { icon: <SiFirebase size={32} />, name: 'Firebase', url: 'https://firebase.google.com/' },
   { icon: <SiNetlify size={32} />, name: 'Netlify', url: 'https://www.netlify.com/' },
   { icon: <SiBlender size={32} />, name: 'Blender', url: 'https://www.blender.org/' },
+  { icon: <SiMysql size={32} />, name: 'SQL', url: 'https://www.mysql.com/' },
 ];
 
 interface LogoDisplayProps {

@@ -17,7 +17,7 @@ export const siteConfig = {
     geoPosition: "43.6063;10.9691",
   },
   serviceArea: {
-    cities: ["Castelfiorentino", "Gambassi Terme", "Empoli", "Certaldo", "Poggibonsi"] as const,
+    cities: ["Castelfiorentino", "Montaione", "Gambassi Terme", "Empoli", "Certaldo", "Poggibonsi"] as const,
     area: "Valdelsa",
   },
   links: {

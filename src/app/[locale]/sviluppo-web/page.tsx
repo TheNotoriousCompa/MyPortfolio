@@ -246,10 +246,17 @@ export default async function SviluppoWebPage(props: {
                     <p className="text-sm text-neutral-400 mb-6 font-medium">{item.plan?.target}</p>
                     
                     {!item.plan?.ctaOnly && (
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-4xl font-bold text-white tracking-tight">
-                          €{item.plan?.price}
-                        </span>
+                      <div className="flex flex-col">
+                        <div className="flex items-baseline gap-1">
+                          <span className="text-4xl font-bold text-white tracking-tight">
+                            €{item.plan?.price}
+                          </span>
+                        </div>
+                        {!item.plan?.ctaOnly && (
+                          <span className="text-xs text-emerald-500/80 font-medium mt-1">
+                            {locale === 'it' ? '+ hosting e costi di gestione' : '+ hosting and management costs'}
+                          </span>
+                        )}
                       </div>
                     )}
                   </div>

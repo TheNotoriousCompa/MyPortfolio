@@ -11,12 +11,12 @@
         }
     },
     "seo": {
-        "homeTitle": "Web Developer Castelfiorentino & Gambassi Terme | Maurizio Compagnone",
-        "homeDescription": "Professional websites in Castelfiorentino, Gambassi Terme and Valdelsa: brochure sites, landing pages and apps with Next.js and React. Get in touch for a quote."
+        "homeTitle": "Web Developer Castelfiorentino, Montaione, Gambassi Terme & Empoli | Maurizio Compagnone",
+        "homeDescription": "Professional websites in Castelfiorentino, Montaione, Gambassi Terme, Empoli and Valdelsa: brochure sites, landing pages and apps with Next.js and React. Get in touch for a quote."
     },
     "Hero": {
         "greeting": "Hi, I am MC",
-        "h1Headline": "Professional websites in Castelfiorentino, Gambassi Terme and across Valdelsa",
+        "h1Headline": "Professional websites in Castelfiorentino, Montaione, Gambassi Terme, Empoli and across Valdelsa",
         "fullName": "Maurizio Compagnone",
         "role": "Senior Web Developer / Full-Stack Engineer",
         "viewWork": "View My Work",
@@ -127,11 +127,11 @@
         "back": "Back to Home"
     },
     "localWeb": {
-        "metaTitle": "Web Developer Valdelsa | Castelfiorentino & Gambassi Terme",
-        "metaDescription": "Web development services in Valdelsa: showcase sites, landing pages, and web apps for businesses in Castelfiorentino, Gambassi Terme, and surrounding areas. Quote and consulting with Maurizio Compagnone.",
+        "metaTitle": "Web Developer Valdelsa | Castelfiorentino, Montaione, Gambassi Terme & Empoli",
+        "metaDescription": "Web development services in Valdelsa: showcase sites, landing pages, and web apps for businesses in Castelfiorentino, Montaione, Gambassi Terme, Empoli and surrounding areas. Quote and consulting with Maurizio Compagnone.",
         "back": "Back to Home",
         "h1": "Web development in Valdelsa",
-        "intro": "I work with local businesses and professionals who want a fast, clear, and easy-to-manage website — with a focus on Castelfiorentino, Gambassi Terme, and Valdelsa.",
+        "intro": "I work with local businesses and professionals who want a fast, clear, and easy-to-manage website — with a focus on Castelfiorentino, Montaione, Gambassi Terme, Empoli and Valdelsa.",
         "servicesTitle": "What I can do for you",
         "services": [
             "Professional showcase sites and portfolios",
@@ -141,7 +141,7 @@
             "Support and iterations after go-live"
         ],
         "localTitle": "Presence & Range of Action",
-        "localBody": "I develop websites and applications throughout Italy, with the possibility of managing everything remotely. I maintain a strong presence in the Valdelsa territory, collaborating with businesses in Castelfiorentino, Gambassi Terme, and surrounding areas.",
+        "localBody": "I develop websites and applications throughout Italy, with the possibility of managing everything remotely. I maintain a strong presence in the Valdelsa territory, collaborating with businesses in Castelfiorentino, Montaione, Gambassi Terme, Empoli and surrounding areas.",
         "projectsLocalTitle": "Sites I've worked on",
         "ctaTitle": "Let's talk about your project",
         "ctaBody": "Email me, call me or request a quote: I'll get back to you with clear timing and methods.",
@@ -153,7 +153,7 @@
             "plans": {
                 "essential": {
                     "name": "Landing Page",
-                    "price": "250",
+                    "price": "375",
                     "target": "High-impact One-Page site",
                     "features": [
                         "Modern & Responsive Design",
@@ -166,7 +166,7 @@
                 },
                 "professional": {
                     "name": "Full Website",
-                    "price": "500",
+                    "price": "750",
                     "target": "Professional multi-page showcase",
                     "features": [
                         "Everything included in the Landing Page plan",
@@ -184,8 +184,8 @@
                 }
             },
             "maintenance": {
-                "title": "Why is maintenance essential?",
-                "label": "The maintenance fee (about €50 per month) covers domain costs, technical management, and any type of modification upon request. Forget complexity: I handle everything from renewals to content updates. You focus on your work, I focus on your site."
+                "title": "What does maintenance include?",
+                "label": "At a fixed cost of €50 per month, which may vary depending on the project. Unlimited modifications to existing pages + hosting and management costs. Additional integrations (e.g. Blog, CMS) are calculated separately."
             }
         },
         "quote": {
