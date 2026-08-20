@@ -44,7 +44,7 @@ export function Hero({ dict }: { dict: any /* eslint-disable-line @typescript-es
           <Button
             onClick={() => {
               const link = document.createElement('a');
-              link.href = '/cv-en.pdf';
+              link.href = '/cv.pdf';
               link.download = 'MC_CV.pdf';
               link.click();
             }}
