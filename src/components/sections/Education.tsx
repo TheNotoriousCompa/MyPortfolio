@@ -7,7 +7,6 @@ interface EducationItem {
   institution: string;
   period: string;
   description?: string;
-  certificateLink?: string;
 }
 
 export const Education = ({ dict }: { dict: any /* eslint-disable-line @typescript-eslint/no-explicit-any */ }) => {
@@ -23,7 +22,6 @@ export const Education = ({ dict }: { dict: any /* eslint-disable-line @typescri
       degree: dict.items.certNextjs?.degree || 'Next.js Certificate',
       institution: dict.items.certNextjs?.institution,
       period: dict.items.certNextjs?.period,
-      certificateLink: '/dashboard-app-certificate.pdf'
     },
   ];
 
@@ -41,25 +39,11 @@ export const Education = ({ dict }: { dict: any /* eslint-disable-line @typescri
                 <h3 className="text-xl font-bold text-white tracking-wider">{item.degree}</h3>
                 <span className="text-emerald-400 font-mono text-sm whitespace-nowrap">{item.period}</span>
               </div>
-              <div className="mb-4">
-                {item.institution && <p className="text-emerald-500 font-medium">{item.institution}</p>}
-                {item.period && <p className="text-neutral-400 text-sm mt-1">{item.period}</p>}
-              </div>
-              <p className="text-neutral-300 mb-4">
-                {item.description}
-              </p>
-              {item.certificateLink && (
-                <a
-                  href={item.certificateLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center px-4 py-2 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 rounded-lg text-sm font-medium transition-colors"
-                >
-                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  View Certificate
-                </a>
+              {item.institution && <p className="text-emerald-500 font-medium">{item.institution}</p>}
+              {item.description && (
+                <p className="text-neutral-300 mt-4">
+                  {item.description}
+                </p>
               )}
             </div>
           ))}

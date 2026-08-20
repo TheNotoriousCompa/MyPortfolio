@@ -4,11 +4,9 @@ import { useEffect } from 'react';
 
 export function ScrollManager() {
     useEffect(() => {
-        // Handle hash-based navigation when page loads
         const scrollToHash = () => {
             const hash = window.location.hash.substring(1);
             if (hash) {
-                // Small delay to ensure the page is fully rendered
                 setTimeout(() => {
                     const element = document.getElementById(hash);
                     if (element) {
@@ -21,10 +19,8 @@ export function ScrollManager() {
             }
         };
 
-        // Run once on mount
         scrollToHash();
 
-        // Also handle hash changes
         const handleHashChange = () => {
             scrollToHash();
         };

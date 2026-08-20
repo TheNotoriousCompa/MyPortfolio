@@ -1,7 +1,7 @@
 {
-    "name": "MC - Portfolio",
+    "name": "Maurizio Compagnone - Portfolio",
     "short_name": "MC Portfolio",
-    "description": "Personal portfolio of MC - Computer Science Student & Tech Enthusiast.",
+    "description": "Portfolio of Maurizio Compagnone, junior web developer.",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#000000",

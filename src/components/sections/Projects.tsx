@@ -1,17 +1,12 @@
 'use client';
 
-import LogoDisplay from "@/components/logodisplay";
-import { EncryptedTexts } from "../textencrypted";
-import Image from "next/image";
-
 interface Project {
   id: string;
   title: string;
   description: string;
-  image?: string;
   technologies: string[];
   links: {
-    type: 'demo' | 'github' | 'gallery' | 'builds';
+    type: 'demo' | 'github' | 'releases';
     url: string;
     label: string;
     disabled?: boolean;
@@ -21,11 +16,42 @@ interface Project {
 export function Projects({ dict }: { dict: any /* eslint-disable-line @typescript-eslint/no-explicit-any */ }) {
   const projects: Project[] = [
     {
-      id: 'portfolio-v2',
-      title: dict.items.portfolioV2.title,
-      description: dict.items.portfolioV2.description,
-      image: '/portfolio-preview.png',
-      technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Shadcn/UI', 'Framer Motion', 'Netlify'],
+      id: 'audit',
+      title: 'Audit',
+      description: dict.items.audit.description,
+      technologies: ['TypeScript', 'Electron', 'Python', 'yt-dlp', 'FFmpeg'],
+      links: [
+        {
+          type: 'github',
+          url: 'https://github.com/TheNotoriousCompa/Audit',
+          label: dict.links.github
+        },
+        {
+          type: 'releases',
+          url: 'https://github.com/TheNotoriousCompa/Audit/releases',
+          label: dict.links.releases
+        }
+      ],
+    },
+    {
+      id: 'spotter',
+      title: dict.items.spotter.title,
+      description: dict.items.spotter.description,
+      technologies: ['SQL', 'Supabase'],
+      links: [],
+    },
+    {
+      id: 'phyron-checker',
+      title: dict.items.phyronChecker.title,
+      description: dict.items.phyronChecker.description,
+      technologies: ['Python', 'HTTP'],
+      links: [],
+    },
+    {
+      id: 'portfolio',
+      title: dict.items.portfolio.title,
+      description: dict.items.portfolio.description,
+      technologies: ['Next.js', 'TypeScript', 'TailwindCSS'],
       links: [
         {
           type: 'github',
@@ -34,63 +60,6 @@ export function Projects({ dict }: { dict: any /* eslint-disable-line @typescrip
         }
       ],
     },
-    {
-      id: 'portfolio',
-      title: dict.items.portfolioV1.title,
-      description: dict.items.portfolioV1.description,
-      image: '/first-portfolio-preview.png',
-      technologies: ['Next.js', 'React', 'TypeScript', 'TailwindCSS', 'Shadcn/UI', 'Firebase', 'Netlify'],
-      links: [
-        {
-          type: 'demo',
-          url: 'https://mysito.netlify.app/',
-          label: dict.links.demo
-        }
-      ],
-    },
-
-    {
-      id: 'audit',
-      title: 'Audit',
-      description: dict.items.audit.description,
-      image: '/audit-preview.png',
-      technologies: ['Python', 'yt-dlp', 'Electron', 'Next.js', 'TypeScript'],
-      links: [
-        {
-          type: 'github',
-          url: 'https://github.com/TheNotoriousCompa/Audit',
-          label: dict.links.github
-        }
-      ],
-    },
-    {
-      id: 'keyboard-renders',
-      title: dict.items.keyboardRenders.title,
-      description: dict.items.keyboardRenders.description,
-      image: '/gallery/Image15.jpg',
-      technologies: ['Blender', 'Substance Painter', '3D Modeling', 'Texturing', 'Rendering'],
-      links: [
-        {
-          type: 'gallery',
-          url: '/gallery',
-          label: dict.links.gallery
-        }
-      ],
-    },
-    {
-      id: 'pc-building',
-      title: dict.items.pcBuilding.title,
-      description: dict.items.pcBuilding.description,
-      image: '/pc-building-preview.png',
-      technologies: ['PC Building', 'Component Selection', 'Troubleshooting', 'Cable Management', 'Performance Tuning'],
-      links: [
-        {
-          type: 'builds',
-          url: 'https://mltech.store',
-          label: dict.links.builds
-        }
-      ],
-    }
   ];
 
   return (
@@ -98,12 +67,6 @@ export function Projects({ dict }: { dict: any /* eslint-disable-line @typescrip
       <div className="max-w-6xl mx-auto w-full">
         <div>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-12"><span className="text-emerald-400">#</span> {dict.title}</h2>
-          <div>
-
-            <EncryptedTexts text={dict.toolsTitle} />
-            <LogoDisplay />
-
-          </div>
           <div className="grid md:grid-cols-2 gap-6">
             {projects.map((project) => (
               <div
@@ -111,16 +74,6 @@ export function Projects({ dict }: { dict: any /* eslint-disable-line @typescrip
                 key={project.id}
                 className="relative rounded-xl overflow-hidden border border-white/10 bg-black/40 backdrop-blur-md transition-[transform,border-color,box-shadow] duration-500 ease-out hover:border-emerald-500/40 hover:shadow-[0_8px_30px_rgb(16,185,129,0.15)] transform-gpu will-change-transform h-full flex flex-col"
               >
-                {project.image && (
-                  <div className="relative w-full h-48 overflow-hidden bg-neutral-900/50">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                )}
                 <div className="relative p-6 flex-1">
                   <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
                   <p className="text-neutral-400 mb-4">

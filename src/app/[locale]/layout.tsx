@@ -2,11 +2,9 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Background from '@/components/Background';
 import Footer from '@/components/Footer';
-import { ProfessionalServiceJsonLd } from "@/components/seo/ProfessionalServiceJsonLd";
 import { siteConfig } from "@/lib/site-config";
 import "../globals.css";
 
-// Optimize font loading
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -20,45 +18,33 @@ const geistMono = Geist_Mono({
 });
 
 
-// Viewport settings for better mobile experience
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
 };
 
 const defaultDescription =
-  "Sviluppatore web a Castelfiorentino, Montaione, Gambassi Terme ed Empoli — siti professionali, Next.js e React in Valdelsa. Portfolio di Maurizio Compagnone.";
+  "Portfolio di Maurizio Compagnone, junior web developer. React, Next.js, .NET/C#, SQL. Esperienza con Electron, Python e distribuzione Windows.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | Sviluppatore Web Castelfiorentino, Montaione, Gambassi Terme & Empoli`,
+    default: `${siteConfig.name} | Junior Web Developer`,
     template: `%s | ${siteConfig.name}`,
   },
   description: defaultDescription,
   keywords: [
     "Maurizio Compagnone",
-    "Sviluppatore Web Castelfiorentino",
-    "Sviluppatore Web Montaione",
-    "Sviluppatore Web Gambassi Terme",
-    "Sviluppatore Web Empoli",
-    "Siti web Valdelsa",
-    "Web developer Valdelsa",
-    "Next.js",
+    "Junior Web Developer",
     "React",
+    "Next.js",
+    "TypeScript",
+    ".NET",
+    "C#",
+    "Electron",
     "Portfolio",
     "MC",
-    "Toscana",
-    "ProfessionalService",
-    "3D Artist",
-    "PC Building",
   ],
-  other: {
-    "geo.region": siteConfig.location.regionIso,
-    "geo.placename": siteConfig.location.locality,
-    "geo.position": siteConfig.location.geoPosition,
-    ICBM: siteConfig.location.geoPosition.replace(";", ", "),
-  },
   authors: [
     {
       name: "Maurizio Compagnone",
@@ -124,7 +110,6 @@ export default async function RootLayout(props: {
   return (
     <html lang={locale} className="h-full w-full" suppressHydrationWarning>
       <head>
-        <ProfessionalServiceJsonLd />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -135,19 +120,17 @@ export default async function RootLayout(props: {
               alternateName: "MC",
               url: siteConfig.url,
               image: `${siteConfig.url}/logo.png`,
-              jobTitle: "Sviluppatore Web — Castelfiorentino, Montaione, Gambassi Terme, Empoli, Valdelsa",
+              jobTitle: "Junior Web Developer",
               sameAs: [siteConfig.links.github, siteConfig.links.linkedin],
               email: siteConfig.contact.email,
-              telephone: siteConfig.contact.phoneE164,
               knowsAbout: [
                 "Web Development",
                 "React",
                 "Next.js",
                 "TypeScript",
-                "Sviluppo web locale Valdelsa",
-                "3D Modeling",
-                "Blender",
-                "PC Building",
+                ".NET",
+                "C#",
+                "Electron",
               ],
               description: defaultDescription,
             }),
@@ -157,10 +140,8 @@ export default async function RootLayout(props: {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased text-white bg-transparent min-h-screen scroll-smooth`}
       >
-        {/* Background fisso (dietro) */}
         <Background />
 
-        {/* Main content wrapper */}
         <div className="relative z-10 min-h-screen flex flex-col">
           {children}
         </div>

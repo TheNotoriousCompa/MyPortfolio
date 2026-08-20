@@ -2,7 +2,6 @@
 
 import dynamic from 'next/dynamic';
 
-// CSS gradient fallback that displays while Three.js loads
 const GradientFallback = () => (
     <div
         className="fixed inset-0 -z-10"

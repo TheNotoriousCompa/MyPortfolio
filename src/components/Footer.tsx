@@ -12,10 +12,20 @@ export default async function Footer({ locale, showContact = true }: FooterProps
 
   return (
     <footer>
-      {showContact && <Contact dict={dict.Contact} />}
-      <div className="text-center py-6 text-neutral-500 text-sm border-t border-white/5">
+      {showContact && <Contact dict={dict.Contact} locale={locale} />}
+      <div className="text-center py-6 text-neutral-500 text-sm border-t border-white/5 space-y-1">
         <p>
-          © {new Date().getFullYear()} Maurizio Compagnone. {locale === 'it' ? 'Tutti i diritti riservati.' : 'All rights reserved.'} — P. IVA 00958401739
+          © {new Date().getFullYear()} Maurizio Compagnone. {locale === 'it' ? 'Tutti i diritti riservati.' : 'All rights reserved.'}
+        </p>
+        <p>
+          <a
+            href="https://github.com/TheNotoriousCompa/MyPortfolio"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-emerald-400 transition-colors"
+          >
+            {locale === 'it' ? 'Sorgente di questo sito' : 'Source code of this site'}
+          </a>
         </p>
       </div>
     </footer>

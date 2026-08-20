@@ -8,53 +8,20 @@ import { siteConfig } from "@/lib/site-config";
 interface Section {
   id: string;
   label: string;
-  /** Full path for routes that are not in-page anchors (e.g. landing locale). */
-  href?: string;
 }
 
 interface HeaderProps {
   sections: Section[];
-  /** When set (e.g. `/${locale}`), section links point to home hashes: `/it#projects`. */
-  anchorBase?: string;
-  isGalleryPage?: boolean;
   locale: string;
 }
 
-export function Header({
-  sections,
-  anchorBase,
-  isGalleryPage = false,
-  locale,
-}: HeaderProps) {
+export function Header({ sections, locale }: HeaderProps) {
   const pathname = usePathname();
-  const hashPrefix = anchorBase ?? (isGalleryPage ? `/${locale}` : "");
-
-  const linkForSection = (section: Section) =>
-    section.href ?? `${hashPrefix}#${section.id}`;
 
   const hrefForUiLocale = (target: "en" | "it") =>
     pathname.replace(/^\/(en|it)(?=\/|$)/, `/${target}`);
 
-  // Transforming sections into 3 specific categories for CardNav
   const cardItems: CardNavItem[] = [
-    {
-      label: locale === 'it' ? "SVILUPPO WEB" : "WEB DEV",
-      bgColor: "#000",
-
-      textColor: "#fff",
-      links: [
-        {
-          label: locale === 'it' ? "Cosa faccio" : "What I do",
-          href: `/${locale}/sviluppo-web`,
-          ariaLabel: "Servizi Sviluppo Web"
-        },
-        {
-          label: locale === 'it' ? "Prezzi" : "Pricing",
-          href: `/${locale}/sviluppo-web#pricing`,
-          ariaLabel: "Piani e Prezzi"
-        }
-      ]
-    },
     {
       label: "PORTFOLIO",
       bgColor: "#000",
@@ -64,7 +31,7 @@ export function Header({
         .filter(s => ["about", "projects", "experience", "education"].includes(s.id))
         .map(s => ({
           label: s.label,
-          href: linkForSection(s),
+          href: `#${s.id}`,
           ariaLabel: s.label
         }))
     },
@@ -76,7 +43,7 @@ export function Header({
       links: [
         {
           label: locale === 'it' ? "Scrivimi" : "Email Me",
-          href: `/${locale}#contacts`,
+          href: `#contacts`,
           ariaLabel: "Modulo Contatti"
         },
         {

@@ -6,90 +6,76 @@
             "education": "Education",
             "about": "About Me",
             "experience": "Experience",
-            "contacts": "Contacts",
-            "localWeb": "Web development"
+            "contacts": "Contacts"
         }
     },
     "seo": {
-        "homeTitle": "Web Developer Castelfiorentino, Montaione, Gambassi Terme & Empoli | Maurizio Compagnone",
-        "homeDescription": "Professional websites in Castelfiorentino, Montaione, Gambassi Terme, Empoli and Valdelsa: brochure sites, landing pages and apps with Next.js and React. Get in touch for a quote."
+        "homeTitle": "Maurizio Compagnone — Junior Web Developer",
+        "homeDescription": "Portfolio of Maurizio Compagnone, junior web developer. React, Next.js, .NET/C#, SQL. Experience with Electron, Python, and Windows distribution."
     },
     "Hero": {
-        "greeting": "Hi, I am MC",
-        "h1Headline": "Professional websites in Castelfiorentino, Montaione, Gambassi Terme, Empoli and across Valdelsa",
         "fullName": "Maurizio Compagnone",
-        "role": "Senior Web Developer / Full-Stack Engineer",
+        "role": "Junior Web Developer",
         "viewWork": "View My Work",
         "contactMe": "Contact Me"
     },
     "About": {
         "title": "About Me",
-        "greeting": "Hi, I'm Maurizio Compagnone, a computer science student passionate about books, cinema, and videogames. My true passion is anything that combines creativity and technology at all its levels.",
-        "p2": "I enjoy assembling fully customised PCs and mechanical keyboards since there is something deeply satisfying about seeing separate components becoming something functional and unique, with its own character.",
-        "p3": "I am curious by nature and I like to understand how various things work, not just superficially. Whether it's taking apart a device, reading technical documentation, or programming a website, I always try to seek the balance between practicality and aesthetics.",
+        "greeting": "Junior web developer. I currently work with .NET/C#, React, and databases.",
+        "p2": "I built Audit, an Electron desktop application for Windows that integrates Python, yt-dlp, and FFmpeg, with a setup that requires no external dependencies.",
+        "p3": "I focus on software that works, ships, and stays maintainable. I prefer documenting real problems and doing targeted refactors over chasing the latest tools.",
         "technicalSkills": "Technical Skills",
         "languages": "Languages",
         "native": "Native",
         "certified": "C1 Level Certified"
     },
     "Contact": {
-        "title": "Get In Touch",
-        "subtitle": "Don't hesitate to write to me, you can find me on all social platforms!",
+        "title": "Contacts",
+        "subtitle": "Write to me for job offers or collaboration.",
         "infoTitle": "Contact Information",
         "formTitle": "Send me a message",
-        "social": "Connect with me",
+        "social": "Profile",
         "labels": {
             "name": "Name",
             "email": "Email",
-            "phone": "Phone",
             "subject": "Subject",
             "message": "Message",
             "send": "Send Message"
         },
         "placeholders": {
-            "name": "Maurizio Compagnone",
+            "name": "Your name",
             "email": "your.email@example.com",
-            "phone": "+39 333 123 4567",
             "subject": "What is this about?",
             "message": "Your message here..."
         }
     },
     "Projects": {
-        "title": "My Projects",
-        "toolsTitle": "Built with these tools",
+        "title": "Projects",
         "links": {
             "demo": "Live Demo",
             "github": "View on GitHub",
-            "gallery": "View Gallery",
-            "builds": "View Builds"
+            "releases": "Releases"
         },
         "items": {
             "spotter": {
-                "description": "I developed Spotter, a management platform for personal trainers. A complete ecosystem for the professional management of physical and clinical well-being."
+                "title": "Spotter",
+                "description": "Spotter is a management app for personal trainers: it lets you upload exercises, track clients, and view their statistics. It uses SQL as the database and Supabase as the online database."
             },
-            "portfolioV2": {
-                "title": "Portfolio Website",
-                "description": "This very website you are on! A modern, responsive portfolio built with Next.js, TypeScript, and Tailwind CSS. Clean design with smooth animations."
+            "phyronChecker": {
+                "title": "Phyron Checker",
+                "description": "Phyron Checker is a lightweight utility that verifies, through HTTP HEAD requests, whether a dealership's vehicles are published on the Phyron platform. Built for integration into production projects at car dealerships, it allows quick monitoring of the publication status of listings without downloading unnecessary content."
             },
-            "portfolioV1": {
-                "title": "My first website",
-                "description": "My personal website built with Next.js, Tailwind CSS, and TypeScript. Features a modern, responsive design with smooth scrolling navigation."
+            "portfolio": {
+                "title": "Portfolio",
+                "description": "This website: a portfolio built with Next.js and TypeScript, simple, essential and straight to the point, with Italian/English i18n support."
             },
             "audit": {
-                "description": "A modern wrapper for yt-dlp that simplifies downloading videos from YouTube in various formats. Intuitive interface with real-time download progress tracking."
-            },
-            "keyboardRenders": {
-                "title": "3D Keyboards Render",
-                "description": "High-quality 3D renders of custom mechanical keyboards, created using Blender."
-            },
-            "pcBuilding": {
-                "title": "PC Building Consultant",
-                "description": "Provided personalized PC building consultations, helping friends, clients and companies select optimal components based on their budget."
+                "description": "Audit is a Windows desktop application for downloading and converting media content. I developed the Electron main process with a Python worker for processing, bundling the Python and FFmpeg runtimes in the installation package, with no external dependencies."
             }
         }
     },
     "Education": {
-        "title": "My Education",
+        "title": "Education",
         "items": {
             "hs": {
                 "degree": "Scientific Secondary School Diploma",
@@ -104,109 +90,25 @@
         }
     },
     "Experience": {
-        "title": "Professional Experience",
+        "title": "Experience",
         "items": {
             "ibi": {
                 "title": "Full Stack Web Developer",
-                "company": "IBI – Internet Business Innovation (part of Gruppo Editoriale Domus)",
+                "company": "IBI – Internet Business Innovation (Gruppo Editoriale Domus)",
                 "period": "March 16, 2026 - ongoing",
-                "description": "Web development training program focused on .NET technologies (C#), React advanced usage, and database management."
+                "description": "Web development training program. I work on projects built on MVC architecture with ASP.NET Core and Razor page management. Development of various programs and interventions on production databases with SQL."
+            },
+            "itSupport": {
+                "title": "IT Support",
+                "company": "ML Tech",
+                "period": "2022 - 2025",
+                "description": "Assembled PCs and workstations, resolved hardware and software issues, and tested components."
             },
             "survey": {
                 "title": "Field Survey Operator",
                 "company": "Master Electric",
-                "description": "Surveying and mapping electrical network infrastructure using specialized technical tools."
-            }
-        }
-    },
-    "gallery": {
-        "title": "3D Keyboard Gallery",
-        "description": "Here there are some of my 3D renders made with Blender of custom keyboards of various designs!",
-        "metaTitle": "Gallery | Maurizio Compagnone — Portfolio",
-        "metaDescription": "3D renders and designs gallery by Maurizio Compagnone. Explore custom mechanical keyboard designs.",
-        "back": "Back to Home"
-    },
-    "localWeb": {
-        "metaTitle": "Web Developer Valdelsa | Castelfiorentino, Montaione, Gambassi Terme & Empoli",
-        "metaDescription": "Web development services in Valdelsa: showcase sites, landing pages, and web apps for businesses in Castelfiorentino, Montaione, Gambassi Terme, Empoli and surrounding areas. Quote and consulting with Maurizio Compagnone.",
-        "back": "Back to Home",
-        "h1": "Web development in Valdelsa",
-        "intro": "I work with local businesses and professionals who want a fast, clear, and easy-to-manage website — with a focus on Castelfiorentino, Montaione, Gambassi Terme, Empoli and Valdelsa.",
-        "servicesTitle": "What I can do for you",
-        "services": [
-            "Professional showcase sites and portfolios",
-            "Landing pages for campaigns and services",
-            "Modern front-end development (React / Next.js)",
-            "Basic SEO optimization and meta tags",
-            "Support and iterations after go-live"
-        ],
-        "localTitle": "Presence & Range of Action",
-        "localBody": "I develop websites and applications throughout Italy, with the possibility of managing everything remotely. I maintain a strong presence in the Valdelsa territory, collaborating with businesses in Castelfiorentino, Montaione, Gambassi Terme, Empoli and surrounding areas.",
-        "projectsLocalTitle": "Sites I've worked on",
-        "ctaTitle": "Let's talk about your project",
-        "ctaBody": "Email me, call me or request a quote: I'll get back to you with clear timing and methods.",
-        "ctaPrimary": "Request a quote",
-        "ctaSecondary": "View projects",
-        "pricing": {
-            "title": "Transparency & Simplicity",
-            "subtitle": "Ideal for freelancers, local businesses, and companies looking for a single point of contact for their online presence.",
-            "plans": {
-                "essential": {
-                    "name": "Landing Page",
-                    "price": "375",
-                    "target": "High-impact One-Page site",
-                    "features": [
-                        "Modern & Responsive Design",
-                        "Local SEO Optimization",
-                        "Speed optimization (Core Web Vitals)",
-                        "Contact Form Integration",
-                        "Multilingual Support",
-                        "Direct WhatsApp Support"
-                    ]
-                },
-                "professional": {
-                    "name": "Full Website",
-                    "price": "750",
-                    "target": "Professional multi-page showcase",
-                    "features": [
-                        "Everything included in the Landing Page plan",
-                        "Up to 5 custom pages",
-                        "Simplified content management",
-                        "Google MyBusiness setup"
-                    ]
-                },
-                "custom": {
-                    "name": "Custom Site",
-                    "price": "Contact me",
-                    "target": "Your custom site, exactly how you want it. Unique projects tailored to your specific needs.",
-                    "features": [],
-                    "ctaOnly": true
-                }
-            },
-            "maintenance": {
-                "title": "What does maintenance include?",
-                "label": "At a fixed cost of €50 per month, which may vary depending on the project. Unlimited modifications to existing pages + hosting and management costs. Additional integrations (e.g. Blog, CMS) are calculated separately."
-            }
-        },
-        "quote": {
-            "title": "Request a Quote",
-            "subtitle": "Tell me about your project. The more details you provide, the more precise my initial feedback will be.",
-            "form": {
-                "name": "Name",
-                "email": "Your Email",
-                "phone": "Phone",
-                "projectType": "Project Type",
-                "projectTypes": {
-                    "landing": "Landing Page",
-                    "showcase": "Full Showcase Site",
-                    "ecommerce": "E-commerce",
-                    "custom": "Web App / Custom",
-                    "fullCustom": "Full Custom"
-                },
-                "budget": "Estimated Budget",
-                "description": "Project Description",
-                "submit": "Send Request",
-                "success": "Request sent successfully! I will get back to you within 24-48 hours."
+                "period": "October 2024 - December 2024",
+                "description": "Surveyed and mapped electrical network infrastructure using specialized technical tools."
             }
         }
     }

@@ -6,90 +6,76 @@
             "education": "Istruzione",
             "about": "Chi Sono",
             "experience": "Esperienza",
-            "contacts": "Contatti",
-            "localWeb": "Sviluppo web"
+            "contacts": "Contatti"
         }
     },
     "seo": {
-        "homeTitle": "Sviluppatore Web Castelfiorentino, Montaione, Gambassi Terme & Empoli | Maurizio Compagnone",
-        "homeDescription": "Sviluppo siti web professionali a Castelfiorentino, Montaione, Gambassi Terme, Empoli e in Valdelsa: siti vetrina, landing page e applicazioni con Next.js e React. Contattami per un preventivo."
+        "homeTitle": "Maurizio Compagnone — Junior Web Developer",
+        "homeDescription": "Portfolio di Maurizio Compagnone, sviluppatore web junior. React, Next.js, .NET/C#, SQL. Esperienza con Electron, Python e distribuzione Windows."
     },
     "Hero": {
-        "greeting": "Ciao, sono MC",
-        "h1Headline": "Siti web professionali a Castelfiorentino, Montaione, Gambassi Terme, Empoli e in tutta la Valdelsa",
         "fullName": "Maurizio Compagnone",
-        "role": "Senior Web Developer / Full-Stack Engineer",
+        "role": "Junior Web Developer",
         "viewWork": "Vedi Progetti",
         "contactMe": "Contattami"
     },
     "About": {
         "title": "Chi Sono",
-        "greeting": "Ciao, sono Maurizio Compagnone, uno studente di informatica appassionato di libri, cinema e videogiochi. La mia vera passione è tutto ciò che unisce creatività e tecnologia a tutti i livelli.",
-        "p2": "Mi piace assemblare PC e tastiere meccaniche completamente personalizzati, poiché c'è qualcosa di profondamente soddisfacente nel vedere componenti separati diventare qualcosa di funzionale e unico, con il proprio carattere.",
-        "p3": "Sono curioso di natura e mi piace capire come funzionano le varie cose, non solo superficialmente. Che si tratti di smontare un dispositivo, leggere documentazione tecnica o programmare un sito web, cerco sempre di trovare l'equilibrio tra praticità ed estetica.",
+        "greeting": "Sviluppatore web junior. Attualmente lavoro con .NET/C#, React e database.",
+        "p2": "Ho sviluppato Audit, un'applicazione desktop Electron per Windows che integra Python, yt-dlp e FFmpeg, con installazione che non richiede dipendenze esterne.",
+        "p3": "Mi concentro su software che funziona, si distribuisce e si mantiene. Preferisco documentare problemi reali e fare refactor mirati piuttosto che inseguire novità tecnologiche.",
         "technicalSkills": "Competenze Tecniche",
         "languages": "Lingue",
         "native": "Madrelingua",
         "certified": "Certificato Livello C1"
     },
     "Contact": {
-        "title": "Contattami",
-        "subtitle": "Non esitare a scrivermi, mi trovi su tutte le piattaforme social!",
-        "infoTitle": "Informazioni di Contatto",
+        "title": "Contatti",
+        "subtitle": "Scrivimi per proposte di lavoro o collaborazioni.",
+        "infoTitle": "Contatti",
         "formTitle": "Invia un messaggio",
-        "social": "Connettiti con me",
+        "social": "Profilo",
         "labels": {
             "name": "Nome",
             "email": "Email",
-            "phone": "Telefono",
             "subject": "Oggetto",
             "message": "Messaggio",
             "send": "Invia Messaggio"
         },
         "placeholders": {
-            "name": "Maurizio Compagnone",
+            "name": "Il tuo nome",
             "email": "la.tua.email@esempio.com",
-            "phone": "+39 333 123 4567",
             "subject": "Di cosa si tratta?",
             "message": "Il tuo messaggio qui..."
         }
     },
     "Projects": {
-        "title": "I Miei Progetti",
-        "toolsTitle": "Costruito con questi strumenti",
+        "title": "Progetti",
         "links": {
             "demo": "Demo Live",
             "github": "Vedi su GitHub",
-            "gallery": "Vedi Galleria",
-            "builds": "Vedi Build"
+            "releases": "Release"
         },
         "items": {
             "spotter": {
-                "description": "Ho sviluppato Spotter, una piattaforma gestionale per personal trainer completa di tutto il necessario per la gestione dei dati dei clienti."
+                "title": "Spotter",
+                "description": "Spotter è un'applicazione gestionale per personal trainer: permette di caricare esercizi, tracciare i clienti e visualizzare le loro statistiche. Usa SQL come database e Supabase come database online."
             },
-            "portfolioV2": {
-                "title": "Sito Portfolio",
-                "description": "Proprio questo sito su cui ti trovi! Un portfolio moderno e reattivo costruito con Next.js, TypeScript e Tailwind CSS. Design pulito con animazioni fluide."
+            "phyronChecker": {
+                "title": "Phyron Checker",
+                "description": "Phyron Checker è un piccolo strumento di utilità che verifica, tramite richieste HTTP di tipo HEAD, se i veicoli di un concessionario risultano pubblicati sulla piattaforma Phyron. Pensato per l'integrazione in progetti in produzione di concessionarie d'auto, consente di monitorare rapidamente lo stato di pubblicazione degli annunci senza scaricare contenuti superflui."
             },
-            "portfolioV1": {
-                "title": "Il mio primo sito",
-                "description": "Il mio sito personale costruito con Next.js, Tailwind CSS e TypeScript. Presenta un design moderno e reattivo con navigazione fluida ed elementi interattivi."
+            "portfolio": {
+                "title": "Portfolio",
+                "description": "Questo sito: un portfolio sviluppato con Next.js e TypeScript, semplice, essenziale e diretto al punto, con supporto multilingua italiano/inglese."
             },
             "audit": {
-                "description": "Un wrapper moderno per yt-dlp che semplifica il download di video da YouTube in vari formati. Interfaccia intuitiva e monitoraggio dei progressi in tempo reale."
-            },
-            "keyboardRenders": {
-                "title": "Render tastiere 3D",
-                "description": "Render 3D di alta qualità di tastiere meccaniche personalizzate, realizzati con Blender."
-            },
-            "pcBuilding": {
-                "title": "Consulente PC Building",
-                "description": "Consulenze personalizzate per l'assemblaggio di PC, aiutando clienti e aziende a selezionare i componenti ottimali in base al budget."
+                "description": "Audit è un'applicazione desktop per Windows per il download e la conversione di contenuti multimediali. Ho sviluppato il processo principale in Electron con un worker Python per il processing, integrando i runtime Python e FFmpeg nel pacchetto di installazione, senza dipendenze esterne."
             }
         }
     },
     "Education": {
-        "title": "La Mia Formazione",
+        "title": "Formazione",
         "items": {
             "hs": {
                 "degree": "Diploma di Maturità Scientifica",
@@ -107,106 +93,22 @@
         "title": "Esperienza Professionale",
         "items": {
             "ibi": {
-                "title": "Sviluppatore Web Full stack",
+                "title": "Sviluppatore Web Full Stack",
                 "company": "IBI – Internet Business Innovation (Gruppo Editoriale Domus)",
                 "period": "16 marzo 2026 - in corso",
-                "description": "Percorso di formazione nello sviluppo web con focus su tecnologie .NET (C#), approfondimento di React e gestione di database."
+                "description": "Percorso di formazione nello sviluppo web. Lavoro su progetti basati su architettura MVC con ASP.NET Core e gestione di pagine Razor. Sviluppo di vari programmi e interventi su database in produzione con SQL."
+            },
+            "itSupport": {
+                "title": "IT Support",
+                "company": "ML Tech",
+                "period": "2022 - 2025",
+                "description": "Assemblaggio di PC e workstation, risoluzione di problemi hardware e software e test dei componenti."
             },
             "survey": {
                 "title": "Field Survey Operator",
                 "company": "Master Electric",
+                "period": "Ottobre 2024 - Dicembre 2024",
                 "description": "Rilevamento e mappatura dell'infrastruttura di rete elettrica utilizzando strumenti tecnici specializzati."
-            }
-        }
-    },
-    "gallery": {
-        "title": "Keyboard 3D Gallery",
-        "description": "Ecco alcuni dei miei render 3D di tastiere meccaniche realizzati con Blender!",
-        "metaTitle": "Gallery 3D | Maurizio Compagnone — Portfolio",
-        "metaDescription": "Esplora i mockup 3D e i design di tastiere custom by Maurizio Compagnone.",
-        "back": "Torna alla Home"
-    },
-    "localWeb": {
-        "metaTitle": "Sviluppatore Web Valdelsa | Castelfiorentino, Montaione, Gambassi Terme & Empoli",
-        "metaDescription": "Servizi di sviluppo web in Valdelsa: siti vetrina, landing page e web app per attività a Castelfiorentino, Montaione, Gambassi Terme, Empoli e comuni limitrofi. Preventivo e consulenza con Maurizio Compagnone.",
-        "back": "Torna alla Home",
-        "h1": "Sviluppo web in Valdelsa",
-        "intro": "Lavoro con attività locali e professionisti che vogliono un sito veloce, chiaro e facile da gestire — con focus su Castelfiorentino, Montaione, Gambassi Terme, Empoli e la Valdelsa.",
-        "servicesTitle": "Cosa posso fare per te",
-        "services": [
-            "Siti vetrina e portfolio professionali",
-            "Landing page per campagne e servizi",
-            "Sviluppo front-end moderno (React / Next.js)",
-            "Ottimizzazione SEO di base e meta tag",
-            "Supporto e iterazioni dopo il go-live"
-        ],
-        "localTitle": "Presenza e Raggio d'azione",
-        "localBody": "Sviluppo siti web e applicazioni in tutta Italia, con la possibilità di gestire tutto da remoto. Mantengo una forte presenza sul territorio della Valdelsa, collaborando con attività di Castelfiorentino, Montaione, Gambassi Terme, Empoli e dintorni.",
-        "projectsLocalTitle": "Siti a cui ho lavorato",
-        "ctaTitle": "Parliamo del tuo progetto",
-        "ctaBody": "Scrivimi, chiamami o richiedi un preventivo: ti rispondo con tempi e modalità chiare.",
-        "ctaPrimary": "Richiedi preventivo",
-        "ctaSecondary": "Vedi i progetti",
-        "pricing": {
-            "title": "Trasparenza e Semplificazione",
-            "subtitle": "Ideale per liberi professionisti, locali e aziende che vogliono un unico referente diretto per la propria presenza online.",
-            "plans": {
-                "essential": {
-                    "name": "Landing Page",
-                    "price": "375",
-                    "target": "Sito One-Page ad alto impatto",
-                    "features": [
-                        "Design Moderno e Responsivo",
-                        "Ottimizzazione SEO Locale",
-                        "Ottimizzazione velocità (Core Web Vitals)",
-                        "Integrazione Form Contatti",
-                        "Supporto multilingua",
-                        "Supporto diretto su WhatsApp"
-                    ]
-                },
-                "professional": {
-                    "name": "Sito Completo",
-                    "price": "750",
-                    "target": "Vetrina multipagina professionale",
-                    "features": [
-                        "Incluso tutto il piano Landing Page",
-                        "Fino a 5 pagine personalizzate",
-                        "Gestione contenuti semplificata",
-                        "Configurazione Google MyBusiness"
-                    ]
-                },
-                "custom": {
-                    "name": "Sito Custom",
-                    "price": "Contattami",
-                    "target": "Il tuo sito su misura come lo vuoi tu. Progetti unici cuciti sulle tue esigenze specifiche.",
-                    "features": [],
-                    "ctaOnly": true
-                }
-            },
-            "maintenance": {
-                "title": "Cosa comprende il mantenimento?",
-                "label": "Ad un costo fisso di 50 euro al mese, che possono variare in base al progetto. Modifiche illimitate a pagine già esistenti + hosting e costi di gestione. Integrazioni addizionali (es. Blog, CMS) sono calcolate separatamente."
-            }
-        },
-        "quote": {
-            "title": "Richiedi un Preventivo",
-            "subtitle": "Parlami del tuo progetto. Più dettagli fornirai, più preciso sarà il mio feedback iniziale.",
-            "form": {
-                "name": "Nome",
-                "email": "La tua Email",
-                "phone": "Telefono",
-                "projectType": "Tipo di Progetto",
-                "projectTypes": {
-                    "landing": "Landing Page",
-                    "showcase": "Sito Vetrina Completo",
-                    "ecommerce": "E-commerce",
-                    "custom": "Web App / Custom",
-                    "fullCustom": "Full Custom"
-                },
-                "budget": "Budget Stimato",
-                "description": "Descrizione del Progetto",
-                "submit": "Invia Richiesta",
-                "success": "Richiesta inviata con successo! Ti risponderò entro 24-48 ore."
             }
         }
     }

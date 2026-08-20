@@ -58,11 +58,6 @@ export default async function Home(props: {
 
   const sections = [
     { id: 'hero', label: dict.common.sections.home },
-    {
-      id: 'local-web',
-      label: dict.common.sections.localWeb,
-      href: `/${locale}/sviluppo-web`,
-    },
     { id: 'projects', label: dict.common.sections.projects },
     { id: 'education', label: dict.common.sections.education },
     { id: 'about', label: dict.common.sections.about },

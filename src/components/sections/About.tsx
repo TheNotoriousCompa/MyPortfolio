@@ -16,6 +16,9 @@ const skills = {
   ],
   backendApi: [
     { name: '.NET', url: 'https://dotnet.microsoft.com/' },
+    { name: 'ASP.NET Core', url: 'https://dotnet.microsoft.com/apps/aspnet' },
+    { name: 'MVC', url: 'https://learn.microsoft.com/en-us/aspnet/core/mvc/overview' },
+    { name: 'Razor Pages', url: 'https://learn.microsoft.com/en-us/aspnet/core/razor-pages/' },
     { name: 'API', url: 'https://developer.mozilla.org/en-US/docs/Web/API' },
     { name: 'SQL', url: 'https://en.wikipedia.org/wiki/SQL' },
     { name: 'Firebase', url: 'https://firebase.google.com/' }
@@ -24,12 +27,6 @@ const skills = {
     { name: 'C#', url: 'https://learn.microsoft.com/en-us/dotnet/csharp/' },
     { name: 'Python', url: 'https://www.python.org/' },
     { name: 'Java', url: 'https://www.java.com/' }
-  ],
-  design: [
-    { name: 'Blender', url: 'https://www.blender.org/' },
-    { name: 'GIMP', url: 'https://www.gimp.org/' },
-    { name: 'Photoshop', url: 'https://www.adobe.com/products/photoshop.html' },
-    { name: 'Canva', url: 'https://www.canva.com/' }
   ]
 };
 
@@ -62,15 +59,14 @@ export function About({ dict }: {
           </div>
 
           <CardSpotlight className="p-6 md:p-8 rounded-xl border border-white/5 bg-black/40 w-full overflow-hidden">
-            <div className="grid lg:grid-cols-3 gap-10 relative z-20">
-              {/* Technical Skills - 2/3 width on desktop */}
-              <div className="lg:col-span-2 space-y-6">
+            <div className="grid lg:grid-cols-4 gap-10 relative z-20">
+              <div className="lg:col-span-3 space-y-6">
                 <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
                   <span className="w-8 h-px bg-emerald-500/50 hidden md:block"></span>
                   {dict.technicalSkills}
                 </h3>
 
-                <div className="grid sm:grid-cols-2 gap-6">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   <div>
                     <h4 className="text-emerald-400 font-bold mb-3 text-sm uppercase tracking-wider">Frontend</h4>
                     <div className="flex flex-wrap gap-2">
@@ -121,27 +117,9 @@ export function About({ dict }: {
                       ))}
                     </div>
                   </div>
-
-                  <div>
-                    <h4 className="text-emerald-400 font-bold mb-3 text-sm uppercase tracking-wider">Design & 3D</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {skills.design.map((skill) => (
-                        <a
-                          key={skill.name}
-                          href={skill.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={badgeClassName}
-                        >
-                          {skill.name}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
                 </div>
               </div>
 
-              {/* Languages - 1/3 width on desktop */}
               <div className="lg:border-l lg:border-white/10 lg:pl-10 space-y-6 flex flex-col justify-center">
                 <h3 className="text-2xl font-bold text-white mb-4">
                   {dict.languages}
