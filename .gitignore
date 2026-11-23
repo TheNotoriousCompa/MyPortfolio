@@ -42,3 +42,6 @@ next-env.d.ts
 
 # context
 PROJECT_CONTEXT.md
+
+# design tooling working state
+/.taste-skill/
