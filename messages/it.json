@@ -1,9 +1,10 @@
 {
     "common": {
+        "skipToContent": "Vai al contenuto",
         "sections": {
             "home": "Home",
             "projects": "Progetti",
-            "education": "Istruzione",
+            "education": "Formazione",
             "about": "Chi Sono",
             "experience": "Esperienza",
             "contacts": "Contatti"
@@ -16,7 +17,8 @@
     "Hero": {
         "fullName": "Maurizio Compagnone",
         "role": "Junior Web Developer",
-        "viewWork": "Vedi Progetti",
+        "tagline": "Castelfiorentino, Toscana · ASP.NET Core, React, TypeScript, SQL",
+        "viewWork": "Vedi i progetti",
         "contactMe": "Contattami"
     },
     "About": {
@@ -27,7 +29,16 @@
         "technicalSkills": "Competenze Tecniche",
         "languages": "Lingue",
         "native": "Madrelingua",
-        "certified": "Certificato Livello C1"
+        "certified": "Certificato Livello C1",
+        "groups": {
+            "frontend": "Frontend",
+            "backend": "Backend & Dati",
+            "desktop": "Desktop & Mobile"
+        },
+        "languageNames": {
+            "italian": "Italiano",
+            "english": "Inglese"
+        }
     },
     "Contact": {
         "title": "Contatti",
@@ -35,6 +46,16 @@
         "infoTitle": "Contatti",
         "formTitle": "Invia un messaggio",
         "social": "Profilo",
+        "copyEmail": "Copia email",
+        "copied": "Email copiata",
+        "copyError": "Copia non riuscita: seleziona l'indirizzo manualmente.",
+        "mailtoNote": "Senza un servizio email configurato, il modulo aprirà il tuo client di posta.",
+        "status": {
+            "sending": "Invio in corso…",
+            "success": "Messaggio inviato. Ti risponderò appena possibile.",
+            "error": "Invio non riuscito. Puoi scrivermi direttamente via email.",
+            "mailto": "Si aprirà il tuo client di posta con il messaggio già compilato."
+        },
         "labels": {
             "name": "Nome",
             "email": "Email",
@@ -51,10 +72,20 @@
     },
     "Projects": {
         "title": "Progetti",
+        "other": "Altri progetti",
+        "status": {
+            "preview": "Anteprima 1.0 · nessun link pubblico",
+            "internal": "Progetto interno · nessun link pubblico"
+        },
+        "media": {
+            "auditAlt": "Interfaccia di Audit con campo URL, formati di output e avanzamento del download",
+            "auditMobileAlt": "Schermata dell'equalizzatore a 10 bande di Audit Mobile",
+            "printSheetAlt": "Anteprima di un foglio di stampa con nove carte"
+        },
         "links": {
             "demo": "Demo Live",
             "github": "Vedi su GitHub",
-            "releases": "Release"
+            "releases": "Download"
         },
         "items": {
             "spotter": {

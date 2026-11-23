@@ -6,6 +6,7 @@ import { About } from '@/components/sections/About';
 import { Experience } from '@/components/sections/Experience';
 import { Education } from '@/components/sections/Education';
 import { Projects } from '@/components/sections/Projects';
+import { Contact } from '@/components/sections/Contact';
 import { ScrollManager } from '@/components/ScrollManager';
 import Footer from '@/components/Footer';
 
@@ -59,24 +60,29 @@ export default async function Home(props: {
   const sections = [
     { id: 'hero', label: dict.common.sections.home },
     { id: 'projects', label: dict.common.sections.projects },
-    { id: 'education', label: dict.common.sections.education },
-    { id: 'about', label: dict.common.sections.about },
     { id: 'experience', label: dict.common.sections.experience },
+    { id: 'about', label: dict.common.sections.about },
+    { id: 'education', label: dict.common.sections.education },
     { id: 'contacts', label: dict.common.sections.contacts },
   ];
 
   return (
     <div className="flex flex-col min-w-screen">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-md focus:bg-emerald-400 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-emerald-950"
+      >
+        {dict.common.skipToContent}
+      </a>
       <ScrollManager />
       <Header sections={sections} locale={locale} />
-      <main className="flex-1 pt-20">
-        <div id="hero">
-          <Hero dict={dict.Hero} />
-        </div>
+      <main id="main-content" className="flex-1 pt-20">
+        <Hero dict={dict.Hero} locale={locale} />
         <Projects dict={dict.Projects} />
-        <Education dict={dict.Education} />
-        <About dict={dict.About} />
         <Experience dict={dict.Experience} />
+        <About dict={dict.About} />
+        <Education dict={dict.Education} />
+        <Contact dict={dict.Contact} locale={locale} />
       </main>
       <Footer locale={locale} />
     </div>

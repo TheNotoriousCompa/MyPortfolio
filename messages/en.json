@@ -1,5 +1,6 @@
 {
     "common": {
+        "skipToContent": "Skip to content",
         "sections": {
             "home": "Home",
             "projects": "Projects",
@@ -16,7 +17,8 @@
     "Hero": {
         "fullName": "Maurizio Compagnone",
         "role": "Junior Web Developer",
-        "viewWork": "View My Work",
+        "tagline": "Castelfiorentino, Tuscany · ASP.NET Core, React, TypeScript, SQL",
+        "viewWork": "View projects",
         "contactMe": "Contact Me"
     },
     "About": {
@@ -27,7 +29,16 @@
         "technicalSkills": "Technical Skills",
         "languages": "Languages",
         "native": "Native",
-        "certified": "C1 Level Certified"
+        "certified": "C1 Level Certified",
+        "groups": {
+            "frontend": "Frontend",
+            "backend": "Backend & Data",
+            "desktop": "Desktop & Mobile"
+        },
+        "languageNames": {
+            "italian": "Italian",
+            "english": "English"
+        }
     },
     "Contact": {
         "title": "Contacts",
@@ -35,6 +46,16 @@
         "infoTitle": "Contact Information",
         "formTitle": "Send me a message",
         "social": "Profile",
+        "copyEmail": "Copy email",
+        "copied": "Email copied",
+        "copyError": "Copy failed: select the address manually.",
+        "mailtoNote": "Without an email service configured, the form opens your mail client.",
+        "status": {
+            "sending": "Sending…",
+            "success": "Message sent. I'll get back to you as soon as possible.",
+            "error": "Sending failed. You can email me directly.",
+            "mailto": "Your mail client will open with the message already filled in."
+        },
         "labels": {
             "name": "Name",
             "email": "Email",
@@ -51,10 +72,20 @@
     },
     "Projects": {
         "title": "Projects",
+        "other": "Other projects",
+        "status": {
+            "preview": "1.0 preview · no public link",
+            "internal": "Internal project · no public link"
+        },
+        "media": {
+            "auditAlt": "Audit interface with URL field, output formats and download progress",
+            "auditMobileAlt": "Audit Mobile 10-band equalizer screen",
+            "printSheetAlt": "Preview of a print sheet with nine cards"
+        },
         "links": {
             "demo": "Live Demo",
             "github": "View on GitHub",
-            "releases": "Releases"
+            "releases": "Downloads"
         },
         "items": {
             "spotter": {

@@ -1,18 +1,17 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Host_Grotesk, JetBrains_Mono } from "next/font/google";
 import Background from '@/components/Background';
-import Footer from '@/components/Footer';
 import { siteConfig } from "@/lib/site-config";
 import "../globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const hostGrotesk = Host_Grotesk({
+  variable: "--font-host",
   subsets: ["latin"],
   display: 'swap',
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains",
   subsets: ["latin"],
   display: 'swap',
 });
@@ -138,7 +137,7 @@ export default async function RootLayout(props: {
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased text-white bg-transparent min-h-screen scroll-smooth`}
+        className={`${hostGrotesk.variable} ${jetbrainsMono.variable} antialiased text-white bg-[#08090a] font-sans min-h-screen scroll-smooth`}
       >
         <Background />
 

@@ -1,6 +1,6 @@
 'use client';
 
-
+import { SectionHeading } from '@/components/ui/section-heading';
 
 interface ExperienceItem {
   id: string;
@@ -40,39 +40,39 @@ export const Experience = ({ dict }: { dict: any /* eslint-disable-line @typescr
   ];
 
   return (
-    <section id="experience" className="py-20 px-4">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-12"><span className="text-emerald-400">#</span> {dict.title}</h2>
-        <div className="space-y-6">
+    <section id="experience" className="px-4 py-20">
+      <div className="mx-auto max-w-6xl">
+        <SectionHeading title={dict.title} />
+        <div className="space-y-4">
           {experienceItems.map((item) => (
-            <div
+            <article
               key={item.id}
-              className="p-6 rounded-xl border border-white/10 bg-black/40 backdrop-blur-sm transition-[transform,border-color,box-shadow] duration-500 ease-out hover:border-emerald-500/40 hover:shadow-[0_8px_30px_rgb(16,185,129,0.15)] transform-gpu will-change-transform"
+              className="rounded-lg border border-white/10 bg-[#0c0e0d] p-6"
             >
-              <h3 className="text-2xl font-bold text-white mb-1">{item.title}</h3>
-              <div className="flex items-center text-emerald-400 mb-4">
+              <h3 className="text-balance text-xl font-semibold text-white">{item.title}</h3>
+              <div className="mt-1 flex flex-col gap-1 text-sm text-emerald-300 sm:flex-row sm:items-center">
                 {item.companyUrl ? (
                   <a
                     href={item.companyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:underline hover:text-emerald-300 transition-colors"
+                    className="transition-colors hover:text-emerald-200 hover:underline"
                   >
                     {item.company}
                   </a>
                 ) : (
                   <span>{item.company}</span>
                 )}
-                <span className="mx-2">•</span>
-                <span className="text-neutral-400">{item.period}</span>
+                <span className="hidden text-neutral-600 sm:inline" aria-hidden="true">•</span>
+                <span className="text-xs text-neutral-400">{item.period}</span>
               </div>
-              <p className="text-neutral-300">
+              <p className="mt-4 max-w-[60ch] text-pretty text-sm leading-relaxed text-neutral-300">
                 {item.description}
               </p>
-            </div>
+            </article>
           ))}
         </div>
       </div>
     </section>
   );
-}
+};

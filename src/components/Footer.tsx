@@ -1,32 +1,26 @@
 import React from 'react';
-import { Contact } from '@/components/sections/Contact';
-import { getDictionary, Locale } from '@/lib/get-dictionaries';
+import type { Locale } from '@/lib/get-dictionaries';
 
 interface FooterProps {
   locale: Locale;
-  showContact?: boolean;
 }
 
-export default async function Footer({ locale, showContact = true }: FooterProps) {
-  const dict = await getDictionary(locale);
-
+export default function Footer({ locale }: FooterProps) {
   return (
-    <footer>
-      {showContact && <Contact dict={dict.Contact} locale={locale} />}
-      <div className="text-center py-6 text-neutral-500 text-sm border-t border-white/5 space-y-1">
-        <p>
-          © {new Date().getFullYear()} Maurizio Compagnone. {locale === 'it' ? 'Tutti i diritti riservati.' : 'All rights reserved.'}
+    <footer className="border-t border-white/10">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-6 text-center text-sm text-neutral-400 sm:flex-row sm:text-left">
+        <p className="text-pretty">
+          © {new Date().getFullYear()} Maurizio Compagnone.{' '}
+          {locale === 'it' ? 'Tutti i diritti riservati.' : 'All rights reserved.'}
         </p>
-        <p>
-          <a
-            href="https://github.com/TheNotoriousCompa/MyPortfolio"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-emerald-400 transition-colors"
-          >
-            {locale === 'it' ? 'Sorgente di questo sito' : 'Source code of this site'}
-          </a>
-        </p>
+        <a
+          href="https://github.com/TheNotoriousCompa/MyPortfolio"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="transition-colors hover:text-emerald-300"
+        >
+          {locale === 'it' ? 'Sorgente di questo sito' : 'Source code of this site'}
+        </a>
       </div>
     </footer>
   );

@@ -1,32 +1,8 @@
-'use client';
-
-import dynamic from 'next/dynamic';
-
-const GradientFallback = () => (
-    <div
-        className="fixed inset-0 -z-10"
-        style={{
-            background: 'linear-gradient(135deg, #1a1b1c 0%, #252628 25%, #1a1b1c 50%, #2a2b2d 75%, #1a1b1c 100%)',
-            backgroundSize: '400% 400%',
-        }}
-    />
-);
-
-const Silk = dynamic(() => import('@/components/background-silk'), {
-    ssr: false,
-    loading: () => <GradientFallback />
-});
-
 export default function BackgroundClient() {
-    return (
-        <div className="fixed inset-0 -z-10">
-            <Silk
-                speed={2}
-                scale={1.5}
-                color={'#1a1b1c'}
-                noiseIntensity={0.5}
-                rotation={20}
-            />
-        </div>
-    );
+  return (
+    <div className="fixed inset-0 -z-10 overflow-hidden bg-[#08090a]" aria-hidden="true">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(16,185,129,0.09),transparent_58%),radial-gradient(ellipse_at_bottom_right,rgba(255,255,255,0.035),transparent_46%)]" />
+      <div className="absolute inset-0 opacity-[0.035] [background-image:linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] [background-size:64px_64px]" />
+    </div>
+  );
 }
