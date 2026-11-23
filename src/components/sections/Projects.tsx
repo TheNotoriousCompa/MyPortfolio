@@ -34,6 +34,31 @@ export function Projects({ dict }: { dict: any /* eslint-disable-line @typescrip
       ],
     },
     {
+      id: 'openproxy',
+      title: dict.items.openproxy.title,
+      description: dict.items.openproxy.description,
+      technologies: ['Tauri 2', 'Rust', 'React', 'TypeScript', 'SQLite'],
+      links: [
+        {
+          type: 'github',
+          url: 'https://github.com/TheNotoriousCompa/openproxy-decks',
+          label: dict.links.github
+        },
+        {
+          type: 'releases',
+          url: 'https://github.com/TheNotoriousCompa/openproxy-decks/releases',
+          label: dict.links.releases
+        }
+      ],
+    },
+    {
+      id: 'audit-mobile',
+      title: dict.items.auditMobile.title,
+      description: dict.items.auditMobile.description,
+      technologies: ['React Native', 'Expo', 'TypeScript', 'Kotlin', 'Media3'],
+      links: [],
+    },
+    {
       id: 'spotter',
       title: dict.items.spotter.title,
       description: dict.items.spotter.description,

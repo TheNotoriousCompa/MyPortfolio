@@ -71,6 +71,14 @@
             },
             "audit": {
                 "description": "Audit è un'applicazione desktop per Windows per il download e la conversione di contenuti multimediali. Ho sviluppato il processo principale in Electron con un worker Python per il processing, integrando i runtime Python e FFmpeg nel pacchetto di installazione, senza dipendenze esterne."
+            },
+            "openproxy": {
+                "title": "OpenProxy",
+                "description": "OpenProxy è un'app desktop local-first per preparare proxy di carte Magic: The Gathering da stampare. Importa mazzi da Moxfield, Archidekt, decklist testuali e XML MPC, recupera le stampe da Scryfall o dai server MPC e genera PDF multipagina con bleed e guide di taglio, già impaginati per la stampa. Progetti, database e cache restano sul disco: nessun account, nessun cloud."
+            },
+            "auditMobile": {
+                "title": "Audit Mobile",
+                "description": "Audit Mobile è la versione Android di Audit: un lettore musicale e downloader offline-first che funziona in autonomia, senza il desktop. Scansiona la libreria locale tramite SAF, scarica i brani con yt-dlp e FFmpeg in un foreground service e li riproduce con Media3, con equalizzatore a 10 bande, testi e temi personalizzabili. L'interfaccia è in React Native/Expo; il core multimediale è un modulo Kotlin nativo."
             }
         }
     },
