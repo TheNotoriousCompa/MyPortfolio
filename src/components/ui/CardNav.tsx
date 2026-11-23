@@ -2,7 +2,7 @@
 
 import React, { useLayoutEffect, useRef, useState, useEffect, useCallback } from 'react';
 import { gsap } from 'gsap';
-import { ArrowUpRight } from 'lucide-react';
+import { GoArrowUpRight } from 'react-icons/go';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -30,8 +30,6 @@ export interface CardNavProps {
   baseColor?: string;
   menuColor?: string;
   locale?: string;
-  menuLabel?: string;
-  closeLabel?: string;
   onLocaleChange?: (target: "en" | "it") => string;
 }
 
@@ -41,17 +39,14 @@ const CardNav: React.FC<CardNavProps> = ({
   items,
   className = '',
   ease = 'power3.out',
-  baseColor = '#08090a',
+  baseColor = '#fff',
   menuColor,
   locale,
-  menuLabel = 'Menu',
-  closeLabel = 'Close',
   onLocaleChange
 }) => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const navRef = useRef<HTMLDivElement | null>(null);
-  const menuButtonRef = useRef<HTMLButtonElement | null>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
   const tlRef = useRef<gsap.core.Timeline | null>(null);
 
@@ -92,25 +87,23 @@ const CardNav: React.FC<CardNavProps> = ({
     const navEl = navRef.current;
     if (!navEl) return null;
 
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
     gsap.set(navEl, { height: 60, overflow: 'hidden' });
-    gsap.set(cardsRef.current, { y: reduceMotion ? 0 : 50, opacity: reduceMotion ? 1 : 0 });
+    gsap.set(cardsRef.current, { y: 50, opacity: 0 });
 
     const tl = gsap.timeline({ paused: true });
 
     tl.to(navEl, {
       height: calculateHeight,
-      duration: reduceMotion ? 0 : 0.4,
+      duration: 0.4,
       ease
     });
 
     tl.to(cardsRef.current, {
       y: 0,
       opacity: 1,
-      duration: reduceMotion ? 0 : 0.4,
+      duration: 0.4,
       ease,
-      stagger: reduceMotion ? 0 : 0.08
+      stagger: 0.08
     }, '-=0.1');
 
     return tl;
@@ -187,49 +180,6 @@ const CardNav: React.FC<CardNavProps> = ({
     };
   }, [isExpanded, toggleMenu]);
 
-  useEffect(() => {
-    if (!isExpanded) return;
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        toggleMenu();
-        menuButtonRef.current?.focus();
-        return;
-      }
-
-      if (event.key !== 'Tab' || !navRef.current) return;
-
-      const focusable = Array.from(
-        navRef.current.querySelectorAll<HTMLElement>(
-          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
-        )
-      ).filter((element) => element.offsetParent !== null);
-
-      if (focusable.length === 0) return;
-
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    };
-
-    document.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = previousOverflow;
-    };
-  }, [isExpanded, toggleMenu]);
-
   const setCardRef = (i: number) => (el: HTMLDivElement | null) => {
     if (el) cardsRef.current[i] = el;
   };
@@ -244,45 +194,41 @@ const CardNav: React.FC<CardNavProps> = ({
       <nav
         ref={navRef}
         className={cn(
-          "card-nav block h-[60px] p-0 rounded-xl shadow-none relative overflow-hidden will-change-[height] border border-white/10",
+          "card-nav block h-[60px] p-0 rounded-2xl shadow-2xl relative overflow-hidden will-change-[height] border border-white/5",
           isExpanded ? 'open' : ''
         )}
         style={{
-          backgroundColor: isExpanded ? '#08090a' : baseColor,
+          backgroundColor: isExpanded ? '#000' : baseColor,
+          backdropFilter: isExpanded ? 'none' : 'blur(20px)'
         }}
+
+
       >
         <div className="card-nav-top absolute inset-x-0 top-0 h-[60px] flex items-center justify-between p-2 pl-[1.1rem] z-[10] bg-inherit">
-          <button
-            ref={menuButtonRef}
-            type="button"
+          <div
             className={cn(
-              "hamburger-menu group flex h-full items-center justify-center gap-2 rounded-md px-2 text-left order-3 md:order-none",
+              "hamburger-menu group h-full flex flex-col items-center justify-center cursor-pointer gap-[6px] order-2 md:order-none",
               isHamburgerOpen ? 'open' : ''
             )}
             onClick={toggleMenu}
-            aria-label={isExpanded ? closeLabel : menuLabel}
-            aria-expanded={isExpanded}
-            aria-controls="card-nav-content"
+            role="button"
+            aria-label={isExpanded ? 'Close menu' : 'Open menu'}
+            tabIndex={0}
             style={{ color: menuColor || '#fff' }}
           >
-            <span className="flex flex-col gap-[6px]" aria-hidden="true">
-              <span
-                className={cn(
-                  "hamburger-line block h-[2px] w-[24px] bg-current transition-transform duration-300 ease-out",
-                  isHamburgerOpen ? 'translate-y-[4px] rotate-45' : ''
-                )}
-              />
-              <span
-                className={cn(
-                  "hamburger-line block h-[2px] w-[24px] bg-current transition-transform duration-300 ease-out",
-                  isHamburgerOpen ? '-translate-y-[4px] -rotate-45' : ''
-                )}
-              />
-            </span>
-            <span className="hidden text-[11px] font-medium uppercase tracking-[0.16em] sm:inline">
-              {isExpanded ? closeLabel : menuLabel}
-            </span>
-          </button>
+            <div
+              className={cn(
+                "hamburger-line w-[24px] h-[2px] bg-current transition-all duration-300 ease-out",
+                isHamburgerOpen ? 'translate-y-[4px] rotate-45' : ''
+              )}
+            />
+            <div
+              className={cn(
+                "hamburger-line w-[24px] h-[2px] bg-current transition-all duration-300 ease-out",
+                isHamburgerOpen ? '-translate-y-[4px] -rotate-45' : ''
+              )}
+            />
+          </div>
 
           <div className="logo-container flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none">
             {typeof logo === 'string' ? (
@@ -295,31 +241,26 @@ const CardNav: React.FC<CardNavProps> = ({
                 priority
               />
             ) : (
+
               logo
             )}
           </div>
 
-          <div className="order-2 flex items-center gap-1 border-l border-white/10 ml-2 pl-2 pr-1 md:order-none">
+          <div className="hidden md:flex items-center gap-1 order-3 pr-2 border-l border-white/10 ml-2 pl-2">
             <Link
-              href={onLocaleChange?.('en') || '#'}
-              aria-current={locale === 'en' ? 'page' : undefined}
+              href={onLocaleChange?.("en") || "#"}
               className={cn(
-                "flex min-h-11 items-center rounded-md px-2 text-xs font-medium transition-colors",
-                locale === 'en'
-                  ? "bg-emerald-500/10 text-emerald-300"
-                  : "text-neutral-400 hover:bg-white/5 hover:text-white"
+                "px-2 py-1 text-xs font-bold rounded-md transition-all",
+                locale === 'en' ? "text-emerald-400 bg-emerald-500/10" : "text-neutral-500 hover:text-white"
               )}
             >
               EN
             </Link>
             <Link
-              href={onLocaleChange?.('it') || '#'}
-              aria-current={locale === 'it' ? 'page' : undefined}
+              href={onLocaleChange?.("it") || "#"}
               className={cn(
-                "flex min-h-11 items-center rounded-md px-2 text-xs font-medium transition-colors",
-                locale === 'it'
-                  ? "bg-emerald-500/10 text-emerald-300"
-                  : "text-neutral-400 hover:bg-white/5 hover:text-white"
+                "px-2 py-1 text-xs font-bold rounded-md transition-all",
+                locale === 'it' ? "text-emerald-400 bg-emerald-500/10" : "text-neutral-500 hover:text-white"
               )}
             >
               IT
@@ -328,9 +269,8 @@ const CardNav: React.FC<CardNavProps> = ({
         </div>
 
         <div
-          id="card-nav-content"
           className={cn(
-            "card-nav-content absolute left-0 right-0 top-[60px] p-2 md:p-4 flex flex-col items-stretch gap-2 md:gap-4 justify-start z-[1] overscroll-contain",
+            "card-nav-content absolute left-0 right-0 top-[60px] p-2 md:p-4 flex flex-col items-stretch gap-2 md:gap-4 justify-start z-[1]",
             isExpanded ? 'visible opacity-100 pointer-events-auto' : 'invisible opacity-0 pointer-events-none',
             "md:flex-row md:items-stretch md:h-[calc(100%-80px)] overflow-y-auto md:overflow-visible"
           )}
@@ -339,25 +279,27 @@ const CardNav: React.FC<CardNavProps> = ({
           {(items || []).map((item, idx) => (
             <div
               key={`${item.label}-${idx}`}
-              className="nav-card relative flex min-w-0 flex-1 flex-col gap-5 rounded-lg border border-white/10 p-6"
+              className="nav-card select-none relative flex flex-col gap-5 p-6 rounded-xl min-w-0 flex-1 shadow-inner border border-emerald-500/20"
+
+
               ref={setCardRef(idx)}
               style={{ backgroundColor: item.bgColor, color: item.textColor }}
             >
-              <div className="nav-card-label flex-shrink-0 border-b border-white/10 pb-3 text-base font-semibold tracking-tight md:text-lg">
+              <div className="nav-card-label font-bold tracking-tight text-[18px] md:text-[22px] border-b border-emerald-500/30 pb-3 flex-shrink-0">
                 {item.label}
               </div>
-              <div className="nav-card-links mt-auto flex flex-col gap-1 flex-grow">
+              <div className="nav-card-links mt-auto flex flex-col gap-2.5 flex-grow">
                 {item.links?.map((lnk, i) => (
                   <Link
                     key={`${lnk.label}-${i}`}
-                    className="nav-card-link inline-flex min-h-11 items-center gap-2 rounded-md px-2 text-sm text-neutral-300 no-underline transition-colors hover:bg-white/5 hover:text-emerald-300 md:text-[15px]"
+                    className="nav-card-link inline-flex items-center gap-2 no-underline cursor-pointer transition-all duration-300 hover:translate-x-2 hover:text-emerald-400 text-[14px] md:text-[16px]"
                     href={lnk.href}
                     aria-label={lnk.ariaLabel}
                     onClick={() => {
                       if (isExpanded) toggleMenu();
                     }}
                   >
-                    <ArrowUpRight className="nav-card-link-icon shrink-0 w-4 h-4" aria-hidden="true" />
+                    <GoArrowUpRight className="nav-card-link-icon shrink-0 w-4 h-4" aria-hidden="true" />
                     <span className="truncate">{lnk.label}</span>
                   </Link>
                 ))}

@@ -1,86 +1,142 @@
 'use client';
 
 import React from 'react';
-import { CardSpotlight } from '@/components/ui/card-spotlight';
-import { SectionHeading } from '@/components/ui/section-heading';
+
+import { CardSpotlight } from "@/components/ui/card-spotlight";
 
 const skills = {
-  frontend: ['React', 'Next.js', 'TypeScript', 'TailwindCSS'],
-  backend: ['C#', '.NET', 'ASP.NET Core', 'SQL', 'Supabase'],
-  desktop: ['Electron', 'Tauri', 'Rust', 'Kotlin', 'React Native'],
+  frontend: [
+    { name: 'HTML', url: 'https://developer.mozilla.org/en-US/docs/Web/HTML' },
+    { name: 'CSS', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS' },
+    { name: 'JavaScript', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
+    { name: 'React', url: 'https://react.dev/' },
+    { name: 'Next.js', url: 'https://nextjs.org/' },
+    { name: 'TailwindCSS', url: 'https://tailwindcss.com/' },
+    { name: 'Shadcn/UI', url: 'https://ui.shadcn.com/' },
+  ],
+  backendApi: [
+    { name: '.NET', url: 'https://dotnet.microsoft.com/' },
+    { name: 'ASP.NET Core', url: 'https://dotnet.microsoft.com/apps/aspnet' },
+    { name: 'MVC', url: 'https://learn.microsoft.com/en-us/aspnet/core/mvc/overview' },
+    { name: 'Razor Pages', url: 'https://learn.microsoft.com/en-us/aspnet/core/razor-pages/' },
+    { name: 'API', url: 'https://developer.mozilla.org/en-US/docs/Web/API' },
+    { name: 'SQL', url: 'https://en.wikipedia.org/wiki/SQL' },
+    { name: 'Firebase', url: 'https://firebase.google.com/' }
+  ],
+  programming: [
+    { name: 'C#', url: 'https://learn.microsoft.com/en-us/dotnet/csharp/' },
+    { name: 'Python', url: 'https://www.python.org/' },
+    { name: 'Java', url: 'https://www.java.com/' }
+  ]
 };
 
 const languages = [
-  { id: 'italian', level: 'native' },
-  { id: 'english', level: 'certified' },
-] as const;
+  { name: 'Italian', level: 'Native' },
+  { name: 'English', level: 'C1 Level Certified' }
+];
 
-export function About({
-  dict,
-}: {
-  dict: any /* eslint-disable-line @typescript-eslint/no-explicit-any */;
+export function About({ dict }: { 
+  dict: any; /* eslint-disable-line @typescript-eslint/no-explicit-any */
 }) {
   const badgeClassName =
-    'px-3 py-1.5 text-sm font-medium text-neutral-300 bg-white/[0.03] border border-white/10 rounded-md';
-
-  const groups = [
-    { key: 'frontend', label: dict.groups?.frontend || 'Frontend', items: skills.frontend },
-    { key: 'backend', label: dict.groups?.backend || 'Backend & Data', items: skills.backend },
-    { key: 'desktop', label: dict.groups?.desktop || 'Desktop & Mobile', items: skills.desktop },
-  ];
+    "px-3 py-1.5 text-sm font-medium text-neutral-400 bg-white/[0.03] border border-white/5 rounded-md backdrop-blur-sm transition-all duration-300 hover:border-emerald-500/50 hover:bg-emerald-500/10 hover:text-white hover:shadow-[0_0_15px_rgba(16,185,129,0.1)]";
 
   return (
-    <section id="about" className="px-4 py-20">
-      <div className="mx-auto max-w-6xl">
-        <SectionHeading title={dict.title} />
+    <section id="about" className="pt-4 pb-20 px-4">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-12"><span className="text-emerald-400">#</span> {dict.title}</h2>
         <div className="flex flex-col gap-8">
-          <div className="max-w-[68ch] space-y-5 text-pretty text-base leading-relaxed text-neutral-300 md:text-lg">
-            <p className="text-neutral-200">{dict.greeting}</p>
-            <p>{dict.p2}</p>
-            <p>{dict.p3}</p>
+          <div className="space-y-5 text-base md:text-lg text-neutral-300 leading-relaxed max-w-5xl">
+            <p className="text-neutral-200">
+              {dict.greeting}
+            </p>
+            <p>
+              {dict.p2}
+            </p>
+            <p>
+              {dict.p3}
+            </p>
           </div>
 
-          <CardSpotlight className="w-full overflow-hidden p-6 md:p-8">
-            <div className="grid gap-10 lg:grid-cols-4">
-              <div className="space-y-6 lg:col-span-3">
-                <h3 className="text-xl font-semibold text-white">
+          <CardSpotlight className="p-6 md:p-8 rounded-xl border border-white/5 bg-black/40 w-full overflow-hidden">
+            <div className="grid lg:grid-cols-4 gap-10 relative z-20">
+              <div className="lg:col-span-3 space-y-6">
+                <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                  <span className="w-8 h-px bg-emerald-500/50 hidden md:block"></span>
                   {dict.technicalSkills}
                 </h3>
 
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                  {groups.map((group) => (
-                    <div key={group.key}>
-                      <h4 className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300">
-                        {group.label}
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {group.items.map((skill) => (
-                          <span key={skill} className={badgeClassName}>
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div>
+                    <h4 className="text-emerald-400 font-bold mb-3 text-sm uppercase tracking-wider">Frontend</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {skills.frontend.map((skill) => (
+                        <a
+                          key={skill.name}
+                          href={skill.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={badgeClassName}
+                        >
+                          {skill.name}
+                        </a>
+                      ))}
                     </div>
-                  ))}
+                  </div>
+
+                  <div>
+                    <h4 className="text-emerald-400 font-bold mb-3 text-sm uppercase tracking-wider">Programming</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {skills.programming.map((skill) => (
+                        <a
+                          key={skill.name}
+                          href={skill.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={badgeClassName}
+                        >
+                          {skill.name}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-emerald-400 font-bold mb-3 text-sm uppercase tracking-wider">Backend & APIs</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {skills.backendApi.map((skill) => (
+                        <a
+                          key={skill.name}
+                          href={skill.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={badgeClassName}
+                        >
+                          {skill.name}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex flex-col justify-center space-y-6 lg:border-l lg:border-white/10 lg:pl-10">
-                <h3 className="text-xl font-semibold text-white">
+              <div className="lg:border-l lg:border-white/10 lg:pl-10 space-y-6 flex flex-col justify-center">
+                <h3 className="text-2xl font-bold text-white mb-4">
                   {dict.languages}
                 </h3>
-                <div className="space-y-5">
+                <div className="space-y-6">
                   {languages.map((lang) => (
-                    <div key={lang.id} className="flex flex-col gap-1">
-                      <span className="text-lg font-semibold text-white">
-                        {dict.languageNames?.[lang.id] || lang.id}
-                      </span>
-                      <span className="text-sm text-neutral-400">
-                        {lang.level === 'native' ? dict.native : dict.certified}
+                    <div key={lang.name} className="flex flex-col gap-1">
+                      <span className="font-bold text-emerald-400 text-lg uppercase tracking-tight">{lang.name}</span>
+                      <span className="text-neutral-400 font-medium text-sm">
+                        {lang.level === 'Native' ? dict.native :
+                          lang.level === 'C1 Level Certified' ? dict.certified : lang.level}
                       </span>
                     </div>
                   ))}
                 </div>
+
+
               </div>
             </div>
           </CardSpotlight>

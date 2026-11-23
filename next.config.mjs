@@ -39,7 +39,11 @@ const nextConfig = {
   experimental: {
     webpackBuildWorker: false,
     optimizePackageImports: [
-      'lucide-react'
+      'framer-motion',
+      'lucide-react',
+      'three',
+      '@react-three/fiber',
+      '@react-three/drei'
     ]
   },
 

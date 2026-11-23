@@ -10,9 +10,8 @@ export function ScrollManager() {
                 setTimeout(() => {
                     const element = document.getElementById(hash);
                     if (element) {
-                        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
                         element.scrollIntoView({
-                            behavior: reduceMotion ? 'auto' : 'smooth',
+                            behavior: 'smooth',
                             block: 'start',
                         });
                     }
