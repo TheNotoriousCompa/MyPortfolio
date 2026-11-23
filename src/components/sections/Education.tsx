@@ -23,6 +23,13 @@ export const Education = ({ dict }: { dict: any /* eslint-disable-line @typescri
       institution: dict.items.certNextjs?.institution,
       period: dict.items.certNextjs?.period,
     },
+    {
+      id: 'cert-mastering-csharp',
+      degree: dict.items.certMasteringCsharp?.degree || 'Mastering: C#',
+      institution: dict.items.certMasteringCsharp?.institution,
+      period: dict.items.certMasteringCsharp?.period,
+      description: dict.items.certMasteringCsharp?.description,
+    },
   ];
 
   return (
